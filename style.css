@@ -652,3 +652,7 @@ details[open] summary {
 cite { font-weight: bold;}
 
 ol ol { margin: 1.5rem;}
+
+.mail:after {
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
+}
