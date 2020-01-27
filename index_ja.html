@@ -15,12 +15,12 @@
   </head>
   <body>
     <header class="header">
-      <div>
-         <div align="left" height="48" width="72">
+      <div id="logo">
             <a href="https://www.w3.org/"><img alt="W3C" src=
-            "https://www.w3.org/Icons/w3c_home" height="48" width="72"></a>
-          </div>
-        <div align="right"><a href="index_zh.html">简体中文</a> | <a href="index.html">English</a></div>
+            "https://www.w3.org/Icons/w3c_home"></a>
+        <span id="translations">
+          <a href="index_zh.html">简体中文</a> | <a href="index.html">English</a></div>
+        </span>
       </div>
 
       <div id="top">
@@ -220,10 +220,9 @@
           <h3 id="venue">
             会場
           </h3>
-          <address itemprop="address" itemscope itemtype=
-          "http://schema.org/PostalAddress">
-            <p itemprop="name">Microsoft Atrium
-            </p>
+          <div itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="name">Microsoft Atrium</span>
+            <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <p itemprop="streetAddress">Unter den Linden 17 
             </p>
             <p>
@@ -232,7 +231,9 @@
             <p itemprop="addressCountry">
               Germany
             </p>
-          </address><!-- <span itemprop="telephone">+1 (415) 345-7500</span> -->
+            </address>
+          </div>
+          <!-- <span itemprop="telephone">+1 (415) 345-7500</span> -->
           <!-- <div class="event-title"></div> -->
           <!--      <p class="event-date">Wednesday–Thursday, 29–30 June 2016</p>
           <p class="event-time">8:00–17:00</p>-->
@@ -291,7 +292,7 @@
           <h3 id="sponsors">
             Sponsors
           </h3>
-          <section class="sponsors-section sponsors-section--platinum">
+          <section class="sponsors-section sponsors-section-platinum">
             <h3 id="platinum-sidebar">
               Platinum Sponsors
             </h3>
