@@ -80,6 +80,7 @@ a:hover {
 a.ref,
 .has-ref {
   cursor: pointer;
+  display: inline;
 }
 
 a.ref {
