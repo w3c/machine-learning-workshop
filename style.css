@@ -30,6 +30,18 @@ body {
   margin-top: 0;
 }
 
+header #logo {
+  height: 72px;
+}
+
+header #logo img {
+  float: left;
+}
+
+header #translations {
+  float: right;
+}
+
 #top {
   background-image: url("https://www.w3.org/2018/11/machine-learning-workshop/ml.jpg");
   background-repeat: no-repeat;
