@@ -137,6 +137,7 @@ a.ref {
   margin-left: 3rem;
   padding: 1em;
   width: 19em;
+  z-index: 2;
 }
 
 .box + .box {
