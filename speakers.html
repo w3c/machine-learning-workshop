@@ -63,6 +63,25 @@
         and interactive sessions.
       </p>
     </aside>
+    <aside class="box" id="submit-form">
+      <h2 class="footnote">
+        Submit a talk proposal
+      </h2>
+      <label for="speaker-name">Your name:</label>
+      <input id="speaker-name" placeholder="Your name" maxlength="64">
+
+      <label for="speaker-bio">Your bio:</label>
+      <input id="speaker-bio" placeholder="Your related experience or expertise" maxlength="64">
+
+      <label for="talk-title">Talk title:</label>
+      <input id="talk-title" placeholder="Your talk title" maxlength="64">
+
+      <label for="talk-abstract">Talk abstract:</label>
+      <textarea id="talk-abstract" placeholder="Summarize in a single paragraph the major aspects of the proposal you want to present." rows="3" maxlength="512"></textarea>
+
+      <button id="submit-button">Submit</button>
+      <small>(Submit opens a prepopulated mail compose window. You may customize your submission at this point before sending it.)</small>
+    </aside>
     <main id="main" class="main">
       <section id="home">
         <section>
@@ -71,7 +90,7 @@
         </section>
         <section>
           <h2 id=submit>How to apply to speak?</h2>
-          <p>If your experience or expertise in the field has provided you with insights (questions or answers) about this intersection, in particular about the <a href="./#topics">topics in scope of the workshop</a>, please <a href="mailto:group-machine-learning-pc@w3.org">contact the Program Committee</a> <strong>before July 3rd, 2020</strong> and we will work with you in confirming and defining your proposed contribution.</p>
+          <p>If your experience or expertise in the field has provided you with insights (questions or answers) about this intersection, in particular about the <a href="./#topics">topics in scope of the workshop</a>, please <a href="#submit-form">submit a proposal using the <strong>submit a talk proposal</strong> form</a> <strong>before July 3rd, 2020</strong> and we will work with you in confirming and defining your proposed contribution. You may also <a href="mailto:group-machine-learning-pc@w3.org">contact the Program Committee directly</a> at any time if you have any questions.</p>
         </section>
         <section>
           <h2 id=why>Why should I apply to speak?</h2>
@@ -133,6 +152,8 @@
       </p>
     </footer>
     <script src="script.js">
+    </script>
+    <script src="submit.js">
     </script>
   </body>
 </html>
