@@ -682,3 +682,19 @@ ol ol { margin: 1.5rem;}
   background-color: #000;
   opacity: .7;
 }
+
+label:before, label:after {
+  content: "\a";
+  white-space: pre;
+}
+
+input, textarea {
+  width: 100%;
+  font: .9em/1.1 Helvetica, Arial, Verdana, sans-serif;
+}
+
+button {
+  margin: 20px 0 0 0;
+  width: 100%;
+  height: 1.5rem;
+}
