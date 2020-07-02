@@ -1,0 +1,37 @@
+Dear {{First}} {{Last}},
+
+Thank you for your submission to the Web & Machine Learning Workshop {{title}}, which the Program Committee is pleased to accept as one of the talks to be presented at the workshop.
+
+As you are hopefully aware, the expectation for presentations at the workshop is that they will be provided as a combination of slides and a video (or audio only) record of your rendering of the talk:
+  https://www.w3.org/2020/06/machine-learning-workshop/speakers.html
+
+This message contains important information on input the Program Committee has for your presentation and how to record and submit your presentation for publication as part of the workshop materials.
+
+The presentations you and other speakers at the workshop will serve as a basis for more in-depth live discussions in September, and the Program Committee is thus seeking your help in ensuring your presentation triggers inpiration, questions and discussion points for these live sessions.
+
+We are thus asking all the speakers to integrate in their presentation:
+* a specific perspective on how the topic of the presentation intersects with potential opportunities for standardization (formats, APIs, guidelines)
+* open questions that the speaker hopes other workshop participants might bring input on
+
+For your talk in particular, the Program Committee would like to hear @@@
+
+
+In terms of the logistics of the presentation recording:
+* we would like to publish all presentations at the latest on August 14; given that there will be significant post-processing done by W3C Staff (captioning, translations, video packaging), we ask that slides and videos be submitted by July 31st. If you can't make it within that timeframe, please contact Dominique Hazael-Massieux <dom@w3.org> as soon as possible to figure out an alternative timeline. Naturally, if your presentation can be made available before July 31st, this will be much appreciated.
+
+* we expect to receive for each presentation:
+ - a copy or a link to the slides
+ - a video or an audio-only recording of your rendering of the presentation; the video should be of the speaker only, NOT including a screen recording of the slides
+
+* we encourage speakers to record themselves on their computer and share the following guidance on hardware and software:
+  https://www.w3.org/wiki/Virtual_Presentations
+
+  If you cannot or would rather not record yourself, or if you would rather have a remote audience to give your talk to while recording it, the Program Committee can assist in creating the recording via a Zoom teleconference. Please reach out to Dom <dom@w3.org> to arrange for this
+
+* to ensure the proper synchronization of slides and audio/video, please make sure to *announce your slide number* when switching from one slide to the next during your recording
+
+* the format we will be using to share a synchronized view of the slides and the videos works well with mostly static slides; if your slides are rich in animations or contain videos themselves, please reach out to Dom <dom@w3.org> to figure out the best approach for recording your talk. You can see an example of the final rendering of the synchronized presentation at:
+  https://www.w3.org/2020/05/AC/talk/strategy-funnel#align
+
+* to submit your slides and audio/video recordings, please use the following Dropbox link, and let Dom <dom@w3.org> know they are available
+ {{dropbox}}
