@@ -62,6 +62,25 @@
         このワークショップは事前録画の講演と対話型セッションを組み合わせた 100% オンラインイベントとなりました。
       </p>
     </aside>
+    <aside class="box" id="submit-form">
+      <h2 class="footnote">
+        講演に応募
+      </h2>
+      <label for="speaker-name">名前:</label>
+      <input id="speaker-name" placeholder="Your name" maxlength="64">
+
+      <label for="speaker-bio">プロフィール:</label>
+      <input id="speaker-bio" placeholder="Your related experience or expertise" maxlength="64">
+
+      <label for="talk-title">講演タイトル:</label>
+      <input id="talk-title" placeholder="Your talk title" maxlength="64">
+
+      <label for="talk-abstract">講演概要:</label>
+      <textarea id="talk-abstract" placeholder="Summarize in a single paragraph the major aspects of the proposal you want to present." rows="3" maxlength="512"></textarea>
+
+      <button id="submit-button">応募</button>
+      <small>(応募ボタンにより、メール編集画面が開きます。メール編集画面で送信前に再度編集することも可能です。)</small>
+    </aside>
     <main id="main" class="main">
       <section id="home">
         <section>
@@ -72,7 +91,7 @@
 
           <h2 id=submit>応募するには?</h2>
           <p>
-            特に<a href="./#topics">ワークショップで扱う項目</a>について、関係する分野での経験からの(質問・回答を含め)知見をお持ちの方は、<a href="mailto:group-machine-learning-pc@w3.org">プログラム委員会</a>に<strong>2020年7月3日</strong>までにご連絡ください。ご連絡いただいた内容について検討し、ご連絡いたします。
+            特に<a href="./#topics">ワークショップで扱う項目</a>について、関係する分野での経験からの(質問・回答を含め)知見をお持ちの方は、<a href="#submit-form"><strong>講演に応募</strong>するためのフォームから</a><strong>2020年7月3日</strong>までに投稿してください。(注: このフォームはサーバへの投稿フォームでなく、<a href="mailto:group-machine-learning-pc@w3.org">プログラム委員会</a>へのメール送信のためのメール編集画面が開きます。)。ご連絡いただいた内容について検討し、ご連絡いたします。また、質問がある場合はお気軽に<a href="mailto:group-machine-learning-pc@w3.org">プログラム委員会</a>までメールをお送りください。
           </p>
         </section>
         <section>
@@ -163,5 +182,6 @@
     </footer>
     <script src="script.js">
     </script>
+    <script src="submit.js"></script>
   </body>
 </html>
