@@ -549,12 +549,11 @@ details[open] summary {
   border: 1px solid #ccc;
   margin: 9px 0 5px 27px;
   padding: 1rem;
-  position: relative;
 }
 
  dl.talks > dt {
      padding-top: 0.5em;
-     border-top: thin solid gray;
+     border-top: thin solid #CCC;
  }
 
  dl.talks > dt:first-child {
