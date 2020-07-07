@@ -544,43 +544,33 @@ details[open] summary {
   width: 100%;
 }
 
-.schedule details dl {
+ dl.talks {
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
   border: 1px solid #ccc;
   margin: 9px 0 5px 27px;
   padding: 1rem;
-  position: relative;
 }
 
-/* from http://nicolasgallagher.com/pure-css-speech-bubbles/demo/ */
-.schedule details dl::after {
-  border-color: #005c9c transparent;
-  border-style: solid;
-  border-width: 15px 15px 0;
-  content: "";
-  display: block;
-  left: 8em;
-  position: absolute;
-  top: -16px;
-  width: 0;
-}
+ dl.talks > dt {
+     padding-top: 0.5em;
+     border-top: thin solid #CCC;
+ }
 
-.schedule details dt {
+ dl.talks > dt:first-child {
+     border-top: none;
+ }
+
+ dt {
   margin: 0;
 }
 
-.schedule details dd {
+ dd {
   margin: 0 0 0 1rem;
 }
 
-.schedule details dd span {
-  font-size: 75%;
-  color: #888;
-  display: block;
-  margin-bottom: .25em;
-}
+ dd + dd { font-style: italic;}
 
-.schedule details dd + dt {
+ dd + dt {
   margin-top: 1rem;
 }
 
