@@ -548,30 +548,40 @@ details[open] summary {
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
   border: 1px solid #ccc;
   margin: 9px 0 5px 27px;
-  padding: 1rem;
 }
 
  dl.talks > dt {
      padding-top: 0.5em;
+     padding-left: 1rem;
      border-top: thin solid #CCC;
  }
 
+ dl.talks > dt:nth-of-type(odd), dl.talks > dd:nth-of-type(odd) {
+     background: #F2FDFF;
+ }
+ 
  dl.talks > dt:first-child {
      border-top: none;
  }
 
+ dl dl {
+     margin:0;
+     padding:1.5rem;
+ }
+ 
  dt {
   margin: 0;
 }
 
  dd {
-  margin: 0 0 0 1rem;
+     margin: 0;
+     padding-left: 1rem;
 }
 
  dd + dd { font-style: italic;}
 
  dd + dt {
-  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 .format {
