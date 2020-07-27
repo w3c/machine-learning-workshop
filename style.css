@@ -43,7 +43,7 @@ header #translations {
 }
 
 #top {
-  background-image: url("https://www.w3.org/2018/11/machine-learning-workshop/ml.jpg");
+  background-image: url("https://www.w3.org/comm/assets/graphics/web-ML/workshop-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 454px;
@@ -53,6 +53,7 @@ header #translations {
 
 #top h1,
 #top h2 {
+    margin-left:450px;
   padding: 1rem;
   color: white;
   text-shadow: 4px 4px 20px black;
