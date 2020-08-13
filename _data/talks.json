@@ -135,14 +135,16 @@
     "author": "Sangwhan Moon",
     "affiliation": "",
     "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps"
+    "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
+    "noslide": true
   },
   "tp_interactive_music": {
     "title": "Interactive ML - Powered Music Applications on the Web",
     "author": "Tero Parviainen",
     "affiliation": "Counterpoint",
     "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo76mfh4sne0772endmrepx/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx"
+    "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
+    "noslide": true
   },
   "wm_collaborative-learning": {
     "title": "Collaborative Learning",

@@ -104,7 +104,11 @@ for (let shortname of Object.keys(talks)) {
   divs.push(div);
   let content = ""
   for (i = 1 ; i < divs.length; i++) {
-    content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${talks[shortname].format || 'pdf'}" data-src="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript></div>`;
+    const slideurl = talks[shortname].noslide ? "" : talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i;
+    const format = talks[shortname].format || 'pdf';
+    if (slideurl) {
+      content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript></div>`;
+    }
     content += `<div role='region'>`;
     content += "<p>" + divs[i].join("</p>\n<p>") + "</p>";
     content += "</div>";

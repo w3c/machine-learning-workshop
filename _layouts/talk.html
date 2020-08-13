@@ -54,7 +54,6 @@
       -->
     </header>
     {% assign shortname = page.shortname %}
-    {% assign pdf_url =  | append: shortname | append: '.pdf' %}
     {% assign path = "../" %}
     {% include sponsors.html %}
     <main>
@@ -73,11 +72,11 @@
           </li></ul>
     </details>
     <form id="form">
+        {% if page.slidesurl  %}
         <input type="checkbox" name="sync" id="sync"><label for="sync" class="button">Sync video and hide transcript
         <a href="https://www.w3.org/2020/05/AC/talk-help.html"  rel=help title="Help" class="picto im-question"></a></label>&nbsp;
 
         <a class="picto im-angle-up button" id="align" href="#align" title="Align to top of window"></a>&nbsp;
-
         <span id="prevnext" aria-label="Slide navigation controls" role="navigation">
           <a id="firstslide" href="#firstslide" title="First slide" class="button" role="button">1st</a>
 
@@ -86,7 +85,7 @@
           <a id="nextslide" href="#nextslide" class="picto im-arrow-right button" title="Next slide" role="button"></a>
         </span>
             <p><a href="{{page.slidesurl}}">slideset</a></p>
-
+       {% endif %}
         <div id="player">
       <script type="application/ld+json">
 {
@@ -102,8 +101,9 @@
 
           <div id="video1"><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
           picture-in-picture" allowfullscreen="" width="640" height="360" frameborder="0"></iframe></div>
-
+        {% if page.slidesurl != "" %}
           <output id="slidenr" aria-live="polite"><a href="#start">Slide 1 of 40</a></output>
+          
           <div id="slides" class="fade-in" role="region" aria-live="off" aria-label="Slide container">
             {% include transcripts/{{shortname}}.html %}
 
@@ -113,6 +113,10 @@
           <noscript>(Synchronization requires JavaScript)</noscript>
         </output>
       </p>
+      {% else %}
+      <h3>Transcript</h3>
+      {% include transcripts/{{shortname}}.html %}
+      {% endif  %}
         </div><!-- id=player -->
         <!-- @@@ talk navigation from above -->
     </form>
