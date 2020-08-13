@@ -51,6 +51,16 @@ header #translations {
   position: relative;
 }
 
+#top.small {
+    background-color: black;
+  background-image: url("images/workshop-short-banner.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100px;
+  position: relative;
+}
+
+
 #top h1,
 #top h2 {
     margin-left:450px;
@@ -58,6 +68,12 @@ header #translations {
   color: white;
   text-shadow: 4px 4px 20px black;
 }
+
+#top.small h1 {
+    text-shadow: none;
+    margin-left: 100px;
+}
+
 
 #top h1 a:link, #top h1 a:visited { color: white;}
 
