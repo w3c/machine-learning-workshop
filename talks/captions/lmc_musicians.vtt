@@ -1,0 +1,783 @@
+WEBVTT
+
+slide-1
+0:00:08.176 --> 0:00:10.166
+<v ->Hi, my name is Louis McCallum,</v>
+
+2
+0:00:10.166 --> 0:00:12.386
+welcome to our talk with the W3C workshop
+
+3
+0:00:12.386 --> 0:00:13.806
+on web and machine learning,
+
+4
+0:00:13.806 --> 0:00:16.106
+covering the topic of empowering musicians and artists
+
+5
+0:00:16.106 --> 0:00:17.276
+using machine learning
+
+6
+0:00:17.276 --> 0:00:20.260
+to build their own tools in the browser.
+
+slide-2
+0:00:20.260 --> 0:00:20.876
+Over the past two years,
+
+8
+0:00:20.876 --> 0:00:24.386
+as part of the RCUK AHRC funded Mimic Project,
+
+9
+0:00:24.386 --> 0:00:26.756
+we've provided platforms and libraries
+
+10
+0:00:26.756 --> 0:00:27.836
+for musicians and artists
+
+11
+0:00:27.836 --> 0:00:29.466
+to use, perform, and collaborate online
+
+12
+0:00:29.466 --> 0:00:31.266
+using machine learning.
+
+13
+0:00:31.266 --> 0:00:33.116
+Although it has a lot to offer these communities,
+
+14
+0:00:33.116 --> 0:00:34.316
+their skill sets and requirements
+
+15
+0:00:34.316 --> 0:00:35.856
+often diverge from more conventional
+
+16
+0:00:35.856 --> 0:00:37.369
+machine learning use cases.
+
+slide-3
+0:00:39.160 --> 0:00:39.786
+During this short talk,
+
+18
+0:00:39.786 --> 0:00:41.276
+we will address three key requirements
+
+19
+0:00:41.276 --> 0:00:43.860
+when designing for these users.
+
+20
+0:00:43.860 --> 0:00:45.796
+Primarily we're describing machine learning programs
+
+21
+0:00:45.796 --> 0:00:47.396
+that run in real time.
+
+22
+0:00:47.396 --> 0:00:49.156
+That is, they receive rich data
+
+23
+0:00:49.156 --> 0:00:52.346
+from microphones, cameras, external sensors and controllers
+
+24
+0:00:52.346 --> 0:00:55.600
+in real time, whilst concurrently running inference
+
+25
+0:00:55.600 --> 0:00:57.106
+and generating media output within the browser
+
+26
+0:00:57.106 --> 0:01:00.860
+without audible and visible interference.
+
+slide-4
+0:01:00.860 --> 0:01:02.596
+Secondly, we focus on supporting the needs
+
+28
+0:01:02.596 --> 0:01:04.806
+of end user machine learning,
+
+29
+0:01:04.806 --> 0:01:06.800
+where end users themselves collect data
+
+30
+0:01:06.800 --> 0:01:10.600
+and train and evaluate models on their own browsers.
+
+31
+0:01:10.600 --> 0:01:13.146
+This is a distinct use case to other web projects
+
+32
+0:01:13.146 --> 0:01:15.960
+that seek to provide pre-trained models
+
+33
+0:01:16.262 --> 0:01:18.866
+for using and generating media in the browser.
+
+slide-5
+0:01:18.866 --> 0:01:21.346
+Thirdly, we support an iterative approach to training
+
+35
+0:01:21.346 --> 0:01:25.336
+and evaluating in real time or near real time feedback loop.
+
+36
+0:01:25.336 --> 0:01:28.116
+This is sometimes known as interactive machine learning.
+
+37
+0:01:28.116 --> 0:01:29.600
+It allows for users
+
+38
+0:01:29.600 --> 0:01:31.316
+from a wide range of technical, nontechnical,
+
+39
+0:01:31.316 --> 0:01:33.926
+and creative backgrounds to develop interactive systems
+
+40
+0:01:33.926 --> 0:01:35.476
+with complex media data
+
+41
+0:01:35.476 --> 0:01:38.260
+that they'd have struggled to program by hand,
+
+42
+0:01:38.260 --> 0:01:38.866
+perhaps also with behaviors
+
+43
+0:01:38.866 --> 0:01:41.866
+they wouldn't have thought to program by hand.
+
+44
+0:01:41.866 --> 0:01:44.416
+Beyond this it's been useful for working with children
+
+45
+0:01:44.416 --> 0:01:46.726
+with special educational needs and disabilities.
+
+46
+0:01:46.726 --> 0:01:48.860
+For example, the Sound Control project,
+
+47
+0:01:48.860 --> 0:01:50.126
+and in gaming in Unity,
+
+48
+0:01:50.126 --> 0:01:52.416
+you can check out the InteractML project.
+
+49
+0:01:52.416 --> 0:01:54.396
+This approach to machine learning is also excellent,
+
+50
+0:01:54.396 --> 0:01:56.816
+in the educational settings.
+
+51
+0:01:56.816 --> 0:01:58.860
+Working with interactive media
+
+52
+0:01:58.860 --> 0:02:02.326
+can be a really accessible stepping stone to data literacy.
+
+slide-6
+0:02:02.326 --> 0:02:05.226
+So why would we want to do this in a browser?
+
+54
+0:02:05.226 --> 0:02:06.966
+Building browser based tools is useful
+
+55
+0:02:06.966 --> 0:02:09.600
+because they require little of the installation
+
+56
+0:02:09.600 --> 0:02:11.456
+and dependencies that plenty other data science endeavors.
+
+slide-7
+0:02:11.456 --> 0:02:13.726
+Additionally, JavaScript is a fast growing language
+
+58
+0:02:13.726 --> 0:02:15.426
+with low barriers to entry.
+
+59
+0:02:15.426 --> 0:02:17.336
+It's often taught to computer science
+
+60
+0:02:17.336 --> 0:02:19.786
+and creative computing students,
+
+61
+0:02:19.786 --> 0:02:20.936
+which is useful for us.
+
+slide-8
+0:02:22.600 --> 0:02:22.839
+Moreover,
+
+63
+0:02:22.839 --> 0:02:24.886
+developing code in browsers and embracing technologies
+
+64
+0:02:24.886 --> 0:02:27.726
+like web sockets opens up great opportunities
+
+65
+0:02:27.726 --> 0:02:29.106
+for real time, remote
+
+66
+0:02:29.106 --> 0:02:31.289
+code and non-code based collaborations.
+
+slide-9
+0:02:32.176 --> 0:02:33.126
+While some solutions
+
+68
+0:02:33.126 --> 0:02:35.346
+for increasing efficiency of in-browser machine learning
+
+69
+0:02:35.346 --> 0:02:37.416
+rely on a client server model,
+
+70
+0:02:37.416 --> 0:02:38.769
+it's not suitable for us,
+
+71
+0:02:40.540 --> 0:02:43.196
+for reasons of both performance and privacy.
+
+72
+0:02:43.196 --> 0:02:45.746
+The latency of using remote backend to do machine learning
+
+73
+0:02:45.746 --> 0:02:47.456
+will almost certainly be inappropriate
+
+74
+0:02:47.456 --> 0:02:50.186
+for many real time performance use cases.
+
+slide-10
+0:02:50.186 --> 0:02:53.146
+Further, as users will be recording their own datasets
+
+76
+0:02:53.146 --> 0:02:55.460
+sensitive data may be required to remain
+
+77
+0:02:55.460 --> 0:02:56.976
+on their local machines.
+
+slide-11
+0:02:56.976 --> 0:02:58.476
+Finally, our own experience,
+
+79
+0:02:58.476 --> 0:03:00.690
+as well as user feedback has informed us
+
+80
+0:03:00.690 --> 0:03:02.266
+that in situations of live performance,
+
+81
+0:03:02.266 --> 0:03:05.136
+educational settings, and long running installations,
+
+82
+0:03:05.136 --> 0:03:08.109
+relying on internet connections can be infeasible.
+
+83
+0:03:10.160 --> 0:03:11.246
+As such, we see in-browser solutions
+
+84
+0:03:11.246 --> 0:03:13.556
+for training, data storage and inference
+
+85
+0:03:13.556 --> 0:03:16.390
+highly, highly, highly preferable.
+
+slide-12
+0:03:16.786 --> 0:03:18.760
+So, with these clear advantages to developing
+
+87
+0:03:18.760 --> 0:03:21.260
+end user machine learning tools in the browser,
+
+88
+0:03:21.260 --> 0:03:23.760
+we also seek to address the non-trivial technical challenges
+
+89
+0:03:23.760 --> 0:03:25.266
+of connecting media and sensory inputs
+
+90
+0:03:25.266 --> 0:03:28.226
+from a variety of sources, running these alongside
+
+91
+0:03:28.226 --> 0:03:31.251
+potentially computationally expensive feature extractors,
+
+92
+0:03:31.251 --> 0:03:34.560
+also running lightweight machine learning models
+
+93
+0:03:34.560 --> 0:03:36.106
+and generating audio and visual output,
+
+94
+0:03:36.106 --> 0:03:37.256
+all in real time,
+
+95
+0:03:37.256 --> 0:03:38.316
+all concurrently,
+
+96
+0:03:38.316 --> 0:03:40.226
+all without interference.
+
+slide-13
+0:03:40.226 --> 0:03:42.460
+For example,
+
+98
+0:03:42.460 --> 0:03:44.286
+we might want to use the body pics feature extractor
+
+99
+0:03:44.286 --> 0:03:46.760
+to get a skeleton data from webcam,
+
+100
+0:03:46.760 --> 0:03:47.796
+and use a regression model
+
+101
+0:03:47.796 --> 0:03:49.836
+to control multiple synthesizers.
+
+slide-14
+0:03:49.836 --> 0:03:51.106
+Alternatively,
+
+103
+0:03:51.106 --> 0:03:52.286
+we might want to use a neural network
+
+104
+0:03:52.286 --> 0:03:54.260
+to generate frames of spectral data,
+
+105
+0:03:54.260 --> 0:03:55.526
+and then turn this into audio.
+
+slide-15
+0:03:57.256 --> 0:03:58.936
+Whilst technologies like AudioWorklets
+
+107
+0:03:58.936 --> 0:04:01.186
+address this to some extent,
+
+108
+0:04:01.186 --> 0:04:04.760
+and we welcome the recent introduction of it into Firefox,
+
+109
+0:04:04.760 --> 0:04:07.466
+there remains some issues with implementation and adoption.
+
+110
+0:04:07.466 --> 0:04:09.436
+For example, issues with garbage collection
+
+111
+0:04:09.436 --> 0:04:12.260
+created by the worker thread messaging system,
+
+112
+0:04:12.260 --> 0:04:13.366
+caused wide-scale disruption
+
+113
+0:04:13.366 --> 0:04:15.786
+to many developers using AudioWorklets,
+
+114
+0:04:15.786 --> 0:04:18.566
+and was only really addressed by a bring buffer solution
+
+115
+0:04:18.566 --> 0:04:20.496
+that developers had to integrate themselves
+
+116
+0:04:20.496 --> 0:04:22.576
+outside of the core API.
+
+117
+0:04:22.576 --> 0:04:24.326
+At the time, because of this bug in chromium,
+
+118
+0:04:24.326 --> 0:04:27.376
+there were two to three months over the winter of 2019,
+
+119
+0:04:27.376 --> 0:04:29.160
+where running computationally heavy
+
+120
+0:04:29.160 --> 0:04:29.994
+machine learning processes
+
+121
+0:04:29.994 --> 0:04:32.726
+and generating audio at the same time
+
+122
+0:04:32.726 --> 0:04:35.556
+caused these horrible pops and crackles and stuff.
+
+123
+0:04:35.556 --> 0:04:38.116
+And because AudioWorklets was only implemented
+
+124
+0:04:38.116 --> 0:04:40.316
+in one browser, that's Chrome,
+
+125
+0:04:40.316 --> 0:04:43.960
+we were unable to offer our users any alternatives.
+
+slide-16
+0:04:43.960 --> 0:04:45.856
+We welcome the efficiency and usability increases
+
+127
+0:04:45.856 --> 0:04:47.360
+to in-browser computation
+
+128
+0:04:47.360 --> 0:04:50.860
+made available through the WebGPU API.
+
+129
+0:04:50.860 --> 0:04:51.786
+It's crucial that it's adopted as a standard
+
+130
+0:04:51.786 --> 0:04:52.986
+across all browsers,
+
+131
+0:04:52.986 --> 0:04:54.146
+and that the API itself
+
+132
+0:04:54.146 --> 0:04:56.560
+and any machine learning libraries using it
+
+133
+0:04:56.560 --> 0:04:57.786
+take real time media into account
+
+134
+0:04:57.786 --> 0:05:00.150
+when implementing themselves.
+
+slide-17
+0:05:00.150 --> 0:05:00.848
+Finally,
+
+136
+0:05:00.848 --> 0:05:03.716
+although the capabilities of in-browser media creation
+
+137
+0:05:03.716 --> 0:05:06.776
+are expanding, the majority of practitioners
+
+138
+0:05:06.776 --> 0:05:08.906
+remain using software tools outside of the browser
+
+139
+0:05:08.906 --> 0:05:10.419
+to generate sound and visuals.
+
+140
+0:05:11.306 --> 0:05:14.760
+Until browser support for media generation is improved
+
+141
+0:05:14.760 --> 0:05:15.856
+to allow an ecosystem of tools
+
+142
+0:05:15.856 --> 0:05:18.360
+similar to that existing outside of the browser,
+
+143
+0:05:18.360 --> 0:05:20.286
+this is going to continue to be the case.
+
+144
+0:05:20.286 --> 0:05:21.766
+So, serving the dual purposes
+
+145
+0:05:21.766 --> 0:05:25.526
+of getting data into the browser to build data sets
+
+146
+0:05:25.526 --> 0:05:27.560
+to train models, and
+
+147
+0:05:29.116 --> 0:05:30.416
+outputting controlled data
+
+148
+0:05:30.416 --> 0:05:32.756
+generated by machine learning models,
+
+149
+0:05:32.756 --> 0:05:33.796
+we seek to further increase
+
+150
+0:05:33.796 --> 0:05:36.986
+the adoption of connectivity technologies,
+
+151
+0:05:36.986 --> 0:05:38.809
+such as Web MIDI and WebBLE.
+
+152
+0:05:40.316 --> 0:05:42.106
+The WorldWide Developer Conference in 2020
+
+153
+0:05:42.106 --> 0:05:43.386
+actually sort of Safari disavow
+
+154
+0:05:43.386 --> 0:05:46.576
+both of these as a fingerprinting security precaution.
+
+155
+0:05:46.576 --> 0:05:48.146
+Safari has also made little suggestion
+
+156
+0:05:48.146 --> 0:05:51.506
+it's going to adopt the AudioWorklets infrastructure.
+
+slide-18
+0:05:51.506 --> 0:05:54.860
+So, to wrap it up,
+
+158
+0:05:54.860 --> 0:05:58.560
+we seek to prioritize accessible machine learning.
+
+159
+0:05:58.560 --> 0:06:00.296
+There's a focus on end users building their own datasets
+
+160
+0:06:00.296 --> 0:06:03.356
+dynamically and training their own models on the fly,
+
+161
+0:06:03.356 --> 0:06:06.906
+in conjunction with real time media analysis and generation.
+
+162
+0:06:06.906 --> 0:06:08.996
+There's a community of developers, researchers,
+
+163
+0:06:08.996 --> 0:06:10.336
+educators, and creatives,
+
+164
+0:06:10.336 --> 0:06:12.960
+who are able to produce software and resources
+
+165
+0:06:12.960 --> 0:06:15.286
+to enable end users who wanna use machine learning
+
+166
+0:06:15.286 --> 0:06:16.226
+in this manner.
+
+167
+0:06:16.226 --> 0:06:17.266
+However,
+
+168
+0:06:17.266 --> 0:06:20.446
+we're looking at the W3C, and developers of web browsers
+
+169
+0:06:20.446 --> 0:06:23.216
+to allow the performance and the connectivity
+
+170
+0:06:23.216 --> 0:06:24.576
+to make these techniques viable,
+
+171
+0:06:24.576 --> 0:06:26.486
+sustainable, and accessible,
+
+172
+0:06:26.486 --> 0:06:28.400
+and to just keep us in mind,
+
+173
+0:06:28.400 --> 0:06:29.596
+and this particular use case in mind
+
+174
+0:06:29.596 --> 0:06:32.409
+when defining standards or choosing to adopt standards.
+
+slide-19
+0:06:33.876 --> 0:06:35.736
+We'd like to call on those watching this video
+
+176
+0:06:35.736 --> 0:06:37.466
+with an interest in the web and machine learning
+
+177
+0:06:37.466 --> 0:06:39.386
+to actively work to uplift black voices
+
+178
+0:06:39.386 --> 0:06:41.356
+within the research community.
+
+179
+0:06:41.356 --> 0:06:42.860
+A good place to start is checking out
+
+180
+0:06:42.860 --> 0:06:44.806
+the Black in AI, online community,
+
+181
+0:06:44.806 --> 0:06:46.236
+as well as adhering to the practice of
+
+182
+0:06:46.236 --> 0:06:48.506
+The Cite Black Women Collective;
+
+183
+0:06:48.506 --> 0:06:50.600
+read black women's work,
+
+184
+0:06:50.600 --> 0:06:53.296
+integrate black women's work into the core of your syllabus,
+
+185
+0:06:53.296 --> 0:06:55.946
+acknowledge black women's intellectual production,
+
+186
+0:06:55.946 --> 0:06:58.496
+make space for black women to speak,
+
+187
+0:06:58.496 --> 0:07:01.590
+give black women the space and time to breathe.
+
+slide-20
+0:07:02.296 --> 0:07:04.600
+Okay, thanks for listening.
+
+189
+0:07:04.860 --> 0:07:06.376
+Check out the MIMIC website,
+
+190
+0:07:06.376 --> 0:07:08.360
+enroll in the free FutureLearn course,
+
+191
+0:07:08.360 --> 0:07:09.436
+if you want to learn more.
+
+192
+0:07:09.436 --> 0:07:10.966
+You can also read some of the publications,
+
+193
+0:07:10.966 --> 0:07:13.460
+I think we'll put up a slide at the end
+
+194
+0:07:13.460 --> 0:07:13.986
+with some of that information on.
+
+slide-21
+0:07:13.986 --> 0:07:14.819
+Thank you.
+
+

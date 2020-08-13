@@ -1,0 +1,759 @@
+WEBVTT
+
+slide-1
+0:00:09.800 --> 0:00:10.840
+<v ->Slide one.</v>
+
+2
+0:00:10.840 --> 0:00:14.710 line:15%
+Hi, my name is Ann, and I'm a software engineer at Google.
+
+3
+0:00:14.710 --> 0:00:16.750
+I work on tensorflow.js,
+
+4
+0:00:16.750 --> 0:00:19.430
+a JavaScript library for machine learning.
+
+5
+0:00:19.920 --> 0:00:22.530
+Since we launched in March of 2018,
+
+6
+0:00:22.530 --> 0:00:26.250
+we've seen tremendous adoption by the JavaScript community
+
+7
+0:00:26.250 --> 0:00:28.553
+with over two million downloads on NPM.
+
+8
+0:00:29.590 --> 0:00:31.260
+Meanwhile, a distinctive class
+
+9
+0:00:31.260 --> 0:00:33.970
+of machine learning applications has emerged
+
+10
+0:00:33.970 --> 0:00:35.980
+that leverage the unique advantages
+
+11
+0:00:35.980 --> 0:00:38.170
+of on-device computation,
+
+12
+0:00:38.170 --> 0:00:40.660
+such as access to sensor data
+
+13
+0:00:40.660 --> 0:00:42.763
+and preservation of user privacy.
+
+14
+0:00:43.890 --> 0:00:44.723
+In this talk,
+
+15
+0:00:44.723 --> 0:00:47.580
+I'll discuss how TFJS brings high performance,
+
+16
+0:00:47.580 --> 0:00:50.630
+machine learning to a JavaScript through standard
+
+17
+0:00:50.630 --> 0:00:52.620
+and emerging web technologies,
+
+18
+0:00:52.620 --> 0:00:56.653
+including WebAssembly, WebGL, and WebGPU.
+
+19
+0:00:57.980 --> 0:00:58.813
+Slide two.
+
+slide-2
+0:01:00.290 --> 0:01:04.440
+TFJS defines an API for neural network operations,
+
+21
+0:01:04.440 --> 0:01:09.213
+such as matrix multiplication, exponentiation, etc.
+
+22
+0:01:10.800 --> 0:01:12.540
+These operations call into kernels,
+
+23
+0:01:12.540 --> 0:01:15.310
+which implement the mathematical functions comprising
+
+24
+0:01:15.310 --> 0:01:19.150
+the operation for a particular execution environment.
+
+25
+0:01:19.150 --> 0:01:22.163
+For example, WebAssembly or WebGL.
+
+26
+0:01:23.120 --> 0:01:26.340
+A TFJS backend is a collection of such kernels
+
+27
+0:01:26.340 --> 0:01:28.543
+that are defined for the same environment.
+
+28
+0:01:29.870 --> 0:01:30.763
+Slide three.
+
+slide-3
+0:01:31.960 --> 0:01:35.140
+Before diving into the details of our different backends,
+
+30
+0:01:35.140 --> 0:01:38.230
+I'd like to provide an overview of how they compare
+
+31
+0:01:38.230 --> 0:01:40.710
+in terms of performance.
+
+32
+0:01:40.710 --> 0:01:43.920
+This table shows how our WebGL, WebAssembly,
+
+33
+0:01:43.920 --> 0:01:46.590
+and plain JS backends compare
+
+34
+0:01:46.590 --> 0:01:49.480
+when it comes to inference on MobileNet,
+
+35
+0:01:49.480 --> 0:01:50.980
+a medium-sized model
+
+36
+0:01:50.980 --> 0:01:55.500
+with a few hundred million multiply-add operations.
+
+37
+0:01:55.500 --> 0:01:55.890
+For this model,
+
+38
+0:01:55.890 --> 0:01:59.730
+our WebAssembly backend is between 3 and 11 times faster
+
+39
+0:01:59.730 --> 0:02:02.170
+than our plain JS backend.
+
+40
+0:02:02.170 --> 0:02:03.500
+Our WebAssembly backend is
+
+41
+0:02:03.500 --> 0:02:07.273
+between 5 and 8 times slower than our WebGL backend.
+
+42
+0:02:08.960 --> 0:02:09.923
+Slide four.
+
+slide-4
+0:02:11.160 --> 0:02:13.570
+This next table shows how our backends compare
+
+44
+0:02:13.570 --> 0:02:16.410
+when it comes to inference on face detector,
+
+45
+0:02:16.410 --> 0:02:18.170
+a much smaller model with only
+
+46
+0:02:18.170 --> 0:02:21.860
+around 20 million multiply-add operations.
+
+47
+0:02:21.860 --> 0:02:22.693
+In this case,
+
+48
+0:02:22.693 --> 0:02:26.570
+our WebAssembly backend is between 8 and 20 times faster
+
+49
+0:02:26.570 --> 0:02:28.490
+than our plain JS backend.
+
+50
+0:02:28.490 --> 0:02:32.110
+And it's actually comparable with our WebGL backend.
+
+51
+0:02:32.110 --> 0:02:35.200
+For example, on a 2018 MacBook Pro,
+
+52
+0:02:35.200 --> 0:02:37.340
+our WebAssembly backend is twice as fast
+
+53
+0:02:37.340 --> 0:02:39.370
+as our WebGL backend.
+
+54
+0:02:39.370 --> 0:02:42.183
+With SIMD enabled, it's 3 times faster.
+
+55
+0:02:43.450 --> 0:02:44.920
+These benchmarks demonstrate
+
+56
+0:02:44.920 --> 0:02:47.760
+that there is no one size-fits-all technology
+
+57
+0:02:47.760 --> 0:02:50.110
+for machine learning on the web.
+
+58
+0:02:50.110 --> 0:02:52.610
+The best choice of execution environment depends
+
+59
+0:02:52.610 --> 0:02:53.850
+on many factors,
+
+60
+0:02:53.850 --> 0:02:57.260
+including the model architecture and the advice.
+
+61
+0:02:57.260 --> 0:02:59.860
+Technologies such as WebAssembly and WebGL
+
+62
+0:02:59.860 --> 0:03:01.890
+address different use cases.
+
+63
+0:03:01.890 --> 0:03:04.850
+And we as TFJS developers must invest
+
+64
+0:03:04.850 --> 0:03:07.600
+in a wide swath of technologies
+
+65
+0:03:07.600 --> 0:03:09.223
+in order to meet our users' needs.
+
+66
+0:03:10.610 --> 0:03:11.473
+Slide five.
+
+slide-5
+0:03:12.980 --> 0:03:15.880
+Now I'll go into the details of some of our backends,
+
+68
+0:03:15.880 --> 0:03:17.393
+starting with WebAssembly.
+
+69
+0:03:18.430 --> 0:03:21.780
+Our WebAssembly backend kernels are written in C++,
+
+70
+0:03:21.780 --> 0:03:23.280
+and compiled with EMScripten.
+
+71
+0:03:24.170 --> 0:03:25.700
+We use XNNPACK,
+
+72
+0:03:25.700 --> 0:03:29.190
+a highly optimized library of neural network operators
+
+73
+0:03:29.190 --> 0:03:30.863
+for further acceleration.
+
+74
+0:03:32.200 --> 0:03:32.853
+As we've seen,
+
+75
+0:03:32.853 --> 0:03:35.300
+our WebAssembly backend is ideally suited
+
+76
+0:03:35.300 --> 0:03:36.570
+for lighter models.
+
+77
+0:03:36.570 --> 0:03:37.560
+And in the last year,
+
+78
+0:03:37.560 --> 0:03:41.180
+we've seen a wave of such production quality models designed
+
+79
+0:03:41.180 --> 0:03:43.470
+for Edge devices.
+
+80
+0:03:43.470 --> 0:03:46.440
+But WebAssembly is steadily closing the performance gap
+
+81
+0:03:46.440 --> 0:03:49.770
+with WebGL for larger models as well.
+
+82
+0:03:49.770 --> 0:03:53.300
+A few weeks ago, we added support for SIMD instructions
+
+83
+0:03:53.300 --> 0:03:55.590
+to our WebAssembly backend.
+
+84
+0:03:55.590 --> 0:03:59.130
+This led to a 3X performance boost for MobileNet,
+
+85
+0:03:59.130 --> 0:04:02.130
+and a 2X performance boost for face detector.
+
+86
+0:04:03.300 --> 0:04:05.590
+We're also actively working on adding support
+
+87
+0:04:05.590 --> 0:04:08.103
+for multithreading through SharedArrayBuffer.
+
+88
+0:04:08.970 --> 0:04:11.100
+According to our internal benchmarks,
+
+89
+0:04:11.100 --> 0:04:12.500
+multithreading will provide
+
+90
+0:04:12.500 --> 0:04:15.830
+an additional 3x performance boost for MobileNet,
+
+91
+0:04:15.830 --> 0:04:18.593
+and 2x performance boost for face detector.
+
+92
+0:04:20.120 --> 0:04:21.323
+Slide six.
+
+slide-6
+0:04:22.220 --> 0:04:23.380
+For these reasons,
+
+94
+0:04:23.380 --> 0:04:25.850
+we expect adoption of our WebAssembly backend
+
+95
+0:04:25.850 --> 0:04:27.840
+to continue to grow.
+
+96
+0:04:27.840 --> 0:04:29.880
+We're eager for more users to enjoy
+
+97
+0:04:29.880 --> 0:04:33.800
+the benefits of SIMD and multithreading.
+
+98
+0:04:33.800 --> 0:04:35.160
+We're also closely following the progress
+
+99
+0:04:35.160 --> 0:04:38.690
+of several evolving specifications in WebAssembly,
+
+100
+0:04:38.690 --> 0:04:42.200
+including flexible vectors for Wider SIMD,
+
+101
+0:04:42.200 --> 0:04:44.101
+quasi-fused multiply-add,
+
+102
+0:04:44.101 --> 0:04:47.473
+and pseudo minimum and maximum instructions.
+
+103
+0:04:48.610 --> 0:04:51.400
+We're also looking forward to ES6 module support
+
+104
+0:04:51.400 --> 0:04:53.630
+for WebAssembly modules.
+
+105
+0:04:54.620 --> 0:04:55.533
+Slide seven.
+
+slide-7
+0:04:56.650 --> 0:05:00.350
+TFJS also offers a GPU accelerated backend built
+
+107
+0:05:00.350 --> 0:05:02.243
+on top of the WebGL API.
+
+108
+0:05:03.260 --> 0:05:04.730
+We repurpose this API
+
+109
+0:05:04.730 --> 0:05:07.280
+for high performance numerical computation
+
+110
+0:05:07.280 --> 0:05:10.750
+by representing data in the form of GPU textures,
+
+111
+0:05:10.750 --> 0:05:12.250
+and using fragment shaders
+
+112
+0:05:12.250 --> 0:05:15.620
+to execute neural network operations.
+
+113
+0:05:15.620 --> 0:05:16.480
+As we've seen,
+
+114
+0:05:16.480 --> 0:05:18.508
+our WebGL backend is still the fastest
+
+115
+0:05:18.508 --> 0:05:21.298
+for larger models containing wide operations
+
+116
+0:05:21.298 --> 0:05:25.563
+that justify the fixed overhead costs of shader execution.
+
+117
+0:05:27.540 --> 0:05:28.373
+Slide eight.
+
+slide-8
+0:05:29.630 --> 0:05:32.530
+Our WebGL backend is complex.
+
+119
+0:05:32.530 --> 0:05:35.710
+This complexity comes from many sources.
+
+120
+0:05:35.710 --> 0:05:37.850
+Firstly, WebGL implementations
+
+121
+0:05:37.850 --> 0:05:40.690
+vary significantly across platforms,
+
+122
+0:05:40.690 --> 0:05:43.413
+often with implications for numerical precision.
+
+123
+0:05:44.400 --> 0:05:45.750
+Much of our code is devoted
+
+124
+0:05:45.750 --> 0:05:49.513
+to hiding these inconsistencies from our users.
+
+125
+0:05:49.513 --> 0:05:52.300
+Another significant source of complexity
+
+126
+0:05:52.300 --> 0:05:56.450
+in our WebGL backend is manual memory management.
+
+127
+0:05:56.450 --> 0:06:00.100
+Because GPU resources are not garbage collected,
+
+128
+0:06:00.100 --> 0:06:02.870
+we must explicitly manage resource disposal
+
+129
+0:06:02.870 --> 0:06:05.300
+through reference counting.
+
+130
+0:06:05.300 --> 0:06:07.410
+To help our users avoid leaking memory,
+
+131
+0:06:07.410 --> 0:06:10.590
+we expose a utility called tf.tidy
+
+132
+0:06:10.590 --> 0:06:13.170
+that takes a function, executes it,
+
+133
+0:06:13.170 --> 0:06:16.210
+and disposes any intermediate resources created
+
+134
+0:06:16.210 --> 0:06:17.373
+by that function.
+
+135
+0:06:18.490 --> 0:06:19.730
+Despite these measures,
+
+136
+0:06:19.730 --> 0:06:22.260
+memory management remains a source of error
+
+137
+0:06:22.260 --> 0:06:24.590
+in our WebGL backend.
+
+138
+0:06:24.590 --> 0:06:26.960
+Therefore, we're excited about new proposals
+
+139
+0:06:26.960 --> 0:06:29.230
+for user-defined finalizers
+
+140
+0:06:29.230 --> 0:06:32.383
+that would give us more security against memory leaks.
+
+141
+0:06:33.710 --> 0:06:35.660
+Finally, the lack of callbacks
+
+142
+0:06:35.660 --> 0:06:38.860
+for asynchronous WebGL texture downloading means
+
+143
+0:06:38.860 --> 0:06:41.213
+we must pull for download completion.
+
+144
+0:06:42.210 --> 0:06:43.430
+This has implications
+
+145
+0:06:43.430 --> 0:06:46.283
+for both code complexity and performance.
+
+146
+0:06:47.860 --> 0:06:48.793
+Slide nine.
+
+slide-9
+0:06:49.726 --> 0:06:54.320
+TFJs also offers an experimental backend built on top
+
+148
+0:06:54.320 --> 0:06:56.583
+of the emerging WebGPU standard.
+
+149
+0:06:57.650 --> 0:07:00.390
+WebGPU represents an exciting opportunity
+
+150
+0:07:00.390 --> 0:07:02.683
+for addressing the pain points of WebGL.
+
+151
+0:07:03.520 --> 0:07:05.860
+WebGPU promises better performance
+
+152
+0:07:05.860 --> 0:07:08.633
+and a dedicated API for GPU compute.
+
+153
+0:07:09.490 --> 0:07:11.325
+As the successor to WebGL,
+
+154
+0:07:11.325 --> 0:07:13.880
+WebGPU is designed to operate directly
+
+155
+0:07:13.880 --> 0:07:16.240
+with low-level graphics APIs,
+
+156
+0:07:16.240 --> 0:07:18.963
+such as D3D, Metal, and Vulkan.
+
+157
+0:07:20.139 --> 0:07:23.510
+The WebGPU shading language will be directly ingested,
+
+158
+0:07:23.510 --> 0:07:26.700
+and will hopefully offer faster shader compilation,
+
+159
+0:07:26.700 --> 0:07:27.983
+compared to WebGL.
+
+160
+0:07:29.650 --> 0:07:30.483
+Slide 10.
+
+slide-10
+0:07:31.650 --> 0:07:35.200
+This table shows inference speeds for the PO's net model,
+
+162
+0:07:35.200 --> 0:07:38.180
+built on top of the resonant 50 architecture,
+
+163
+0:07:38.180 --> 0:07:43.500
+a large model with several billion multiply-add operations.
+
+164
+0:07:43.500 --> 0:07:45.110
+These benchmarks demonstrate the reality
+
+165
+0:07:45.110 --> 0:07:47.770
+that WebGPU has not delivered significant
+
+166
+0:07:47.770 --> 0:07:50.580
+out-of-the-box performance gains.
+
+167
+0:07:50.580 --> 0:07:53.120
+However, the technology is rapidly evolving,
+
+168
+0:07:53.120 --> 0:07:55.763
+and we're continuing to track progress closely.
+
+169
+0:07:57.600 --> 0:07:58.553
+Slide 11.
+
+slide-11
+0:07:59.800 --> 0:08:01.520
+We're excited about the potential
+
+171
+0:08:01.520 --> 0:08:03.640
+for future machine learning web standards
+
+172
+0:08:03.640 --> 0:08:05.520
+to address the recurring pain points
+
+173
+0:08:05.520 --> 0:08:08.670
+we faced in developing TFJS,
+
+174
+0:08:08.670 --> 0:08:12.403
+including lack of portability and manual memory management.
+
+175
+0:08:13.450 --> 0:08:15.670
+Such standards also represent an opportunity
+
+176
+0:08:15.670 --> 0:08:17.671
+to address the distinctive needs
+
+177
+0:08:17.671 --> 0:08:21.470
+of machine learning-powered web applications.
+
+178
+0:08:21.470 --> 0:08:22.540
+For example,
+
+179
+0:08:22.540 --> 0:08:25.470
+TFJS users have increasingly asked for ways
+
+180
+0:08:25.470 --> 0:08:26.940
+to obfuscate their models
+
+181
+0:08:26.940 --> 0:08:29.523
+in order to protect intellectual property.
+
+182
+0:08:30.490 --> 0:08:32.230
+We also hope that future standards
+
+183
+0:08:32.230 --> 0:08:34.310
+will preserve the features that have made
+
+184
+0:08:34.310 --> 0:08:36.800
+our progress thus far possible,
+
+185
+0:08:36.800 --> 0:08:41.300
+such as detailed profiling and access to low-level APIs
+
+186
+0:08:41.300 --> 0:08:44.800
+that give us the ability to define and debug operations
+
+187
+0:08:44.800 --> 0:08:46.263
+at a granular level.
+
+188
+0:08:47.550 --> 0:08:49.900
+Alright, that's it for me.
+
+189
+0:08:49.900 --> 0:08:50.183
+Thank you very much.
+
+

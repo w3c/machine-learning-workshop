@@ -1,0 +1,546 @@
+﻿WEBVTT
+
+slide-1
+00:00:08.676 --> 00:00:09.666
+<v ->Hi, I'm Sangwhan Moon</v>
+
+2
+00:00:09.666 --> 00:00:11.066
+from the Technical Architecture Group
+
+3
+00:00:11.066 --> 00:00:12.566
+also known as the TAG.
+
+4
+00:00:12.566 --> 00:00:14.116
+And today I will be talking about
+
+5
+00:00:14.116 --> 00:00:16.366
+how machine learning today will ideally become a part
+
+6
+00:00:16.366 --> 00:00:17.976
+of the web platform.
+
+7
+00:00:17.976 --> 00:00:20.186
+To briefly introduce myself as noted earlier
+
+8
+00:00:20.186 --> 00:00:21.946
+I am an elected member of the TAG,
+
+9
+00:00:21.946 --> 00:00:24.996
+team leader then E-commerce Oriented Computers Startup,
+
+10
+00:00:24.996 --> 00:00:27.486
+and finally a PhD student in Natural Language Processing
+
+11
+00:00:27.486 --> 00:00:29.046
+at the Tokyo Institute of Technology.
+
+12
+00:00:29.046 --> 00:00:30.876
+I would like to note that the presentation today
+
+13
+00:00:30.876 --> 00:00:31.709
+carries more weight
+
+14
+00:00:31.709 --> 00:00:32.776
+from a personal perspective
+
+15
+00:00:32.776 --> 00:00:34.866
+on the topic rather than the formal group message
+
+16
+00:00:34.866 --> 00:00:36.476
+from the TAG.
+
+slide-2
+00:00:36.476 --> 00:00:38.106
+Machine learning, namely the sub-field,
+
+18
+00:00:38.106 --> 00:00:40.096
+which involves using large neural networks
+
+19
+00:00:40.096 --> 00:00:41.506
+to approximate various functions
+
+20
+00:00:41.506 --> 00:00:42.656
+through large amounts of training
+
+21
+00:00:42.656 --> 00:00:44.076
+that have been a hot topic
+
+22
+00:00:44.076 --> 00:00:45.736
+in the last couple of years.
+
+23
+00:00:45.736 --> 00:00:47.786
+Due to the social technical impact this has brought
+
+24
+00:00:47.786 --> 00:00:48.846
+to our lives developers
+
+25
+00:00:48.846 --> 00:00:50.966
+and users alike expecting this functionality
+
+26
+00:00:50.966 --> 00:00:54.116
+to become part of the web platform is a natural progression.
+
+27
+00:00:54.116 --> 00:00:56.736
+Many operating systems have started providing the APIs
+
+28
+00:00:56.736 --> 00:00:59.106
+that allow you access to these capabilities,
+
+29
+00:00:59.106 --> 00:01:00.456
+sometimes which wire directly
+
+30
+00:01:00.456 --> 00:01:03.442
+to a neural network optimized core processor.
+
+slide-3
+00:01:03.442 --> 00:01:04.629
+First and foremost we would like to work
+
+32
+00:01:04.629 --> 00:01:07.176
+to have a stronger focus on maximizing impact
+
+33
+00:01:07.176 --> 00:01:09.286
+with smaller incremental changes.
+
+34
+00:01:09.286 --> 00:01:11.496
+All these topic may still be open for debate,
+
+35
+00:01:11.496 --> 00:01:13.046
+how we see this is to focus more
+
+36
+00:01:13.046 --> 00:01:14.436
+on inference rather than try
+
+37
+00:01:14.436 --> 00:01:16.856
+to tackle training and providing a full blown set
+
+38
+00:01:16.856 --> 00:01:18.249
+of APIs from the get-go.
+
+39
+00:01:19.126 --> 00:01:20.066
+The reason for this is
+
+40
+00:01:20.066 --> 00:01:21.786
+that we see a larger pool of users
+
+41
+00:01:21.786 --> 00:01:23.946
+on the inference side rather than the training side.
+
+42
+00:01:23.946 --> 00:01:26.146
+Mainly because having a browser tab open for weeks
+
+43
+00:01:26.146 --> 00:01:29.056
+doing a training run seems like a less likely scenario.
+
+44
+00:01:29.056 --> 00:01:31.416
+Eventually we'd like to see more capabilities added
+
+45
+00:01:31.416 --> 00:01:33.676
+but incremental enhancements allow us as a platform
+
+46
+00:01:33.676 --> 00:01:34.936
+to adapt to actual user needs
+
+47
+00:01:34.936 --> 00:01:35.806
+in the world that focus
+
+48
+00:01:35.806 --> 00:01:37.469
+on fixing easier problems first.
+
+slide-4
+00:01:38.406 --> 00:01:40.606
+One of the complications in defining a mechanism
+
+50
+00:01:40.606 --> 00:01:42.506
+to run pre-trained neural network models
+
+51
+00:01:42.506 --> 00:01:43.776
+in the browser is to agree
+
+52
+00:01:43.776 --> 00:01:45.466
+on the standard format for packaging
+
+53
+00:01:45.466 --> 00:01:47.846
+and shipping these neural network models.
+
+54
+00:01:47.846 --> 00:01:49.086
+Machine learning academia
+
+55
+00:01:49.086 --> 00:01:51.336
+and the ecosystem of frameworks have still not agreed
+
+56
+00:01:51.336 --> 00:01:52.286
+on a common format
+
+57
+00:01:52.286 --> 00:01:53.296
+which makes this challenging
+
+58
+00:01:53.296 --> 00:01:54.436
+for us as a platform,
+
+59
+00:01:54.436 --> 00:01:55.416
+as we must choose from one
+
+60
+00:01:55.416 --> 00:01:57.876
+of the multiple competing proposals.
+
+61
+00:01:57.876 --> 00:01:59.716
+But we do not have a particular preference
+
+62
+00:01:59.716 --> 00:02:01.106
+on the specific format,
+
+63
+00:02:01.106 --> 00:02:02.186
+we'd like to see some form
+
+64
+00:02:02.186 --> 00:02:03.716
+of convergence to make life easier
+
+65
+00:02:03.716 --> 00:02:05.446
+for the users of the platform.
+
+66
+00:02:05.446 --> 00:02:07.776
+The same applies for the shader language for computation,
+
+67
+00:02:07.776 --> 00:02:09.936
+which as we understand has also has yet
+
+68
+00:02:09.936 --> 00:02:11.289
+to achieve consensus on.
+
+slide-5
+00:02:12.266 --> 00:02:14.136
+Additionally while it is possible
+
+70
+00:02:14.136 --> 00:02:16.446
+to do a lot of this without a permission as of today,
+
+71
+00:02:16.446 --> 00:02:18.476
+through capabilities already available
+
+72
+00:02:18.476 --> 00:02:21.446
+in the platform such as WebGL and WebAssembly,
+
+73
+00:02:21.446 --> 00:02:23.886
+at the point of standardization as a platform API,
+
+74
+00:02:23.886 --> 00:02:24.896
+we would like to see this
+
+75
+00:02:24.896 --> 00:02:27.186
+behind the permission if possible.
+
+76
+00:02:27.186 --> 00:02:28.716
+The reasons for this is not only due
+
+77
+00:02:28.716 --> 00:02:30.446
+to the potential privacy implications,
+
+78
+00:02:30.446 --> 00:02:32.106
+but also due to the power requirements
+
+79
+00:02:32.106 --> 00:02:34.636
+that these APIs may bring to the table.
+
+80
+00:02:34.636 --> 00:02:35.966
+This can have negative effects
+
+81
+00:02:35.966 --> 00:02:37.426
+on the battery life for users who get
+
+82
+00:02:37.426 --> 00:02:38.566
+out of a single charge.
+
+83
+00:02:38.566 --> 00:02:40.586
+So we believe that the users should have a choice
+
+84
+00:02:40.586 --> 00:02:42.226
+to reject if they are in a situation
+
+85
+00:02:42.226 --> 00:02:43.059
+where they would want
+
+86
+00:02:43.059 --> 00:02:44.899
+to be conservative about power usage.
+
+slide-6
+00:02:46.306 --> 00:02:47.416
+An extra point that we'd like
+
+88
+00:02:47.416 --> 00:02:48.906
+to bring to the attention of the group is
+
+89
+00:02:48.906 --> 00:02:50.176
+to open questions that remain
+
+90
+00:02:50.176 --> 00:02:53.076
+to integrate these capabilities to the platform.
+
+91
+00:02:53.076 --> 00:02:54.336
+Due to the current limitations
+
+92
+00:02:54.336 --> 00:02:56.836
+of JavaScript such as the lack of operator overloading
+
+93
+00:02:56.836 --> 00:02:57.686
+it makes it challenging
+
+94
+00:02:57.686 --> 00:03:00.246
+to implement an ergonomic API for vector matrix
+
+95
+00:03:00.246 --> 00:03:03.136
+or tensor operations on the web platform.
+
+96
+00:03:03.136 --> 00:03:04.456
+From a user's perspective,
+
+97
+00:03:04.456 --> 00:03:05.716
+it's a lot more straightforward
+
+98
+00:03:05.716 --> 00:03:07.206
+to have infix functions than
+
+99
+00:03:07.206 --> 00:03:09.416
+to chain the pilot function calls.
+
+100
+00:03:09.416 --> 00:03:10.776
+The last question we have is
+
+101
+00:03:10.776 --> 00:03:12.656
+whether there is a path forward to converge
+
+102
+00:03:12.656 --> 00:03:16.246
+with non-browser JavaScript runtimes such as Node.js.
+
+103
+00:03:16.246 --> 00:03:17.336
+These are points that are open
+
+104
+00:03:17.336 --> 00:03:18.499
+for further discussion.
+
+slide-7
+00:03:20.136 --> 00:03:22.136
+The TAG has two principles that might be useful
+
+106
+00:03:22.136 --> 00:03:24.006
+for this group to move the work forward.
+
+107
+00:03:24.006 --> 00:03:25.226
+We have the base guidelines
+
+108
+00:03:25.226 --> 00:03:27.026
+which is the Design Principles documents,
+
+109
+00:03:27.026 --> 00:03:28.526
+which touches on how APIs
+
+110
+00:03:28.526 --> 00:03:30.236
+for the web should be designed,
+
+111
+00:03:30.236 --> 00:03:32.086
+but also the ethical web principles,
+
+112
+00:03:32.086 --> 00:03:33.986
+which we recently released.
+
+113
+00:03:33.986 --> 00:03:36.426
+As capabilities such as computer vision,
+
+114
+00:03:36.426 --> 00:03:37.786
+which can be achieved with the work
+
+115
+00:03:37.786 --> 00:03:39.176
+that is being proposed by this group,
+
+116
+00:03:39.176 --> 00:03:42.466
+can also have wider social and ethical implications,
+
+117
+00:03:42.466 --> 00:03:43.516
+we'd like the group to look
+
+118
+00:03:43.516 --> 00:03:45.376
+into the larger scale social impact
+
+119
+00:03:45.376 --> 00:03:47.316
+by bringing these capabilities to the web,
+
+120
+00:03:47.316 --> 00:03:48.886
+to mitigate any potential risks
+
+121
+00:03:48.886 --> 00:03:51.086
+that it may bring to the end user's privacy.
+
+slide-8
+00:03:52.806 --> 00:03:55.056
+As this is a powerful and complex capability
+
+123
+00:03:55.056 --> 00:03:56.426
+that we have not previously done
+
+124
+00:03:56.426 --> 00:03:57.516
+on the web platform,
+
+125
+00:03:57.516 --> 00:03:58.906
+the TAG would be very interested
+
+126
+00:03:58.906 --> 00:04:01.236
+in doing early reviews on the topic.
+
+127
+00:04:01.236 --> 00:04:03.296
+We would be happy to review early proposals
+
+128
+00:04:03.296 --> 00:04:04.886
+from the contributors of the group,
+
+129
+00:04:04.886 --> 00:04:05.936
+through our design reviews
+
+130
+00:04:05.936 --> 00:04:10.726
+repository at github.com/w3ctag/design-reviews
+
+131
+00:04:10.726 --> 00:04:12.896
+We'd also be more than happy to actively engage
+
+132
+00:04:12.896 --> 00:04:15.316
+in any cross working group facilitation needed
+
+133
+00:04:15.316 --> 00:04:16.566
+to make this work happen.
+
+slide-9
+00:04:17.876 --> 00:04:19.816
+Thank you for listening to my presentation.
+
+135
+00:04:19.816 --> 00:04:21.456
+I'll be available in the live session
+
+136
+00:04:21.456 --> 00:04:23.006
+for any questions you may have.
+

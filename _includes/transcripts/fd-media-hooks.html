@@ -1,0 +1,107 @@
+<div class="slide" role='region' aria-label="Slide 1 of 18" id="slide-1" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 1</a></noscript></div><div role='region'><p>Hello.</p>
+<p>I'm François Daoust.</p>
+<p>I work for W3C where I keep track of media related activities.</p>
+<p>The goal of this presentation is to take a peak at mechanisms that allow,or will allow, media processing on the Web.</p>
+<p>I will very hardly touch on machine learning per se, just as a possible approach that people might want to apply to process media.</p>
+<p> In the past few years, I would say that standardization has enabled 4 different media scenarios on the Web.</p>
+<p>First one is support for basic media playback, also known as progressive media playback, in other words the ability to play a simple media file.</p>
+<p>This was enabled by the audio and video tags in HTML and the underlying HTMLMediaElement interface.</p>
+<p>Second scenario is support for adaptive media playback.</p>
+<p>Here, the goal is to adjust video parameters (typically, the resolution) in real time to the user's current environment.</p>
+<p>This scenario was enabled by Media Source Extensions or MSE for short.</p>
+<p>It brought professional and commercial media content to the Web.</p>
+<p>MSE is, by far, the main mechanism used to stream on-demand media content on the Web today.</p>
+<p>Third media scenario is different.</p>
+<p>It is about real-time audio/video conversations.</p>
+<p>This was enabled by <a class=dfn>WebRTC</a>.</p>
+<p>And <a class=dfn>WebRTC</a> is also used to stream media in scenarios that require latency to be minimal, for instance cloud gaming.</p>
+<p>Fourth media scenario is also completely different.</p>
+<p>It is about synthesized audio playback: to generate music, or sound effects in games for instance.</p>
+<p>This was enabled by the Web Audio API. Slide 3 The actual media content depends on the scenario.</p>
+<p>We're talking about files for progressive media playback, streams for adaptive media playback, individual media stream tracks for <a class=dfn>WebRTC</a> and short audio samples for Web Audio.</p>
+<p> In a typical media pipeline, media content gets recorded from a camera or microphone, encoded to save memory and bandwidth.</p>
+<p>Then different media tracks are muxed together and the result is sent to the network.</p>
+<p>The decoding side is roughly symmetric to the encoding side.</p>
+<p>Media content needs to be fetched, demuxed, decoded to produce raw audio and video frames, and rendered to the final display or speakers.</p>
+<p>The mux and demux operations are only needed in progressive and adaptive media playback scenarios.</p>
+<p><a class=dfn>WebRTC</a> deals with individual media stream tracks directly so no mux and demux operations per se there.</p>
+<p>In the interest of time, I will mostly focus on the decoding side, but some considerations apply to the encoding side as well.</p>
+<p> So why would people want to process media streams?</p>
+<p>Well, they may want to analyze frames to detect objects, faces, or gestures.</p>
+<p>Or they may want to actually modify the streams in real time, either to add overlays in real time (for instance to add funny hats), remove the background, or simply because the client application is a media authoring tool.</p>
+<p> In most cases, these scenarios need to process individual decoded audio or video frames.</p>
+<p>So, if we look back at our typical media pipeline, ideally, we'd like to hook processing between the record and the encode operations on the encoding side, and between the decode and the render operations on the decoding side.</p>
+<p> OK, let's get back to our four media scenarios.</p>
+<p>For progressive media playback, the HTMLMediaElement takes the URL of a media file and renders the result.</p>
+<p>The browser does all the work.</p>
+<p>And that's too bad, because that means there is no way to hook any processing step there!</p>
+<p> But you can cheat!</p>
+<p>You create your own processing hook.</p>
+<p>For video, you can copy rendered frames repeatedly to a canvas element , process pixels extracted from the canvas and render the result to a canvas.</p>
+<p>The solution is not fantastic because it is not very efficient, but at least it exists.</p>
+<p> MSE is essentially a demuxing API.</p>
+<p>In other words, it allows applications to take control of the demux operation and, by extension, of the fetch operation.</p>
+<p>MSE does not expose decoded frames, so no processing hook either but the same canvas "hack" can be used.</p>
+<p> For <a class=dfn>WebRTC</a>, first remember that there is no demux operation.</p>
+<p><a class=dfn>WebRTC</a> takes care of the fetch and decode operations.</p>
+<p>In theory, that's fantastic news.</p>
+<p>We should get decoded frames out of <a class=dfn>WebRTC</a>.</p>
+<p>However, in practice, a "decoded" stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque MediaStreamTrack object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
+<p>So, back to the same canvas hack again...</p>
+<p> The Web Audio API is a processing API at its heart.</p>
+<p>However, the whole API is meant to operate on an entire file.</p>
+<p>There is no support for streaming and no indication of progress when processing large file.</p>
+<p>This works well for short audio samples, but is really not a good fit for streaming scenarios.</p>
+<p> In other words, today, the only way to process audio is through the Web Audio API; and that is only really useful for short audio samples.</p>
+<p>And the only way to process video is by capturing rendered frames onto a canvas, which is not very efficient.</p>
+<p> I lied.</p>
+<p>There is another way!</p>
+<p>A Web application may also choose to implement the entire media pipeline on its own, using JavaScript or <a class=dfn>WebAssembly</a>, rendering the result to a canvas.</p>
+<p>This is suboptimal, especially on constrained devices, but know that some media authoring applications actually do that.</p>
+<p> If existing solutions are not efficient enough, what would make media processing efficient?</p>
+<p>It essentially boils down to sizes.</p>
+<p>To give you a rough idea, a single video frame in a full HD video weighs about 24MB, so processing a full HD video in real time means processing about 600MB of raw data per second.</p>
+<p>Any efficient solution should avoid having to manipulate or copy bytes around, while allowing to leverage the CPU, the GPU, <a class=dfn>WebAssembly</a>, Machine Learning hardware, while also giving some knobs to control the processing speed and, last but not least, while also keeping related tracks synchronized!</p>
+<p>That's a lot of requirements and the list is not even exhaustive.</p>
+<p>That typically explains why decoded media has remained opaque until now.</p>
+<p>It is hard to expose decoded media on the Web!</p>
+<p> It is hard, but it is not impossible.</p>
+<p>The WebCodecs API, initially proposed by Google, aims at providing access to built-in media encoders and decoders.</p>
+<p>As a by-product, the API exposes decoded frames, allowing applications to hook into the output of the API to process these frames.</p>
+<p>Note that the API does not take care of the mux/demux operations, which will have to be done by the application through some JavaScript or <a class=dfn>WebAssembly</a> code.</p>
+<p>This shouldn't be a problem in practice, these operations are not really heavy on the CPU.</p>
+<p> The API is very much in flux, so it's hard to assess anything on WebCodecs for now.</p>
+<p>There are a number of open questions, starting with "how can WebCodecs be integrated with other specs?".</p>
+<p><a class=dfn>WebAssembly</a>, MSE, <a class=dfn>WebRTC</a>, <a class=dfn>WebXR</a> for rendering video in immersive contexts.</p>
+<p>Well, and of course, the integration question also exists for machine learning APIs.</p>
+<p>It's worth noting that the <a class=dfn>WebRTC</a> Working Group has started to work <a class=dfn>WebRTC</a> Insertable Media using Streams that should eventually build on top of WebCodecs.</p>
+<p>By the way, it seems worth noting that WebCodecs is not based on WHATWG Streams.</p>
+<p>That was the initial goal, but it turned out to be very difficult.</p>
+<p>So having a way to process WHATWG Streams does not necessarily mean that it will be de facto possible to process media streams.</p>
+<p>Incubation takes place in the Web Platform Incubator Community Group.</p>
+<p>The Media Working Group may adopt and standardize the proposal once it's ready.</p>
+<p> Before I conclude, I'd like to raise a few other media technologies and proposals that may or may not affect the way processing gets done in the future.</p>
+<p>For instance, the Media Working Group standardizes a codec switching feature for MSE, for instance to allow to insert an ad which may be in low resolution in the middle of a 4K video.</p>
+<p>How would such a switch affect processing?</p>
+<p>In some "processing" scenarios, all that may be required is rendering an overlay on top of a video without touching the video per se.</p>
+<p>That is precisely what the HTMLVideoElement.requestVideoFrameCallback proposal is offering.</p>
+<p>How does that affect everything that I presented so far?</p>
+<p>Flat videos are no longer the only videos in town.</p>
+<p>Other types of videos get rendered for VR/AR and more immersive experiences.</p>
+<p>This includes 360 videos, volumetric videos, and more generally 3D playback experiences.</p>
+<p>How does processing apply to these cases?</p>
+<p>Also, I have only focused on audio and video tracks, but media content also contains events tracks that are more and more used to control the playback experience.</p>
+<p>Media industries are putting a lot of efforts these days to standardize solutions to expose media timed events to applications.</p>
+<p>The generic idea is to rely on the user agent to do the work.</p>
+<p>If WebCodecs requires applications to demux media content themselves, then what happens to events tracks?</p>
+<p>One final note on encrypted media.</p>
+<p>In general, the goal there is to hide the bytes from the applications, so encrypted media is typically not a good candidate for application-controlled processing operations.</p>
+<p>There may still be scenarios where the ability to process encrypted media in a separate sandbox could be useful.</p>
+<p>So, something that could be worth keeping in mind.</p>
+<p>All these features and others are mentioned in the Overview of Media Technologies for the Web, which I invite you to take a peak at.</p>
+<p> So, what I have tried to convey here is that exposing decoded media frames to applications is doable but not easy, or not as easy as it might sound.</p>
+<p>There is no satisfactory solution today.</p>
+<p>WebCodecs seems very promising but there are lots of open questions that still need to be discussed.</p>
+<p>In order to be successful, the work on WebCodecs would greatly benefit from coordination and engagement from people involved in other technologies.</p>
+<p>And that includes people looking at exposing machine learning capabilities to Web applications!</p>
+<p>OK, I'm done, thank you, bye!</p></div><div class="slide" role='region' aria-label="Slide 2 of 18" id="slide-2" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 2</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 3 of 18" id="slide-3" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 3</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 4 of 18" id="slide-4" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 4</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 5 of 18" id="slide-5" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 5</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 6 of 18" id="slide-6" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 6</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 7 of 18" id="slide-7" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 7</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 8 of 18" id="slide-8" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 8</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 9 of 18" id="slide-9" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 9</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 10 of 18" id="slide-10" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 10</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 11 of 18" id="slide-11" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 11</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 12 of 18" id="slide-12" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 12</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 13 of 18" id="slide-13" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 13</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 14 of 18" id="slide-14" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 14</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 15 of 18" id="slide-15" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 15</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 16 of 18" id="slide-16" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 16</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 17 of 18" id="slide-17" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 17</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 18 of 18" id="slide-18" data-fmt="shower" data-src="https://www.w3.org/2020/Talks/fd-media-processing/#"><noscript><a href="https://www.w3.org/2020/Talks/fd-media-processing/#">Slide 18</a></noscript></div><div role='region'><p></p></div>

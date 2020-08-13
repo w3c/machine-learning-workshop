@@ -1,0 +1,50 @@
+<div class="slide" role='region' aria-label="Slide 1 of 2" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/wm_collaborative-learning.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/wm_collaborative-learning.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello everybody, my name is Wolfgang Maß.</p>
+<p>I am at the German Research Center for Artificial Intelligence.</p>
+<p>And I'm working on smart service engineering, in industrial settings, healthcare settings and other domains.</p>
+<p>I want to show what we are doing with respect to what we call collaborative learning in the next couple of slides.</p></div><div class="slide" role='region' aria-label="Slide 2 of 2" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/wm_collaborative-learning.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/wm_collaborative-learning.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>So, a background motivation for work is that we are investigating smart services, which can be considered as software systems that adapt to user needs and are adaptive to various kinds of contexts in the real world.</p>
+<p>And smart services apply AI technologies, processing box data, but also streaming data and smart services shall be interoperable and shall collaborate over the network in particular the world wide web.</p>
+<p>There are some goals that we investigate on one hand side: we want to investigate smart services that only live in a browser and not so much in data centers.</p>
+<p>Smart services shall be quickly built and shall be based on reusable software modules.</p>
+<p>We do not want to exclude cloud based AI services, but want to merge locally executed AI services and cloud based AI services.</p>
+<p>And another goal is that smart services are self-descriptive, and in this sense of self-containing.</p>
+<p>And then it shall be self maintaining to a certain extent, while this at the moment is rather a goal than that we actually have implementations on that.</p>
+<p>Furthermore, we do not want to confine ourselves toward very specific architecture, but by adopting an agent based approach, agents shall communicate with each other, they should also dedicate roles to agents such as becoming a server role or communication partner role, and that should be done dynamically in negotiation between agents.</p>
+<p>We have built a platform called Tucana, whose architecture you see on the right hand side of the slide.</p>
+<p>And Tucana is a peer to peer architecture, where different kinds of environments what we call Tucana environments T-ENV, can communicate with one another.</p>
+<p>In each Tucana environment, several smart services can be executed.</p>
+<p>They can communicate locally, but they can also communicate via peer to peer networks based on <a class=dfn>WebRTC</a>.</p>
+<p>Each smart service as you can see on the second image on this slide, consists of different kinds of minions and these minions are software modules with dedicated tasks.</p>
+<p>We distinguish between perceiver minions, thinker minions, communicator minions, but also actuator minions.</p>
+<p>The basic minions according to a three layer architecture are perceiver minions (PMINs) and thinker minions and communicator minions.</p>
+<p>Perceiver minion collects data and stores the data in the local database of the browser.</p>
+<p>Thinker minion accesses the data and processes by leveraging data analytical software, in particular <a class=dfn>TensorFlow</a>-based kind of analytics but could be any kind of JavaScript machine learning software or customized software, while the communicator minion either communicates with other smart services locally via peer to peer network globally, or with the end user via the browser interface.</p>
+<p>We are using JavaScript for all our implementation, <a class=dfn>WebRTC</a>.</p>
+<p>For access control we use OpenAuthentication 2.0, we are able to export the data that we collect into JSON-LD, one implementation is using BabelNet as the transformer basis.</p>
+<p>We also leverage <a class=dfn>TensorFlow</a> and we are compliant with the specification of GAIA-X and the International Data Space  which is a widely used kind of specification for Industry 4.0 applications, yes.</p>
+<p>So, we specify the smart services in JSON format, and we use these JSON formats in order to bind the software configuration, the smart service configuration to pre-installed minions.</p>
+<p>Probably more interesting for this workshop is the thinker minion.</p>
+<p>I have here an example that we use for activity recognition in the shopping context.</p>
+<p>You also see here that the minions again have an activate method,  a notify method and a terminate method.</p>
+<p>But in between we also have a method for predictPartially the data that is coming in and streams for the acceleration and the geolocation is used to make predictions.</p>
+<p>And we are using a model that was pre-trained in the server side.</p>
+<p>And in during the activate method, we load that model and we use it to make predictions.</p>
+<p>In this case it is a very straightforward and simple prediction - simply to say that a person is tired or it's not tired.</p>
+<p>And the integration of <a class=dfn>TensorFlow</a> JS works quite nicely.</p>
+<p>On the right hand side, you see the model topology that we use here is based on LSTM layers, and the fully connected layer and we integrate it all together and push that into our TMIN.</p>
+<p>Here is an example for the whole smart service for shopping, and as you can see on the left hand side we have a configuration file for our smart service that says we have two perceiver minions, one for geolocation and the other for linear acceleration.</p>
+<p>We have one TMIN for activity prediction and  three CMINs.</p>
+<p>The one for communicating with the user for shopping deal that might be appropriate in that situation.</p>
+<p>We have a pure communicator that can pass information to internal locally defined or via peer to peer connection also to external smart services.</p>
+<p>And we have another communication minion that shows the acceleration also to the user.</p>
+<p>And this configuration in JSON is very handy and allows us very similar to the architectural and topology of a machine learning model to define smart service designs.</p>
+<p>Okay, so let's wrap it up.</p>
+<p>What are our lessons learned?</p>
+<p>And where do we see potential for further development and specifications?</p>
+<p>First, it  would be interesting to have agent-oriented architecture, better being supported by current systems in JavaScript, by <a class=dfn>WebRTC</a> and by other technologies.</p>
+<p>That's one element.</p>
+<p>Then, on the machine learning side, it would be really great if also on the JavaScript side, we would have some support for federated learning, distributed learning and reinforcement learning, this is currently missing.</p>
+<p>In <a class=dfn>WebRTC</a>, I know that the signaling service and the protocol is outside of webRTC.</p>
+<p>However, I would appreciate and I think the community would also appreciate a general and optimized signaling protocol, maybe also an environment for testing for signaling services.</p>
+<p>And last but not least, OpenAuthentication 2.0 -  it requires always on at the moment, if you are offline authentication is a pain.</p>
+<p>So, you have to switch it on and off.</p>
+<p>A buffering service for authentication that supports offline services would be really appreciated.</p></div>

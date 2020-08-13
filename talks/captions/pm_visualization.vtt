@@ -1,0 +1,446 @@
+﻿WEBVTT
+
+slide-1
+00:00:08.016 --> 00:00:09.776
+<v Piotr>I'd like to persuade you why it makes sense</v>
+
+2
+00:00:09.776 --> 00:00:12.756
+to investigate deep learning models.
+
+3
+00:00:12.756 --> 00:00:17.179
+In our case, I'll talk about unsupervised segmentation.
+
+slide-2
+00:00:20.616 --> 00:00:23.176
+As a short intro, my name is Piotr Migdal,
+
+5
+00:00:23.176 --> 00:00:25.376
+and I have PhD in quantum physics
+
+6
+00:00:25.376 --> 00:00:30.216
+and I work with Bartłomiej Olechno at ECC Games.
+
+7
+00:00:30.216 --> 00:00:33.196
+We use deep learning to create levels
+
+8
+00:00:33.196 --> 00:00:36.766
+and physics engine for a race game.
+
+9
+00:00:36.766 --> 00:00:39.816
+Additionally we develop livelossplot,
+
+10
+00:00:39.816 --> 00:00:44.489
+a Python package for charts for deep learning models.
+
+11
+00:00:45.656 --> 00:00:48.796
+And I also develop Quantum Game,
+
+12
+00:00:48.796 --> 00:00:52.086
+in which you are able to play with quantum mechanics
+
+13
+00:00:52.086 --> 00:00:52.919
+in the browser.
+
+slide-3
+00:00:55.266 --> 00:00:59.086
+So before I talk about investigating models interactively,
+
+15
+00:00:59.086 --> 00:01:02.376
+let's make some overview of general,
+
+16
+00:01:02.376 --> 00:01:06.056
+how to track our developing model training process.
+
+17
+00:01:06.056 --> 00:01:09.466
+So the simplest way is to use, well console,
+
+18
+00:01:09.466 --> 00:01:14.466
+and look what's the log loss, what's accuracy, et cetera.
+
+19
+00:01:14.496 --> 00:01:16.556
+But I don't think it's a good solution,
+
+20
+00:01:16.556 --> 00:01:20.219
+it's very easy to miss that it gets better or worse.
+
+21
+00:01:21.162 --> 00:01:25.466
+So what the other step is to use TensorBoard
+
+22
+00:01:25.466 --> 00:01:28.169
+or something which tracks metrics.
+
+23
+00:01:30.685 --> 00:01:34.256
+But I think it's much, much better to say, not only metrics,
+
+24
+00:01:34.256 --> 00:01:37.799
+but also all parameters and code snapshots.
+
+25
+00:01:39.186 --> 00:01:41.829
+For example, Neptune, Weights &amp; Biases or MLflow.
+
+26
+00:01:43.616 --> 00:01:46.196
+But it's not the only axis with respect
+
+27
+00:01:46.196 --> 00:01:50.846
+to which we can look at model training inspection.
+
+slide-4
+00:01:50.846 --> 00:01:52.846
+The other is depth.
+
+29
+00:01:52.846 --> 00:01:56.846
+So for example, you can only look at metrics,
+
+30
+00:01:56.846 --> 00:01:59.766
+but I don't think it's enough.
+
+31
+00:01:59.766 --> 00:02:02.679
+Sometimes you can miss that it classifies,
+
+32
+00:02:04.306 --> 00:02:06.886
+or misclassifies some obvious examples.
+
+33
+00:02:06.886 --> 00:02:08.036
+So we can always,
+
+34
+00:02:08.036 --> 00:02:11.289
+and these are few examples to see what's going on,
+
+35
+00:02:12.506 --> 00:02:16.006
+but I think it's much, much better to make interactive,
+
+36
+00:02:16.006 --> 00:02:18.999
+and in a few slides I'm going to show you how.
+
+slide-5
+00:02:2 1.386 --> 00:02:23.046
+When it comes to our project,
+
+38
+00:02:23.046 --> 00:02:26.946
+we basically have high resolution scans of race tracks,
+
+39
+00:02:26.946 --> 00:02:30.296
+we're going to turn them in semantic maps.
+
+40
+00:02:30.296 --> 00:02:33.576
+there is not enough data to supervised image segmentation,
+
+41
+00:02:33.576 --> 00:02:35.756
+they're very diverse,
+
+42
+00:02:35.756 --> 00:02:38.206
+but you can use something something like word2vec
+
+43
+00:02:39.586 --> 00:02:43.476
+to look at adjacent locations, and it's enough.
+
+44
+00:02:43.476 --> 00:02:44.926
+But we want to make sure that
+
+45
+00:02:45.996 --> 00:02:48.269
+we are able to extract relevant data.
+
+46
+00:02:49.536 --> 00:02:53.386
+It's a simple example of the scan
+
+47
+00:02:53.386 --> 00:02:56.786
+but also @@@ of future map,
+
+48
+00:02:56.786 --> 00:02:58.553
+not of the original pixels.
+
+49
+00:03:00.356 --> 00:03:04.186
+The question is if we can extract, for example,
+
+50
+00:03:04.186 --> 00:03:08.759
+tire tracks or cracks on the road or in the pic.
+
+slide-6
+00:03:11.076 --> 00:03:12.176
+And let me,
+
+52
+00:03:12.176 --> 00:03:14.086
+and we then talk about that pipeline
+
+53
+00:03:14.086 --> 00:03:17.316
+well here containing PyTorch, and in this case plus Ignite,
+
+54
+00:03:17.316 --> 00:03:22.316
+we save models with livelossplot plus Neptune and metrics
+
+55
+00:03:22.606 --> 00:03:26.586
+but also we, of the future maps,
+
+56
+00:03:26.586 --> 00:03:27.756
+we create some visualization
+
+57
+00:03:27.756 --> 00:03:31.927
+using D3, and as you see right now,
+
+58
+00:03:31.927 --> 00:03:34.046
+I present them in a slide,
+
+59
+00:03:34.046 --> 00:03:35.736
+in this case it's ioslides,
+
+60
+00:03:35.736 --> 00:03:36.836
+when you write things,
+
+61
+00:03:37.703 --> 00:03:40.553
+even for internal notes we use Distill for RMarkdown.
+
+slide-7
+00:03:42.196 --> 00:03:45.639
+And here's an example, this is a picture,
+
+63
+00:03:47.006 --> 00:03:49.076
+when we mouse over we see
+
+64
+00:03:49.076 --> 00:03:52.359
+what are the relevant pixels or dots.
+
+65
+00:03:53.926 --> 00:03:56.446
+And not only we can look at similar pictures
+
+66
+00:03:56.446 --> 00:03:57.646
+we expect in one place,
+
+67
+00:03:57.646 --> 00:03:59.496
+but also we can look at the differences,
+
+68
+00:03:59.496 --> 00:04:03.086
+for example, this one versus the other.
+
+69
+00:04:03.086 --> 00:04:05.606
+There is a river, there are some buildings,
+
+70
+00:04:05.606 --> 00:04:07.846
+the river and there is forest,
+
+71
+00:04:07.846 --> 00:04:11.226
+in this case we can see what's going on.
+
+72
+00:04:11.226 --> 00:04:15.679
+Also we can look at the places which do not work correctly.
+
+slide-8
+00:04:18.686 --> 00:04:21.579
+But also we can use, well, game data.
+
+74
+00:04:22.476 --> 00:04:25.156
+In this case, it's SimCity, the classic one,
+
+75
+00:04:25.156 --> 00:04:28.616
+the original SimCity, there's some buildings,
+
+76
+00:04:28.616 --> 00:04:30.326
+and in some places we can separate
+
+77
+00:04:31.586 --> 00:04:34.159
+residential area from industrial area.
+
+slide-9
+00:04:37.826 --> 00:04:41.476
+Or we can look at another game like Minesweeper
+
+79
+00:04:41.476 --> 00:04:43.146
+and compare models.
+
+80
+00:04:43.146 --> 00:04:45.416
+So you see, it's like we want to have something
+
+81
+00:04:45.416 --> 00:04:50.216
+that tells us which regions is inside and which is outside.
+
+82
+00:04:50.216 --> 00:04:53.779
+This model shows something, but I think it's not perfect.
+
+slide-10
+00:04:55.216 --> 00:04:57.096
+And this one is actually much better
+
+84
+00:04:57.096 --> 00:05:00.986
+'cause at the same time, you can separate inside from the outside,
+
+85
+00:05:00.986 --> 00:05:05.499
+also see their different and here they're different.
+
+86
+00:05:06.766 --> 00:05:08.096
+Maybe you can look at the difference,
+
+87
+00:05:08.096 --> 00:05:10.069
+yes, it's very remarkable.
+
+88
+00:05:11.416 --> 00:05:14.979
+And I think it's not that hard to include that.
+
+slide-11
+00:05:15.826 --> 00:05:18.066
+In my model basically there are a few lines,
+
+90
+00:05:18.066 --> 00:05:21.513
+the only thing is to write a simple visualization in D3,
+
+91
+00:05:23.525 --> 00:05:26.686
+and also include JSON, so we need to export things to JSON.
+
+slide-12
+00:05:30.506 --> 00:05:32.286
+But I think JSON is not that good
+
+93
+00:05:32.286 --> 00:05:36.086
+for serializing matrices and arrays:
+
+94
+00:05:36.086 --> 00:05:41.086
+it's costly, it's slow, it's not type-safe.
+
+95
+00:05:41.736 --> 00:05:43.686
+So I think it would be nice
+
+96
+00:05:43.686 --> 00:05:47.126
+to have and use a general standardized
+
+97
+00:05:47.126 --> 00:05:51.076
+format for input and output of matrices.
+
+98
+00:05:51.076 --> 00:05:53.566
+It's crucial, not only for deep learning,
+
+99
+00:05:53.566 --> 00:05:55.419
+but also for quantum computing,
+
+100
+00:05:56.509 --> 00:05:59.616
+it's basically the same story,
+
+101
+00:05:59.616 --> 00:06:01.656
+just you need to have complex numbers
+
+102
+00:06:01.656 --> 00:06:04.079
+to describe all of the data.
+
+slide-13
+00:06:07.616 --> 00:06:09.419
+So, well, that's all,
+
+104
+00:06:10.416 --> 00:06:13.216
+there's inspirations and also,
+
+105
+00:06:13.216 --> 00:06:16.346
+especially, I invite you to look at
+
+106
+00:06:16.346 --> 00:06:19.306
+the collaborative list machine learning, deep learning
+
+107
+00:06:19.306 --> 00:06:20.996
+and statistics websites,
+
+108
+00:06:20.996 --> 00:06:22.639
+a lot of extra explanations.
+
+109
+00:06:24.116 --> 00:06:28.136
+And, well, you can also check our personal project,
+
+110
+00:06:28.136 --> 00:06:30.279
+this livelossplot and the Quantum Game.
+
+111
+00:06:31.736 --> 00:06:32.569
+Have a nice day.
+

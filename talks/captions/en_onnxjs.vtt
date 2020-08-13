@@ -1,0 +1,890 @@
+﻿WEBVTT
+
+slide-1
+00:00:09.936 --> 00:00:11.456
+<v ->Hi, everyone.</v>
+
+2
+00:00:11.456 --> 00:00:14.226
+This talk is about ONNX.js,
+
+3
+00:00:14.226 --> 00:00:16.736
+which is a JavaScript library
+
+4
+00:00:16.736 --> 00:00:21.069
+to run ONNX model in a browser and Node.js.
+
+5
+00:00:22.236 --> 00:00:24.499
+This is Emma from Microsoft.
+
+6
+00:00:26.826 --> 00:00:27.899
+Slide two.
+
+slide-2
+00:00:29.196 --> 00:00:33.346
+JavaScript is one of the most important languages.
+
+8
+00:00:33.346 --> 00:00:36.973
+As a web technology survey reports,
+
+9
+00:00:36.973 --> 00:00:41.973
+JavaScript is used by 95% of websites,
+
+10
+00:00:42.056 --> 00:00:43.746
+and it tops the list
+
+11
+00:00:43.746 --> 00:00:46.679
+of the most popular client-side languages.
+
+12
+00:00:47.946 --> 00:00:51.197
+Another important scenario using JavaScript
+
+13
+00:00:51.197 --> 00:00:53.224
+is Electron apps.
+
+14
+00:00:53.224 --> 00:00:58.224
+Electron enables you to create desktop applications
+
+15
+00:00:58.966 --> 00:01:02.666
+with pure JavaScript by providing a runtime
+
+16
+00:01:02.666 --> 00:01:05.009
+with rich native APIs.
+
+17
+00:01:05.926 --> 00:01:08.346
+If you can build a website,
+
+18
+00:01:08.346 --> 00:01:12.359
+you can build a desktop app with Electron.
+
+19
+00:01:14.670 --> 00:01:18.476
+There are a lot of well-known apps built with Electron,
+
+20
+00:01:18.476 --> 00:01:23.176
+Slack, VS code and GitHub desktop.
+
+21
+00:01:23.176 --> 00:01:27.546
+All of them are done with Node.js through Electron,
+
+22
+00:01:27.546 --> 00:01:29.939
+and the experience is pretty good.
+
+23
+00:01:31.666 --> 00:01:34.056
+Same as websites,
+
+24
+00:01:34.056 --> 00:01:36.316
+Electron apps are cross-platform,
+
+25
+00:01:36.316 --> 00:01:40.299
+compatible with Mac, Windows and Linux.
+
+26
+00:01:42.926 --> 00:01:43.949
+Slide Three.
+
+slide-3
+00:01:45.106 --> 00:01:48.546
+As you know, machine learning has been widely used
+
+28
+00:01:48.546 --> 00:01:51.906
+for improving product experience.
+
+29
+00:01:51.906 --> 00:01:54.056
+Can we run machine learning with JavaScript
+
+30
+00:01:55.131 --> 00:01:57.249
+in client-side applications?
+
+31
+00:01:58.616 --> 00:02:01.266
+Originally, people have some concern
+
+32
+00:02:01.266 --> 00:02:04.896
+given that JavaScript isn't designed
+
+33
+00:02:04.896 --> 00:02:07.996
+for high performance computing
+
+34
+00:02:07.996 --> 00:02:11.406
+and machine learning requires significant computation
+
+35
+00:02:11.406 --> 00:02:15.079
+when executing neural network model.
+
+36
+00:02:15.079 --> 00:02:18.666
+Actually, there are a lot of good techniques
+
+37
+00:02:18.666 --> 00:02:21.176
+to make JavaScript and machine learning
+
+38
+00:02:21.176 --> 00:02:23.036
+work quite well together
+
+39
+00:02:23.036 --> 00:02:26.946
+for developing more engaging and advanced
+
+40
+00:02:26.946 --> 00:02:28.349
+client-side AI capabilities.
+
+41
+00:02:30.962 --> 00:02:32.656
+Then, there are some well-known benefits
+
+42
+00:02:32.656 --> 00:02:35.576
+of using client-side machine learning,
+
+43
+00:02:35.576 --> 00:02:37.876
+like privacy protection.
+
+44
+00:02:37.876 --> 00:02:40.986
+Since client-side models work offline,
+
+45
+00:02:40.986 --> 00:02:44.056
+user do not need to worry about their data
+
+46
+00:02:44.056 --> 00:02:47.746
+being sent across the Internet.
+
+47
+00:02:47.746 --> 00:02:49.976
+Realtime analysis,
+
+48
+00:02:49.976 --> 00:02:53.176
+although client-side hardware may be slow,
+
+49
+00:02:53.176 --> 00:02:55.416
+it's almost certainly faster
+
+50
+00:02:55.416 --> 00:02:59.116
+than waiting to retrieve results from a server
+
+51
+00:02:59.116 --> 00:03:03.619
+when user need to uploading big data in a bad network.
+
+52
+00:03:04.976 --> 00:03:08.609
+It makes livestream video analysis possible.
+
+53
+00:03:09.806 --> 00:03:12.966
+Even with no connection to Internet,
+
+54
+00:03:12.966 --> 00:03:17.149
+client-side machine learning experience wouldn't be broken.
+
+55
+00:03:18.686 --> 00:03:21.106
+When client-side AI applications
+
+56
+00:03:21.106 --> 00:03:23.049
+are developed with JavaScript,
+
+57
+00:03:24.481 --> 00:03:27.116
+AI developers can easily enable
+
+58
+00:03:27.116 --> 00:03:31.171
+consistent AI experience cross-platform,
+
+59
+00:03:31.171 --> 00:03:35.316
+accelerate performance by utilizing GPUs
+
+60
+00:03:35.316 --> 00:03:38.456
+and distribute the experience to users
+
+61
+00:03:38.456 --> 00:03:41.136
+without asking for any libraries
+
+62
+00:03:41.136 --> 00:03:42.849
+and drivers installation.
+
+63
+00:03:46.616 --> 00:03:47.509
+Slide four.
+
+slide-4
+00:03:48.826 --> 00:03:51.636
+Similar to tensorflow.js,
+
+65
+00:03:51.636 --> 00:03:55.956
+ONNX.js is another framework to provide capability
+
+66
+00:03:55.956 --> 00:03:59.726
+of running machine learning models with JavaScript.
+
+67
+00:03:59.726 --> 00:04:04.706
+Model format ONNX.js support is ONNX.
+
+68
+00:04:04.706 --> 00:04:09.189
+So allow me to give a brief introduction of ONNX first.
+
+69
+00:04:10.550 --> 00:04:14.186
+ONNX stands for open neural network exchange,
+
+70
+00:04:14.186 --> 00:04:15.976
+is an open standard
+
+71
+00:04:15.976 --> 00:04:19.176
+for representing machine learning models.
+
+72
+00:04:19.176 --> 00:04:20.536
+As a standard,
+
+73
+00:04:20.536 --> 00:04:22.996
+it defines three things,
+
+74
+00:04:22.996 --> 00:04:26.356
+an extensible computation graph,
+
+75
+00:04:26.356 --> 00:04:31.086
+standard data types, and built-in operators.
+
+76
+00:04:31.086 --> 00:04:33.839
+Here is an example of ONNX model.
+
+77
+00:04:35.246 --> 00:04:36.726
+The spec supports
+
+78
+00:04:36.726 --> 00:04:40.239
+both DNN and traditional machine learning models.
+
+79
+00:04:42.766 --> 00:04:43.719
+Slide five.
+
+slide-5
+00:04:44.906 --> 00:04:46.566
+As an open standard,
+
+81
+00:04:46.566 --> 00:04:50.976
+the beauty of ONNX is framework interoperability.
+
+82
+00:04:50.976 --> 00:04:54.296
+As long as a model is trained through a framework
+
+83
+00:04:54.296 --> 00:04:56.116
+which supports ONNX,
+
+84
+00:04:56.116 --> 00:04:59.009
+you can convert that model to ONNX format.
+
+85
+00:05:00.306 --> 00:05:02.926
+Here are some of the popular frameworks
+
+86
+00:05:02.926 --> 00:05:05.386
+that support ONNX conversion.
+
+87
+00:05:05.386 --> 00:05:09.176
+For some of these like PyTorch,
+
+88
+00:05:09.176 --> 00:05:13.336
+ONNX format export is built in natively,
+
+89
+00:05:13.336 --> 00:05:17.348
+and for others like tensorflow Keras,
+
+90
+00:05:17.348 --> 00:05:20.056
+there are separate installable package
+
+91
+00:05:20.056 --> 00:05:21.729
+that can handle conversion.
+
+92
+00:05:23.396 --> 00:05:27.436
+There is already support for many popular models,
+
+93
+00:05:27.436 --> 00:05:31.939
+including object detection like Fast R-CNN,
+
+94
+00:05:32.976 --> 00:05:36.206
+speech recognition and NLP
+
+95
+00:05:36.206 --> 00:05:39.439
+including brute and other transformers.
+
+96
+00:05:42.756 --> 00:05:43.969
+Slide six.
+
+slide-6
+00:05:44.936 --> 00:05:48.893
+Since ONNX community was established in 2017
+
+98
+00:05:50.426 --> 00:05:52.816
+by Microsoft and Facebook,
+
+99
+00:05:52.816 --> 00:05:57.056
+it has been attracting more and more companies to join.
+
+100
+00:05:57.056 --> 00:06:02.056
+Today, the ONNX community is made up of over 40 companies.
+
+101
+00:06:03.536 --> 00:06:08.536
+Last year, ONNX project was accepted into Linux Foundation
+
+102
+00:06:10.576 --> 00:06:13.146
+as a graduated project.
+
+103
+00:06:13.146 --> 00:06:17.576
+This is a key milestone in establishing ONNX
+
+104
+00:06:17.576 --> 00:06:21.069
+as a vendor-neutral open format standard.
+
+105
+00:06:24.736 --> 00:06:25.969
+Slide seven.
+
+slide-7
+00:06:26.956 --> 00:06:31.956
+ONNX.js is pure JavaScript implementation of ONNX framework
+
+107
+00:06:32.736 --> 00:06:35.586
+which allows user to run ONNX models
+
+108
+00:06:35.586 --> 00:06:37.929
+in a browser and Node.js.
+
+109
+00:06:39.036 --> 00:06:43.536
+ONNX.js optimize model inference on both CPU and GPU
+
+110
+00:06:43.536 --> 00:06:48.536
+by leveraging several advanced techniques.
+
+111
+00:06:48.536 --> 00:06:50.529
+I will talk about the detail later.
+
+112
+00:06:51.496 --> 00:06:53.236
+The graph on the left
+
+113
+00:06:53.236 --> 00:06:57.276
+is the high-level architecture of ONNX.js.
+
+114
+00:06:57.276 --> 00:07:00.536
+Graph engine will load ONNX model file,
+
+115
+00:07:00.536 --> 00:07:03.299
+then interpret it to your model DAG,
+
+116
+00:07:04.506 --> 00:07:09.506
+then execution engine will call appropriate backend
+
+117
+00:07:09.826 --> 00:07:12.769
+to execute the model, to get the output.
+
+118
+00:07:14.036 --> 00:07:16.656
+There are three backends enabled,
+
+119
+00:07:16.656 --> 00:07:21.409
+two for CPU using JavaScript and WebAssembly separately,
+
+120
+00:07:22.492 --> 00:07:24.779
+one for GPU using WebGL.
+
+121
+00:07:26.296 --> 00:07:31.296
+Also ONNX.js provides profiler, logger and other utilities
+
+122
+00:07:32.566 --> 00:07:35.539
+for easily debugging and analysis.
+
+123
+00:07:39.996 --> 00:07:43.756
+Except Firefox on Android,
+
+124
+00:07:43.756 --> 00:07:48.426
+ONNX.js supports all browsers on major platforms.
+
+125
+00:07:48.426 --> 00:07:51.996
+So you can easily build up your AI applications
+
+126
+00:07:51.996 --> 00:07:54.639
+across platform with ONNX.js.
+
+slide-8
+00:07:58.346 --> 00:08:00.366
+For running on CPU,
+
+128
+00:08:00.366 --> 00:08:05.366
+ONNX.js adopts WebAssembly to accelerate the model
+
+129
+00:08:05.422 --> 00:08:06.939
+at near-native speed.
+
+130
+00:08:07.829 --> 00:08:11.786
+WebAssembly aims to execute at native speed
+
+131
+00:08:11.786 --> 00:08:14.776
+by taking advantage of common hardware capabilities
+
+132
+00:08:15.891 --> 00:08:19.319
+available on a wide range of platform.
+
+133
+00:08:21.416 --> 00:08:25.396
+It's generally much faster than JavaScript
+
+134
+00:08:25.396 --> 00:08:29.676
+for heavy workloads in a machine learning task.
+
+135
+00:08:29.676 --> 00:08:34.676
+JavaScript is dynamically typed and garbage-collected,
+
+136
+00:08:35.636 --> 00:08:40.036
+which can cause significantly slow down at runtime.
+
+137
+00:08:40.036 --> 00:08:42.959
+Based on our evaluation, compared to JavaScript,
+
+138
+00:08:44.216 --> 00:08:48.789
+WebAssembly can improve the performance by over 11 times.
+
+139
+00:08:51.126 --> 00:08:55.716
+We have enabled WebAssembly as one CPU backend
+
+140
+00:08:55.716 --> 00:08:58.679
+since ONNX.js was open sourced in 2018.
+
+141
+00:09:01.636 --> 00:09:06.636
+One year later, tensorflow.js started exploring WebAssembly.
+
+142
+00:09:09.130 --> 00:09:12.416
+Furthermore, ONNX.js utilize a web worker
+
+143
+00:09:12.416 --> 00:09:15.476
+to provide multi-thread environment
+
+144
+00:09:15.476 --> 00:09:17.919
+for operator parallelization.
+
+145
+00:09:19.416 --> 00:09:21.896
+Originally, web worker was introduced
+
+146
+00:09:21.896 --> 00:09:25.296
+to unblock UI rendering.
+
+147
+00:09:25.296 --> 00:09:29.646
+It allows you to create additional thread
+
+148
+00:09:29.646 --> 00:09:33.859
+to run other long-run computation separately.
+
+149
+00:09:35.332 --> 00:09:40.026
+ONNX.js leverages web worker to enable parallelization
+
+150
+00:09:40.026 --> 00:09:42.086
+with heavy operators,
+
+151
+00:09:42.086 --> 00:09:45.216
+which significantly improve the performance
+
+152
+00:09:45.216 --> 00:09:47.493
+on machines with multicores.
+
+153
+00:09:49.766 --> 00:09:54.766
+By taking full advantage of WebAssembly and web worker,
+
+154
+00:09:55.276 --> 00:10:00.276
+the final result shows over 19 times speedup
+
+155
+00:10:01.386 --> 00:10:03.529
+on CPU with four cores.
+
+156
+00:10:07.116 --> 00:10:08.249
+Slide nine.
+
+slide-9
+00:10:09.086 --> 00:10:13.466
+WebGL is adopted for GPU acceleration.
+
+158
+00:10:13.466 --> 00:10:18.466
+WebGL is a popular standard for accessing GPU capabilities.
+
+159
+00:10:20.041 --> 00:10:21.666
+It's a JavaScript API
+
+160
+00:10:21.666 --> 00:10:26.266
+for rendering interactive 2D and 3D graphics
+
+161
+00:10:26.266 --> 00:10:28.729
+within any compatible web browser.
+
+162
+00:10:30.086 --> 00:10:32.676
+WebGL is based on OpenGL,
+
+163
+00:10:32.676 --> 00:10:37.039
+which provides direct access to a computer's GPU.
+
+164
+00:10:39.196 --> 00:10:41.276
+Graphics creation in JavaScript
+
+165
+00:10:41.276 --> 00:10:43.656
+is similar to machine learning,
+
+166
+00:10:43.656 --> 00:10:46.946
+because it requires fast processing power
+
+167
+00:10:46.946 --> 00:10:50.829
+to animate and draw detailed vectors.
+
+168
+00:10:52.236 --> 00:10:57.236
+Based on WebGL, ONNX.js enable many optimizations
+
+169
+00:10:57.556 --> 00:11:01.756
+for reducing data transfer between CPU and GPU,
+
+170
+00:11:01.756 --> 00:11:05.966
+as well as reducing GPU processing cycle
+
+171
+00:11:05.966 --> 00:11:09.469
+to further push the performance to the maximum.
+
+172
+00:11:10.926 --> 00:11:14.446
+Here is a chart showing performance improvements
+
+173
+00:11:14.446 --> 00:11:18.256
+along with some major optimizations.
+
+174
+00:11:18.256 --> 00:11:19.089
+Finally,
+
+175
+00:11:19.089 --> 00:11:24.089
+we were able to reduce the latency of ResNet50 on GPU
+
+176
+00:11:24.376 --> 00:11:26.339
+by more than three times.
+
+177
+00:11:29.546 --> 00:11:31.769
+Slide 10.
+
+slide-10
+00:11:31.769 --> 00:11:32.602
+Okay.
+
+179
+00:11:32.602 --> 00:11:35.886
+If you want to run a model with ONNX.js,
+
+180
+00:11:35.886 --> 00:11:37.936
+here is end-to-end flow.
+
+181
+00:11:37.936 --> 00:11:42.419
+You can train a model through any framework supporting ONNX,
+
+182
+00:11:43.269 --> 00:11:47.866
+convert it to ONNX format using public conversion tools,
+
+183
+00:11:47.866 --> 00:11:51.486
+then you can inference the converted model with ONNX.js
+
+184
+00:11:51.486 --> 00:11:52.319
+with this.
+
+185
+00:11:54.896 --> 00:11:56.039
+Slide 11.
+
+slide-11
+00:11:56.946 --> 00:11:59.989
+This is a HTML example to use ONNX.js,
+
+187
+00:12:01.787 --> 00:12:03.961
+majorly three steps,
+
+188
+00:12:03.961 --> 00:12:07.378
+create an ONNX session, a node ONNX model
+
+189
+00:12:08.396 --> 00:12:10.566
+and generate inputs,
+
+190
+00:12:10.566 --> 00:12:12.709
+then run the model with the session.run.
+
+191
+00:12:15.296 --> 00:12:16.309
+Slide 12.
+
+slide-12
+00:12:17.276 --> 00:12:22.276
+Also you can use NPM and bundling tools to use ONNX.js.
+
+193
+00:12:25.206 --> 00:12:26.039
+Slide 13.
+
+slide-13
+00:12:27.946 --> 00:12:31.946
+To demonstrate Web ML capability
+
+195
+00:12:31.946 --> 00:12:35.936
+and help user ramp up with ONNX.js easily,
+
+196
+00:12:35.936 --> 00:12:39.149
+we built up ONNX.js demo website.
+
+197
+00:12:40.126 --> 00:12:44.366
+Five models are enabled on this website.
+
+198
+00:12:44.366 --> 00:12:48.333
+Here is a example of running YOLO model in a browser.
+
+199
+00:12:49.270 --> 00:12:51.826
+You can choose different backend, CPU or GPU.
+
+200
+00:12:54.036 --> 00:12:57.046
+Since YOLO is realtime neural network
+
+201
+00:12:57.046 --> 00:12:58.946
+for object detection,
+
+202
+00:12:58.946 --> 00:13:00.996
+in addition to image detection,
+
+203
+00:13:00.996 --> 00:13:04.566
+we implemented a realtime detection scenario
+
+204
+00:13:04.566 --> 00:13:06.449
+through your local camera.
+
+205
+00:13:10.176 --> 00:13:11.699
+Slide 14.
+
+slide-14
+00:13:13.406 --> 00:13:15.486
+ONNX.js is evolving
+
+207
+00:13:15.486 --> 00:13:19.186
+and we'd love to embrace your contribution.
+
+208
+00:13:19.186 --> 00:13:23.009
+Here are three major buckets to make ONNX.js better.
+
+209
+00:13:24.236 --> 00:13:28.896
+Currently, ONNX.js support limited ONNX operators,
+
+210
+00:13:28.896 --> 00:13:32.749
+we need to catch up with evolving ONNX spec.
+
+211
+00:13:34.622 --> 00:13:36.796
+There are still a lot of opportunities
+
+212
+00:13:36.796 --> 00:13:39.519
+to further optimize ONNX.js performance.
+
+213
+00:13:40.456 --> 00:13:44.366
+For example, WebNN, web neural network,
+
+214
+00:13:44.366 --> 00:13:48.469
+is one well promising tech ONNX can integrate.
+
+215
+00:13:49.646 --> 00:13:51.546
+Some experimental results
+
+216
+00:13:51.546 --> 00:13:54.939
+have already showed very good performance gain.
+
+217
+00:13:56.156 --> 00:14:01.156
+Lastly, more demos can help attract more users
+
+218
+00:14:01.166 --> 00:14:04.459
+by promoting ONNX.js capabilities.
+
+slide-15
+00:14:10.316 --> 00:14:11.446
+Okay.
+
+220
+00:14:11.446 --> 00:14:13.316
+That's the end.
+
+221
+00:14:13.316 --> 00:14:15.486
+Hope you enjoy this talk.
+
+222
+00:14:15.486 --> 00:14:16.319
+Thanks.
+

@@ -1,0 +1,72 @@
+<div class="slide" role='region' aria-label="Slide 1 of 15" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hi, everyone. This talk is about ONNX.js, which is a JavaScript library to run ONNX model in a browser and <a class=dfn>Node.js</a>.</p>
+<p>This is Emma from Microsoft.</p></div><div class="slide" role='region' aria-label="Slide 2 of 15" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>JavaScript is one of the most important languages.</p>
+<p>As a web technology survey reports, JavaScript is used by 95% of websites, and it tops the list of the most popular client-side languages.</p>
+<p>Another important scenario using JavaScript is Electron apps.</p>
+<p>Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native APIs.</p>
+<p>If you can build a website, you can build a desktop app with Electron.</p>
+<p>There are a lot of well-known apps built with Electron, Slack, VS code and GitHub desktop.</p>
+<p>All of them are done with <a class=dfn>Node.js</a> through Electron, and the experience is pretty good.</p>
+<p>Same as websites, Electron apps are cross-platform, compatible with Mac, Windows and Linux.</p></div><div class="slide" role='region' aria-label="Slide 3 of 15" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>As you know, machine learning has been widely used for improving product experience.</p>
+<p>Can we run machine learning with JavaScript in client-side applications?</p>
+<p>Originally, people have some concern given that JavaScript isn't designed for high performance computing and machine learning requires significant computation when executing neural network model.</p>
+<p>Actually, there are a lot of good techniques to make JavaScript and machine learning work quite well together for developing more engaging and advanced client-side AI capabilities.</p>
+<p>Then, there are some well-known benefits of using client-side machine learning, like privacy protection.</p>
+<p>Since client-side models work offline, user do not need to worry about their data being sent across the Internet.</p>
+<p>Realtime analysis, although client-side hardware may be slow, it's almost certainly faster than waiting to retrieve results from a server when user need to uploading big data in a bad network.</p>
+<p>It makes livestream video analysis possible.</p>
+<p>Even with no connection to Internet, client-side machine learning experience wouldn't be broken.</p>
+<p>When client-side AI applications are developed with JavaScript, AI developers can easily enable consistent AI experience cross-platform, accelerate performance by utilizing GPUs and distribute the experience to users without asking for any libraries and drivers installation.</p></div><div class="slide" role='region' aria-label="Slide 4 of 15" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>Similar to tensorflow.js, ONNX.js is another framework to provide capability of running machine learning models with JavaScript.</p>
+<p>Model format ONNX.js support is ONNX.</p>
+<p>So allow me to give a brief introduction of ONNX first.</p>
+<p>ONNX stands for open neural network exchange, is an open standard for representing machine learning models.</p>
+<p>As a standard, it defines three things, an extensible computation graph, standard data types, and built-in operators.</p>
+<p>Here is an example of ONNX model.</p>
+<p>The spec supports both <a class=dfn>DNN</a> and traditional machine learning models.</p></div><div class="slide" role='region' aria-label="Slide 5 of 15" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>As an open standard, the beauty of ONNX is framework interoperability.</p>
+<p>As long as a model is trained through a framework which supports ONNX, you can convert that model to ONNX format.</p>
+<p>Here are some of the popular frameworks that support ONNX conversion.</p>
+<p>For some of these like <a class=dfn>PyTorch</a>, ONNX format export is built in natively, and for others like tensorflow <a class=dfn>Keras</a>, there are separate installable package that can handle conversion.</p>
+<p>There is already support for many popular models, including object detection like Fast R-CNN, speech recognition and <a class=dfn>NLP</a> including brute and other transformers.</p></div><div class="slide" role='region' aria-label="Slide 6 of 15" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Since ONNX community was established in 2017 by Microsoft and Facebook, it has been attracting more and more companies to join.</p>
+<p>Today, the ONNX community is made up of over 40 companies.</p>
+<p>Last year, ONNX project was accepted into Linux Foundation as a graduated project.</p>
+<p>This is a key milestone in establishing ONNX as a vendor-neutral open format standard.</p></div><div class="slide" role='region' aria-label="Slide 7 of 15" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>ONNX.js is pure JavaScript implementation of ONNX framework which allows user to run ONNX models in a browser and <a class=dfn>Node.js</a>.</p>
+<p>ONNX.js optimize model inference on both CPU and GPU by leveraging several advanced techniques.</p>
+<p>I will talk about the detail later.</p>
+<p>The graph on the left is the high-level architecture of ONNX.js.</p>
+<p>Graph engine will load ONNX model file, then interpret it to your <a class=dfn>model DAG</a>, then execution engine will call appropriate backend to execute the model, to get the output.</p>
+<p>There are three backends enabled, two for CPU using JavaScript and <a class=dfn>WebAssembly</a> separately, one for GPU using <a class=dfn>WebGL</a>.</p>
+<p>Also ONNX.js provides profiler, logger and other utilities for easily debugging and analysis.</p>
+<p>Except Firefox on Android, ONNX.js supports all browsers on major platforms.</p>
+<p>So you can easily build up your AI applications across platform with ONNX.js.</p></div><div class="slide" role='region' aria-label="Slide 8 of 15" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>For running on CPU, ONNX.js adopts <a class=dfn>WebAssembly</a> to accelerate the model at near-native speed.</p>
+<p><a class=dfn>WebAssembly</a> aims to execute at native speed by taking advantage of common hardware capabilities available on a wide range of platform.</p>
+<p>It's generally much faster than JavaScript for heavy workloads in a machine learning task.</p>
+<p>JavaScript is dynamically typed and garbage-collected, which can cause significantly slow down at runtime.</p>
+<p>Based on our evaluation, compared to JavaScript, <a class=dfn>WebAssembly</a> can improve the performance by over 11 times.</p>
+<p>We have enabled <a class=dfn>WebAssembly</a> as one CPU backend since ONNX.js was open sourced in 2018.</p>
+<p>One year later, tensorflow.js started exploring <a class=dfn>WebAssembly</a>.</p>
+<p>Furthermore, ONNX.js utilize a web worker to provide multi-thread environment for operator parallelization.</p>
+<p>Originally, web worker was introduced to unblock UI rendering.</p>
+<p>It allows you to create additional thread to run other long-run computation separately.</p>
+<p>ONNX.js leverages web worker to enable parallelization with heavy operators, which significantly improve the performance on machines with multicores.</p>
+<p>By taking full advantage of <a class=dfn>WebAssembly</a> and web worker, the final result shows over 19 times speedup on CPU with four cores.</p></div><div class="slide" role='region' aria-label="Slide 9 of 15" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p><a class=dfn>WebGL</a> is adopted for GPU acceleration.</p>
+<p><a class=dfn>WebGL</a> is a popular standard for accessing GPU capabilities.</p>
+<p>It's a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser.</p>
+<p><a class=dfn>WebGL</a> is based on OpenGL, which provides direct access to a computer's GPU.</p>
+<p>Graphics creation in JavaScript is similar to machine learning, because it requires fast processing power to animate and draw detailed vectors.</p>
+<p>Based on <a class=dfn>WebGL</a>, ONNX.js enable many optimizations for reducing data transfer between CPU and GPU, as well as reducing GPU processing cycle to further push the performance to the maximum.</p>
+<p>Here is a chart showing performance improvements along with some major optimizations.</p>
+<p>Finally, we were able to reduce the latency of ResNet50 on GPU by more than three times.</p></div><div class="slide" role='region' aria-label="Slide 10 of 15" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>Okay.</p>
+<p>If you want to run a model with ONNX.js, here is end-to-end flow.</p>
+<p>You can train a model through any framework supporting ONNX, convert it to ONNX format using public conversion tools, then you can inference the converted model with ONNX.js with this.</p></div><div class="slide" role='region' aria-label="Slide 11 of 15" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>This is a HTML example to use ONNX.js, majorly three steps, create an ONNX session, a node ONNX model and generate inputs, then run the model with the session.run.</p></div><div class="slide" role='region' aria-label="Slide 12 of 15" id="slide-12" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=12"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=12">Slide 12</a></noscript></div><div role='region'><p>Also you can use <a class=dfn>NPM</a> and bundling tools to use ONNX.js.</p></div><div class="slide" role='region' aria-label="Slide 13 of 15" id="slide-13" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=13"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=13">Slide 13</a></noscript></div><div role='region'><p>To demonstrate Web ML capability and help user ramp up with ONNX.js easily, we built up ONNX.js demo website.</p>
+<p>Five models are enabled on this website.</p>
+<p>Here is a example of running <a class=dfn>YOLO</a> model in a browser.</p>
+<p>You can choose different backend, CPU or GPU.</p>
+<p>Since <a class=dfn>YOLO</a> is realtime neural network for object detection, in addition to image detection, we implemented a realtime detection scenario through your local camera.</p></div><div class="slide" role='region' aria-label="Slide 14 of 15" id="slide-14" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=14"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=14">Slide 14</a></noscript></div><div role='region'><p>ONNX.js is evolving and we'd love to embrace your contribution.</p>
+<p>Here are three major buckets to make ONNX.js better.</p>
+<p>Currently, ONNX.js support limited ONNX operators, we need to catch up with evolving ONNX spec.</p>
+<p>There are still a lot of opportunities to further optimize ONNX.js performance.</p>
+<p>For example, WebNN, web neural network, is one well promising tech ONNX can integrate.</p>
+<p>Some experimental results have already showed very good performance gain.</p>
+<p>Lastly, more demos can help attract more users by promoting ONNX.js capabilities.</p></div><div class="slide" role='region' aria-label="Slide 15 of 15" id="slide-15" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=15"><noscript><a href="https://www.w3.org/2020/Talks/mlws/en_onnxjs.pdf#page=15">Slide 15</a></noscript></div><div role='region'><p>Okay.</p>
+<p>That's the end.</p>
+<p>Hope you enjoy this talk.</p>
+<p>Thanks.</p></div>

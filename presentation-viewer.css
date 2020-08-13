@@ -1,0 +1,227 @@
+.button {-webkit-appearance: button;
+        appearance: button; text-decoration: none; cursor: default;
+        color: buttontext; letter-spacing: normal;
+        word-spacing: normal; display: inline-block;
+        text-align: center; background-color: buttonface;
+        font: 400 medium system-ui, Segoe UI, sans-serif; font: -moz-button;
+        padding: 1px 8px 2px; border-radius: 0.25em;
+        /*border: 1px outset ThreeDLightShadow;*/
+        /*border: 1px outset buttonface*/}
+      [for=sync] {padding-left: 2em; margin-top: 1.2rem}
+      .button.picto, button.picto {padding-right: 4px}
+      #sync {position: relative; z-index: 1; width: 1em;
+        margin: 0 -1.5em 0 0.5em}
+      #player {margin-top: 1.2rem}
+      .buttons button {font: inherit; font-weight: 700; cursor: pointer}
+      .slide:target {outline: none} /* No big green outline */
+      section:nth-of-type(2n+2) .button:focus,
+      section:nth-of-type(2n+2) button:focus {outline-color: white}
+
+      iframe {width: 100%; height: 100%}
+      #video1 {overflow: hidden} /* Force border-radius on the video */
+
+      output button {cursor: pointer}
+
+      /* On small screens, the slides are scaled down. */
+      .slide {font-size: 2.32vw}
+      @media (min-aspect-ratio: 12/9) { .slide {font-size: 2.03vw} }
+      @media (min-aspect-ratio: 18/9) { .slide {font-size: 3.3vh} }
+      #video1, #audio, #slidenr {width: 88vw; margin: 0 0 1rem 0}
+      #video1 {height: 49.5vw}
+      #slidenr, #caption {box-sizing: border-box}
+
+      #player, #slides {position: relative}
+      #player::after {content: " "; display: block; height: 0; clear: both}
+      #video1, #slidenr, #caption, #cue {border-radius: 0.5em}
+      #video1, #audio {border: none}
+      #audio {display: block; height: 54px}
+      #slidenr {display: block; background: hsla(204,69%,15%,0.8);
+                text-align: center}
+      #slidenr a:link { color: white;}
+      #caption, #prevnext {display: none}
+      #caption {height: 3.2em}
+      #caption, #cue {background: hsl(204,69%,16%)}
+      #caption, #slidenr {text-align: center; padding: 0.3em;
+                          margin: 0 0 1rem 0; color: white;}
+      #cue {display: block; margin: -0.3em; padding: 0.3em; font-size: 1.4em;}
+      #cue[lang|=zh] {font-size: 110%; min-height: 1.6em}
+      #cuelang {float: right}
+      .comment, .progress {display: none}
+      .slide {width: 40.889em;
+        height: auto; min-height: 23em; /* AC-2020-slides.css uses rem */
+        display: block; margin: 0 0 1rem 0; box-shadow: none}
+      .slide li {padding-left: 0}
+      .slide table {font-size: 100%} /* Undo 0.9em in tpac2.css */
+
+      #talk details {margin-bottom: 2em}
+      summary::before {font-size: 1em; margin-left: 0}
+      
+      /* Tables. Set the defaults explicitly, to override tpac2.css */
+      #slides {hyphens: manual}
+      #slides table {background: none; display: table; border-spacing: 2px;
+        width: auto;
+        border-collapse: separate; box-sizing: border-box; text-indent: 0}
+      #slides td, #slides th {border: none; padding: 1px; height: auto;
+        white-space: normal; width: auto;
+        display: table-cell; vertical-align: inherit; text-align: unset}
+      #slides th {text-align: center}
+
+      /* In synchronized mode, show only the active slide. */
+      #sync:checked ~ #player .slide {position: absolute; top: 0; left: 0;
+        visibility: hidden}
+      #sync:checked ~ #player .slide.active {position: relative;
+        visibility: visible}
+      #sync:checked ~ #prevnext {display: inline}
+      #sync:checked ~ #player #slides > *:not(.slide) {display: none}
+      #sync:checked ~ #player #caption {display: block}
+
+      /* ... and only the active elements of incremental display. */
+      #sync:checked ~ #player .next {visibility: hidden}
+      #sync:checked ~ #player .slide.active .next.active {visibility: visible}
+
+      /* Make the link to the current slide in #slidenr less visible. */
+      #sync:checked ~ #player #slidenr a {text-decoration: none}
+
+      /* Avoid transition effects when synchronization is off.*/
+      #sync:not(:checked) ~ #player .slide {animation: none}
+
+      /* No animation when moving backwards. */
+      #sync:checked ~ #player .slide.active ~ .visited {animation: none}
+
+      /* Turn off transitions on A inside slides in synchronized mode. */
+      #sync:checked ~ #player .slide a {transition: none}
+
+      /* When the section has 2rem margins. */
+      @media (min-width: 46em) and (max-aspect-ratio: 18/9) {
+        .slide {/* A section has borders of 2rem, so its width is
+          (100vw - 4rem) minus whatever the browser scrollbar needs. If we
+          estimate the scrollbar at 15px, then to make the slide (which is
+          40.889em by 23em) fill exactly that width, the slide font size
+          must be as follows: */
+          font-size: 1rem; font-size: calc((100vw - 4rem - 15px) * 9/16/23);
+          height: 23rem; height: calc((100vw - 4rem - 15px) * 9/16);
+          overflow: hidden}
+      }
+
+      /* When the section has wide margins. */
+      @media (min-width: 56em) and (max-aspect-ratio: 18/9) {
+        #slides, #caption, #audio, #video1, #slidenr {width: 40.889em}
+        #video1 {height: 23em}
+        .slide {font-size: 1em; height: 23em; width: 40.889em}
+      }
+
+      /* If the window is wide enough for a slide at its normal size
+      and a bit more, show the video on the right. At small window
+      sizes, the video is 22rem wide and overlaps the slides a bit. As
+      the window grows, the video overlaps less.
+
+      At 73em, there is no overlap anymore and the video can start to grow.
+
+      At 104em, the video is the same size as the slides and it can
+      stops to grow. The gap between the slides and the video
+      increases as the window grows further.
+
+      At 107em, the gap is wide enough and the margin between the
+      #player element and the left window edge increases
+      instead. (I.e., the ‘left’ of the #player no longer increases,
+      but stays at -25.5rem relative to the section content.)
+      */
+
+      @media (min-width: 62em) {
+        #slides, #caption {width: 40.889em}
+        .slide {font-size: 1em; height: 23em; width: 40.889em}
+
+        /* When video and slides are not synchronized, the video is fixed. */
+        #slidenr, #video1, #audio {margin: 0; position: fixed;
+          right: 1em; z-index: 2; width: 22rem; width: calc(45.6rem - 23em)}
+        #video1 {height: 10.125rem; height: calc((45.6rem - 23em) * 9/16);
+          max-height: 100%}
+        #slidenr {bottom: 1em}
+        #video1, #audio {bottom: 3.5em}
+        #player {left: calc(28rem - 50vw);
+          width: calc(100% + 2 * (50vw - 28rem))}
+
+        /* In synchronized mode, the video may partly overlap the slide. */
+        #sync:checked ~ #player #slidenr,
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1 {position: absolute;
+          left: 32.5em; left: calc(32.5em + 100vw - 62rem);
+          bottom: auto; right: auto; top: 8em}
+        #sync:checked ~ #player #slidenr {
+          margin-top: calc(1rem + (45.6rem - 23em) * 9/16)}
+        #sync:checked ~ #player #audio + #slidenr {
+          margin-top: calc(1rem + 54px)}
+
+        #caption, #slidenr {height: 1.9em}
+
+        /* If sticky positioning is supported, use that instead of fixed. */
+        @supports (position: sticky) or (position: -webkit-sticky) {
+          body {overflow: visible}
+          #slidenr, #video1, #audio {position: -webkit-sticky; position: sticky;
+            right: auto; bottom: auto; left: 100%; z-index: 2}
+          #video1 {top: 0.5em; margin-bottom: calc((23em - 45.6rem) * 9/16)}
+          #audio {top: 0.5em; margin-bottom: -54px}
+          #slidenr {margin-top: calc(1rem + (45.6rem - 23em) * 9/16);
+            top: calc(1.5rem + (45.6rem - 23em) * 9/16);
+            margin-bottom: calc(-1rem - 1.9em - (45.6rem - 23em) * 9/16)}
+          #audio + #slidenr {margin-top: calc(1rem + 54px);
+            top: calc(1rem + 0.5em + 54px);
+            margin-bottom: calc(-1rem - 1.9em - 54px)}
+        }
+      }
+
+      @media (min-width: 73em) {
+        #slidenr, #video1, #audio {width: 16.9332rem;
+          width: calc(100vw - 6rem - 40.889em)}
+        #video1 {height: 9.524925rem;
+          height: calc((100vw - 6rem - 40.889em) * 9/16)}
+        #sync:checked ~ #player #slidenr,
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1 {left: 50rem;
+          left: calc(32.5em + 11rem);
+          top: calc(32.2rem - 31vw)}
+        #sync:checked ~ #player #slidenr {
+          margin-top: calc(1rem + (100vw - 6rem - 40.889em) * 9/16)}
+
+        @supports (position: sticky) or (position: -webkit-sticky) {
+          #video1 {margin-bottom: calc(0em - (100vw - 6rem - 40.889em) * 9/16)}
+          #slidenr {margin-top: calc(1rem + (100vw - 6rem - 40.889em) * 9/16);
+            top: calc(1.5rem + (100vw - 6rem - 40.889em) * 9/16);
+            margin-bottom: calc(-1rem - 1.9em - (100vw - 6rem - 40.889em) * 9/16)}
+        }
+      }
+
+      @media (min-width: 104em) {
+        #slidenr, #audio, #video1 {width: 40.889em}
+        #video1 {height: 23em}
+        #sync:checked ~ #player #slidenr,
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1 {width: 40.889em}
+        #sync:checked ~ #player #video1 {height: 23em}
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1,
+        #sync:checked ~ #player #slidenr {top: 0; left: calc(100vw - 45em)}
+        #sync:checked ~ #player #slidenr {margin-top: calc(1rem + 23em)}
+
+        @supports (position: sticky) or (position: -webkit-sticky) {
+          #video1 {margin-bottom: -23em}
+          #slidenr {margin-top: calc(1rem + 23em);
+            top: calc(1.5rem + 23em);
+            margin-bottom: calc(-1rem - 1.9em - 23em)}
+        }
+      }
+
+      /* If the window is large, put the slide and the video side by side. */
+      @media (min-width: 107em) {
+        #player {left: -25.5rem}
+        #sync:checked ~ #player #slidenr,
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1 {left: 53rem}
+        #sync:checked ~ #player #audio,
+        #sync:checked ~ #player #video1,
+        #sync:checked ~ #player #slidenr {top: 0em}
+
+        @supports (position: sticky) or (position: -webkit-sticky) {
+          #player {width: calc(100% + 51rem)}
+        }
+      }

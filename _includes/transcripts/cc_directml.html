@@ -1,0 +1,54 @@
+<div class="slide" role='region' aria-label="Slide 1 of 11" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hi, today I'm going to spend a few minutes giving a chart summary of Direct ML, the hardware accelerate machine learning platform on windows.</p>
+<p>If you're watching this talk on a windows 10 PC, chances are you already have Direct ML in your computer.</p>
+<p>So let's dive in.</p></div><div class="slide" role='region' aria-label="Slide 2 of 11" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>Direct ML is a hardware accelerated compute API for deep learning on Windows.</p>
+<p>Windows is a very diverse ecosystem of over a billion devices now running windows 10, with literally hundreds of different graphics chip sets and thousands of different driver versions from the hardware vendors across the industry.</p>
+<p>It is fundamentally challenging to build an API that could scale across this broad variety of hardware from a compute stick, a laptop to a power workstation and server.</p>
+<p>The goal of Direct ML is to provide best performance by leveraging the latest hardware features in modern PC while providing an implementation that work reliably in our different hardware platforms, old and new.</p>
+<p>We put together a robust conformance test and driver certification process to ensure a high degree of consistency.</p>
+<p>So a model works the same way on any windows PC.</p>
+<p>We know that our customers value high performance.</p>
+<p>That's how they get the benefit of the hardware purchase, but equally important, they also value correctness and consistency of result, regardless of the hardware platform they're running it on.</p>
+<p>Say if a model would predict that what you're holding in your hand is a banana.</p>
+<p>It shouldn't matter if you run it on a powerful workstation or on your daughter's laptop PC, a banana is a banana anywhere.</p>
+<p>That integrity of result is very important to us, because you could have a model that for instance, predicts the development of breast cancer cells.</p>
+<p>So being reliable is truly mission critical.</p></div><div class="slide" role='region' aria-label="Slide 3 of 11" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>Let's take a closer look at Direct ML and see what it's made of.</p>
+<p>Direct ML is a computational graph of neural network operations.</p>
+<p>It's designed to be fully compatible with DirectX 12 and to sit on top of the Microsoft compute driver model.</p>
+<p>Developers who are familiar with DirectX 12 should feel right at home with Direct ML. The resource model, the synchronization between the CPU and GPU, are just native tactics primitives.</p>
+<p>It implements all the compute kernels as HLSL compute shaders.</p>
+<p>This means that Direct ML can work on any PC that support their compute, which in practice is any windows 10 PC in the market today.</p>
+<p>The Microsoft compute device model is the underlying contract that any compute device on windows implements.</p>
+<p>This includes of course, any windows GPU, but also of all other AI accelerators supporting it.</p>
+<p>It allows developers to leverage different hardware architectures through the same API.</p>
+<p>On the performance side, Direct ML opportunistically use shader models intrinsics exposed in the driver or model to tap into native hardware compute instructions for performance critical computations.</p>
+<p>Additionally, it supports architecture specific machine learning operations for performance critical operations, such as <a class=dfn>matrix</a> multiply or <a class=dfn>convolution</a> through the system level contract known as metacommands.</p></div><div class="slide" role='region' aria-label="Slide 4 of 11" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>Direct ML is used as the GPU backend for the windows ML API, to accelerate ONNX operations on the GPU.</p>
+<p>Windows ML is an easy to use model loader API, that supports many major apps on windows today.</p>
+<p>The open source ONNX Runtime C API, makes Direct ML functionality available to developers building for a cross platform solution.</p>
+<p>Direct ML itself, is available as a standalone API in the DirectX API family.</p>
+<p>For the most demanding scenarios, where frame on frame performance is critical such as in real time or gaming scenarios.</p></div><div class="slide" role='region' aria-label="Slide 5 of 11" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>Direct ML is also used to accelerate training of machine learning models with <a class=dfn>TensorFlow</a>.</p>
+<p>A new GPU accelerated device runtime in <a class=dfn>TensorFlow</a> is built on top of DirectML to extend the TensorFlows GPU support to any windows GPU from all the GPU vendors across the windows ecosystem.</p>
+<p>We have launched data developer preview last month.</p>
+<p>It is available now for download from PyPy, with the support of both the Linux and Windows build.</p>
+<p>The Linux build can be used within the windows subsystem for Linux or WSL.</p>
+<p>We are actively working on open-sourcing this project to the public in the coming weeks to increase our touch points with our community.</p>
+<p>So stay tuned.</p></div><div class="slide" role='region' aria-label="Slide 6 of 11" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>I have a few demos that should help illustrate the performance of the Direct ML in some important customer scenarios.</p>
+<p>For the best viewing experience, since all of these demos are visual, you may want to enlarge the video window size to full screen by clicking the full screen icon at the bottom of this clip.</p>
+<p>Every one of these demos is publicly available.</p>
+<p>I will provide the links at the end of this slide so you can check them out separately.</p>
+<p>Our first demo today is a system developed at GE healthcare called Sono CNS. This program runs a Windows ML model that automatically measures key matrices of fetal brains from the ultra sound images, for early diagnosis of the fetus health.</p>
+<p>The analysis is done using a computer vision model with <a class=dfn>convolution</a> networks that identify key features in the images.</p></div><div class="slide" role='region' aria-label="Slide 7 of 11" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>Our next demo is in creative content scenario.</p>
+<p>It's a new AI feature in Adobe Premier Pro called Auto Reframe.</p>
+<p>This feature use machine learning models to analyze the video frames and automatically crop each frame to a different aspect ratio by centering the frames around the movement of the main subject in the footage.</p>
+<p>This demo was given on a live stage, running on the laptop PC.</p>
+<p>As you can see, it only takes about a second to analyze over 200 frames of its approximately ten second video footage.</p>
+<p>That performance with Direct ML even on a laptop GPU is very impressive.</p></div><div class="slide" role='region' aria-label="Slide 8 of 11" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>Our next demo is one of our Direct ML public samples in GitHub called the Super Resolution Demo.</p>
+<p>This is one of the high framerate scenarios where the performance budget for each model inference call is extremely small.</p>
+<p>Each frame update of a game rendering loop, runs a model that does an automatic upsample of the displayed content on the fly.</p>
+<p>This allows a type of game, which normally requires huge graphics asset to render the content at 4K to use a lower resolution variants of the asset, while still preserving the visual quality on the screen.</p>
+<p>In this sample, each inference has only between four to eight milliseconds to complete or risking rendering glitch or drop frames.</p>
+<p>So the performance of the ML step is absolutely critical here.</p></div><div class="slide" role='region' aria-label="Slide 9 of 11" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>Our next demo shows the latest versions of the famous object detection model, <a class=dfn>YOLO</a> V4.</p>
+<p>Here the model analyzes each video frame to identify areas of interests.</p>
+<p><a class=dfn>YOLO</a> is one of the more complex <a class=dfn>convolution</a> networks with a significant compute workload.</p></div><div class="slide" role='region' aria-label="Slide 10 of 11" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>And last but not least, this is another one of our public samples called style transfer.</p>
+<p>This is a fun model that applies a previously trained artistic style to the input video frames to create an interesting visual effect.</p>
+<p>I hope you enjoy these demos and this short presentation.</p>
+<p>I'm leaving out the links on the next slide for your references.</p></div><div class="slide" role='region' aria-label="Slide 11 of 11" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/cc_directml.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>Thank you very much.</p></div>

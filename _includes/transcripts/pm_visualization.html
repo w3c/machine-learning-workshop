@@ -1,0 +1,39 @@
+<div class="slide" role='region' aria-label="Slide 1 of 4" id="slide-1" data-fmt="shiny" data-src="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"><noscript><a href="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#">Slide 1</a></noscript></div><div role='region'><p>I'd like to persuade you why it makes sense to investigate deep learning models.</p>
+<p>In our case, I'll talk about unsupervised segmentation.</p></div><div class="slide" role='region' aria-label="Slide 2 of 4" id="slide-2" data-fmt="shiny" data-src="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"><noscript><a href="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#">Slide 2</a></noscript></div><div role='region'><p>As a short intro, my name is Piotr Migdal, and I have PhD in quantum physics and I work with Bartłomiej Olechno at ECC Games.</p>
+<p>We use deep learning to create levels and physics engine for a race game.</p>
+<p>Additionally we develop livelossplot, a Python package for charts for deep learning models.</p>
+<p>And I also develop Quantum Game, in which you are able to play with quantum mechanics in the browser.</p></div><div class="slide" role='region' aria-label="Slide 3 of 4" id="slide-3" data-fmt="shiny" data-src="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"><noscript><a href="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#">Slide 3</a></noscript></div><div role='region'><p>So before I talk about investigating models interactively, let's make some overview of general, how to track our developing model training process.</p>
+<p>So the simplest way is to use, well console, and look what's the log loss, what's accuracy, et cetera.</p>
+<p>But I don't think it's a good solution, it's very easy to miss that it gets better or worse.</p>
+<p>So what the other step is to use TensorBoard or something which tracks metrics.</p>
+<p>But I think it's much, much better to say, not only metrics, but also all parameters and code snapshots.</p>
+<p>For example, Neptune, Weights &amp; Biases or MLflow.</p>
+<p>But it's not the only axis with respect to which we can look at model training inspection.</p></div><div class="slide" role='region' aria-label="Slide 4 of 4" id="slide-4" data-fmt="shiny" data-src="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"><noscript><a href="https://www.w3.org/2020/Talks/mlws/piotr_migdal/#">Slide 4</a></noscript></div><div role='region'><p>The other is depth.</p>
+<p>So for example, you can only look at metrics, but I don't think it's enough.</p>
+<p>Sometimes you can miss that it classifies, or misclassifies some obvious examples.</p>
+<p>So we can always, and these are few examples to see what's going on, but I think it's much, much better to make interactive, and in a few slides I'm going to show you how.</p>
+<p>we basically have high resolution scans of race tracks, we're going to turn them in semantic maps.</p>
+<p>there is not enough data to supervised image segmentation, they're very diverse, but you can use something something like word2vec to look at adjacent locations, and it's enough.</p>
+<p>But we want to make sure that we are able to extract relevant data.</p>
+<p>It's a simple example of the scan but also @@@ of future map, not of the original pixels.</p>
+<p>The question is if we can extract, for example, tire tracks or cracks on the road or in the pic.</p>
+<p>And let me, and we then talk about that pipeline well here containing <a class=dfn>PyTorch</a>, and in this case plus Ignite, we save models with livelossplot plus Neptune and metrics but also we, of the future maps, we create some visualization using D3, and as you see right now, I present them in a slide, in this case it's ioslides, when you write things, even for internal notes we use Distill for RMarkdown.</p>
+<p>And here's an example, this is a picture, when we mouse over we see what are the relevant pixels or dots.</p>
+<p>And not only we can look at similar pictures we expect in one place, but also we can look at the differences, for example, this one versus the other.</p>
+<p>There is a river, there are some buildings, the river and there is forest, in this case we can see what's going on.</p>
+<p>Also we can look at the places which do not work correctly.</p>
+<p>But also we can use, well, game data.</p>
+<p>In this case, it's SimCity, the classic one, the original SimCity, there's some buildings, and in some places we can separate residential area from industrial area.</p>
+<p>Or we can look at another game like Minesweeper and compare models.</p>
+<p>So you see, it's like we want to have something that tells us which regions is inside and which is outside.</p>
+<p>This model shows something, but I think it's not perfect.</p>
+<p>And this one is actually much better 'cause at the same time, you can separate inside from the outside, also see their different and here they're different.</p>
+<p>Maybe you can look at the difference, yes, it's very remarkable.</p>
+<p>And I think it's not that hard to include that.</p>
+<p>In my model basically there are a few lines, the only thing is to write a simple visualization in D3, and also include JSON, so we need to export things to JSON.</p>
+<p>But I think JSON is not that good for serializing matrices and arrays: it's costly, it's slow, it's not type-safe.</p>
+<p>So I think it would be nice to have and use a general standardized format for input and output of matrices.</p>
+<p>It's crucial, not only for deep learning, but also for quantum computing, it's basically the same story, just you need to have complex numbers to describe all of the data.</p>
+<p>So, well, that's all, there's inspirations and also, especially, I invite you to look at the collaborative list machine learning, deep learning and statistics websites, a lot of extra explanations.</p>
+<p>And, well, you can also check our personal project, this livelossplot and the Quantum Game.</p>
+<p>Have a nice day.</p></div>

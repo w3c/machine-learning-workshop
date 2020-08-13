@@ -1,0 +1,791 @@
+WEBVTT
+
+1
+0:00:09.300 --> 0:00:11.460
+<v ->Hello everyone, welcome.</v>
+
+2
+0:00:11.460 --> 0:00:15.590
+I'm Ningxin Hu, a principal engineer at Intel.
+
+3
+0:00:15.590 --> 0:00:18.400
+I'm participating in the W3C machine learning
+
+4
+0:00:18.400 --> 0:00:20.700
+for the web community group.
+
+5
+0:00:20.700 --> 0:00:24.720
+Today, my topic is about the new web standard proposal,
+
+6
+0:00:24.720 --> 0:00:27.400
+the Web Neural Network API
+
+7
+0:00:27.400 --> 0:00:30.900
+and how it can help web apps and frameworks
+
+8
+0:00:30.900 --> 0:00:34.300
+to access purpose-built machine learning hardware.
+
+9
+0:00:34.300 --> 0:00:38.360
+I'd like to thank everyone who contributes to this proposal.
+
+10
+0:00:38.360 --> 0:00:39.970
+Slide two.
+
+slide-2
+0:00:39.970 --> 0:00:42.170
+As you know, in the last decade,
+
+12
+0:00:42.170 --> 0:00:44.120
+the machine learning, in particular,
+
+13
+0:00:44.120 --> 0:00:47.560
+the deep learning has been getting increasingly important
+
+14
+0:00:47.560 --> 0:00:50.650
+and widely applied in many applications,
+
+15
+0:00:50.650 --> 0:00:55.290
+computer vision, speech recognition, noise cancellation.
+
+16
+0:00:55.290 --> 0:00:57.500
+Nowadays, thanks to the emerging
+
+17
+0:00:57.500 --> 0:01:00.300
+JavaScript machine learning frameworks,
+
+18
+0:01:00.300 --> 0:01:00.900
+the web apps
+
+19
+0:01:00.900 --> 0:01:04.860
+now can easily incorporate this innovative usage
+
+20
+0:01:04.860 --> 0:01:08.450
+by running the machine learning models in the web browser.
+
+21
+0:01:08.450 --> 0:01:12.460
+Underlining those frameworks usually leverage WebAssembly,
+
+22
+0:01:12.460 --> 0:01:16.300
+WebGL and WebGPU to run the machine learning computation
+
+23
+0:01:16.300 --> 0:01:18.993
+on CPU and GPU, respectively.
+
+24
+0:01:19.990 --> 0:01:21.310
+Slide three.
+
+slide-3
+0:01:21.310 --> 0:01:22.310
+On the other hand,
+
+26
+0:01:22.310 --> 0:01:26.140
+to the exponential increasement of the computing demand
+
+27
+0:01:26.140 --> 0:01:27.970
+for machine learning workload,
+
+28
+0:01:27.970 --> 0:01:30.400
+the innovation of hardware architecture
+
+29
+0:01:30.400 --> 0:01:32.520
+is advancing very fast.
+
+30
+0:01:32.520 --> 0:01:35.140
+The machine learning extensions has been added
+
+31
+0:01:35.140 --> 0:01:37.450
+into the CPU and GPU.
+
+32
+0:01:37.450 --> 0:01:40.850
+A bunch of new dedicated machine learning accelerators
+
+33
+0:01:40.850 --> 0:01:45.580
+is emerging, such as NPU, VPU and DSP.
+
+34
+0:01:45.580 --> 0:01:47.510
+These dedicated accelerators
+
+35
+0:01:47.510 --> 0:01:50.270
+not only help optimize the performance
+
+36
+0:01:50.270 --> 0:01:53.520
+but also help reduce the power consumption.
+
+37
+0:01:53.520 --> 0:01:56.780
+By taking advantage of these hardware features,
+
+38
+0:01:56.780 --> 0:02:00.300
+the native apps got very good performance.
+
+39
+0:02:00.300 --> 0:02:01.433
+So, how about the web?
+
+40
+0:02:02.580 --> 0:02:03.780
+Slide four.
+
+slide-4
+0:02:03.780 --> 0:02:06.520
+To compare the performance of web and native,
+
+42
+0:02:06.520 --> 0:02:08.670
+we use MobileNet as workload
+
+43
+0:02:08.670 --> 0:02:11.290
+and measure the inference latency.
+
+44
+0:02:11.290 --> 0:02:12.700
+For hardware devices,
+
+45
+0:02:12.700 --> 0:02:16.180
+we use a laptop with Vector Neural Network Instructions,
+
+46
+0:02:16.180 --> 0:02:18.760
+as known as VNNI in the CPU,
+
+47
+0:02:18.760 --> 0:02:20.723
+and a smartphone has a DSP.
+
+48
+0:02:21.580 --> 0:02:24.750
+According to the charts, there is a big performance gap
+
+49
+0:02:24.750 --> 0:02:26.880
+between web and native.
+
+50
+0:02:26.880 --> 0:02:28.840
+For instance, on the laptop,
+
+51
+0:02:28.840 --> 0:02:32.480
+the native CPU inference is about 10 times faster
+
+52
+0:02:32.480 --> 0:02:36.270
+than WebAssembly for a float32 precision.
+
+53
+0:02:36.270 --> 0:02:37.720
+The reason behind that
+
+54
+0:02:37.720 --> 0:02:42.690
+is a native can access 256 bit Vector Instruction,
+
+55
+0:02:42.690 --> 0:02:46.960
+however, WebAssembly only has 128 bit.
+
+56
+0:02:46.960 --> 0:02:50.480
+The native GPU inference is about nine times faster
+
+57
+0:02:50.480 --> 0:02:54.190
+than WebGL for a float16 precision.
+
+58
+0:02:54.190 --> 0:02:57.890
+That's because optimized machine learning kernels
+
+59
+0:02:57.890 --> 0:03:01.403
+within the GPU driver are not available to WebGL.
+
+60
+0:03:02.580 --> 0:03:03.413
+On the smartphone,
+
+61
+0:03:03.413 --> 0:03:05.383
+we observed a similar result.
+
+62
+0:03:06.890 --> 0:03:09.650
+If we go lower precision inference,
+
+63
+0:03:09.650 --> 0:03:11.330
+as known as quantization,
+
+64
+0:03:11.330 --> 0:03:13.450
+which is a widely used technique
+
+65
+0:03:13.450 --> 0:03:15.990
+to optimize the inference performance,
+
+66
+0:03:15.990 --> 0:03:20.120
+the VNNI and DSP are designed to accelerate that.
+
+67
+0:03:20.120 --> 0:03:23.230
+So, if using the eigh8 bit precision on the laptop,
+
+68
+0:03:23.230 --> 0:03:28.000
+the native inference can be 24 times faster than web.
+
+69
+0:03:28.000 --> 0:03:28.967
+And on the smartphone,
+
+70
+0:03:28.967 --> 0:03:33.600
+the DSP inference can be 16 times faster than the web.
+
+71
+0:03:33.600 --> 0:03:34.970
+Slide five.
+
+slide-5
+0:03:34.970 --> 0:03:37.800
+The JavaScript machine learning frameworks
+
+73
+0:03:37.800 --> 0:03:40.660
+cannot take advantage of these hardware features,
+
+74
+0:03:40.660 --> 0:03:43.450
+that leads to the big performance gap.
+
+75
+0:03:43.450 --> 0:03:46.620
+It would be good to expose them on web platform.
+
+76
+0:03:46.620 --> 0:03:49.530
+However, due to the architecture diversity
+
+77
+0:03:49.530 --> 0:03:51.940
+of this new machine learning hardware,
+
+78
+0:03:51.940 --> 0:03:54.900
+it is quite challenging to expose them
+
+79
+0:03:54.900 --> 0:03:58.500
+by the general CPU and GPU compute web APIs.
+
+80
+0:03:58.500 --> 0:04:02.830
+Given that, we are proposing a new domain specific web API
+
+81
+0:04:02.830 --> 0:04:06.243
+to access the hardware acceleration for machine learning.
+
+82
+0:04:07.260 --> 0:04:08.650
+Slide six.
+
+slide-6
+0:04:08.650 --> 0:04:12.883
+The proposal is a Web Neural Network API, known as WebNN.
+
+84
+0:04:14.107 --> 0:04:15.520
+At the first stage,
+
+85
+0:04:15.520 --> 0:04:19.530
+it focuses on the hardware acceleration for the inference.
+
+86
+0:04:20.270 --> 0:04:23.570
+It introduces the primitives of the deep neural network
+
+87
+0:04:23.570 --> 0:04:25.000
+to the web platform.
+
+88
+0:04:25.000 --> 0:04:28.500
+The primitives include tensor operant.
+
+89
+0:04:28.500 --> 0:04:31.350
+Tensor operant represents the multi-dimensional array
+
+90
+0:04:31.350 --> 0:04:35.850
+in different data type including float point 32, 16,
+
+91
+0:04:35.850 --> 0:04:38.130
+and integer 32, 8.
+
+92
+0:04:39.000 --> 0:04:42.930
+The primitives also include a set of tensor operations,
+
+93
+0:04:42.930 --> 0:04:46.640
+such as convolution, matrix multiplication,
+
+94
+0:04:46.640 --> 0:04:49.173
+pulling, atom-wise and activation.
+
+95
+0:04:50.500 --> 0:04:53.720
+These operations are either compute-intensive
+
+96
+0:04:53.720 --> 0:04:56.210
+or memory bandwidth bounded.
+
+97
+0:04:56.210 --> 0:04:57.460
+The acceleration of them
+
+98
+0:04:57.460 --> 0:05:00.420
+is critical to the inference performance.
+
+99
+0:05:00.420 --> 0:05:02.260
+By using these primitives,
+
+100
+0:05:02.260 --> 0:05:04.580
+the JavaScript machine learning framework
+
+101
+0:05:04.580 --> 0:05:07.120
+can define a computational graph.
+
+102
+0:05:07.120 --> 0:05:09.680
+The graph can represent part or whole
+
+103
+0:05:09.680 --> 0:05:12.240
+of a machine learning inference model.
+
+104
+0:05:12.240 --> 0:05:14.980
+Then, the framework can use WebNN API
+
+105
+0:05:14.980 --> 0:05:19.410
+to compile and execute the graph for hardware acceleration.
+
+106
+0:05:19.410 --> 0:05:23.530
+The execution of the WebNN graph can interact with kernels
+
+107
+0:05:23.530 --> 0:05:27.320
+written in WebAssembly or WebGPU compute shader.
+
+108
+0:05:27.320 --> 0:05:30.180
+With that, the frameworks can be flexible
+
+109
+0:05:30.180 --> 0:05:33.250
+by using the WebNN for hardware acceleration
+
+110
+0:05:33.250 --> 0:05:38.130
+and using WebAssembly, WebGPU for custom operation support.
+
+111
+0:05:38.130 --> 0:05:40.930
+The primitives of WebNN can be mapped
+
+112
+0:05:40.930 --> 0:05:43.210
+to the native machine learning API
+
+113
+0:05:43.210 --> 0:05:46.450
+available on different operating systems,
+
+114
+0:05:46.450 --> 0:05:51.450
+such as Android Neural Network API, DirectML on Windows,
+
+115
+0:05:51.630 --> 0:05:56.630
+Metal Performance Shader on macOS, iOS, and OpenVINO.
+
+116
+0:05:56.940 --> 0:05:59.240
+Eventually, these native APIs
+
+117
+0:05:59.240 --> 0:06:03.440
+will talk with compilers and drivers to run these primitives
+
+118
+0:06:03.440 --> 0:06:06.390
+on various machine learning hardware.
+
+119
+0:06:06.390 --> 0:06:07.223
+Slide seven.
+
+slide-7
+0:06:08.209 --> 0:06:11.600
+WebNN proposal has four major interfaces,
+
+121
+0:06:11.600 --> 0:06:13.990
+the neural network context, model,
+
+122
+0:06:13.990 --> 0:06:16.300
+compilation and execution.
+
+123
+0:06:16.300 --> 0:06:18.730
+The main programming flow is like this:
+
+124
+0:06:18.730 --> 0:06:22.230
+first, you can get a neural network context object
+
+125
+0:06:22.230 --> 0:06:25.000
+from the global navigator object.
+
+126
+0:06:25.000 --> 0:06:27.000
+The neural network context object
+
+127
+0:06:27.000 --> 0:06:30.300
+has a method of tensor operant and operations,
+
+128
+0:06:30.300 --> 0:06:34.250
+so you can use that to define the computational graph
+
+129
+0:06:34.250 --> 0:06:36.230
+as the example shows.
+
+130
+0:06:36.230 --> 0:06:39.590
+Then, you can create a model object based on this graph.
+
+131
+0:06:39.590 --> 0:06:43.810
+The model object represents the hardware independent form.
+
+132
+0:06:43.810 --> 0:06:45.340
+For hardware acceleration,
+
+133
+0:06:45.340 --> 0:06:48.200
+you need to create a compilation object,
+
+134
+0:06:48.200 --> 0:06:52.540
+that represents the hardware specific form of this graph.
+
+135
+0:06:52.540 --> 0:06:55.770
+You can also specify the compilation options,
+
+136
+0:06:55.770 --> 0:06:58.800
+for example, high performance or low power
+
+137
+0:06:58.800 --> 0:07:00.790
+so browser and native API
+
+138
+0:07:00.790 --> 0:07:03.103
+can select an appropriate hardware for you.
+
+139
+0:07:04.300 --> 0:07:05.770
+After the compilation is done,
+
+140
+0:07:05.770 --> 0:07:08.340
+you can create the execution object.
+
+141
+0:07:08.340 --> 0:07:11.000
+That represents the inference request
+
+142
+0:07:11.000 --> 0:07:15.300
+bound with the specific input and output buffers.
+
+143
+0:07:15.300 --> 0:07:17.700
+The current spec support CPU buffer.
+
+144
+0:07:17.700 --> 0:07:20.820
+The GPU buffer and other type of input output
+
+145
+0:07:20.820 --> 0:07:23.410
+will be supported in the future spec.
+
+146
+0:07:23.410 --> 0:07:26.500
+Contributions are welcome.
+
+147
+0:07:26.500 --> 0:07:30.210
+Execution start compute is a synchronous operation,
+
+148
+0:07:30.210 --> 0:07:34.530
+that will hide the latency for the hardware acceleration.
+
+149
+0:07:34.910 --> 0:07:36.660
+After the promise is solved,
+
+150
+0:07:36.660 --> 0:07:39.553
+the result will be put into the output buffer.
+
+151
+0:07:40.840 --> 0:07:42.160
+Slide eight.
+
+slide-8
+0:07:42.160 --> 0:07:43.880
+To prove the concept,
+
+153
+0:07:43.880 --> 0:07:46.790
+we experimentally implemented the WebNN API
+
+154
+0:07:46.790 --> 0:07:49.260
+in a customized Chromium browser,
+
+155
+0:07:49.260 --> 0:07:52.880
+we followed the multi-process architecture of Chromium,
+
+156
+0:07:52.880 --> 0:07:57.420
+we implemented the JavaScript interface of WebNN in Blink
+
+157
+0:07:57.420 --> 0:08:01.900
+and the native API backend in GPU process.
+
+158
+0:08:01.900 --> 0:08:03.260
+The two components talk with each other
+
+159
+0:08:03.260 --> 0:08:05.770
+through the IPC mechanism.
+
+160
+0:08:05.770 --> 0:08:09.950
+To test the cross-platform interoperability and performance
+
+161
+0:08:09.950 --> 0:08:11.890
+on different devices,
+
+162
+0:08:11.890 --> 0:08:14.500
+the prototype support 4 OSs,
+
+163
+0:08:14.500 --> 0:08:17.940
+including Windows, Android, macOS, and Linux,
+
+164
+0:08:17.940 --> 0:08:21.480
+and can access the CPU, GPU and accelerators
+
+165
+0:08:21.480 --> 0:08:23.720
+on smartphone and PC.
+
+166
+0:08:23.720 --> 0:08:25.290
+Slide nine.
+
+slide-9
+0:08:25.290 --> 0:08:28.213
+Let's see some demo of the WebNN prototype.
+
+168
+0:08:29.780 --> 0:08:30.890
+On the laptop,
+
+169
+0:08:30.890 --> 0:08:33.290
+first, we test the inference performance
+
+170
+0:08:33.290 --> 0:08:35.330
+with WebAssembly SIMD.
+
+171
+0:08:38.720 --> 0:08:42.600
+Then we test the performance of WebNN CPU backend
+
+172
+0:08:42.600 --> 0:08:44.773
+for a float point 32 inference.
+
+173
+0:08:49.310 --> 0:08:52.530
+At last, we test the performance of WebNN
+
+174
+0:08:52.530 --> 0:08:56.243
+for integer 8 inference accelerated by VNNI.
+
+175
+0:08:57.490 --> 0:08:59.723
+It has close-to-native performance.
+
+176
+0:09:02.820 --> 0:09:03.680
+On the smartphone,
+
+177
+0:09:03.680 --> 0:09:06.847
+we first tested is a WebGL based inference.
+
+178
+0:09:10.570 --> 0:09:14.943
+Then, we inference the same model with WebNN GPU backend.
+
+179
+0:09:17.780 --> 0:09:21.600
+In the last, we use WebNN to access the DSP
+
+180
+0:09:21.600 --> 0:09:22.953
+for quantized model inference.
+
+181
+0:09:23.820 --> 0:09:26.433
+It has the near-to-native performance.
+
+182
+0:09:27.690 --> 0:09:29.000
+Slide 10.
+
+slide-10
+0:09:29.000 --> 0:09:32.650
+This slide and the next one have the performance numbers
+
+184
+0:09:32.650 --> 0:09:37.230
+of WebNN prototype we collected on laptop and smartphone.
+
+185
+0:09:37.230 --> 0:09:39.570
+Feel free to check them out.
+
+186
+0:09:39.570 --> 0:09:41.900
+As the number shows,
+
+187
+0:09:41.900 --> 0:09:44.470
+by introducing the domain specific primitives
+
+188
+0:09:44.470 --> 0:09:47.950
+and relying on the native machine learning API,
+
+189
+0:09:47.950 --> 0:09:49.570
+WebNN can help access
+
+190
+0:09:49.570 --> 0:09:52.110
+a purpose-built machine learning hardware
+
+191
+0:09:52.110 --> 0:09:55.173
+and close the gap between the web and native.
+
+192
+0:09:56.334 --> 0:09:57.680
+Slide 12.
+
+slide-12
+0:09:57.680 --> 0:09:59.360
+The Web Neural Network API
+
+194
+0:09:59.360 --> 0:10:02.500
+is an incubation within W3C machine learning
+
+195
+0:10:02.500 --> 0:10:04.133
+for the web Community Group.
+
+196
+0:10:05.180 --> 0:10:06.220
+Thanks for watching
+
+197
+0:10:06.220 --> 0:10:08.533
+and looking forward to your participation.
+
+

@@ -1,0 +1,502 @@
+﻿WEBVTT
+
+slide-1
+00:00:09.046 --> 00:00:13.396
+<v ->Hi, I'm Jean-Marc Valin, I'm the author of RNNoise.</v>
+
+2
+00:00:13.396 --> 00:00:15.076
+And I'll be talking about
+
+3
+00:00:15.076 --> 00:00:18.206
+neural speech enhancement, through RNNoise,
+
+4
+00:00:18.206 --> 00:00:21.366
+and also about how it affects the browser.
+
+5
+00:00:21.366 --> 00:00:23.486
+I'm currently employed by Amazon,
+
+6
+00:00:23.486 --> 00:00:25.859
+but I'm giving this talk as an individual.
+
+slide-2
+00:00:27.776 --> 00:00:30.686
+Speech enhancement isn't exactly a new topic.
+
+8
+00:00:30.686 --> 00:00:32.676
+It's been around since the 70s,
+
+9
+00:00:32.676 --> 00:00:37.216
+and traditionally it's done using signal processing.
+
+10
+00:00:37.216 --> 00:00:39.956
+It uses complicated spectral estimators,
+
+11
+00:00:39.956 --> 00:00:44.166
+usually combined with hand-tune parameters.
+
+12
+00:00:44.166 --> 00:00:48.926
+And it works pretty decently on stationary noise,
+
+13
+00:00:48.926 --> 00:00:51.336
+at mid to higher SNRs.
+
+14
+00:00:51.336 --> 00:00:55.449
+The complexity is very low, but the quality is limited.
+
+15
+00:00:56.336 --> 00:00:58.256
+On the other hand, there's a new approach,
+
+16
+00:00:58.256 --> 00:01:01.826
+which is based on deep neural networks.
+
+17
+00:01:01.826 --> 00:01:04.106
+It's entirely data driven,
+
+18
+00:01:04.106 --> 00:01:07.506
+so no need to tune all these parameters.
+
+19
+00:01:07.506 --> 00:01:10.206
+But they use large models,
+
+20
+00:01:10.206 --> 00:01:13.596
+so typically in the 10s of megabytes,
+
+21
+00:01:13.596 --> 00:01:16.336
+and it handles non stationary noise
+
+22
+00:01:16.336 --> 00:01:19.016
+that works at low SNR, so much higher quality
+
+23
+00:01:19.016 --> 00:01:21.566
+than the traditional approach.
+
+24
+00:01:21.566 --> 00:01:25.599
+But unfortunately, the complexity is quite high.
+
+25
+00:01:27.156 --> 00:01:31.046
+And RNNoise is a way of trying to get
+
+26
+00:01:31.046 --> 00:01:32.526
+the best of both worlds.
+
+27
+00:01:32.526 --> 00:01:36.796
+So, trying to get to the same quality as DNN approach
+
+28
+00:01:36.796 --> 00:01:39.309
+with the complexity of the DSP approach.
+
+slide-3
+00:01:41.823 --> 00:01:45.036
+RNNoise is really a hybrid solution.
+
+30
+00:01:45.036 --> 00:01:48.866
+It starts from a conventional DSP approach,
+
+31
+00:01:48.866 --> 00:01:53.826
+and from there, it replaces these complicated estimators
+
+32
+00:01:53.826 --> 00:01:57.526
+with a deep neural network, that includes several
+
+33
+00:01:57.526 --> 00:02:01.639
+fully connected layer as well as three GRU layers.
+
+34
+00:02:02.916 --> 00:02:07.206
+One of the key tricks to help bring the complexity down,
+
+35
+00:02:07.206 --> 00:02:11.776
+is that the spectrum is divided into 22 critical bands,
+
+36
+00:02:11.776 --> 00:02:12.936
+rather than processing
+
+37
+00:02:12.936 --> 00:02:15.439
+every single frequency bin separately.
+
+38
+00:02:16.426 --> 00:02:21.236
+And each of these 22 bands is independently attenuated.
+
+39
+00:02:22.406 --> 00:02:24.746
+So we have a gain for each of these bands,
+
+40
+00:02:24.746 --> 00:02:28.679
+and it controls how each band is modulated.
+
+41
+00:02:29.566 --> 00:02:32.826
+This works pretty well except for one case,
+
+42
+00:02:32.826 --> 00:02:35.476
+when we have voice speech and we have noise
+
+43
+00:02:35.476 --> 00:02:37.616
+between pitch harmonics.
+
+44
+00:02:37.616 --> 00:02:41.526
+And to handle that case, we have a pitch filter
+
+45
+00:02:41.526 --> 00:02:46.076
+that acts as a comb filter and removes the noise
+
+46
+00:02:46.076 --> 00:02:49.689
+between the harmonics, to get actual clean speech.
+
+slide-4
+00:02:51.515 --> 00:02:52.666
+(fan humming)
+
+48
+00:02:52.666 --> 00:02:56.296
+In terms of results, you can hear here, the effects
+
+49
+00:02:56.296 --> 00:03:00.076
+of RNNoise being toggled on and off,
+
+50
+00:03:00.076 --> 00:03:02.536
+while I'm speaking and typing at the same time
+
+51
+00:03:02.536 --> 00:03:03.986
+with a fan in the background.
+
+52
+00:03:04.966 --> 00:03:09.546
+You can observe the result in this slide,
+
+53
+00:03:09.546 --> 00:03:14.346
+they are based on test evaluation, so objective evaluation.
+
+54
+00:03:14.346 --> 00:03:17.766
+And you can also go to this interactive demo,
+
+55
+00:03:17.766 --> 00:03:21.826
+where you can listen to several samples,
+
+56
+00:03:21.826 --> 00:03:24.726
+and also actually try RNNoise
+
+57
+00:03:24.726 --> 00:03:28.279
+on your own voice using JavaScript.
+
+slide-5
+00:03:32.396 --> 00:03:34.956
+Now let's look at the complexity of RNNoise,
+
+59
+00:03:34.956 --> 00:03:38.106
+for a 48 kilohertz mono input signal.
+
+60
+00:03:38.106 --> 00:03:43.106
+RNNoise uses 215 neurons, which means 88,000 weights,
+
+61
+00:03:47.126 --> 00:03:51.806
+and it processes audio in frames of 10 milliseconds,
+
+62
+00:03:51.806 --> 00:03:54.359
+which means we have 100 frames per second.
+
+63
+00:03:55.336 --> 00:04:00.336
+The total complexity in RNNoise is around 40 mega flops.
+
+64
+00:04:01.336 --> 00:04:05.146
+And the most complex parts, are first the DNN,
+
+65
+00:04:05.146 --> 00:04:10.146
+which is mostly made of matrix-vector products.
+
+66
+00:04:10.526 --> 00:04:13.123
+And the complexity of that, is around 17
+
+67
+00:04:13.123 --> 00:04:15.346
+and a half mega flops.
+
+68
+00:04:15.346 --> 00:04:18.676
+We have FFTs and IFFTs,
+
+69
+00:04:18.676 --> 00:04:22.846
+and those costs around seven and a half mega flops.
+
+70
+00:04:22.846 --> 00:04:26.686
+And then we have a pitch search, which uses a correlation
+
+71
+00:04:26.686 --> 00:04:30.516
+or convolution and cost around 10 mega flops.
+
+72
+00:04:30.516 --> 00:04:32.216
+But these are the main parts.
+
+73
+00:04:32.216 --> 00:04:34.426
+So, if we wanna optimize RNNoise,
+
+74
+00:04:34.426 --> 00:04:37.039
+then these are the things we need to look at.
+
+75
+00:04:38.696 --> 00:04:40.866
+The current code base you can find on GitHub,
+
+76
+00:04:40.866 --> 00:04:45.706
+is C code, completely unoptimized, not vectorized.
+
+77
+00:04:45.706 --> 00:04:50.706
+And it still runs with about 1% CPU on X86,
+
+78
+00:04:50.816 --> 00:04:53.976
+about 40% on a Raspberry Pi 3,
+
+79
+00:04:53.976 --> 00:04:56.606
+and we even have a version that runs in real-time
+
+80
+00:04:56.606 --> 00:05:00.239
+in the browser, through EMscripten and JavaScript.
+
+slide-6
+00:05:03.176 --> 00:05:05.506
+Looking forward a bit, RNNoise
+
+82
+00:05:05.506 --> 00:05:08.536
+is really a minimalistic solution,
+
+83
+00:05:08.536 --> 00:05:13.006
+its DNN is really quite small compared to other approaches.
+
+84
+00:05:13.006 --> 00:05:15.356
+But in the future, you could see systems
+
+85
+00:05:15.356 --> 00:05:19.319
+where it would grow by a factor of 100 or even 1000.
+
+86
+00:05:20.626 --> 00:05:25.626
+It is mostly made of matrix-vector products,
+
+87
+00:05:25.776 --> 00:05:27.616
+especially if we grow the DNN,
+
+88
+00:05:27.616 --> 00:05:30.486
+the FFT will become negligible.
+
+89
+00:05:30.486 --> 00:05:33.156
+And so if we want it to run in real time,
+
+90
+00:05:33.156 --> 00:05:36.076
+we need low overhead because we need many
+
+91
+00:05:36.076 --> 00:05:39.039
+of these matrix-vector products every second.
+
+92
+00:05:40.626 --> 00:05:43.226
+In terms of pure DNN approaches,
+
+93
+00:05:43.226 --> 00:05:48.226
+some of them are using really large convolutional network.
+
+94
+00:05:48.586 --> 00:05:51.326
+And that involves complexity sometimes up
+
+95
+00:05:51.326 --> 00:05:54.833
+to the 10th of gigaflops, which may even require GPUs
+
+96
+00:05:54.833 --> 00:05:58.889
+in some cases, if we wanted to run in real time.
+
+97
+00:06:00.526 --> 00:06:04.016
+And there's also a new approach that is emerging,
+
+98
+00:06:04.016 --> 00:06:07.856
+it's not yet clear what will become of this,
+
+99
+00:06:07.856 --> 00:06:11.466
+but these are vocoder-based re-synthesis approaches,
+
+100
+00:06:11.466 --> 00:06:15.626
+where the idea is to de-noise acoustic features,
+
+101
+00:06:15.626 --> 00:06:20.626
+rather than audio, and then use a TTS like vocoder
+
+102
+00:06:20.646 --> 00:06:24.396
+to resynthesize clean speech out of this.
+
+103
+00:06:24.396 --> 00:06:28.886
+So it could potentially provide much fewer artifacts
+
+104
+00:06:28.886 --> 00:06:30.369
+in the denoised speech.
+
+105
+00:06:31.356 --> 00:06:34.226
+And if we want that to run in real time,
+
+106
+00:06:34.226 --> 00:06:36.556
+the most promising approaches
+
+107
+00:06:36.556 --> 00:06:39.559
+are through WaveRNN or even LPCNet.
+
+108
+00:06:40.486 --> 00:06:44.416
+Those involve around 3 to 10 gigaflops,
+
+109
+00:06:44.416 --> 00:06:47.606
+so less than some of the pure DNN approaches,
+
+110
+00:06:47.606 --> 00:06:51.886
+but at the same time, it requires a processing
+
+111
+00:06:51.886 --> 00:06:53.586
+of the sample level,
+
+112
+00:06:53.586 --> 00:06:58.056
+which means that many GPUs will not be able to process
+
+113
+00:06:58.056 --> 00:07:02.386
+that in real time, and we will actually need a CPU
+
+114
+00:07:02.386 --> 00:07:04.316
+because we need to compute the network
+
+115
+00:07:04.316 --> 00:07:06.416
+for every single sample
+
+116
+00:07:06.416 --> 00:07:10.469
+at 16 or 24 or 48 KHz in the future.
+
+slide-7
+00:07:13.346 --> 00:07:15.126
+That concludes my talk,
+
+118
+00:07:15.126 --> 00:07:18.346
+for those interested, the RNNoise source code
+
+119
+00:07:18.346 --> 00:07:22.436
+is available on GitHub under a BSD license.
+
+120
+00:07:22.436 --> 00:07:25.186
+You can also have a look at the demo page
+
+121
+00:07:25.186 --> 00:07:30.186
+for many samples as well as some high level explanation.
+
+122
+00:07:32.076 --> 00:07:34.916
+And you can have a look at some of the references here
+
+123
+00:07:34.916 --> 00:07:37.377
+if you want to read more about RNNoise
+
+124
+00:07:37.377 --> 00:07:39.556
+and some of the topics for this talk.
+
+125
+00:07:39.556 --> 00:07:40.389
+Thank you.
+

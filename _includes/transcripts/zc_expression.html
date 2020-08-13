@@ -1,0 +1,59 @@
+<div class="slide" role='region' aria-label="Slide 1 of 8" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p> First I would introduce myself briefly.</p>
+<p>I'm Zelun Chen from Netease and I'm a front-end and client development engineer.</p>
+<p>Today, the topic of my presentation is An Online Virtual Character Web Meeting With Expression Enhance Power By Machine Learning where we use <a class=dfn>WebAssembly</a> to run Machine Learning Algorithm on the browser.</p>
+<p>Now I'll give my presentation.</p>
+<p> First, let me explain the background of our project.</p>
+<p>Since the pandemic has caused great inconvenience for holding large conferences, we are thinking about building a meeting scene within our game scene so that the lecturer and the audience can join the conference via virtual images and the online conference could be vivid and immersive.</p>
+<p>As is shown in this picture, this is our meeting scene that we have built.</p>
+<p>There are audience seats and there is a podium.</p>
+<p>The lecturer can deliver a speech on the podium and display his or her presentation using the screen in the middle of it.</p>
+<p>In the lower left corner is the virtual image of the lecturer.</p>
+<p>So far, the faces of the audience and lecturers have been stiff without rich facial expressions.</p>
+<p>That's not quite what we're looking for in our immersive experience Now let me introduce our framework.</p>
+<p> Our framework is as follows: First, the audience and the lecturer go to the web page in their browser and connect to a remote game client via <a class=dfn>WebRTC</a>.</p>
+<p>Then their sounds can be transmitted through <a class=dfn>WebRTC</a> from their local microphones to the game's audio module to allow lectures and Q&As.</p>
+<p>After building the online meeting scene in this way, we've been thinking that a successful meeting takes more than just these basic elements.</p>
+<p>We also need to enhance interactions among attendees to create a vivid and immersive meeting, for example, to allow the audience to turn around and see the look on other people's faces, or to say hello to each other, or even to see the face of the lecturer.</p>
+<p>After thinking for some time, it occurs to us that we can use the browser to capture faces from their cameras and transmit them to virtual images so that everyone can see.</p>
+<p>Our algorithm group happens to have a machine-learning-based library of emoji transmission, so we were wondering if we could run this library on our browser.</p>
+<p> So here's how we're going to run this whole algorithmic engineering.</p>
+<p>First we need to use camera to capture video and send it to our algorithm to get model node parameters.</p>
+<p>Then we render these node parameters onto this virtual image in browser and repeat this step so as to convert real-time facial data into a web model.</p>
+<p>After that, we were thinking about how we can run this engineering on the Web.</p>
+<p> As our machine learning algorithm is based on C++ and only uses Opencv library and a machine learning inference engine internally, all we need to do is to run this C++ code on Web.</p>
+<p>So we came up with three solutions.</p>
+<p>The first one is to rewrite our source code with Javascript referencing OpencvJs library and the machine learning Inference engine Js lib.</p>
+<p>But this requires that we know both C++ and JS development and the essential difference between them, which is a lot of work.</p>
+<p>So we didn't adopt this solution in the end.</p>
+<p>The second solution is to deploy algorithmic engineering on the server and to invoke it through back end Api interface.</p>
+<p>But since we need real-time facial data to build the model, there will be network request time latency, so we didn't adopt this solution, either.</p>
+<p>The third solution is to compile the entire C++ library to <a class=dfn>WebAssembly</a> and directly run it on the browser.</p>
+<p>In this way, the problems of the first two solutions won't occur.</p>
+<p>Eventually, we adopted the third solution.</p>
+<p> So here is a routine way of compiling C++ to <a class=dfn>WebAssembly</a> as shown in the current page.</p>
+<p>We pack it up as a <a class=dfn>WASM</a> file and run it on our browser.</p>
+<p>Here are the results we got.</p>
+<p>The first is how it works on the browser.</p>
+<p>As you can see, it doesn't work very well on the browser.</p>
+<p>It takes about two seconds to convert facial data into model data, so it looks a bit laggy.</p>
+<p>Then let's take a look at what we did on Unity, which is what we expect to see.</p>
+<p> We can tell by comparing the two videos that our engineering doesn't work very well on <a class=dfn>WebAssembly</a>.</p>
+<p>So here we raise a couple of questions about running <a class=dfn>WebAssembly</a> on Web in our algorithmic engineering to discuss with you.</p>
+<p>First of all, as a front-end development engineer, when packing the entire C++ algorithm engineering, you need to know a lot of knowledge of CMake, CLang, and Cross Compile, and these libraries' source code, because some of these methods from outside libraries cannot run on <a class=dfn>WebAssembly</a>.</p>
+<p>And here we have an idea that maybe we can build an library environment like Npm to version the LLVM-complied code library written by a developer so that <a class=dfn>WebAssembly</a> developers can use these libraries easily whether they have knowledge of C++ or not.</p>
+<p>Second, since most of our inference libraries support OpenMp instead of PThread, we cannot use <a class=dfn>WebAssembly</a>'s multi threading to optimize.</p>
+<p>There are also biological differences to be dealt with.</p>
+<p>Third, we have encountered bad performance on <a class=dfn>matrix</a> calculation, and would love to hear if you have any suggestions to optimize it.</p>
+<p>Fourth, our <a class=dfn>WASM</a> file is a source code that can be acquired through reverse engineering and decompilation in browser, which lacks support on encrypt solution and does not guarantee the safety of our algorithmic engineering.</p>
+<p>Do you have any possible solutions to this?</p>
+<p>Those are the four problems that we're dealing with.</p>
+<p>We have come up with some solutions to improve its performance.</p>
+<p>For example, we first thought about using some efficient Javascript libraries and use EM_JS to call Javascript via <a class=dfn>WebAssembly</a>.</p>
+<p>This is certainly not a good solution as it requires communication between <a class=dfn>WASM</a> and JS files and those that call this library all need to be modified.</p>
+<p>Can we use Web common algorithm library to write some web development methods that automatically call underlying ES_JM when the environment is <a class=dfn>WebAssembly</a>?</p>
+<p>Second, we tried to use <a class=dfn>SIMD</a> experimental features on the latest browser.</p>
+<p>However, it didn't meet our expectations.</p>
+<p>First of all, the audience and the lecturer may not be using the most up-to-date browser.</p>
+<p>Second, it doesn't make much difference to our computational efficiency.</p>
+<p> Do you have any suggestions or opinions?</p>
+<p>Please feel free to tell us, thank you.</p></div><div class="slide" role='region' aria-label="Slide 2 of 8" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 3 of 8" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 4 of 8" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 5 of 8" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 6 of 8" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 7 of 8" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p></p></div><div class="slide" role='region' aria-label="Slide 8 of 8" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/zc_expression.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p></p></div>
