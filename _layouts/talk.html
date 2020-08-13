@@ -33,7 +33,7 @@
           {% for item in site.data.pages.pages %}
           {% assign absolute_url = "/" | append: item.url %}
         <li>
-          <a {% if absolute_url == page.url %}class="active-tab" {% else %}href="../{{ item.url }}"{% endif %}>{{ item.title }}</a>
+          <a {% if "presentations.html" == item.url %}class="active-tab" {% endif %}href="../{{ item.url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
         </ul>
@@ -54,6 +54,7 @@
       -->
     </header>
     {% assign shortname = page.shortname %}
+    {% assign pdf_url =  | append: shortname | append: '.pdf' %}
     {% assign path = "../" %}
     {% include sponsors.html %}
     <main>
@@ -84,6 +85,7 @@
 
           <a id="nextslide" href="#nextslide" class="picto im-arrow-right button" title="Next slide" role="button"></a>
         </span>
+            <p><a href="{{page.slidesurl}}">slideset</a></p>
 
         <div id="player">
       <script type="application/ld+json">
@@ -103,7 +105,6 @@
 
           <output id="slidenr" aria-live="polite"><a href="#start">Slide 1 of 40</a></output>
           <div id="slides" class="fade-in" role="region" aria-live="off" aria-label="Slide container">
-            <p><a href="{{page.slidesurl}}">slideset</a></p>
             {% include transcripts/{{shortname}}.html %}
 
           </div><!-- id=slides -->
