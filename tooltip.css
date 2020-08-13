@@ -1,0 +1,97 @@
+/* Tooltip caché par défaut */
+.simpletooltip[aria-hidden="true"],
+.minimalist-simpletooltip[aria-hidden="true"],
+.minimalist-left-simpletooltip[aria-hidden="true"] {
+  display: none;
+}
+/* position relative pour les conteneurs */
+.simpletooltip_container,
+.minimalist-simpletooltip_container,
+.minimalist-left-simpletooltip_container {
+  position: relative;
+}
+
+/* styles tooltip */
+.simpletooltip, 
+.minimalist-simpletooltip, 
+.minimalist-left-simpletooltip {
+  position: absolute;
+  z-index: 666;
+  width: 10em;
+  border-radius: .5em;
+  background: rgba( 0, 0, 0, .9 );
+  color: #eee;
+  padding: .5em;
+  text-align: left;
+  line-height: 1.3;
+}
+.simpletooltip, 
+.minimalist-simpletooltip {
+  right: auto;
+  left: 100%;
+  margin-left: .5em;
+}
+.minimalist-left-simpletooltip {
+  right: 100%;
+  left: auto;
+  margin-right: .5em;
+}
+/* utilise des pseudo-éléments pour faire les flèches */
+.simpletooltip::before,
+.minimalist-simpletooltip::before,
+.minimalist-left-simpletooltip::before {
+  content: '';
+  speak: none;
+  position: absolute;
+  z-index: 666;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+.simpletooltip::before,
+.minimalist-simpletooltip::before {
+  top: .5em;
+  left: -10px;
+  margin-left: -10px;
+  border: 10px solid transparent;
+  border-right: 10px solid rgba( 0, 0, 0, .9 );
+}
+.minimalist-left-simpletooltip::before {
+  top: .5em;
+  right: -10px;
+  margin-right: -10px;
+  border: 10px solid transparent;
+  border-left: 10px solid rgba( 0, 0, 0, .9 )
+}
+
+/* cela peut facilement être adapté pour les tablettes/mobiles */
+
+/* pour cet exemple : mobile */
+@media (max-width: 44.375em) {
+
+  .simpletooltip, 
+  .minimalist-simpletooltip,
+  .minimalist-left-simpletooltip  {
+    top: 100%;
+    left: 50%;
+	right: 0;
+    margin: 0;
+	margin-top: .7em;
+	margin-left: -5em;
+  }
+  .simpletooltip::before, 
+  .minimalist-simpletooltip::before,
+  .minimalist-left-simpletooltip::before  {
+    top: -10px;
+	right: auto;
+	left: 50%;
+	margin-left: -5px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid rgba( 0, 0, 0, .9 );
+  }
+  
+}
+.hidden {
+    display: none;
+}

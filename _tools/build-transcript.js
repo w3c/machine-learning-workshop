@@ -3,49 +3,9 @@ const WebVTTParser = require("webvtt-parser").WebVTTParser;
 const parser = new WebVTTParser();
 const splitter = require("sentence-splitter");
 const talks = require("../_data/talks.json");
+const lexicon = require("../lexicon.json");
 
-const linkableTerms = [
-"GAN",
-"GRU",
-"SoC",
-"multiply-add",
-"matrix",
-"tensor",
-"convolution",
-"correlation",
-"SNR",
-"DNN",
-"FTT",
-"IFFT",
-"EMScripten",
-"WebAssembly",
-"WASM",
-"WebGL",
-"WebGPU",
-"SIMD",
-"vocoder",
-"TTS",
-"DSP",
-"WebBLE",
-"WASI",
-"CG",
-"OpenVINO",
-"PyTorch",
-"Keras",
-  "TensorFlow.js",
-  "TensorFlow",
-  "TFJS",
-"python",
-"model DAG",
-"YOLO",
-"differential privacy",
-"NLP",
-  "ASR",
-  "NPM",
-  "Node.js",
-  "WebRTC",
-  "WebXR"
-];
+const linkableTerms = Object.keys(lexicon);
 
 function annotateSentence(sentence) {
   sentence = sentence.replace(/^slide [a-z0-9]*\.?/i, '');
