@@ -12,14 +12,14 @@ if (firstPdfSlide) {
       // Fetch the first page
       var pageNumber = parseInt(div.id.slice(6));
       pdf.getPage(pageNumber).then(function(page) {
-        console.log('Page loaded');
-        
-        var scale = 1;
-        var viewport = page.getViewport({scale: scale});
-
-        // Prepare canvas using PDF page dimensions
         var canvas = document.createElement("canvas");
         div.appendChild(canvas);
+        canvas.width = div.clientWidth;
+        let scale = (canvas.width / page.view[2]);
+        let viewport = page.getViewport({scale: scale});
+        canvas.height = page.view[3] * scale;
+
+        // Prepare canvas using PDF page dimensions
         var context = canvas.getContext('2d');
         canvas.height = viewport.height;
         canvas.width = viewport.width;
