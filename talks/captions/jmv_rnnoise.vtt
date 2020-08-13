@@ -250,7 +250,7 @@ which means we have 100 frames per second.
 
 63
 00:03:55.336 --> 00:04:00.336
-The total complexity in RNNoise is around 40 mega flops.
+The total complexity in RNNoise is around 40 megaflops.
 
 64
 00:04:01.336 --> 00:04:05.146
@@ -266,7 +266,7 @@ And the complexity of that, is around 17
 
 67
 00:04:13.123 --> 00:04:15.346
-and a half mega flops.
+and a half megaflops.
 
 68
 00:04:15.346 --> 00:04:18.676
@@ -274,7 +274,7 @@ We have FFTs and IFFTs,
 
 69
 00:04:18.676 --> 00:04:22.846
-and those costs around seven and a half mega flops.
+and those costs around seven and a half megaflops.
 
 70
 00:04:22.846 --> 00:04:26.686
@@ -282,7 +282,7 @@ And then we have a pitch search, which uses a correlation
 
 71
 00:04:26.686 --> 00:04:30.516
-or convolution and cost around 10 mega flops.
+or convolution and cost around 10 megaflops.
 
 72
 00:04:30.516 --> 00:04:32.216

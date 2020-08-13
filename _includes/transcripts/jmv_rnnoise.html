@@ -19,24 +19,24 @@
 <p>You can observe the result in this slide, they are based on test evaluation, so objective evaluation.</p>
 <p>And you can also go to this interactive demo, where you can listen to several samples, and also actually try RNNoise on your own voice using JavaScript.</p></div><div class="slide" role='region' aria-label="Slide 5 of 7" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>Now let's look at the complexity of RNNoise, for a 48 kilohertz mono input signal.</p>
 <p>RNNoise uses 215 neurons, which means 88,000 weights, and it processes audio in frames of 10 milliseconds, which means we have 100 frames per second.</p>
-<p>The total complexity in RNNoise is around 40 mega flops.</p>
+<p>The total complexity in RNNoise is around 40 <a class=dfn>megaflops</a>.</p>
 <p>And the most complex parts, are first the <a class=dfn>DNN</a>, which is mostly made of <a class=dfn>matrix</a>-vector products.</p>
-<p>And the complexity of that, is around 17 and a half mega flops.</p>
-<p>We have FFTs and IFFTs, and those costs around seven and a half mega flops.</p>
-<p>And then we have a pitch search, which uses a <a class=dfn>correlation</a> or <a class=dfn>convolution</a> and cost around 10 mega flops.</p>
+<p>And the complexity of that, is around 17 and a half <a class=dfn>megaflops</a>.</p>
+<p>We have FFTs and IFFTs, and those costs around seven and a half <a class=dfn>megaflops</a>.</p>
+<p>And then we have a pitch search, which uses a correlation or <a class=dfn>convolution</a> and cost around 10 <a class=dfn>megaflops</a>.</p>
 <p>But these are the main parts.</p>
 <p>So, if we wanna optimize RNNoise, then these are the things we need to look at.</p>
 <p>The current code base you can find on GitHub, is C code, completely unoptimized, not vectorized.</p>
 <p>And it still runs with about 1% CPU on X86, about 40% on a Raspberry Pi 3, and we even have a version that runs in real-time in the browser, through EMscripten and JavaScript.</p></div><div class="slide" role='region' aria-label="Slide 6 of 7" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Looking forward a bit, RNNoise is really a minimalistic solution, its <a class=dfn>DNN</a> is really quite small compared to other approaches.</p>
 <p>But in the future, you could see systems where it would grow by a factor of 100 or even 1000.</p>
-<p>It is mostly made of <a class=dfn>matrix</a>-vector products, especially if we grow the <a class=dfn>DNN</a>, the FFT will become negligible.</p>
+<p>It is mostly made of <a class=dfn>matrix</a>-vector products, especially if we grow the <a class=dfn>DNN</a>, the <a class=dfn>FFT</a> will become negligible.</p>
 <p>And so if we want it to run in real time, we need low overhead because we need many of these <a class=dfn>matrix</a>-vector products every second.</p>
-<p>In terms of pure <a class=dfn>DNN</a> approaches, some of them are using really large convolutional network.</p>
-<p>And that involves complexity sometimes up to the 10th of gigaflops, which may even require GPUs in some cases, if we wanted to run in real time.</p>
+<p>In terms of pure <a class=dfn>DNN</a> approaches, some of them are using really large <a class=dfn>convolutional network</a>.</p>
+<p>And that involves complexity sometimes up to the 10th of <a class=dfn>gigaflops</a>, which may even require GPUs in some cases, if we wanted to run in real time.</p>
 <p>And there's also a new approach that is emerging, it's not yet clear what will become of this, but these are <a class=dfn>vocoder</a>-based re-synthesis approaches, where the idea is to de-noise acoustic features, rather than audio, and then use a <a class=dfn>TTS</a> like <a class=dfn>vocoder</a> to resynthesize clean speech out of this.</p>
 <p>So it could potentially provide much fewer artifacts in the denoised speech.</p>
 <p>And if we want that to run in real time, the most promising approaches are through WaveRNN or even LPCNet.</p>
-<p>Those involve around 3 to 10 gigaflops, so less than some of the pure <a class=dfn>DNN</a> approaches, but at the same time, it requires a processing of the sample level, which means that many GPUs will not be able to process that in real time, and we will actually need a CPU because we need to compute the network for every single sample at 16 or 24 or 48 KHz in the future.</p></div><div class="slide" role='region' aria-label="Slide 7 of 7" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>That concludes my talk, for those interested, the RNNoise source code is available on GitHub under a BSD license.</p>
+<p>Those involve around 3 to 10 <a class=dfn>gigaflops</a>, so less than some of the pure <a class=dfn>DNN</a> approaches, but at the same time, it requires a processing of the sample level, which means that many GPUs will not be able to process that in real time, and we will actually need a CPU because we need to compute the network for every single sample at 16 or 24 or 48 KHz in the future.</p></div><div class="slide" role='region' aria-label="Slide 7 of 7" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jmv_rnnoise.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>That concludes my talk, for those interested, the RNNoise source code is available on GitHub under a BSD license.</p>
 <p>You can also have a look at the demo page for many samples as well as some high level explanation.</p>
 <p>And you can have a look at some of the references here if you want to read more about RNNoise and some of the topics for this talk.</p>
 <p>Thank you.</p></div>
