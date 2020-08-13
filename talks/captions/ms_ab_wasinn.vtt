@@ -1,0 +1,498 @@
+﻿WEBVTT
+
+slid-1
+00:00:09.156 --> 00:00:11.206
+<v ->Hello, this is Mingqiu Sun.</v>
+
+2
+00:00:11.206 --> 00:00:14.016
+I have my colleague, Andrew Brown with me.
+
+3
+00:00:14.016 --> 00:00:16.249
+Today, we're gonna talk about WASI-NN,
+
+4
+00:00:17.246 --> 00:00:21.649
+stand for WebAssembly System Interface for Neural Network.
+
+slide-2
+00:00:23.036 --> 00:00:23.909
+Next slide.
+
+6
+00:00:24.776 --> 00:00:27.408
+Let's talk about what is WASI?
+
+7
+00:00:27.408 --> 00:00:29.776
+WASI stand for WebAssembly System Interface.
+
+8
+00:00:29.776 --> 00:00:34.716
+It's a subgroup of the WebAssembly CG,
+
+9
+00:00:34.716 --> 00:00:39.226
+and we are the official group to define WASI API.
+
+10
+00:00:39.226 --> 00:00:42.469
+And here the GitHub repo,
+
+11
+00:00:44.805 --> 00:00:48.019
+and we have a video meeting biweekly.
+
+12
+00:00:50.163 --> 00:00:53.086
+WASI is using Witx
+
+13
+00:00:53.086 --> 00:00:54.729
+to defined interface.
+
+14
+00:00:55.996 --> 00:00:57.576
+Next slide.
+
+slide-3
+00:00:57.576 --> 00:01:00.736
+So let me talk about some background information
+
+16
+00:01:00.736 --> 00:01:02.806
+about Bytecode Alliance.
+
+17
+00:01:02.806 --> 00:01:06.836
+So this is an open source community that we're dedicated to,
+
+18
+00:01:06.836 --> 00:01:11.236
+you know, create a secure new software foundation,
+
+19
+00:01:11.236 --> 00:01:16.236
+building on top of such standard as web assembly, and WASI.
+
+20
+00:01:18.641 --> 00:01:20.223
+Mozilla, Fastly, Intel and RedHat
+
+21
+00:01:20.223 --> 00:01:21.909
+are the founding members.
+
+22
+00:01:22.972 --> 00:01:25.826
+Currently, we have three major engagement
+
+23
+00:01:25.826 --> 00:01:29.026
+with that organization.
+
+24
+00:01:29.026 --> 00:01:34.026
+We contribute a small footprint web assembly
+
+25
+00:01:34.306 --> 00:01:38.296
+implementation coder or WebAssembly Micro Runtime.
+
+26
+00:01:38.296 --> 00:01:42.339
+We are responsible for SIMD implementation in Wasmtime,
+
+27
+00:01:43.945 --> 00:01:46.966
+and we are driving this WASI Neural Network interface
+
+28
+00:01:46.966 --> 00:01:49.596
+definition and the POC.
+
+29
+00:01:49.596 --> 00:01:53.366
+So those are the three major activity we are engaged with.
+
+30
+00:01:53.366 --> 00:01:56.306
+And today, we're gonna talk about the WASI-NN.
+
+31
+00:01:58.106 --> 00:01:58.989
+Slide four.
+
+slide-4
+00:02:01.276 --> 00:02:04.546
+So let's talk about why we are talking about this.
+
+33
+00:02:04.546 --> 00:02:07.379
+What's the motivation behind WASI neural network?
+
+34
+00:02:09.106 --> 00:02:13.676
+So, in a typical use scenario for machine learning,
+
+35
+00:02:13.676 --> 00:02:15.756
+trained model need to be deployed
+
+36
+00:02:15.756 --> 00:02:19.706
+on a wide variety of devices
+
+37
+00:02:19.706 --> 00:02:23.376
+with different architecture and operating systems.
+
+38
+00:02:23.376 --> 00:02:28.036
+So, web assembly is a perfect, you know,
+
+39
+00:02:28.036 --> 00:02:30.706
+format for this kind of deployment
+
+40
+00:02:30.706 --> 00:02:33.043
+because it's platform independent.
+
+41
+00:02:34.616 --> 00:02:35.606
+So why WASI?
+
+42
+00:02:35.606 --> 00:02:38.166
+Why not doing machine learning, you know,
+
+43
+00:02:38.166 --> 00:02:40.456
+completely inside web assembly?
+
+44
+00:02:40.456 --> 00:02:43.066
+So the main reason is that machine learning typically
+
+45
+00:02:43.066 --> 00:02:46.436
+require a special hardware support
+
+46
+00:02:46.436 --> 00:02:48.796
+in order to be high performance.
+
+47
+00:02:48.796 --> 00:02:50.836
+You know, for example, for CPU,
+
+48
+00:02:50.836 --> 00:02:55.836
+typically, the AVX512 to have extremely good, you know,
+
+49
+00:02:57.316 --> 00:02:59.906
+performance and similarly, you know,
+
+50
+00:02:59.906 --> 00:03:04.479
+you might need a GPU, TPU for hardware acceleration.
+
+51
+00:03:05.366 --> 00:03:08.616
+So machine learning is still evolving rapidly
+
+52
+00:03:08.616 --> 00:03:11.676
+and there was like a new operation and a new
+
+53
+00:03:11.676 --> 00:03:14.936
+network topology emerging continuously.
+
+54
+00:03:14.936 --> 00:03:17.416
+So it makes sense to have a system interface
+
+55
+00:03:17.416 --> 00:03:21.756
+that connect with a special implementation
+
+56
+00:03:21.756 --> 00:03:25.975
+of those topology or new operations
+
+57
+00:03:25.975 --> 00:03:28.909
+outside a web assembly domain.
+
+58
+00:03:30.506 --> 00:03:31.996
+Slide five.
+
+slide-5
+00:03:31.996 --> 00:03:34.389
+So here a few design considerations.
+
+60
+00:03:35.536 --> 00:03:37.256
+We are focusing on more,
+
+61
+00:03:37.256 --> 00:03:40.049
+what's called a model loader API first,
+
+62
+00:03:40.896 --> 00:03:41.729
+because you know,
+
+63
+00:03:41.729 --> 00:03:45.366
+inferencing is by, you know, quantity,
+
+64
+00:03:45.366 --> 00:03:48.586
+it's a vast majority of our machine learning use cases.
+
+65
+00:03:48.586 --> 00:03:52.156
+And that's the reason that it's our initial focus
+
+66
+00:03:52.156 --> 00:03:56.679
+and we plan, you know, to add training part later on.
+
+67
+00:03:58.076 --> 00:04:01.376
+Secondly, you know, it's a simpler API
+
+68
+00:04:01.376 --> 00:04:04.276
+with excellent IP protection.
+
+69
+00:04:04.276 --> 00:04:07.216
+So you don't need to expose the internal details
+
+70
+00:04:07.216 --> 00:04:09.376
+about your machine learning model
+
+71
+00:04:09.376 --> 00:04:10.579
+through this API.
+
+72
+00:04:12.045 --> 00:04:15.436
+And it was inspired by the WebNN effort
+
+73
+00:04:16.826 --> 00:04:20.546
+and they have very similar model loader API.
+
+74
+00:04:20.546 --> 00:04:22.746
+And then, we had the joint review with them.
+
+75
+00:04:24.114 --> 00:04:28.546
+So, our intention is to make this API framework
+
+76
+00:04:28.546 --> 00:04:31.326
+and the model format agnostic,
+
+77
+00:04:31.326 --> 00:04:34.806
+and then we expect that it will be supported
+
+78
+00:04:34.806 --> 00:04:37.186
+on a wide variety of devices,
+
+79
+00:04:37.186 --> 00:04:41.009
+such as CPU, GPU, FPGA, and TPU.
+
+80
+00:04:42.106 --> 00:04:43.706
+So next slide.
+
+81
+00:04:43.706 --> 00:04:47.416
+We're gonna turn over to my colleague, Andrew,
+
+82
+00:04:47.416 --> 00:04:50.389
+to cover the actual API definition.
+
+slide-6
+00:04:51.306 --> 00:04:55.266
+<v ->Hi, so the proposed WASI-NN interface</v>
+
+84
+00:04:55.266 --> 00:04:57.379
+is available at this link.
+
+85
+00:04:58.566 --> 00:05:01.686
+If you see some of the examples from this slide,
+
+86
+00:05:01.686 --> 00:05:06.626
+you'll see that it specifies a way to describe tensors,
+
+87
+00:05:06.626 --> 00:05:08.936
+a way to load models,
+
+88
+00:05:08.936 --> 00:05:12.276
+and a way to execute inference requests
+
+89
+00:05:12.276 --> 00:05:16.186
+using those tensors and the loaded models.
+
+90
+00:05:16.186 --> 00:05:19.256
+The proposal does not yet include a mechanism
+
+91
+00:05:19.256 --> 00:05:20.469
+for training models.
+
+92
+00:05:21.616 --> 00:05:24.706
+And also notable is it doesn't specify
+
+93
+00:05:24.706 --> 00:05:26.516
+the encoding of the model.
+
+94
+00:05:26.516 --> 00:05:29.626
+And so, that model format is opaque
+
+95
+00:05:29.626 --> 00:05:32.906
+at the WASI-NN interface level.
+
+96
+00:05:32.906 --> 00:05:37.086
+That means that the implementation of WASI-NN,
+
+97
+00:05:37.086 --> 00:05:40.116
+what's in the, for example, WebAssembly runtime
+
+98
+00:05:40.116 --> 00:05:42.356
+would have to understand the model format
+
+99
+00:05:42.356 --> 00:05:45.679
+in order to perform the inference.
+
+100
+00:05:46.786 --> 00:05:47.909
+Next slide.
+
+slide-7
+00:05:49.976 --> 00:05:54.230
+What you're looking at here is a sort of
+
+102
+00:05:54.230 --> 00:05:57.576
+simple architecture diagram of a POC
+
+103
+00:05:57.576 --> 00:06:01.419
+that we're attempting, that we're looking at in Wasmtime.
+
+104
+00:06:02.656 --> 00:06:05.656
+Once complete, what you'll be able to do
+
+105
+00:06:05.656 --> 00:06:09.816
+is take user application code and a WASI-NN header,
+
+106
+00:06:09.816 --> 00:06:12.319
+and compile that to a WASM file.
+
+107
+00:06:13.576 --> 00:06:18.316
+If you combine that with a trained model,
+
+108
+00:06:18.316 --> 00:06:22.593
+potentially converted using OpenVINO's model optimizer,
+
+109
+00:06:24.126 --> 00:06:27.136
+you can hand those over to Wasmtime
+
+110
+00:06:27.136 --> 00:06:31.269
+and Wasmtime will be able to execute the WASM file
+
+111
+00:06:33.036 --> 00:06:36.616
+using the model file to perform inference.
+
+112
+00:06:36.616 --> 00:06:39.456
+And the path we're taking right now is
+
+113
+00:06:39.456 --> 00:06:43.516
+to implement the WASI-NN interface using OpenVINO,
+
+114
+00:06:43.516 --> 00:06:45.396
+which would allow us to perform inference
+
+115
+00:06:45.396 --> 00:06:48.239
+on a variety of different hardware.
+
+116
+00:06:49.296 --> 00:06:51.076
+Back to you, Mingqiu.
+
+slide-8
+00:06:51.076 --> 00:06:51.909
+<v ->Okay.</v>
+
+118
+00:06:51.909 --> 00:06:53.306
+So call for action.
+
+119
+00:06:53.306 --> 00:06:57.606
+So this is still like an early stage of proposal.
+
+120
+00:06:57.606 --> 00:07:02.606
+We would like to welcome your input on this proposal
+
+121
+00:07:02.896 --> 00:07:05.209
+to engage us in the WASI community.
+
+122
+00:07:06.310 --> 00:07:09.109
+This is, you know, early stage, as I said,
+
+123
+00:07:10.108 --> 00:07:13.586
+and it's easy to change if you see anything you don't like.
+
+124
+00:07:13.586 --> 00:07:14.699
+Thank you very much.
+

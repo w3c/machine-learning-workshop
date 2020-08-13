@@ -1,0 +1,879 @@
+WEBVTT
+
+1
+0:00:08.770 --> 0:00:11.960
+<v ->Hello, everyone, my name is Tero Parviainen,</v>
+
+2
+0:00:11.960 --> 0:00:13.620
+and I would like to share a few thoughts
+
+3
+0:00:13.620 --> 0:00:17.120
+on my experiences making musical applications
+
+4
+0:00:17.120 --> 0:00:19.883
+powered by machine learning models for the web.
+
+5
+0:00:21.900 --> 0:00:23.290
+Now I run a creative technology
+
+6
+0:00:23.290 --> 0:00:25.410
+and design studio called Counterpoint
+
+7
+0:00:25.410 --> 0:00:27.830
+with my partner, Sam Diggins,
+
+8
+0:00:27.830 --> 0:00:30.500
+and we do a lot of stuff for the web.
+
+9
+0:00:30.500 --> 0:00:34.450
+We do experiments on musical instruments, music tools,
+
+10
+0:00:34.450 --> 0:00:38.890
+artistic works, some more commercial oriented work as well,
+
+11
+0:00:38.890 --> 0:00:42.230
+and we quite often end up doing the things we do
+
+12
+0:00:42.230 --> 0:00:44.310
+on the web platform.
+
+13
+0:00:44.310 --> 0:00:45.590
+And it's been really good to us.
+
+14
+0:00:45.590 --> 0:00:47.860
+I mean, it's hard to imagine a better way for us
+
+15
+0:00:47.860 --> 0:00:49.730
+to do the kind of thing we do,
+
+16
+0:00:49.730 --> 0:00:52.510
+and that's not just because of the web browser
+
+17
+0:00:52.510 --> 0:00:54.590
+as an integrated media platform,
+
+18
+0:00:54.590 --> 0:00:58.120
+but also because of the browser as a delivery platform,
+
+19
+0:00:58.120 --> 0:01:01.400
+where all we have to do to share our work
+
+20
+0:01:01.400 --> 0:01:04.520
+is to send someone a link or URL.
+
+21
+0:01:04.520 --> 0:01:06.503
+And that's a really powerful paradigm.
+
+22
+0:01:08.370 --> 0:01:10.300
+But most of the projects we do
+
+23
+0:01:10.300 --> 0:01:12.720
+end up also kind of hitting the limitations
+
+24
+0:01:12.720 --> 0:01:14.440
+of the platform as well.
+
+25
+0:01:14.440 --> 0:01:16.850
+And almost every project kind of becomes a dance
+
+26
+0:01:16.850 --> 0:01:20.400
+of finding the right technical compromises
+
+27
+0:01:21.130 --> 0:01:24.110
+in order to deliver what we want to deliver.
+
+28
+0:01:24.110 --> 0:01:28.170
+And today, I wanted to share three examples
+
+29
+0:01:28.170 --> 0:01:30.583
+of the kind of thing I'm talking about here.
+
+30
+0:01:32.140 --> 0:01:33.790
+Firstly, a couple of years ago,
+
+31
+0:01:33.790 --> 0:01:38.600
+I did this series of experimental musical instruments
+
+32
+0:01:38.600 --> 0:01:41.310
+using TensorFlow.js and Magenta.js,
+
+33
+0:01:41.310 --> 0:01:44.450
+both of which were really new at that point.
+
+34
+0:01:44.450 --> 0:01:46.750
+Here are two of them running at the same time
+
+35
+0:01:46.750 --> 0:01:49.380
+as an arpeggiator and a drum machine.
+
+36
+0:01:49.380 --> 0:01:52.610
+And both are using Magenta RNN models
+
+37
+0:01:52.610 --> 0:01:56.900
+to generate musical patterns in the symbolic domain,
+
+38
+0:01:56.900 --> 0:01:59.203
+which I'm then turning into audio using samples.
+
+39
+0:02:00.120 --> 0:02:03.220
+And I'm running them on two different webpages in synchrony
+
+40
+0:02:03.220 --> 0:02:05.953
+synchronizing using web MIDI within a MIDI clock.
+
+41
+0:02:07.500 --> 0:02:10.160
+Now there's of course, many design considerations
+
+42
+0:02:11.140 --> 0:02:12.130
+in a musical instrument,
+
+43
+0:02:12.130 --> 0:02:14.800
+but I find one of the most important ones
+
+44
+0:02:14.800 --> 0:02:17.820
+is the latency between the input and output
+
+45
+0:02:18.730 --> 0:02:23.310
+when you're playing it, so called action-response cycle,
+
+46
+0:02:23.310 --> 0:02:25.460
+which needs to be in the low order of milliseconds
+
+47
+0:02:25.460 --> 0:02:28.330
+for it to feel good when you're playing it.
+
+48
+0:02:29.180 --> 0:02:31.150
+And if you're running a machine learning model,
+
+49
+0:02:31.150 --> 0:02:32.610
+there's kind of a lot of stuff
+
+50
+0:02:32.610 --> 0:02:35.420
+you need to cram into that time.
+
+51
+0:02:35.420 --> 0:02:37.950
+So you press a key on your instrument,
+
+52
+0:02:37.950 --> 0:02:39.990
+that triggers some code
+
+53
+0:02:39.990 --> 0:02:43.780
+that turns that event into an input tensor,
+
+54
+0:02:43.780 --> 0:02:45.800
+which is uploaded to the GPU,
+
+55
+0:02:45.800 --> 0:02:49.290
+which is then run through the machine learning model
+
+56
+0:02:49.290 --> 0:02:52.500
+whose results are then downloaded from the GPU,
+
+57
+0:02:52.500 --> 0:02:56.520
+and then your musical outputs are scheduled from that.
+
+58
+0:02:56.520 --> 0:03:00.320
+That is a lot of stuff to do in a very short amount of time.
+
+59
+0:03:00.320 --> 0:03:02.710
+And with these apps two years ago,
+
+60
+0:03:02.710 --> 0:03:04.610
+actually I wasn't able to do that really,
+
+61
+0:03:04.610 --> 0:03:06.127
+it was not really real time,
+
+62
+0:03:06.127 --> 0:03:08.740
+but it can kind of feel that when you're playing then.
+
+63
+0:03:08.740 --> 0:03:11.320
+And I did end up having to do a lot of kind of tricks
+
+64
+0:03:11.320 --> 0:03:14.970
+and workarounds to make it feel more real time.
+
+65
+0:03:14.970 --> 0:03:17.103
+So for example, with the arpeggiator,
+
+66
+0:03:18.196 --> 0:03:19.660
+when you press a key on it,
+
+67
+0:03:19.660 --> 0:03:21.160
+I started playing some kind of
+
+68
+0:03:23.300 --> 0:03:24.820
+algorithmically generated notes
+
+69
+0:03:24.820 --> 0:03:27.190
+while waiting for the machine learning model
+
+70
+0:03:27.190 --> 0:03:28.860
+to come out with its results,
+
+71
+0:03:28.860 --> 0:03:30.850
+to kind of fill in the gap
+
+72
+0:03:30.850 --> 0:03:32.700
+to always have something playing.
+
+73
+0:03:32.700 --> 0:03:34.200
+So there's a lot of kind of engineering
+
+74
+0:03:34.200 --> 0:03:37.170
+that goes into making things feel more real time
+
+75
+0:03:37.170 --> 0:03:38.730
+than they actually are.
+
+76
+0:03:38.730 --> 0:03:41.150
+And I would prefer not to have to do that work, of course,
+
+77
+0:03:41.150 --> 0:03:43.200
+and now it's getting increasingly better,
+
+78
+0:03:43.200 --> 0:03:45.406
+but I think that real time aspect is really important
+
+79
+0:03:45.406 --> 0:03:47.503
+to think about with these things.
+
+80
+0:03:48.380 --> 0:03:52.340
+Now, the second example is a bit later,
+
+81
+0:03:52.340 --> 0:03:55.400
+it's about a year ago, we did this project called GANHarp
+
+82
+0:03:56.300 --> 0:03:59.300
+which had us moving from
+
+83
+0:03:59.300 --> 0:04:02.310
+generating symbolic music data in the browser
+
+84
+0:04:02.310 --> 0:04:05.900
+to actually generating audio data in the browser.
+
+85
+0:04:05.900 --> 0:04:09.910
+And here we use another Magenta model called GANSynth
+
+86
+0:04:09.910 --> 0:04:13.270
+which is a GAN that generates instrument tambours
+
+87
+0:04:13.270 --> 0:04:15.796
+samples of instrument sounds
+
+88
+0:04:15.796 --> 0:04:17.621
+in the audio domain.
+
+89
+0:04:17.621 --> 0:04:19.360
+And then we have this UI,
+
+90
+0:04:19.360 --> 0:04:21.540
+which lets you kind of interpolate between them
+
+91
+0:04:21.540 --> 0:04:24.543
+and morph between different instrumental sounds as you play.
+
+92
+0:04:26.800 --> 0:04:29.180
+Now, of course, in the audio domain, there's a lot more data
+
+93
+0:04:29.180 --> 0:04:30.130
+than in the symbolic domain.
+
+94
+0:04:30.130 --> 0:04:32.500
+There's tens of thousands of samples
+
+95
+0:04:32.500 --> 0:04:34.270
+that goes into each sound you hear,
+
+96
+0:04:34.270 --> 0:04:37.800
+and this was nowhere near real time
+
+97
+0:04:37.800 --> 0:04:39.500
+when we generated stuff here.
+
+98
+0:04:39.500 --> 0:04:41.210
+So it took even on my MacBook Pro,
+
+99
+0:04:41.210 --> 0:04:44.880
+it took 10-20 seconds to generate a single sound,
+
+100
+0:04:44.880 --> 0:04:46.230
+which meant that how we did this is
+
+101
+0:04:46.230 --> 0:04:49.440
+we pregenerated those sounds and then played them back
+
+102
+0:04:49.440 --> 0:04:52.343
+using audio buffers in real time,
+
+103
+0:04:52.343 --> 0:04:54.700
+but it would have been nice to do it in real time.
+
+104
+0:04:54.700 --> 0:04:56.790
+And it got me thinking that maybe
+
+105
+0:04:56.790 --> 0:05:00.980
+we can start doing this more and more as things progress,
+
+106
+0:05:00.980 --> 0:05:02.760
+maybe not with GANSynth
+
+107
+0:05:02.760 --> 0:05:06.300
+but maybe with some more economic machine learning models
+
+108
+0:05:06.300 --> 0:05:08.250 
+like Magenta DDSP node.
+
+109
+0:05:08.250 --> 0:05:10.200
+And what that would mean is, of course,
+
+110
+0:05:10.200 --> 0:05:14.150
+it would take us to this context of real time audio,
+
+111
+0:05:14.150 --> 0:05:17.740
+which is a very constrained place,
+
+112
+0:05:17.740 --> 0:05:22.740
+you have this task of generating 48,000 audio samples
+
+113
+0:05:22.740 --> 0:05:26.760
+per second per channel consistently without fault.
+
+114
+0:05:26.760 --> 0:05:28.860
+Because if you fail to do that
+
+115
+0:05:28.860 --> 0:05:31.450
+you have an audible glitch in your outputs.
+
+116
+0:05:31.450 --> 0:05:33.370
+So it's a very hard constraint,
+
+117
+0:05:33.370 --> 0:05:36.270
+and it has to be deterministic because of this reason.
+
+118
+0:05:36.270 --> 0:05:38.340
+So thinking about,
+
+119
+0:05:38.340 --> 0:05:42.110
+how to take machine learning models into this context,
+
+120
+0:05:42.110 --> 0:05:44.490
+where there are some considerations
+
+121
+0:05:44.490 --> 0:05:47.570
+like you can't really use the JavaScript heap,
+
+122
+0:05:47.570 --> 0:05:49.660
+because that might be engage the garbage collector,
+
+123
+0:05:49.660 --> 0:05:51.120
+which is not deterministic,
+
+124
+0:05:51.120 --> 0:05:52.740
+and that might have your glitch.
+
+125
+0:05:52.740 --> 0:05:55.200
+You certainly can't talk to the GPU,
+
+126
+0:05:55.200 --> 0:06:00.000
+because that's asynchronous, and you can't be asynchronous,
+
+127
+0:06:00.000 --> 0:06:01.490
+but maybe you could do things like
+
+128
+0:06:01.490 --> 0:06:05.350
+have inference running in WebAssembly on the CPU
+
+129
+0:06:05.350 --> 0:06:06.730
+on your audio thread,
+
+130
+0:06:06.730 --> 0:06:08.800
+or maybe even engage
+
+131
+0:06:08.800 --> 0:06:12.120
+some of this native APIs that people are talking about
+
+132
+0:06:12.120 --> 0:06:15.280
+if they were available in the worklet context.
+
+133
+0:06:15.280 --> 0:06:17.820
+This is something I would love to explore more
+
+134
+0:06:17.820 --> 0:06:18.813
+in the near future.
+
+135
+0:06:20.990 --> 0:06:22.790
+Now my third example today,
+
+136
+0:06:22.790 --> 0:06:26.250
+and my final example is an app we did a few months ago
+
+137
+0:06:26.250 --> 0:06:30.440
+for last Christmas, called Face the Music.
+
+138
+0:06:30.440 --> 0:06:32.260
+This is something we did with Yuri Suzuki
+
+139
+0:06:32.260 --> 0:06:34.580
+who is a partner at Pentagram design,
+
+140
+0:06:34.580 --> 0:06:37.530
+this was Pentagram designs, holiday greeting
+
+141
+0:06:37.530 --> 0:06:40.300
+for the last holiday season.
+
+142
+0:06:40.300 --> 0:06:42.790
+And here we are running a face detection model
+
+143
+0:06:42.790 --> 0:06:44.550
+and a face landmark detection model
+
+144
+0:06:45.580 --> 0:06:48.136
+and turning the detected inputs from your face
+
+145
+0:06:48.136 --> 0:06:49.570
+into musical output.
+
+146
+0:06:49.570 --> 0:06:53.183
+So essentially we're letting you play music with your face.
+
+147
+0:06:54.560 --> 0:06:58.630
+So we have an image input and musical output.
+
+148
+0:06:58.970 --> 0:07:02.480
+Now, it kind of brings us to the same question
+
+149
+0:07:02.480 --> 0:07:06.320
+as with my first example of having a real low latency
+
+150
+0:07:06.320 --> 0:07:08.270
+that being the most important thing:
+
+151
+0:07:08.270 --> 0:07:10.160
+when you make a facial gesture,
+
+152
+0:07:10.160 --> 0:07:12.540
+you're gonna want to be able to get their musical output
+
+153
+0:07:12.540 --> 0:07:14.260
+from that very quickly,
+
+154
+0:07:14.260 --> 0:07:16.330
+for that to feel good and feel engaged
+
+155
+0:07:16.330 --> 0:07:18.660
+and it's the most important thing.
+
+156
+0:07:18.660 --> 0:07:22.300
+And I do think we were able to pull it off with this app,
+
+157
+0:07:22.300 --> 0:07:25.560
+but that was our biggest challenge by far
+
+158
+0:07:25.560 --> 0:07:28.600
+to have that low latency on all devices.
+
+159
+0:07:28.600 --> 0:07:30.550
+And we had to use like a low video resolution
+
+160
+0:07:30.550 --> 0:07:31.680
+for that to work
+
+161
+0:07:31.680 --> 0:07:34.280
+and do all kinds of different optimizations as well.
+
+162
+0:07:35.690 --> 0:07:38.340
+I was at some point measuring what was going on here,
+
+163
+0:07:40.190 --> 0:07:42.510
+because we have this per-frame budget
+
+164
+0:07:42.510 --> 0:07:43.890
+of being able to analyze
+
+165
+0:07:43.890 --> 0:07:46.627
+what's going and schedule musical outputs from that,
+
+166
+0:07:46.627 --> 0:07:51.550
+and that includes all kinds of tasks like
+
+167
+0:07:51.550 --> 0:07:53.820
+getting the image from the webcam feed,
+
+168
+0:07:53.820 --> 0:07:55.640
+drawing that onto a canvas,
+
+169
+0:07:55.640 --> 0:07:57.910
+getting the pixel data out of the canvas,
+
+170
+0:07:57.910 --> 0:08:01.210
+turning that into a tensor and handing that to the GPU
+
+171
+0:08:01.210 --> 0:08:03.180
+to run the model on.
+
+172
+0:08:03.180 --> 0:08:04.520
+And that's a lot of stuff.
+
+173
+0:08:04.520 --> 0:08:07.420
+And I was measuring that and it actually turned out that
+
+174
+0:08:07.420 --> 0:08:11.300
+almost half of the time per-frame was used on that first
+
+175
+0:08:11.300 --> 0:08:14.390
+part of this process of actually getting the data
+
+176
+0:08:14.390 --> 0:08:17.570
+into the model to analyze in the first place.
+
+177
+0:08:17.570 --> 0:08:19.590
+The convolutional networks were plenty fast
+
+178
+0:08:19.590 --> 0:08:20.703
+to run on each frame,
+
+179
+0:08:21.600 --> 0:08:26.510
+but there's almost as much work in getting the data in there
+
+180
+0:08:26.510 --> 0:08:28.220
+in the first place,
+
+181
+0:08:28.220 --> 0:08:30.530
+which got me thinking that there's probably something
+
+182
+0:08:30.530 --> 0:08:33.370
+that the platform could help with here.
+
+183
+0:08:33.370 --> 0:08:36.570
+Could there be some APIs that give me abstractions
+
+184
+0:08:36.570 --> 0:08:38.460
+to do this in a more direct way
+
+185
+0:08:38.460 --> 0:08:41.820
+to get immediate input into my machine learning model,
+
+186
+0:08:41.820 --> 0:08:44.280
+without having to do quite so much work
+
+187
+0:08:44.280 --> 0:08:47.323
+and run quite so much slow code on each frame.
+
+188
+0:08:49.800 --> 0:08:52.650
+And which brings me to my summary,
+
+189
+0:08:52.650 --> 0:08:55.990
+which is that we're doing a lot of stuff on the web,
+
+190
+0:08:55.990 --> 0:08:58.323
+it's really working out for us really well,
+
+191
+0:09:00.410 --> 0:09:03.140
+but there are limitations we're running against all the time
+
+192
+0:09:03.140 --> 0:09:06.730
+and any effort that can be put into this kind of thing
+
+193
+0:09:06.730 --> 0:09:08.540
+will really help us a lot,
+
+194
+0:09:08.540 --> 0:09:11.290
+and most of it has to do with performance
+
+195
+0:09:11.290 --> 0:09:15.280
+and things like having low latency,
+
+196
+0:09:15.280 --> 0:09:18.360
+and even more importantly, predictable latency.
+
+197
+0:09:18.360 --> 0:09:22.000
+And however, how much computation you're having to do,
+
+198
+0:09:22.000 --> 0:09:24.670
+not having that interfere with the UI thread,
+
+199
+0:09:24.670 --> 0:09:26.110
+or especially the audio thread,
+
+200
+0:09:26.110 --> 0:09:30.483
+where it's catastrophic to have underruns and glitches.
+
+201
+0:09:31.750 --> 0:09:34.360
+I would love to have more experimentation
+
+202
+0:09:34.360 --> 0:09:36.900
+and do more experimentation around
+
+203
+0:09:36.900 --> 0:09:38.960
+actually running inference on the audio thread,
+
+204
+0:09:38.960 --> 0:09:40.790
+and that means having things available
+
+205
+0:09:40.790 --> 0:09:42.673
+on the AudioWorklet context,
+
+206
+0:09:43.990 --> 0:09:45.480
+either doing things with WebAssembly,
+
+207
+0:09:45.480 --> 0:09:48.630
+or having some other native way of doing that.
+
+208
+0:09:48.630 --> 0:09:52.190
+And finally, I would love to see more media integrations
+
+209
+0:09:52.190 --> 0:09:53.520
+with machine learning models.
+
+210
+0:09:53.520 --> 0:09:57.390
+So having inputs from places like the webcam
+
+211
+0:09:57.390 --> 0:09:58.770
+and the microphone,
+
+212
+0:09:58.770 --> 0:10:01.240
+go more directly into inference,
+
+213
+0:10:01.240 --> 0:10:03.850
+and maybe on the output side as well having audio
+
+214
+0:10:03.850 --> 0:10:07.910
+and video output on the native level.
+
+215
+0:10:07.910 --> 0:10:10.780
+And yes, that's what I wanted to share today,
+
+216
+0:10:10.780 --> 0:10:13.400
+here are a couple of ways to reach me.
+
+217
+0:10:13.400 --> 0:10:14.730
+There's an email address,
+
+218
+0:10:14.730 --> 0:10:17.920
+a couple of websites and my Twitter handle.
+
+219
+0:10:17.920 --> 0:10:19.230
+Thank you very much.
+
+

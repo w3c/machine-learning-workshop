@@ -1,0 +1,233 @@
+WEBVTT
+
+slide-1
+00:00:00.620 --> 00:00:12.470
+Hello, everyone. This is Ping Wu from Baidu.
+
+00:00:12.470 --> 00:00:18.640
+And my presentation today is the Paddle.js
+machine learning for the web.
+
+slide-2
+00:00:18.640 --> 00:00:21.570
+My presentation has five parts.
+
+00:00:21.570 --> 00:00:27.560
+First is a brief introduction for Paddle.js,
+the design principle, implementation, new
+
+00:00:27.560 --> 00:00:32.930
+scenario, and final, the conclusion, the future
+work.
+
+slide-3
+00:00:32.930 --> 00:00:35.410
+What's Paddle.js?
+
+00:00:35.410 --> 00:00:42.559
+Paddle.js is a high performance deep learning
+framework for JavaScript, which provides on-device
+
+00:00:42.559 --> 00:00:49.920
+computation in diverse web runtimes, including
+PC, mobile browser and mini programs.
+
+00:00:49.920 --> 00:00:53.690
+It's part of Baidu PaddlePaddle ecosystem.
+
+00:00:53.690 --> 00:01:00.269
+It has a compatible APIs with PaddlePaddle
+Python and C++ part.
+
+00:01:00.269 --> 00:01:07.320
+Paddle.js currently only has inference, and
+it has no training part, but we provide remote
+
+00:01:07.320 --> 00:01:12.650
+RPC JS APIs to PaddlePaddle serving part.
+
+slide-4
+00:01:12.650 --> 00:01:18.280
+As to the opportunities and challenges for
+web AI, we have similar opinions.
+
+00:01:18.280 --> 00:01:25.810
+Chances we have like vast front-end developer
+community, which continues to grow and expand.
+
+00:01:25.810 --> 00:01:28.740
+Web community has low barrier to develop and
+deploy.
+
+00:01:28.740 --> 00:01:37.090
+For the end user, it's also easy to experience
+and share due to cross-platform web runtime
+
+00:01:37.090 --> 00:01:38.110
+support.
+
+00:01:38.110 --> 00:01:47.240
+And the on-device computation provide a privacy,
+real time, offloaded and decentralized end
+
+00:01:47.240 --> 00:01:49.500
+computation.
+
+00:01:49.500 --> 00:01:56.700
+Challenges we have like high performance computation
+in web runtime, and also the diverse web runtime
+
+00:01:56.700 --> 00:02:00.230
+and cross-browser compatibility.
+
+slide-5
+00:02:00.230 --> 00:02:05.380
+Paddle.js has three design principles.
+
+00:02:05.380 --> 00:02:09.789
+The first is integrated with PaddlePaddle
+ecosystem.
+
+00:02:09.789 --> 00:02:16.469
+We fully utilize PaddlePaddle model, toolchain
+and inference experience we have on other
+
+00:02:16.469 --> 00:02:17.989
+on-device platforms.
+
+00:02:17.989 --> 00:02:24.450
+Paddle.js is a good start for entry-level
+developers and also help experienced PaddlePaddle
+
+00:02:24.450 --> 00:02:28.709
+developers easily migrate their work to JS
+environment.
+
+00:02:28.709 --> 00:02:30.930
+It's high performance.
+
+00:02:30.930 --> 00:02:38.420
+It has efficient WebGPU backend for operator
+and kernel implementation, and also efficient
+
+00:02:38.420 --> 00:02:40.940
+data IO.
+
+00:02:40.940 --> 00:02:47.560
+Although web runtime is designed to be cross-platform,
+we still face implementation difference on
+
+00:02:47.560 --> 00:02:50.640
+different browser or devices.
+
+00:02:50.640 --> 00:02:59.560
+We use extensive unit tests to hide all this
+inconsistency as we can for the developers.
+
+slide-6
+00:02:59.560 --> 00:03:06.049
+As to the OO architecture and APIs, the OO
+architecture of Paddle.js is divided into
+
+00:03:06.049 --> 00:03:11.849
+two parts, the offline model converter optimize
+graphs by operator fusion, operator substitution,
+
+00:03:11.849 --> 00:03:19.659
+and change the model topology from binary
+formats into JSON.
+
+00:03:19.659 --> 00:03:26.110
+And PaddlePredictor consists of loader and
+executor, the former is responsible for loading
+
+00:03:26.110 --> 00:03:30.659
+model, and the latter calculates model graphs.
+
+slide-7
+00:03:30.659 --> 00:03:39.560
+As to the performance part, Paddle.js is compatible
+with different computation backends like WebGL.
+
+00:03:39.560 --> 00:03:45.829
+We also have tentative experiments with new
+JS standards like WebGPU and WebNN.
+
+00:03:45.829 --> 00:03:52.489
+We optimize WebGL backend performance with
+texture packing, which shows very useful,
+
+00:03:52.489 --> 00:04:01.889
+results in almost 30% improvement on models
+like MobileNetV2, across both mobile and desktop
+
+00:04:01.889 --> 00:04:03.169
+devices.
+
+00:04:03.169 --> 00:04:11.840
+And we also have some performance improvement
+on initialization cost and memory optimization.
+
+slide-8
+00:04:11.840 --> 00:04:18.239
+As to the compatibility part, Paddle.js supports
+WebGL 1.0 and 2.0.
+
+00:04:18.239 --> 00:04:25.849
+It's runtime compatible with devices that
+support OES texture float extension.
+
+00:04:25.849 --> 00:04:33.210
+As to the mobile device support, due to lack
+of 32-bit float support on almost all mobile
+
+00:04:33.210 --> 00:04:42.479
+GPUs, we may have precision loss, but we also
+find high float quantization also work efficiently
+
+00:04:42.479 --> 00:04:44.470
+in many situations.
+
+slide-9
+00:04:44.470 --> 00:04:52.770
+Slide 9 is a use case for real-time gesture
+recognition and tracking with Paddle.js.
+
+00:04:52.770 --> 00:05:01.460
+The whole process for optimization may include
+operator fusion, workflow optimization, and
+
+00:05:01.460 --> 00:05:07.800
+the GPU backend implementation for some pre-process
+work.
+
+slide-10
+00:05:07.800 --> 00:05:10.759
+And the conclusion and future work.
+
+00:05:10.759 --> 00:05:17.259
+Paddle.js is a high performance JavaScript
+deep learning framework for diverse web runtimes,
+
+00:05:17.259 --> 00:05:21.840
+which helps building a PaddlePaddle ecosystem's
+web community.
+
+00:05:21.840 --> 00:05:28.280
+The future work may include a general and
+high performance numerical computing programming
+
+00:05:28.280 --> 00:05:30.419
+model for web runtime.
+
+00:05:30.419 --> 00:05:38.940
+And more toolchain and develop framework support
+for Paddle.js developers, and more innovation
+
+00:05:38.940 --> 00:05:44.669
+in new classes on web AI applications.
+
+slide-11
+00:05:44.669 --> 00:05:49.050
+Thank you.
+

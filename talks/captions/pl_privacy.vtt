@@ -1,0 +1,1138 @@
+﻿WEBVTT
+
+1
+00:00:08.366 --> 00:00:10.296
+<v ->Hi, I'd like to dive straight into this discussion</v>
+
+2
+00:00:10.296 --> 00:00:13.046
+on privacy first machine learning for web applications,
+
+3
+00:00:13.046 --> 00:00:15.106
+by outlining why I feel machine learning for the web
+
+4
+00:00:15.106 --> 00:00:16.659
+is an essential feature.
+
+5
+00:00:17.626 --> 00:00:18.689
+Slide two.
+
+slide-2
+00:00:20.906 --> 00:00:22.826
+Accessibility is part of a wider effort
+
+7
+00:00:22.826 --> 00:00:25.246
+to make applications more inclusive.
+
+8
+00:00:25.246 --> 00:00:27.086
+By inclusively taking into account
+
+9
+00:00:27.086 --> 00:00:28.506
+the various diverse individuals
+
+10
+00:00:28.506 --> 00:00:29.906
+using our software and hardware
+
+11
+00:00:29.906 --> 00:00:31.146
+and making sure there are equal
+
+12
+00:00:31.146 --> 00:00:33.846
+and fair access without barriers.
+
+13
+00:00:33.846 --> 00:00:35.836
+It's inclusive as it takes in both short term
+
+14
+00:00:35.836 --> 00:00:37.886
+and long term accessibility concerns,
+
+15
+00:00:37.886 --> 00:00:39.286
+but when we look into these aspects,
+
+16
+00:00:39.286 --> 00:00:41.546
+we're often looking at physical considerations only,
+
+17
+00:00:41.546 --> 00:00:44.696
+such as visual or limb impairments.
+
+18
+00:00:44.696 --> 00:00:46.194
+Although considerations outside the physical
+
+19
+00:00:46.194 --> 00:00:48.736
+are often ignored when we're examining inclusivity,
+
+20
+00:00:48.736 --> 00:00:50.556
+and this can sometimes mean individuals
+
+21
+00:00:50.556 --> 00:00:51.616
+with diverse backgrounds
+
+22
+00:00:51.616 --> 00:00:53.589
+are left behind when we build software.
+
+23
+00:00:54.466 --> 00:00:56.076
+Slide three.
+
+slide-3
+00:00:56.076 --> 00:00:58.986
+Take an application that is large and slow to load,
+
+25
+00:00:58.986 --> 00:01:01.705
+we'll build it, we can consider the market demographics
+
+26
+00:01:01.705 --> 00:01:05.626
+which devices, operating systems and browsers to support.
+
+27
+00:01:05.626 --> 00:01:09.386
+Well, this is at its most fundamental financially driven.
+
+28
+00:01:09.386 --> 00:01:11.576
+Of course, there's always a cost and overturn attributes
+
+29
+00:01:11.576 --> 00:01:12.936
+to most development efforts,
+
+30
+00:01:12.936 --> 00:01:16.066
+even if the cost is measured in time rather than money.
+
+31
+00:01:16.066 --> 00:01:18.206
+With the web we have a partial solution to this issue
+
+32
+00:01:18.206 --> 00:01:19.856
+with progressive enhancement.
+
+33
+00:01:19.856 --> 00:01:22.696
+We can deliver content easily, and we have been for decades,
+
+34
+00:01:22.696 --> 00:01:24.566
+enabling delivery of most web applications
+
+35
+00:01:24.566 --> 00:01:27.276
+without it being necessary to bundle heavy assets.
+
+36
+00:01:27.276 --> 00:01:29.307
+Those assets are often enhancements to a product
+
+37
+00:01:29.307 --> 00:01:31.096
+but not essential.
+
+38
+00:01:31.096 --> 00:01:32.856
+Slide four.
+
+slide-4
+00:01:32.856 --> 00:01:34.996
+We can mitigate issues with underpowered hardware
+
+40
+00:01:34.996 --> 00:01:36.526
+and underdelivered infrastructure
+
+41
+00:01:36.526 --> 00:01:38.566
+by focusing on content delivery first
+
+42
+00:01:38.566 --> 00:01:41.036
+and content enhancements second.
+
+43
+00:01:41.036 --> 00:01:43.266
+Although we can look at simple metrics like bandwidth,
+
+44
+00:01:43.266 --> 00:01:44.966
+latency and feature availability,
+
+45
+00:01:44.966 --> 00:01:47.516
+which typically is indicative of a browser version,
+
+46
+00:01:47.516 --> 00:01:49.646
+we should be understanding the human side of this,
+
+47
+00:01:49.646 --> 00:01:51.876
+typically smaller bandwidth, larger latency
+
+48
+00:01:51.876 --> 00:01:54.846
+and older browsers support is indicative of less wealth.
+
+49
+00:01:54.846 --> 00:01:56.636
+So by excluding those demographics
+
+50
+00:01:56.636 --> 00:01:59.716
+to reduce development costs no matter how small the market,
+
+51
+00:01:59.716 --> 00:02:02.936
+you're excluding poor individuals from your content.
+
+52
+00:02:02.936 --> 00:02:04.866
+Slide five.
+
+slide-5
+00:02:04.866 --> 00:02:07.266
+This is directly against web accessibility initiative's
+
+54
+00:02:07.266 --> 00:02:10.026
+goals and accessibility, usability and inclusion.
+
+55
+00:02:10.026 --> 00:02:12.056
+The web is designed with accessibility in mind
+
+56
+00:02:12.056 --> 00:02:14.336
+with varying degrees of success.
+
+57
+00:02:14.336 --> 00:02:15.169
+Slide six.
+
+slide-6
+00:02:16.396 --> 00:02:18.646
+So this is where mobile applications differ.
+
+59
+00:02:18.646 --> 00:02:20.516
+Consumer electronics have a premium
+
+60
+00:02:20.516 --> 00:02:22.586
+and an inherent exclusivity,
+
+61
+00:02:22.586 --> 00:02:24.890
+sure they have great support for accessibility features,
+
+62
+00:02:24.890 --> 00:02:27.656
+but they lack some of the core benefits of the web,
+
+63
+00:02:27.656 --> 00:02:30.186
+they're typically not great at backwards compatibility,
+
+64
+00:02:30.186 --> 00:02:31.596
+whereas web development is considered
+
+65
+00:02:31.596 --> 00:02:34.159
+of not breaking experiences as standards evolve.
+
+66
+00:02:35.496 --> 00:02:36.916
+If we want to deliver on a lot of old
+
+67
+00:02:36.916 --> 00:02:39.146
+or less expensive handsets with native code,
+
+68
+00:02:39.146 --> 00:02:41.366
+we have to support all the APIs,
+
+69
+00:02:41.366 --> 00:02:43.276
+and in some cases divergent code bases,
+
+70
+00:02:43.276 --> 00:02:45.566
+which becomes incredibly costly.
+
+71
+00:02:45.566 --> 00:02:46.676
+Weighing up the cost benefits
+
+72
+00:02:46.676 --> 00:02:48.266
+of developing to a particular handset
+
+73
+00:02:48.266 --> 00:02:50.636
+is entirely justifiable to most projects,
+
+74
+00:02:50.636 --> 00:02:52.716
+and mobile prices reflect this discrepancy
+
+75
+00:02:52.716 --> 00:02:54.776
+in quality of content.
+
+76
+00:02:54.776 --> 00:02:57.406
+The solution to this legacy support issue for developers
+
+77
+00:02:57.406 --> 00:03:00.046
+can often be to go web first:
+
+78
+00:03:00.046 --> 00:03:02.176
+deliver the content, enhance the content
+
+79
+00:03:02.176 --> 00:03:03.376
+and then deliver a native app
+
+80
+00:03:03.376 --> 00:03:06.476
+if it makes sense for specific features or markets.
+
+81
+00:03:06.476 --> 00:03:09.166
+Of course, I am simplifying a complex discussion here
+
+82
+00:03:09.166 --> 00:03:11.306
+and so much don't fit into that categorization.
+
+83
+00:03:11.306 --> 00:03:14.406
+And native apps sometimes come first.
+
+84
+00:03:14.406 --> 00:03:16.906
+And this is often the case with games for example.
+
+85
+00:03:17.886 --> 00:03:18.949
+Slide seven.
+
+slide-7
+00:03:20.866 --> 00:03:23.506
+Privacy is often a marketable feature of a product.
+
+87
+00:03:23.506 --> 00:03:26.236
+Company sell privacy as value added feature all the time.
+
+88
+00:03:26.236 --> 00:03:28.536
+There's pro versions of apps that are definitively apps
+
+89
+00:03:28.536 --> 00:03:30.426
+that don't have advertising built in.
+
+90
+00:03:30.426 --> 00:03:32.606
+And we know advertisements often come with tracking codes.
+
+91
+00:03:32.606 --> 00:03:33.886
+So for the sake of simplicity,
+
+92
+00:03:33.886 --> 00:03:36.346
+we can assume ads and trackers are one and the same.
+
+93
+00:03:36.346 --> 00:03:37.339
+Slide eight.
+
+slide-8
+00:03:38.846 --> 00:03:40.666
+This isn't a criticism of advertisements
+
+95
+00:03:40.666 --> 00:03:41.946
+that advertisement is slow.
+
+96
+00:03:41.946 --> 00:03:45.156
+If ads were delivered in an absolutely privacy friendly way,
+
+97
+00:03:45.156 --> 00:03:47.836
+and user experience wasn't reduced due to increased latency
+
+98
+00:03:47.836 --> 00:03:49.776
+or broken accessibility features,
+
+99
+00:03:49.776 --> 00:03:52.306
+then there'd be little to complain about.
+
+100
+00:03:52.306 --> 00:03:54.626
+When you position privacy as a luxury,
+
+101
+00:03:54.626 --> 00:03:56.476
+then you're valuing it as a convenience.
+
+102
+00:03:56.476 --> 00:03:58.546
+This is a naive and privileged view of privacy
+
+103
+00:03:58.546 --> 00:04:00.976
+and exclusionary at best.
+
+104
+00:04:00.976 --> 00:04:02.336
+Without going into real cases
+
+105
+00:04:02.336 --> 00:04:03.906
+where weakened privacy has a lethal or
+
+106
+00:04:03.906 --> 00:04:05.596
+material impact on lives,
+
+107
+00:04:05.596 --> 00:04:07.036
+let's realize this view of privacy
+
+108
+00:04:07.036 --> 00:04:08.896
+is often taken from people in the tech industry
+
+109
+00:04:08.896 --> 00:04:11.246
+who are privileged enough to earn a decent salary,
+
+110
+00:04:11.246 --> 00:04:12.516
+and can afford to make a decision
+
+111
+00:04:12.516 --> 00:04:14.679
+on if and when to give up their data.
+
+112
+00:04:15.876 --> 00:04:18.476
+By default into the stance that privacy is a commodity
+
+113
+00:04:18.476 --> 00:04:20.736
+and data is tradable like oil,
+
+114
+00:04:20.736 --> 00:04:22.686
+we're defaulting our products to be exclusive
+
+115
+00:04:22.686 --> 00:04:26.286
+and favoring privacy as a convenience which costs extra.
+
+116
+00:04:26.286 --> 00:04:29.346
+This is exploitative in most markets as in many cases,
+
+117
+00:04:29.346 --> 00:04:31.276
+individuals will opt for a free service
+
+118
+00:04:31.276 --> 00:04:33.626
+and give up their privacy if given the choice,
+
+119
+00:04:33.626 --> 00:04:36.026
+and many don't have a choice in the first place.
+
+120
+00:04:37.566 --> 00:04:38.916
+Slide nine.
+
+slide-9
+00:04:38.916 --> 00:04:40.926
+Let's take a look at how privacy has negatively affected
+
+122
+00:04:40.926 --> 00:04:42.966
+the user experience on the web for a moment.
+
+123
+00:04:42.966 --> 00:04:44.766
+Slide 10.
+
+slide-10
+00:04:44.766 --> 00:04:46.916
+With EU increasingly adding privacy protections
+
+125
+00:04:46.916 --> 00:04:47.926
+into legislation,
+
+126
+00:04:47.926 --> 00:04:50.286
+web developers have devised annoying modal dialogues
+
+127
+00:04:50.286 --> 00:04:51.636
+which request numerous opt ins
+
+128
+00:04:51.636 --> 00:04:54.346
+to enable trackers in a legally friendly way.
+
+129
+00:04:54.346 --> 00:04:56.356
+Many developers have taken issue with the EU law
+
+130
+00:04:56.356 --> 00:04:57.416
+and have aggressively argued that
+
+131
+00:04:57.416 --> 00:05:00.636
+it's only way to deliver web apps to the European market.
+
+132
+00:05:00.636 --> 00:05:02.586
+Many of the apps featuring these modal dialogues
+
+133
+00:05:02.586 --> 00:05:04.996
+have nothing to do with advertisements or e-commerce.
+
+134
+00:05:04.996 --> 00:05:07.216
+Developers are simply defaulting to tracking users
+
+135
+00:05:07.216 --> 00:05:08.056
+on a first load,
+
+136
+00:05:08.056 --> 00:05:09.886
+and are reducing the quality of the user experience
+
+137
+00:05:09.886 --> 00:05:10.943
+of your apps along the way,
+
+138
+00:05:10.943 --> 00:05:13.456
+due to laziness, not legislation.
+
+139
+00:05:13.456 --> 00:05:14.489
+Slide 10.
+
+140
+00:05:15.746 --> 00:05:18.246
+You can't deliver advertisements without tracking.
+
+141
+00:05:19.696 --> 00:05:21.136
+So if you're monetized by ads,
+
+142
+00:05:21.136 --> 00:05:22.636
+you don't need to destroy your user experience
+
+143
+00:05:22.636 --> 00:05:23.736
+along the way.
+
+144
+00:05:23.736 --> 00:05:25.506
+If you're monetized by data and tracking,
+
+145
+00:05:25.506 --> 00:05:27.806
+then it's time to rethink your business model.
+
+146
+00:05:28.806 --> 00:05:31.106
+How will the web look without base monetization,
+
+147
+00:05:31.106 --> 00:05:33.766
+but no tracking or data gathering, for example?
+
+148
+00:05:33.766 --> 00:05:35.196
+Essentially it would look the same,
+
+149
+00:05:35.196 --> 00:05:38.196
+but without the annoying needless modal dialogues.
+
+150
+00:05:38.196 --> 00:05:40.016
+As developers were to blame, not the EU,
+
+151
+00:05:40.016 --> 00:05:41.686
+California or the end users,
+
+152
+00:05:41.686 --> 00:05:43.639
+we as developers need to do better.
+
+153
+00:05:44.596 --> 00:05:45.559
+Slide 11.
+
+slide-11
+00:05:46.666 --> 00:05:49.386
+So how does this affect machine learning?
+
+155
+00:05:49.386 --> 00:05:51.772
+This is where mobile apps can only be much better.
+
+156
+00:05:51.772 --> 00:05:54.176
+We have the capability due to hardware access
+
+157
+00:05:54.176 --> 00:05:56.016
+to deliver personalization on mobile apps
+
+158
+00:05:56.016 --> 00:05:58.216
+using machine learning.
+
+159
+00:05:58.216 --> 00:06:00.036
+Slide 12.
+
+slide-12
+00:06:00.036 --> 00:06:01.966
+We can currently build offline enabled models
+
+161
+00:06:01.966 --> 00:06:04.006
+with tooling and bundle them with our apps
+
+162
+00:06:04.006 --> 00:06:05.536
+enabling personalized experiences
+
+163
+00:06:05.536 --> 00:06:06.836
+by learning about the end user
+
+164
+00:06:06.836 --> 00:06:08.766
+without sending data anywhere.
+
+165
+00:06:08.766 --> 00:06:10.326
+We can even add differential privacy
+
+166
+00:06:10.326 --> 00:06:11.486
+and federation tool models,
+
+167
+00:06:11.486 --> 00:06:12.848
+features also available in edge devices
+
+168
+00:06:12.848 --> 00:06:14.876
+and internet of things.
+
+169
+00:06:14.876 --> 00:06:17.086
+This means we can do clever personalized analytics
+
+170
+00:06:17.086 --> 00:06:18.926
+without looking at data.
+
+171
+00:06:18.926 --> 00:06:20.036
+And the worst we would need to do
+
+172
+00:06:20.036 --> 00:06:21.776
+is send the model weights towards services
+
+173
+00:06:21.776 --> 00:06:23.956
+for federation before updating the model again.
+
+174
+00:06:23.956 --> 00:06:25.826
+We're not transferring data here,
+
+175
+00:06:25.826 --> 00:06:27.916
+we're transferring anonymous weights only.
+
+176
+00:06:27.916 --> 00:06:30.186
+This means mobile apps can create much better experiences
+
+177
+00:06:30.186 --> 00:06:32.239
+than web apps when privacy is valued.
+
+178
+00:06:33.106 --> 00:06:34.736
+In this way the web is far behind
+
+179
+00:06:34.736 --> 00:06:36.386
+in terms of privacy features.
+
+180
+00:06:36.386 --> 00:06:38.806
+It doesn't matter what cookie protections, tracking blockers
+
+181
+00:06:38.806 --> 00:06:41.306
+or anonymization features you attempt to build in,
+
+182
+00:06:41.306 --> 00:06:44.726
+if you're lazily transferring data to a central resource,
+
+183
+00:06:44.726 --> 00:06:46.699
+you're probably not privacy enabled.
+
+184
+00:06:49.316 --> 00:06:51.426
+Take for example, those privacy aware solutions
+
+185
+00:06:51.426 --> 00:06:53.186
+that hash an individual's email address
+
+186
+00:06:53.186 --> 00:06:55.146
+@@@ storing it in plain text.
+
+187
+00:06:55.146 --> 00:06:56.306
+When the information leaks,
+
+188
+00:06:56.306 --> 00:06:59.556
+there's no personal identifiable information, right?
+
+189
+00:06:59.556 --> 00:07:02.052
+Well, as most developers use the same hashing algorithms,
+
+190
+00:07:02.052 --> 00:07:04.446
+there's a good chance you can connect disparate sources
+
+191
+00:07:04.446 --> 00:07:07.036
+of data together to form a rather solid picture of someone,
+
+192
+00:07:07.036 --> 00:07:09.326
+hashes are not the finishing line for privacy,
+
+193
+00:07:09.326 --> 00:07:11.756
+they're hardly the starting line.
+
+194
+00:07:11.756 --> 00:07:12.949
+Slide 13.
+
+slide-13
+00:07:14.146 --> 00:07:16.136
+Let's segue into looking at most machine learning
+
+196
+00:07:16.136 --> 00:07:17.546
+infrastructure currently powering
+
+197
+00:07:17.546 --> 00:07:20.196
+moderately successful web apps for a moment.
+
+198
+00:07:20.196 --> 00:07:21.029
+Slide 14.
+
+slide-14
+00:07:22.318 --> 00:07:24.606
+Typically these days we're building data warehouses,
+
+200
+00:07:24.606 --> 00:07:27.106
+data lakes, to support data aggregation, analysis,
+
+201
+00:07:27.106 --> 00:07:28.996
+model building and deployment.
+
+202
+00:07:28.996 --> 00:07:29.829
+At various scales,
+
+203
+00:07:29.829 --> 00:07:31.626
+this architecture is essentially ubiquitous
+
+204
+00:07:31.626 --> 00:07:32.986
+and has been for some time,
+
+205
+00:07:32.986 --> 00:07:36.086
+whether you're building one model or a 1000 models.
+
+206
+00:07:36.086 --> 00:07:38.076
+This architecture is lazy,
+
+207
+00:07:38.076 --> 00:07:39.606
+most developers will take this blueprint
+
+208
+00:07:39.606 --> 00:07:42.146
+and continue to implement it are lazy,
+
+209
+00:07:42.146 --> 00:07:43.336
+it's commercially focused,
+
+210
+00:07:43.336 --> 00:07:46.376
+it's driven by an @@@ of the data can be collected,
+
+211
+00:07:46.376 --> 00:07:47.476
+and the models that can be built
+
+212
+00:07:47.476 --> 00:07:49.766 
+with the analytics dashboards that can be provided.
+
+213
+00:07:49.766 --> 00:07:51.456
+But it's not driven by the end user,
+
+214
+00:07:51.456 --> 00:07:54.816
+it's not driven by individuals, and it's not driven by humans.
+
+215
+00:07:54.816 --> 00:07:56.426
+It's also expensive in the long term,
+
+216
+00:07:56.426 --> 00:07:58.199
+but that's another discussion.
+
+217
+00:07:59.146 --> 00:08:00.716
+Slide 15.
+
+slide-15
+00:08:00.716 --> 00:08:02.506
+So what does good data science architecture
+
+219
+00:08:02.506 --> 00:08:04.196
+look like for the web?
+
+220
+00:08:04.196 --> 00:08:06.706
+Firstly, like apps it should be privacy first.
+
+221
+00:08:06.706 --> 00:08:08.126
+We shouldn't be vacuuming data
+
+222
+00:08:08.126 --> 00:08:10.126
+and then attempt to apply anonymization techniques
+
+223
+00:08:10.126 --> 00:08:11.536
+to that data.
+
+224
+00:08:11.536 --> 00:08:12.746
+That's like committing a crime
+
+225
+00:08:12.746 --> 00:08:14.026
+and then bleaching the hotel room.
+
+226
+00:08:14.026 --> 00:08:15.726
+I swear, if you go in with a UV light,
+
+227
+00:08:15.726 --> 00:08:18.556
+you'll still find evidence, no matter how hard you worked.
+
+228
+00:08:18.556 --> 00:08:20.056
+So let's stop trying to fix the data
+
+229
+00:08:20.056 --> 00:08:21.706
+and fix the architecture instead.
+
+230
+00:08:22.756 --> 00:08:24.306
+Slide 16.
+
+slide-16
+00:08:24.306 --> 00:08:26.616
+Differential privacy is a great tool if applied correctly,
+
+232
+00:08:26.616 --> 00:08:28.126
+but it's still not the first feature
+
+233
+00:08:28.126 --> 00:08:29.926
+we should be looking at.
+
+234
+00:08:29.926 --> 00:08:32.236
+Decentralization, distribution and federation
+
+235
+00:08:32.236 --> 00:08:34.816
+are modern approaches to data science architecture.
+
+236
+00:08:34.816 --> 00:08:36.956
+They provide the best features to the end user,
+
+237
+00:08:36.956 --> 00:08:38.896
+including protection by default,
+
+238
+00:08:38.896 --> 00:08:41.256
+and they give just a little more work.
+
+239
+00:08:41.256 --> 00:08:43.286
+Now, this may be hard for a lot of developers
+
+240
+00:08:43.286 --> 00:08:44.346
+and data scientists to hear,
+
+241
+00:08:44.346 --> 00:08:46.136
+but we're meant to be doing that hard work.
+
+242
+00:08:46.136 --> 00:08:47.176
+That's what programming is,
+
+243
+00:08:47.176 --> 00:08:50.916
+reducing the complexity of a set of tasks for the end user.
+
+244
+00:08:50.916 --> 00:08:53.216
+So what does this approach give us?
+
+245
+00:08:53.216 --> 00:08:55.396
+It enables us to run inferences on edge devices
+
+246
+00:08:55.396 --> 00:08:58.176
+and in some cases it allows us to run some of the training,
+
+247
+00:08:58.176 --> 00:08:59.061
+while some infrastructure is there
+
+248
+00:08:59.061 --> 00:09:01.456
+to give you heavy lifting only.
+
+249
+00:09:01.456 --> 00:09:03.126
+If we distributed the training workload
+
+250
+00:09:03.126 --> 00:09:04.516
+we can even reduce data IO
+
+251
+00:09:04.516 --> 00:09:06.386
+by mitigating the need to centrally store
+
+252
+00:09:06.386 --> 00:09:08.586
+in some gigantic data lake.
+
+253
+00:09:08.586 --> 00:09:10.226
+And data lakes have their uses,
+
+254
+00:09:10.226 --> 00:09:11.596
+but they're often overuses,
+
+255
+00:09:11.596 --> 00:09:14.596
+when all we really need to know is about events and weights.
+
+256
+00:09:15.796 --> 00:09:17.676
+Slide 17.
+
+slide-17
+00:09:17.676 --> 00:09:19.626
+Whenever ML operations are first class features
+
+258
+00:09:19.626 --> 00:09:21.016
+of the modern web browser,
+
+259
+00:09:21.016 --> 00:09:22.826
+we can add progressive enhancement to our apps
+
+260
+00:09:22.826 --> 00:09:25.109
+by allowing models to be executed within the browser
+
+261
+00:09:25.109 --> 00:09:27.856
+using the best available hardware.
+
+262
+00:09:27.856 --> 00:09:30.166
+Architecturally, our browser becomes our OS device
+
+263
+00:09:30.166 --> 00:09:31.016
+in this ideal,
+
+264
+00:09:31.016 --> 00:09:32.346
+and we can also offload some the inference
+
+265
+00:09:32.346 --> 00:09:34.726
+from the legacy central platform to the end user,
+
+266
+00:09:34.726 --> 00:09:37.016
+providing them with added privacy, more responsive resources
+
+267
+00:09:37.016 --> 00:09:39.496
+and more personalized experiences.
+
+268
+00:09:39.496 --> 00:09:41.146
+We can also reuse the same models
+
+269
+00:09:41.146 --> 00:09:43.346
+that we've been building in mobile apps.
+
+270
+00:09:43.346 --> 00:09:44.439
+Slide 18.
+
+slide-18
+00:09:45.496 --> 00:09:47.496
+By bringing browsers in line with native apps
+
+272
+00:09:47.496 --> 00:09:49.606
+in terms of model inference capabilities,
+
+273
+00:09:49.606 --> 00:09:51.156
+by optimizing usage of hardware
+
+274
+00:09:51.156 --> 00:09:53.316
+like central graphics and neural processing units
+
+275
+00:09:53.316 --> 00:09:54.566
+to process models,
+
+276
+00:09:54.566 --> 00:09:57.846
+it allows us to build more inclusive solutions,
+
+277
+00:09:57.846 --> 00:10:00.286
+without which we can't build truly privacy friendly
+
+278
+00:10:00.286 --> 00:10:02.916
+and machine learning powered apps.
+
+279
+00:10:02.916 --> 00:10:03.976
+It lowers the cost of entry
+
+280
+00:10:03.976 --> 00:10:05.826
+from a latest luxury electronic device
+
+281
+00:10:05.826 --> 00:10:07.756
+to a favorite free browser download,
+
+282
+00:10:07.756 --> 00:10:09.356
+and this is key to ensuring the web
+
+283
+00:10:09.356 --> 00:10:11.619
+is a free and safe ecosystem for everyone.
+
+slide-19
+00:10:12.506 --> 00:10:13.706
+Thank you for listening.
+

@@ -1,0 +1,70 @@
+<div class="slide" role='region' aria-label="Slide 1 of 11" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello, everyone.</p>
+<p>This is Ping Wu from Baidu.</p>
+<p>And my presentation today is the Paddle.js
+machine learning for the web.</p></div><div class="slide" role='region' aria-label="Slide 2 of 11" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>My presentation has five parts.</p>
+<p>First is a brief introduction for Paddle.js,
+the design principle, implementation, new scenario, and final, the conclusion, the future
+work.</p></div><div class="slide" role='region' aria-label="Slide 3 of 11" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>What's Paddle.js?</p>
+<p>Paddle.js is a high performance deep learning
+framework for JavaScript, which provides on-device computation in diverse web runtimes, including
+PC, mobile browser and mini programs.</p>
+<p>It's part of Baidu PaddlePaddle ecosystem.</p>
+<p>It has a compatible APIs with PaddlePaddle
+Python and C++ part.</p>
+<p>Paddle.js currently only has inference, and
+it has no training part, but we provide remote RPC JS APIs to PaddlePaddle serving part.</p></div><div class="slide" role='region' aria-label="Slide 4 of 11" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>As to the opportunities and challenges for
+web AI, we have similar opinions.</p>
+<p>Chances we have like vast front-end developer
+community, which continues to grow and expand.</p>
+<p>Web community has low barrier to develop and
+deploy.</p>
+<p>For the end user, it's also easy to experience
+and share due to cross-platform web runtime support.</p>
+<p>And the on-device computation provide a privacy,
+real time, offloaded and decentralized end computation.</p>
+<p>Challenges we have like high performance computation
+in web runtime, and also the diverse web runtime and cross-browser compatibility.</p></div><div class="slide" role='region' aria-label="Slide 5 of 11" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>Paddle.js has three design principles.</p>
+<p>The first is integrated with PaddlePaddle
+ecosystem.</p>
+<p>We fully utilize PaddlePaddle model, toolchain
+and inference experience we have on other on-device platforms.</p>
+<p>Paddle.js is a good start for entry-level
+developers and also help experienced PaddlePaddle developers easily migrate their work to JS
+environment.</p>
+<p>It's high performance.</p>
+<p>It has efficient <a class=dfn>WebGPU</a> backend for operator
+and kernel implementation, and also efficient data IO.</p>
+<p>Although web runtime is designed to be cross-platform,
+we still face implementation difference on different browser or devices.</p>
+<p>We use extensive unit tests to hide all this
+inconsistency as we can for the developers.</p></div><div class="slide" role='region' aria-label="Slide 6 of 11" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>As to the OO architecture and APIs, the OO
+architecture of Paddle.js is divided into two parts, the offline model converter optimize
+graphs by operator fusion, operator substitution, and change the model topology from binary
+formats into JSON.</p>
+<p>And PaddlePredictor consists of loader and
+executor, the former is responsible for loading model, and the latter calculates model graphs.</p></div><div class="slide" role='region' aria-label="Slide 7 of 11" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>As to the performance part, Paddle.js is compatible
+with different computation backends like <a class=dfn>WebGL</a>.</p>
+<p>We also have tentative experiments with new
+JS standards like <a class=dfn>WebGPU</a> and WebNN.</p>
+<p>We optimize <a class=dfn>WebGL</a> backend performance with
+texture packing, which shows very useful, results in almost 30% improvement on models
+like MobileNetV2, across both mobile and desktop devices.</p>
+<p>And we also have some performance improvement
+on initialization cost and memory optimization.</p></div><div class="slide" role='region' aria-label="Slide 8 of 11" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>As to the compatibility part, Paddle.js supports
+<a class=dfn>WebGL</a> 1.0 and 2.0.</p>
+<p>It's runtime compatible with devices that
+support OES texture float extension.</p>
+<p>As to the mobile device support, due to lack
+of 32-bit float support on almost all mobile GPUs, we may have precision loss, but we also
+find high float quantization also work efficiently in many situations.</p></div><div class="slide" role='region' aria-label="Slide 9 of 11" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p> is a use case for real-time gesture
+recognition and tracking with Paddle.js.</p>
+<p>The whole process for optimization may include
+operator fusion, workflow optimization, and the GPU backend implementation for some pre-process
+work.</p></div><div class="slide" role='region' aria-label="Slide 10 of 11" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>And the conclusion and future work.</p>
+<p>Paddle.js is a high performance JavaScript
+deep learning framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem's
+web community.</p>
+<p>The future work may include a general and
+high performance numerical computing programming model for web runtime.</p>
+<p>And more toolchain and develop framework support
+for Paddle.js developers, and more innovation in new classes on web AI applications.</p></div><div class="slide" role='region' aria-label="Slide 11 of 11" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/pw_paddlejs.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>Thank you.</p></div>

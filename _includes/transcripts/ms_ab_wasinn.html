@@ -1,0 +1,46 @@
+<div class="slide" role='region' aria-label="Slide 1 of 8" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello, this is Mingqiu Sun. I have my colleague, Andrew Brown with me.</p>
+<p>Today, we're gonna talk about <a class=dfn>WASI</a>-NN, stand for <a class=dfn>WebAssembly</a> System Interface for Neural Network.</p></div><div class="slide" role='region' aria-label="Slide 2 of 8" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p></p>
+<p>Let's talk about what is <a class=dfn>WASI</a>?</p>
+<p><a class=dfn>WASI</a> stand for <a class=dfn>WebAssembly</a> System Interface.</p>
+<p>It's a subgroup of the <a class=dfn>WebAssembly</a> <a class=dfn>CG</a>, and we are the official group to define <a class=dfn>WASI</a> API. And here the GitHub repo, and we have a video meeting biweekly.</p>
+<p><a class=dfn>WASI</a> is using Witx to defined interface.</p>
+<p></p></div><div class="slide" role='region' aria-label="Slide 3 of 8" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>So let me talk about some background information about Bytecode Alliance.</p>
+<p>So this is an open source community that we're dedicated to, you know, create a secure new software foundation, building on top of such standard as web assembly, and <a class=dfn>WASI</a>.</p>
+<p>Mozilla, Fastly, Intel and RedHat are the founding members.</p>
+<p>Currently, we have three major engagement with that organization.</p>
+<p>We contribute a small footprint web assembly implementation coder or <a class=dfn>WebAssembly</a> Micro Runtime.</p>
+<p>We are responsible for <a class=dfn>SIMD</a> implementation in Wasmtime, and we are driving this <a class=dfn>WASI</a> Neural Network interface definition and the POC.</p>
+<p>So those are the three major activity we are engaged with.</p>
+<p>And today, we're gonna talk about the <a class=dfn>WASI</a>-NN.</p></div><div class="slide" role='region' aria-label="Slide 4 of 8" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>So let's talk about why we are talking about this.</p>
+<p>What's the motivation behind <a class=dfn>WASI</a> neural network?</p>
+<p>So, in a typical use scenario for machine learning, trained model need to be deployed on a wide variety of devices with different architecture and operating systems.</p>
+<p>So, web assembly is a perfect, you know, format for this kind of deployment because it's platform independent.</p>
+<p>So why <a class=dfn>WASI</a>?</p>
+<p>Why not doing machine learning, you know, completely inside web assembly?</p>
+<p>So the main reason is that machine learning typically require a special hardware support in order to be high performance.</p>
+<p>You know, for example, for CPU, typically, the AVX512 to have extremely good, you know, performance and similarly, you know, you might need a GPU, TPU for hardware acceleration.</p>
+<p>So machine learning is still evolving rapidly and there was like a new operation and a new network topology emerging continuously.</p>
+<p>So it makes sense to have a system interface that connect with a special implementation of those topology or new operations outside a web assembly domain.</p></div><div class="slide" role='region' aria-label="Slide 5 of 8" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>So here a few design considerations.</p>
+<p>We are focusing on more, what's called a model loader API first, because you know, inferencing is by, you know, quantity, it's a vast majority of our machine learning use cases.</p>
+<p>And that's the reason that it's our initial focus and we plan, you know, to add training part later on.</p>
+<p>Secondly, you know, it's a simpler API with excellent IP protection.</p>
+<p>So you don't need to expose the internal details about your machine learning model through this API.</p>
+<p>And it was inspired by the WebNN effort and they have very similar model loader API.</p>
+<p>And then, we had the joint review with them.</p>
+<p>So, our intention is to make this API framework and the model format agnostic, and then we expect that it will be supported on a wide variety of devices, such as CPU, GPU, FPGA, and TPU.</p>
+<p>So next slide.</p>
+<p>We're gonna turn over to my colleague, Andrew, to cover the actual API definition.</p></div><div class="slide" role='region' aria-label="Slide 6 of 8" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Hi, so the proposed <a class=dfn>WASI</a>-NN interface is available at this link.</p>
+<p>If you see some of the examples from this slide, you'll see that it specifies a way to describe tensors, a way to load models, and a way to execute inference requests using those tensors and the loaded models.</p>
+<p>The proposal does not yet include a mechanism for training models.</p>
+<p>And also notable is it doesn't specify the encoding of the model.</p>
+<p>And so, that model format is opaque at the <a class=dfn>WASI</a>-NN interface level.</p>
+<p>That means that the implementation of <a class=dfn>WASI</a>-NN, what's in the, for example, <a class=dfn>WebAssembly</a> runtime would have to understand the model format in order to perform the inference.</p>
+<p></p></div><div class="slide" role='region' aria-label="Slide 7 of 8" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>What you're looking at here is a sort of simple architecture diagram of a POC that we're attempting, that we're looking at in Wasmtime.</p>
+<p>Once complete, what you'll be able to do is take user application code and a <a class=dfn>WASI</a>-NN header, and compile that to a <a class=dfn>WASM</a> file.</p>
+<p>If you combine that with a trained model, potentially converted using <a class=dfn>OpenVINO</a>'s model optimizer, you can hand those over to Wasmtime and Wasmtime will be able to execute the <a class=dfn>WASM</a> file using the model file to perform inference.</p>
+<p>And the path we're taking right now is to implement the <a class=dfn>WASI</a>-NN interface using <a class=dfn>OpenVINO</a>, which would allow us to perform inference on a variety of different hardware.</p>
+<p>Back to you, Mingqiu.</p></div><div class="slide" role='region' aria-label="Slide 8 of 8" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ms_ab_wasinn.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>Okay. So call for action.</p>
+<p>So this is still like an early stage of proposal.</p>
+<p>We would like to welcome your input on this proposal to engage us in the <a class=dfn>WASI</a> community.</p>
+<p>This is, you know, early stage, as I said, and it's easy to change if you see anything you don't like.</p>
+<p>Thank you very much.</p></div>

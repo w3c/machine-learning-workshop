@@ -1,0 +1,643 @@
+WEBVTT
+
+slide-1
+0:00:00.000 --> 0:00:08.280
+This is Miao Wang
+
+2
+0:00:08.280 --> 0:00:09.200
+I'm a software engineer working on
+
+3
+0:00:09.200 --> 0:00:12.320
+Android Neural Networks API at Google
+
+4
+0:00:12.320 --> 0:00:15.120
+Today I'm happy to talk about how to
+
+5
+0:00:15.120 --> 0:00:17.360
+accelerate ML inferences on mobile devices
+
+6
+0:00:17.360 --> 0:00:19.880
+with the help of Android Neural Networks API
+
+8
+0:00:19.880 --> 0:00:21.560
+Slide 2
+
+slide-2
+0:00:21.560 --> 0:00:24.000
+This talk will cover the following topics
+
+10
+0:00:24.000 --> 0:00:25.240
+WHat is NN API?
+
+11
+0:00:25.240 --> 0:00:27.280
+THe current features of NN API
+
+12
+0:00:27.280 --> 0:00:30.800
+THe performance and power impact if you're using NN API
+
+13
+0:00:30.800 --> 0:00:33.160
+and how to use NN API
+
+15
+0:00:33.200 --> 0:00:34.480
+Slide 3
+
+slide-3
+0:00:34.480 --> 0:00:37.760
+So first of all, what is NN API?
+
+18
+0:00:37.760 --> 0:00:38.960
+Slide 4
+
+slide-4
+0:00:38.960 --> 0:00:40.160
+As the name suggests
+
+20
+0:00:40.160 --> 0:00:42.800
+NNAPI is intended to run neural networks
+
+21
+0:00:42.800 --> 0:00:44.400
+inferences on hardware accelerators.
+
+22
+0:00:44.400 --> 0:00:46.520
+NNAPI is a C API.
+
+23
+0:00:46.520 --> 0:00:49.360
+We choosed a C API mainly because
+
+24
+0:00:49.360 --> 0:00:53.120
+they are having stable interfaces and can easily be used
+
+25
+0:00:53.120 --> 0:00:55.840
+by high-level programming languages like java
+
+26
+0:00:55.840 --> 0:01:00.520
+and machine learning frameworks like tensorlow-lite and pytorch-mobile.
+
+28
+0:01:00.520 --> 0:01:03.720
+As we all know, the ML area is evolving fast
+
+29
+0:01:03.720 --> 0:01:08.960
+there are new concepts, operators and datatypes continuously coming out.
+
+30
+0:01:08.960 --> 0:01:13.480
+All of this requires NNAPI API are also able to evolve fast.
+
+31
+0:01:13.480 --> 0:01:16.200
+Additionnally, since the closer to the metal,
+
+32
+0:01:16.200 --> 0:01:18.160
+the harder it is to evolve,
+
+33
+0:01:18.160 --> 0:01:21.800
+we want to make sure existing models and use cases
+
+34
+0:01:21.800 --> 0:01:23.720
+can run well on old and new hardware
+
+35
+0:01:23.720 --> 0:01:28.480
+so backwards compatibility is also important in the API.
+
+37
+0:01:28.480 --> 0:01:30.800
+Here is a brief history of NN API:
+
+38
+0:01:30.800 --> 0:01:34.800
+NN API 1.0 was introduced with Android O-MR1,
+
+39
+0:01:34.800 --> 0:01:38.640
+it had 29 operators, supports fp32
+
+40
+0:01:38.640 --> 0:01:41.200
+and asymmetric quantization.
+
+42
+0:01:41.200 --> 0:01:44.800
+And in Android P, we added a bunch of operators.
+
+43
+0:01:44.800 --> 0:01:48.320
+With Android Q, there are a lot more operators added,
+
+44
+0:01:48.320 --> 0:01:50.760
+and we started to support fp16
+
+45
+0:01:50.760 --> 0:01:53.760
+and signed per-channel quantization.
+
+46
+0:01:53.760 --> 0:01:57.680
+And additionally, developers can use introspection API
+
+47
+0:01:57.680 --> 0:02:01.400
+to query available accelerators on the device
+
+48
+0:02:01.400 --> 0:02:06.280
+and choose which accelerators to use to run inferences.
+
+49
+0:02:06.280 --> 0:02:09.200
+Also vendors can use vendor extension mechanism
+
+50
+0:02:09.200 --> 0:02:12.880
+to add additional functionalites to NN API.
+
+51
+0:02:12.880 --> 0:02:15.160
+In the a soon-to-be-released Android R
+
+52
+0:02:15.160 --> 0:02:16.840
+we added more operators,
+
+53
+0:02:16.840 --> 0:02:21.000
+we started support signed asymmetric quantization.
+
+54
+0:02:21.000 --> 0:02:22.760
+Also there are advanced features like
+
+55
+0:02:22.760 --> 0:02:26.120
+Control Flow, Quality of Sservice, memory domains,
+
+56
+0:02:26.120 --> 0:02:29.480
+asynchronous command queue being supported
+
+58
+0:02:29.480 --> 0:02:34.120
+We also made NN API runtime to be updatable APEX module
+
+59
+0:02:34.120 --> 0:02:37.680
+which means we are able to update the runtime much faster
+
+60
+0:02:37.680 --> 0:02:39.640
+than the normal Android update schedule.
+
+62
+0:02:41.680 --> 0:02:42.360
+Slide 5
+
+slide-5
+0:02:42.360 --> 0:02:46.800
+The key objective of NN API is to make inferences
+
+64
+0:02:46.800 --> 0:02:47.840
+run fast and efficiently
+
+65
+0:02:47.840 --> 0:02:50.520
+on as many devices as possible.
+
+66
+0:02:50.520 --> 0:02:51.920
+In order to achieve that,
+
+67
+0:02:51.920 --> 0:02:53.120
+we need to make sure that
+
+68
+0:02:53.120 --> 0:02:56.320
+the inferences running through NN API can run on
+
+69
+0:02:56.320 --> 0:02:58.240
+accelerators available on the device
+
+70
+0:02:58.240 --> 0:03:00.240
+How do we achieve that?
+
+72
+0:03:00.240 --> 0:03:02.360
+Slide 6
+
+slide-6
+0:03:02.360 --> 0:03:06.600
+Here is a high-level overview of the architecture of NN API.
+
+74
+0:03:06.600 --> 0:03:09.200
+You can find 2 important interfaces defined
+
+75
+0:03:09.200 --> 0:03:11.400
+by NN API in this architecture:
+
+76
+0:03:11.400 --> 0:03:13.640
+the NDK API interface,
+
+77
+0:03:13.640 --> 0:03:15.680
+and the hardware abstraction, the HAL layer.
+
+79
+0:03:17.800 --> 0:03:19.800
+Application developers can use the NDK API
+
+80
+0:03:19.800 --> 0:03:22.440
+to interact with NN API runtime,
+
+81
+0:03:22.440 --> 0:03:24.200
+likely through ML frameworks
+
+82
+0:03:24.200 --> 0:03:26.680
+like pytorch-mobile, tensorflow-lite.
+
+83
+0:03:26.680 --> 0:03:28.640
+I'll talk more about the NDK interface
+
+84
+0:03:28.640 --> 0:03:30.480
+in the How to Use NN API section.
+
+86
+0:03:31.400 --> 0:03:35.360
+Hardware vendors implement the NN API HAL interface
+
+87
+0:03:35.360 --> 0:03:37.400
+which allow the API runtime
+
+88
+0:03:37.400 --> 0:03:39.320
+to discover available hardware accelerators
+
+89
+0:03:39.320 --> 0:03:40.320
+and interact with them.
+
+90
+0:03:40.320 --> 0:03:44.160
+The HAL is versionned and backwards compatible,
+
+91
+0:03:44.160 --> 0:03:46.400
+similar to the NDK interfaces.
+
+92
+0:03:46.400 --> 0:03:49.840
+Currently there are many accelerators
+
+93
+0:03:49.840 --> 0:03:53.000
+already implemented in NN API HAL.
+
+94
+0:03:53.000 --> 0:03:57.560
+That's including the GPU, DSP, TPU and NPU, etc
+
+95
+0:03:57.560 --> 0:04:00.480
+from various hardware vendors and IP providers.
+
+97
+0:04:00.480 --> 0:04:03.960
+THe NN API runtime is responsible
+
+98
+0:04:03.960 --> 0:04:06.800
+for validating the requests from applications,
+
+99
+0:04:06.800 --> 0:04:07.520
+managing the memory,
+
+100
+0:04:07.520 --> 0:04:10.200
+distributing workloads to available accelerators
+
+101
+0:04:10.200 --> 0:04:12.600
+and it is in charge of interacting
+
+102
+0:04:12.600 --> 0:04:14.800
+with other components in Android OS.
+
+104
+0:04:14.800 --> 0:04:18.560
+You can find more information about the architecture
+
+105
+0:04:18.560 --> 0:04:19.720
+in the link on the slide.
+
+107
+0:04:19.720 --> 0:04:23.200
+Slide 7
+
+slide-7
+0:04:23.200 --> 0:04:26.520
+So, let's talk about some performance and power numbers.
+
+110
+0:04:26.520 --> 0:04:28.000
+As I mentioned earlier,
+
+111
+0:04:28.000 --> 0:04:30.240
+the key objective of NN API is
+
+112
+0:04:30.240 --> 0:04:32.360
+to make inferences run fast and efficiently.
+
+113
+0:04:32.360 --> 0:04:36.360
+Both performance and power consumption are important
+
+114
+0:04:36.360 --> 0:04:38.560
+for the user experience on mobile devices.
+
+116
+0:04:38.560 --> 0:04:40.720
+Slide 8
+
+slide-8
+0:04:40.720 --> 0:04:43.840
+Here is the slide that's showing the numbers
+
+118
+0:04:43.840 --> 0:04:46.960
+of running Google Lens OCR model on Pixel 4
+
+119
+0:04:46.960 --> 0:04:49.480
+where we are shipping Android Q next year.
+
+120
+0:04:49.480 --> 0:04:54.320
+So we can see that NN API path is 3X the performance
+
+121
+0:04:54.320 --> 0:04:57.200
+of the optimized CPU kernel of TF-lite.
+
+122
+0:04:57.200 --> 0:05:01.680
+It also uses 3.7x less power
+
+123
+0:05:01.680 --> 0:05:04.440
+which is critical in this particular use case.
+
+124
+0:05:04.440 --> 0:05:09.600
+Additionally, the whole model runs on DSP instead of the CPU
+
+125
+0:05:09.600 --> 0:05:12.200
+which frees up the CPU
+
+126
+0:05:12.200 --> 0:05:14.680
+for other workloads if needed.
+
+128
+0:05:14.680 --> 0:05:16.560
+Slide 9
+
+slide-9
+0:05:16.560 --> 0:05:20.800
+We can see similarly great improvements
+
+130
+0:05:20.800 --> 0:05:22.480
+for models running on other different SoCs.
+
+131
+0:05:22.480 --> 0:05:26.120
+Here is an example of MLKit Face detection model
+
+132
+0:05:26.120 --> 0:05:31.280
+on a device with Mediatek P90 SoC.
+
+133
+0:05:31.280 --> 0:05:33.440
+As we know ML is evolving fast,
+
+134
+0:05:33.440 --> 0:05:36.920
+and there are more and more models running on mobile devices.
+
+135
+0:05:36.920 --> 0:05:40.240
+And different models running on different devices
+
+136
+0:05:40.240 --> 0:05:43.000
+measure different characteristics on performance.
+
+137
+0:05:43.000 --> 0:05:45.560
+So we're continually working hard
+
+138
+0:05:45.560 --> 0:05:47.440
+to optimize the software layers
+
+139
+0:05:47.440 --> 0:05:50.800
+and introduce new features to make inferences faster.
+
+141
+0:05:50.800 --> 0:05:52.880
+Slide 10
+
+slide-10
+0:05:52.880 --> 0:05:56.720
+Now in order to get all the performance gains,
+
+143
+0:05:56.720 --> 0:05:58.960
+we need to know how to use NN API.
+
+144
+0:05:58.960 --> 0:05:59.920
+Let's talk about that.
+
+146
+0:05:59.920 --> 0:06:01.720
+Slide 11
+
+slide-11
+0:06:01.720 --> 0:06:05.560
+Well, due to limited time of this talk,
+
+148
+0:06:05.560 --> 0:06:09.160
+I can only briefly talk about different ways of using NN API.
+
+149
+0:06:09.160 --> 0:06:12.160
+For detailed tutorials and documentations,
+
+150
+0:06:12.160 --> 0:06:13.880
+especially for the advanced features,
+
+151
+0:06:13.880 --> 0:06:15.720
+please refer to the links on the slides.
+
+153
+0:06:15.720 --> 0:06:20.600
+First of all, the developers can use NN API directly.
+
+154
+0:06:20.600 --> 0:06:26.360
+All NN API functions and types start with ANeuralNetworks
+
+155
+0:06:26.360 --> 0:06:30.400
+and the general workflow of the code is something like the below:
+
+156
+0:06:30.400 --> 0:06:34.200
+well, we first create and define
+
+157
+0:06:34.200 --> 0:06:36.680
+a compute graph called ANeuralNetworksModel.
+
+158
+0:06:36.680 --> 0:06:40.400
+And then we can create the compilation object
+
+159
+0:06:40.400 --> 0:06:42.800
+which is ANeuralNetworksCompilation
+
+160
+0:06:42.800 --> 0:06:44.520
+from the model
+
+161
+0:06:44.520 --> 0:06:48.240
+and after we created the compilation object,
+
+162
+0:06:48.240 --> 0:06:50.440
+we can then create execution object
+
+163
+0:06:50.440 --> 0:06:51.960
+from the compilation object
+
+164
+0:06:51.960 --> 0:06:55.800
+to run and manage each individual inference.
+
+165
+0:06:55.800 --> 0:07:01.000
+But all this involves lots of boilerplate code
+
+166
+0:07:01.000 --> 0:07:03.160
+if you want to make sure that the whole model
+
+167
+0:07:03.160 --> 0:07:06.760
+is being implemented in NN API directly.
+
+168
+0:07:06.760 --> 0:07:10.400
+So there is an easier way to use NN API
+
+169
+0:07:10.400 --> 0:07:12.760
+that's via the Machine Learning frameworks
+
+170
+0:07:12.760 --> 0:07:14.840
+like PyTorch-mobile, TensorFlow-Lite.
+
+171
+0:07:14.840 --> 0:07:20.400
+You can also use NN API with the other high-level APIs like WebNN.
+
+173
+0:07:20.400 --> 0:07:22.720
+If you're using TensorFlow-Lite,
+
+174
+0:07:22.720 --> 0:07:26.400
+there are a couple lines of change to enable NnApiDelegate
+
+175
+0:07:26.400 --> 0:07:28.760
+which can automatically detect
+
+176
+0:07:28.760 --> 0:07:31.240
+the supported operations
+
+177
+0:07:31.240 --> 0:07:33.960
+and run the supported operations through NNAPI.
+
+179
+0:07:33.960 --> 0:07:37.960
+Slide 12
+
+slide-12
+0:07:37.960 --> 0:07:40.400
+That's all I have for today,
+
+181
+0:07:40.400 --> 0:07:41.440
+thanks a lot and let me know
+
+182
+0:07:41.440 --> 0:07:50.800
+if you have any questions.
+
+

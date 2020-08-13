@@ -1,0 +1,926 @@
+﻿WEBVTT
+
+slide-1
+00:00:08.126 --> 00:00:10.486
+<v ->Hello, and welcome to our talk.</v>
+
+2
+00:00:10.486 --> 00:00:11.856
+Today we are going to introduce you
+
+3
+00:00:11.856 --> 00:00:15.546
+to our approach to machine learning at Artie, Inc.
+
+4
+00:00:15.546 --> 00:00:19.486
+My name is Josh Meyer and today I'm co-presenting this talk
+
+5
+00:00:19.486 --> 00:00:21.046
+with Lindy Rauchenstein.
+
+6
+00:00:21.046 --> 00:00:22.626
+We are lead scientists
+
+7
+00:00:22.626 --> 00:00:25.386
+for speech and vision at Artie, Inc.
+
+slide-2
+00:00:26.256 --> 00:00:30.296
+At Artie, we are working on web-based mobile-first
+
+9
+00:00:30.296 --> 00:00:34.766
+instant games that rely heavily on machine intelligence.
+
+10
+00:00:34.766 --> 00:00:36.056
+That is, if you are a user,
+
+11
+00:00:36.056 --> 00:00:37.676
+you can click on a link anywhere in the web,
+
+12
+00:00:37.676 --> 00:00:40.626
+and the next instant you are in one of our experiences,
+
+13
+00:00:40.626 --> 00:00:43.419
+playing one of our games, no download required.
+
+14
+00:00:44.376 --> 00:00:46.526
+When we talk about machine intelligence,
+
+15
+00:00:46.526 --> 00:00:47.546
+we're specifically talking
+
+16
+00:00:47.546 --> 00:00:49.996
+about both conversational intelligence
+
+17
+00:00:49.996 --> 00:00:52.966
+and visual awareness, visual intelligence.
+
+18
+00:00:52.966 --> 00:00:55.566
+The user is able to interact with the digital character
+
+19
+00:00:55.566 --> 00:00:58.419
+by voice, text, or vision.
+
+20
+00:00:59.446 --> 00:01:00.706
+They're looking to have fun.
+
+21
+00:01:00.706 --> 00:01:03.406
+They're looking to have an interesting conversation
+
+22
+00:01:03.406 --> 00:01:04.979
+with some digital character.
+
+23
+00:01:06.166 --> 00:01:09.716
+In that light, they're going to have a very low tolerance
+
+24
+00:01:09.716 --> 00:01:12.746
+for machine learning models that are either underperforming
+
+25
+00:01:12.746 --> 00:01:15.436
+or have some kind of high latency.
+
+26
+00:01:15.436 --> 00:01:16.786
+Imagine you're having a conversation
+
+27
+00:01:16.786 --> 00:01:18.166
+with your favorite character,
+
+28
+00:01:18.166 --> 00:01:21.286
+and then all of a sudden that conversation comes difficult
+
+29
+00:01:21.286 --> 00:01:23.956
+because the character is not responding fast enough,
+
+30
+00:01:23.956 --> 00:01:26.786
+or the character's not understanding.
+
+slide-3
+00:01:26.786 --> 00:01:31.786
+So given our use case and our specific users' requirements,
+
+32
+00:01:31.916 --> 00:01:34.326
+we started to think about how we're going to deploy
+
+33
+00:01:34.326 --> 00:01:35.986
+our solution with respect
+
+34
+00:01:35.986 --> 00:01:36.909
+to our different machine learning models,
+
+35
+00:01:36.909 --> 00:01:39.906
+so that for any given experience we might have
+
+36
+00:01:39.906 --> 00:01:41.316
+a handful of different models
+
+37
+00:01:41.316 --> 00:01:44.386
+from speech and vision to NLP.
+
+38
+00:01:44.386 --> 00:01:46.936
+And so the traditional approach goes,
+
+39
+00:01:46.936 --> 00:01:48.946
+basically put the big models on the server
+
+40
+00:01:48.946 --> 00:01:51.356
+and put the small models on device.
+
+41
+00:01:51.356 --> 00:01:56.186
+And taking that a little further, shrink the big models down
+
+42
+00:01:56.186 --> 00:01:57.746
+so you can put those on device too.
+
+43
+00:01:57.746 --> 00:02:00.286
+So get everything on device.
+
+slide-4
+00:02:00.286 --> 00:02:03.936
+Well, this approach to shrinking down larger models
+
+45
+00:02:03.936 --> 00:02:06.236
+and putting as many as possible on device,
+
+46
+00:02:06.236 --> 00:02:07.626
+is interesting to us at Artie
+
+47
+00:02:07.626 --> 00:02:09.906
+because it's inherently privacy-preserving,
+
+48
+00:02:09.906 --> 00:02:12.636
+and it offers us a chance to make some gains
+
+49
+00:02:12.636 --> 00:02:16.336
+in latency and data costs for customers.
+
+50
+00:02:16.336 --> 00:02:18.896
+It does cause some headaches.
+
+51
+00:02:18.896 --> 00:02:20.566
+If you have a large machine learning model
+
+52
+00:02:20.566 --> 00:02:23.056
+and you try to shrink it down,
+
+53
+00:02:23.056 --> 00:02:24.626
+you usually have to make a choice.
+
+54
+00:02:24.626 --> 00:02:27.156
+Are you going to make a smaller model
+
+55
+00:02:27.156 --> 00:02:29.756
+that does the same thing as the original model,
+
+56
+00:02:29.756 --> 00:02:31.116
+but just not as well?
+
+57
+00:02:31.116 --> 00:02:33.196
+Like, you're losing accuracy.
+
+58
+00:02:33.196 --> 00:02:35.804
+Or do you take that original model
+
+59
+00:02:35.804 --> 00:02:39.306
+and constrain its domain or functionality
+
+60
+00:02:39.306 --> 00:02:42.686
+and take that smaller model and put it on device?
+
+61
+00:02:42.686 --> 00:02:44.326
+No matter what, if you're shrinking down a model
+
+62
+00:02:44.326 --> 00:02:45.159
+you have to choose.
+
+63
+00:02:45.159 --> 00:02:47.506
+Are you going to lose accuracy and performance
+
+64
+00:02:47.506 --> 00:02:49.456
+or are you going to lose functionality?
+
+65
+00:02:51.626 --> 00:02:54.856
+So let's take a concrete example
+
+66
+00:02:54.856 --> 00:02:56.976
+from Artie's machine learning stack
+
+67
+00:02:56.976 --> 00:02:59.386
+and what our thought process is like
+
+68
+00:02:59.386 --> 00:03:02.376
+when we're talking about shrinking down models.
+
+69
+00:03:02.376 --> 00:03:06.326
+For speech recognition, our interactions call
+
+70
+00:03:06.326 --> 00:03:09.726
+for something that's pretty open domain, large vocabulary,
+
+71
+00:03:09.726 --> 00:03:11.076
+because our users can say
+
+72
+00:03:11.076 --> 00:03:13.536
+just about anything to our digital characters.
+
+73
+00:03:13.536 --> 00:03:17.276
+This isn't a typical command and control kind of scenario
+
+74
+00:03:17.276 --> 00:03:20.396
+where you're saying up, down, left, and right.
+
+75
+00:03:20.396 --> 00:03:23.096
+We're trying to elicit conversations from our users.
+
+76
+00:03:23.096 --> 00:03:24.579
+So we need to recognize that.
+
+77
+00:03:25.886 --> 00:03:28.996
+Our model right now is made up of two parts.
+
+78
+00:03:28.996 --> 00:03:31.346
+It's made up of an acoustic model and a language model.
+
+79
+00:03:31.346 --> 00:03:32.976
+This is pretty standard for speech recognition.
+
+80
+00:03:32.976 --> 00:03:37.976
+The acoustic model converts audio, sound,
+
+81
+00:03:37.976 --> 00:03:41.834
+raw sound into some kind of probability distribution
+
+82
+00:03:41.834 --> 00:03:45.006
+over letters in the alphabet.
+
+83
+00:03:45.006 --> 00:03:47.876
+And then the language model converts that
+
+84
+00:03:47.876 --> 00:03:50.926
+into a string of words that is hopefully
+
+85
+00:03:50.926 --> 00:03:54.606
+going to be the correct transcription that was said.
+
+86
+00:03:54.606 --> 00:03:57.726
+So if we want to shrink this model down,
+
+87
+00:03:57.726 --> 00:04:00.166
+this system, these two models,
+
+88
+00:04:00.166 --> 00:04:05.166
+the acoustic model, starting, is going to be about 180 megs.
+
+89
+00:04:05.366 --> 00:04:08.836
+And the language model is going to be
+
+90
+00:04:08.836 --> 00:04:12.076
+something more in the gigs range.
+
+91
+00:04:12.076 --> 00:04:13.509
+Let's say about one gig.
+
+92
+00:04:14.696 --> 00:04:18.326
+If we want to get something that's as small as possible,
+
+93
+00:04:18.326 --> 00:04:19.336
+but still functional,
+
+94
+00:04:19.336 --> 00:04:22.209
+that still recognizes an open vocabulary,
+
+95
+00:04:23.481 --> 00:04:26.316
+the acoustic model, we might be able to get down to 40 megs,
+
+96
+00:04:26.316 --> 00:04:31.246
+let's say, if we're lucky, and the language model,
+
+97
+00:04:31.246 --> 00:04:34.316
+we could actually just throw that out right away
+
+98
+00:04:34.316 --> 00:04:35.376
+and make our lives easier.
+
+99
+00:04:35.376 --> 00:04:36.696
+So we have at the end of the day,
+
+100
+00:04:36.696 --> 00:04:40.846
+a large vocabulary model that is just 40 megs.
+
+101
+00:04:40.846 --> 00:04:44.565
+This model is going to be very underperformant.
+
+102
+00:04:44.565 --> 00:04:47.106
+And furthermore, it's not going to be
+
+103
+00:04:47.106 --> 00:04:49.086
+small enough for our use case.
+
+104
+00:04:49.086 --> 00:04:51.886
+We need models that are so small
+
+105
+00:04:51.886 --> 00:04:54.066
+that when the user clicks the link,
+
+106
+00:04:54.066 --> 00:04:56.596
+they're already talking to the character instantaneously.
+
+107
+00:04:56.596 --> 00:04:59.026
+They're not going to wait for a 40 megabyte download.
+
+slide-5
+00:04:59.026 --> 00:05:03.226
+So in light of this discussion of why we're not able
+
+109
+00:05:03.226 --> 00:05:07.236
+to shrink down a large vocabulary speech recognizer
+
+110
+00:05:07.236 --> 00:05:10.566
+to something that's instantaneously downloadable,
+
+111
+00:05:10.566 --> 00:05:14.026
+we can't get it in the order of kilobytes by any stretch,
+
+112
+00:05:14.026 --> 00:05:15.556
+we decided to keep that on the backend.
+
+113
+00:05:15.556 --> 00:05:18.546
+We've decided to keep all of our language stack,
+
+114
+00:05:18.546 --> 00:05:21.116
+including ASR and NLP, on the backend
+
+115
+00:05:21.116 --> 00:05:24.156
+while we can still put our vision models on the front end
+
+116
+00:05:24.156 --> 00:05:27.326
+because we can have models in the order of kilobytes
+
+117
+00:05:27.326 --> 00:05:29.086
+and still have good accuracy.
+
+118
+00:05:29.086 --> 00:05:30.336
+And this is actually really nice
+
+119
+00:05:30.336 --> 00:05:33.306
+because in the grand scheme of things,
+
+120
+00:05:33.306 --> 00:05:36.526
+users are going to feel much more attached
+
+121
+00:05:36.526 --> 00:05:40.326
+to their video and photo data, the pixel data,
+
+122
+00:05:40.326 --> 00:05:44.186
+from the camera than they are from the voice itself.
+
+123
+00:05:44.186 --> 00:05:47.926
+So we're able to make a win here for privacy
+
+124
+00:05:47.926 --> 00:05:52.226
+by keeping video vision models on device.
+
+slide-6
+00:05:52.226 --> 00:05:54.999
+Very briefly, our language stack,
+
+126
+00:05:56.152 --> 00:05:59.999
+the ASR and NLP models that are on the backend server,
+
+127
+00:06:00.967 --> 00:06:02.686
+are built on open source solutions.
+
+128
+00:06:02.686 --> 00:06:06.946
+For speech in particular, we have a server,
+
+129
+00:06:06.946 --> 00:06:09.606
+a web socket server solution that we call Artie DeepServe
+
+130
+00:06:09.606 --> 00:06:13.446
+that we built around Mozilla's DeepSpeech,
+
+131
+00:06:13.446 --> 00:06:15.866
+where we've actually added
+
+132
+00:06:15.866 --> 00:06:18.316
+to the core DeepSpeech code
+
+133
+00:06:20.226 --> 00:06:23.606
+the ability to do batching inference efficiently,
+
+134
+00:06:23.606 --> 00:06:28.416
+and also the ability to add hot word, hints,
+
+135
+00:06:28.416 --> 00:06:32.109
+so we are able to run a smoother experience that way.
+
+slide-7
+00:06:34.016 --> 00:06:36.126
+<v ->So the language models run on a server,</v>
+
+137
+00:06:36.126 --> 00:06:38.106
+but all of the computer vision models
+
+138
+00:06:38.106 --> 00:06:41.186
+run in the browser on the user's device,
+
+139
+00:06:41.186 --> 00:06:43.736
+usually on a mobile device.
+
+140
+00:06:43.736 --> 00:06:46.316
+This was firstly motivated by privacy.
+
+141
+00:06:46.316 --> 00:06:49.416
+So we run facial expression recognition,
+
+142
+00:06:49.416 --> 00:06:53.466
+user engagement, pose estimation, semantic segmentation,
+
+143
+00:06:53.466 --> 00:06:56.706
+object detection models for different game mechanics.
+
+144
+00:06:56.706 --> 00:06:59.256
+So the camera acquires video during gameplay
+
+145
+00:06:59.256 --> 00:07:01.296
+inside of users' homes.
+
+146
+00:07:01.296 --> 00:07:03.306
+And for privacy reasons, we aren't interested
+
+147
+00:07:03.306 --> 00:07:05.996
+in transmitting or saving any of that video data
+
+148
+00:07:05.996 --> 00:07:06.946
+off of the device.
+
+149
+00:07:06.946 --> 00:07:09.303
+We want to process everything privately
+
+150
+00:07:09.303 --> 00:07:11.846
+right there in the web browser.
+
+151
+00:07:11.846 --> 00:07:14.299
+We also wanted the lowest possible latency.
+
+152
+00:07:15.326 --> 00:07:18.676
+So to use visual input for natural-feeling things,
+
+153
+00:07:18.676 --> 00:07:20.986
+like having a character that smiles back at you,
+
+154
+00:07:20.986 --> 00:07:24.176
+or that nods at appropriate times in a conversation
+
+155
+00:07:24.176 --> 00:07:25.926
+to acknowledge that they're listening,
+
+156
+00:07:25.926 --> 00:07:29.336
+a delay would feel unnatural.
+
+157
+00:07:29.336 --> 00:07:32.156
+But the most important constraint is that our product is
+
+158
+00:07:32.156 --> 00:07:36.136
+built on top of Unity's Project Tiny,
+
+159
+00:07:36.136 --> 00:07:39.786
+which is a beta release game engine for the browser.
+
+160
+00:07:39.786 --> 00:07:43.006
+The game engine is extremely efficient in the web,
+
+161
+00:07:43.006 --> 00:07:45.546
+but one of the things that it constrained us to
+
+162
+00:07:45.546 --> 00:07:47.526
+on the machine learning side is
+
+163
+00:07:47.526 --> 00:07:51.446
+that we cannot do any dynamic memory allocations,
+
+164
+00:07:51.446 --> 00:07:53.906
+and avoiding dynamic memory allocations
+
+165
+00:07:53.906 --> 00:07:57.756
+was the core constraint that led us to choosing
+
+166
+00:07:57.756 --> 00:08:01.016
+the particular machine learning framework that we chose,
+
+167
+00:08:01.016 --> 00:08:04.979
+which was TensorFlow Lite for Microcontrollers.
+
+slide-8
+00:08:07.466 --> 00:08:10.386
+So TensorFlow Lite is a version of TensorFlow
+
+169
+00:08:10.386 --> 00:08:13.176
+that's widely used in mobile development.
+
+170
+00:08:13.176 --> 00:08:15.456
+And TensorFlow Lite for Microcontrollers
+
+171
+00:08:15.456 --> 00:08:17.786
+is a subset and an adaptation
+
+172
+00:08:17.786 --> 00:08:20.849
+of that subset, an adaptation from TensorFlow.
+
+173
+00:08:21.756 --> 00:08:24.846
+So TensorFlow Lite doesn't support training.
+
+174
+00:08:24.846 --> 00:08:26.666
+It only supports inference.
+
+175
+00:08:26.666 --> 00:08:29.396
+It doesn't have support for every data type,
+
+176
+00:08:29.396 --> 00:08:32.256
+doesn't include support for double data types, for example.
+
+177
+00:08:32.256 --> 00:08:34.546
+It doesn't have every operation it would have available
+
+178
+00:08:34.546 --> 00:08:38.519
+when you're building TensorFlow models to run on a server.
+
+179
+00:08:39.456 --> 00:08:42.026
+But in exchange it's much smaller.
+
+180
+00:08:42.026 --> 00:08:44.809
+It's optimized to run on ARM Cortex CPU
+
+181
+00:08:44.809 --> 00:08:46.566
+used on mobile phones.
+
+182
+00:08:46.566 --> 00:08:49.379
+It uses OpenGL to work with GPUs.
+
+183
+00:08:50.476 --> 00:08:53.426
+It has great model conversion tools that you use
+
+184
+00:08:53.426 --> 00:08:56.576
+for quantizing your networks into eight-bit neural networks.
+
+185
+00:08:56.576 --> 00:08:59.556
+So you can easily shrink your models by 75%
+
+186
+00:08:59.556 --> 00:09:02.919
+from the 32-bit float versions.
+
+187
+00:09:04.116 --> 00:09:06.366
+And the version of TensorFlow Lite that we use,
+
+188
+00:09:06.366 --> 00:09:09.136
+TensorFlow Lite for Microcontrollers,
+
+189
+00:09:09.136 --> 00:09:10.926
+is even more constrained
+
+190
+00:09:10.926 --> 00:09:12.836
+in that it has a really tiny runtime,
+
+191
+00:09:12.836 --> 00:09:14.346
+which for us was perfect.
+
+192
+00:09:14.346 --> 00:09:16.426
+We have a lot of parts of our product
+
+193
+00:09:16.426 --> 00:09:19.836
+that need to download when you play instant game animations
+
+194
+00:09:19.836 --> 00:09:21.846
+and game logic and everything.
+
+195
+00:09:21.846 --> 00:09:25.239
+So the runtime binary is only 20 kilobytes.
+
+196
+00:09:26.136 --> 00:09:29.716
+And because the framework is designed
+
+197
+00:09:29.716 --> 00:09:31.626
+to run on microcontrollers,
+
+198
+00:09:31.626 --> 00:09:34.926
+which oftentimes have to run for years on embedded devices,
+
+199
+00:09:34.926 --> 00:09:38.786
+it doesn't continuously allocate in DID memory.
+
+200
+00:09:38.786 --> 00:09:40.556
+So that's the reason that we chose it
+
+201
+00:09:40.556 --> 00:09:44.266
+for our version of running models on the web
+
+202
+00:09:45.226 --> 00:09:50.176
+over other solutions of TensorFlow.js, for example.
+
+203
+00:09:50.176 --> 00:09:53.386
+I built an interface from the native code
+
+204
+00:09:53.386 --> 00:09:56.009
+into our game engine and it performs really well.
+
+slide-9
+00:09:59.236 --> 00:10:02.976
+So to wrap things up, the web-based approach
+
+206
+00:10:02.976 --> 00:10:06.556
+to the machine learning that we use at Artie incorporates
+
+207
+00:10:06.556 --> 00:10:09.076
+a client-side piece provision,
+
+208
+00:10:09.076 --> 00:10:11.469
+a server-side piece for voice,
+
+209
+00:10:12.746 --> 00:10:14.186
+and that works really well for us.
+
+210
+00:10:14.186 --> 00:10:16.986
+And it gives us a lot of power and flexibility.
+
+211
+00:10:16.986 --> 00:10:19.256
+We're excited at the prospect of shrinking down
+
+212
+00:10:19.256 --> 00:10:20.796
+as many models as possible,
+
+213
+00:10:20.796 --> 00:10:23.466
+making them faster and more performant.
+
+214
+00:10:23.466 --> 00:10:25.566
+For natural language, we're a ways away
+
+215
+00:10:25.566 --> 00:10:27.826
+from getting useful models that are
+
+216
+00:10:27.826 --> 00:10:30.826
+in the range of kilobytes.
+
+217
+00:10:30.826 --> 00:10:32.516
+For vision, we're there already,
+
+218
+00:10:32.516 --> 00:10:34.856
+and we can run MobileNet, for example,
+
+219
+00:10:34.856 --> 00:10:36.579
+very quickly in the browser.
+
+220
+00:10:37.813 --> 00:10:41.776
+One worthwhile thing to mention is that Unity has
+
+221
+00:10:41.776 --> 00:10:45.966
+another project called Barracuda, which right now can't run
+
+222
+00:10:45.966 --> 00:10:47.716
+in the web-based version of their game engine,
+
+223
+00:10:47.716 --> 00:10:50.176
+but it's a framework for running neural networks
+
+224
+00:10:50.176 --> 00:10:51.276
+through Unity Shaders.
+
+225
+00:10:52.356 --> 00:10:55.426
+And using Shaders to run neural networks directly
+
+226
+00:10:55.426 --> 00:10:57.686
+is something that is a really great alternative,
+
+227
+00:10:57.686 --> 00:11:00.709
+very efficient, we're continuing to explore at Artie.
+
+228
+00:11:02.124 --> 00:11:03.196
+I'm looking forward to hearing
+
+229
+00:11:03.196 --> 00:11:06.216
+about all of your experiences and approaches
+
+230
+00:11:06.216 --> 00:11:08.316
+doing machine learning in the web.
+
+231
+00:11:08.316 --> 00:11:09.149
+Thank you.
+

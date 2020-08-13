@@ -1,0 +1,731 @@
+WEBVTT
+
+slide-1
+0:00:10.170 --> 0:00:14.100
+<v ->Hi, today I'm going to spend a few minutes</v>
+
+2
+0:00:14.100 --> 0:00:16.580
+giving a chart summary of Direct ML,
+
+3
+0:00:16.580 --> 0:00:18.940
+the hardware accelerate machine learning platform
+
+4
+0:00:18.940 --> 0:00:19.903
+on windows.
+
+5
+0:00:20.920 --> 0:00:24.800
+If you're watching this talk on a windows 10 PC,
+
+6
+0:00:24.800 --> 0:00:27.530
+chances are you already have Direct ML in your computer.
+
+7
+0:00:27.530 --> 0:00:29.450
+So let's dive in.
+
+8
+0:00:29.450 --> 0:00:30.290
+Slide two.
+
+slide-2
+0:00:32.870 --> 0:00:35.860
+Direct ML is a hardware accelerated compute API
+
+10
+0:00:35.860 --> 0:00:38.270
+for deep learning on Windows.
+
+11
+0:00:38.270 --> 0:00:40.500
+Windows is a very diverse ecosystem
+
+12
+0:00:40.500 --> 0:00:44.140
+of over a billion devices now running windows 10,
+
+13
+0:00:44.140 --> 0:00:47.660
+with literally hundreds of different graphics chip sets
+
+14
+0:00:47.660 --> 0:00:50.290
+and thousands of different driver versions
+
+15
+0:00:50.290 --> 0:00:52.813
+from the hardware vendors across the industry.
+
+16
+0:00:54.600 --> 0:00:57.120
+It is fundamentally challenging to build an API
+
+17
+0:00:57.120 --> 0:01:00.540
+that could scale across this broad variety of hardware
+
+18
+0:01:00.540 --> 0:01:03.360
+from a compute stick, a laptop
+
+19
+0:01:03.360 --> 0:01:05.533
+to a power workstation and server.
+
+20
+0:01:06.760 --> 0:01:10.400
+The goal of Direct ML is to provide best performance
+
+21
+0:01:10.400 --> 0:01:14.660
+by leveraging the latest hardware features in modern PC
+
+22
+0:01:14.660 --> 0:01:18.520
+while providing an implementation that work reliably
+
+23
+0:01:18.520 --> 0:01:22.730
+in our different hardware platforms, old and new.
+
+24
+0:01:23.000 --> 0:01:26.300
+We put together a robust conformance test
+
+25
+0:01:26.300 --> 0:01:28.260
+and driver certification process
+
+26
+0:01:28.260 --> 0:01:31.220
+to ensure a high degree of consistency.
+
+27
+0:01:31.220 --> 0:01:35.483
+So a model works the same way on any windows PC.
+
+28
+0:01:36.620 --> 0:01:40.430
+We know that our customers value high performance.
+
+29
+0:01:40.430 --> 0:01:44.000
+That's how they get the benefit of the hardware purchase,
+
+30
+0:01:44.000 --> 0:01:45.310
+but equally important,
+
+31
+0:01:45.310 --> 0:01:48.830
+they also value correctness and consistency of result,
+
+32
+0:01:48.830 --> 0:01:51.730
+regardless of the hardware platform they're running it on.
+
+33
+0:01:52.620 --> 0:01:54.830
+Say if a model would predict
+
+34
+0:01:54.830 --> 0:01:58.600
+that what you're holding in your hand is a banana.
+
+35
+0:01:58.600 --> 0:02:02.480
+It shouldn't matter if you run it on a powerful workstation
+
+36
+0:02:02.480 --> 0:02:05.700
+or on your daughter's laptop PC,
+
+37
+0:02:05.700 --> 0:02:07.123
+a banana is a banana anywhere.
+
+38
+0:02:08.150 --> 0:02:12.800
+That integrity of result is very important to us,
+
+39
+0:02:12.800 --> 0:02:15.500
+because you could have a model that for instance,
+
+40
+0:02:15.500 --> 0:02:18.900
+predicts the development of breast cancer cells.
+
+41
+0:02:18.900 --> 0:02:21.703
+So being reliable is truly mission critical.
+
+42
+0:02:23.320 --> 0:02:24.273
+Slide three.
+
+slide-3
+0:02:26.940 --> 0:02:29.360
+Let's take a closer look at Direct ML
+
+44
+0:02:29.360 --> 0:02:30.813
+and see what it's made of.
+
+45
+0:02:31.980 --> 0:02:34.310
+Direct ML is a computational graph
+
+46
+0:02:34.310 --> 0:02:36.880
+of neural network operations.
+
+47
+0:02:36.880 --> 0:02:40.910
+It's designed to be fully compatible with DirectX 12
+
+48
+0:02:40.910 --> 0:02:44.440
+and to sit on top of the Microsoft compute driver model.
+
+49
+0:02:45.390 --> 0:02:48.390
+Developers who are familiar with DirectX 12
+
+50
+0:02:48.390 --> 0:02:51.220
+should feel right at home with Direct ML.
+
+51
+0:02:51.220 --> 0:02:52.720
+The resource model,
+
+52
+0:02:52.720 --> 0:02:55.560
+the synchronization between the CPU and GPU,
+
+53
+0:02:55.560 --> 0:02:57.483
+are just native tactics primitives.
+
+54
+0:02:58.790 --> 0:03:02.200
+It implements all the compute kernels
+
+55
+0:03:02.200 --> 0:03:04.630
+as HLSL compute shaders.
+
+56
+0:03:05.900 --> 0:03:08.740
+This means that Direct ML can work on any PC
+
+57
+0:03:08.740 --> 0:03:11.140
+that support their compute,
+
+58
+0:03:11.140 --> 0:03:15.303
+which in practice is any windows 10 PC in the market today.
+
+59
+0:03:16.540 --> 0:03:18.960
+The Microsoft compute device model
+
+60
+0:03:20.600 --> 0:03:22.360
+is the underlying contract
+
+61
+0:03:22.360 --> 0:03:26.210
+that any compute device on windows implements.
+
+62
+0:03:26.210 --> 0:03:30.000
+This includes of course, any windows GPU,
+
+63
+0:03:30.000 --> 0:03:34.850
+but also of all other AI accelerators supporting it.
+
+64
+0:03:34.850 --> 0:03:37.400
+It allows developers to leverage
+
+65
+0:03:37.400 --> 0:03:40.723
+different hardware architectures through the same API.
+
+66
+0:03:42.230 --> 0:03:44.260
+On the performance side,
+
+67
+0:03:44.260 --> 0:03:48.830
+Direct ML opportunistically use shader models intrinsics
+
+68
+0:03:48.830 --> 0:03:51.700
+exposed in the driver or model
+
+69
+0:03:51.700 --> 0:03:55.410
+to tap into native hardware compute instructions
+
+70
+0:03:55.410 --> 0:03:57.843
+for performance critical computations.
+
+71
+0:03:58.810 --> 0:04:00.230
+Additionally,
+
+72
+0:04:00.230 --> 0:04:02.340
+it supports architecture specific
+
+73
+0:04:02.340 --> 0:04:04.260
+machine learning operations
+
+74
+0:04:04.260 --> 0:04:06.110
+for performance critical operations,
+
+75
+0:04:06.110 --> 0:04:10.380
+such as matrix multiply or convolution
+
+76
+0:04:10.380 --> 0:04:12.220
+through the system level contract
+
+77
+0:04:12.220 --> 0:04:14.830
+known as metacommands.
+
+78
+0:04:15.650 --> 0:04:16.983
+Slide four.
+
+slide-4
+0:04:19.460 --> 0:04:22.580
+Direct ML is used as the GPU backend
+
+80
+0:04:22.580 --> 0:04:25.500
+for the windows ML API,
+
+81
+0:04:25.500 --> 0:04:28.243
+to accelerate ONNX operations on the GPU.
+
+82
+0:04:29.170 --> 0:04:33.610
+Windows ML is an easy to use model loader API,
+
+83
+0:04:33.610 --> 0:04:36.873
+that supports many major apps on windows today.
+
+84
+0:04:38.110 --> 0:04:41.370
+The open source ONNX Runtime C API,
+
+85
+0:04:41.370 --> 0:04:44.440
+makes Direct ML functionality available
+
+86
+0:04:44.440 --> 0:04:47.673
+to developers building for a cross platform solution.
+
+87
+0:04:48.880 --> 0:04:53.650
+Direct ML itself, is available as a standalone API
+
+88
+0:04:53.650 --> 0:04:56.910
+in the DirectX API family.
+
+89
+0:04:56.910 --> 0:04:59.500
+For the most demanding scenarios,
+
+90
+0:04:59.500 --> 0:05:03.740
+where frame on frame performance is critical
+
+91
+0:05:03.740 --> 0:05:06.633
+such as in real time or gaming scenarios.
+
+92
+0:05:08.420 --> 0:05:09.853
+Slide five.
+
+slide-5
+0:05:12.370 --> 0:05:15.770
+Direct ML is also used to accelerate training
+
+94
+0:05:15.770 --> 0:05:18.143
+of machine learning models with TensorFlow.
+
+95
+0:05:19.579 --> 0:05:22.870
+A new GPU accelerated device runtime in TensorFlow
+
+96
+0:05:22.870 --> 0:05:25.530
+is built on top of DirectML
+
+97
+0:05:25.530 --> 0:05:29.760
+to extend the TensorFlows GPU support to any windows GPU
+
+98
+0:05:29.760 --> 0:05:34.430
+from all the GPU vendors across the windows ecosystem.
+
+99
+0:05:35.120 --> 0:05:39.230
+We have launched data developer preview last month.
+
+100
+0:05:39.230 --> 0:05:42.690
+It is available now for download from PyPy,
+
+101
+0:05:42.690 --> 0:05:47.350
+with the support of both the Linux and Windows build.
+
+102
+0:05:47.350 --> 0:05:50.540
+The Linux build can be used within the windows subsystem
+
+103
+0:05:50.540 --> 0:05:52.643
+for Linux or WSL.
+
+104
+0:05:53.540 --> 0:05:56.830
+We are actively working on open-sourcing this project
+
+105
+0:05:56.830 --> 0:05:59.200
+to the public in the coming weeks
+
+106
+0:05:59.200 --> 0:06:01.990
+to increase our touch points with our community.
+
+107
+0:06:01.990 --> 0:06:02.943
+So stay tuned.
+
+108
+0:06:05.400 --> 0:06:06.513
+Slide six.
+
+slide-6
+0:06:09.310 --> 0:06:12.490
+I have a few demos that should help illustrate
+
+110
+0:06:12.490 --> 0:06:14.410
+the performance of the Direct ML
+
+111
+0:06:14.410 --> 0:06:17.710
+in some important customer scenarios.
+
+112
+0:06:17.710 --> 0:06:19.860
+For the best viewing experience,
+
+113
+0:06:19.860 --> 0:06:22.620
+since all of these demos are visual,
+
+114
+0:06:22.620 --> 0:06:26.510
+you may want to enlarge the video window size to full screen
+
+115
+0:06:26.510 --> 0:06:30.840
+by clicking the full screen icon at the bottom of this clip.
+
+116
+0:06:30.840 --> 0:06:34.700
+Every one of these demos is publicly available.
+
+117
+0:06:34.700 --> 0:06:37.260
+I will provide the links at the end of this slide
+
+118
+0:06:37.260 --> 0:06:39.443
+so you can check them out separately.
+
+119
+0:06:41.450 --> 0:06:44.500
+Our first demo today is a system developed
+
+120
+0:06:44.500 --> 0:06:49.500
+at GE healthcare called Sono CNS.
+
+121
+0:06:49.500 --> 0:06:52.240
+This program runs a Windows ML model
+
+122
+0:06:52.240 --> 0:06:55.400
+that automatically measures key matrices
+
+123
+0:06:55.400 --> 0:06:58.550
+of fetal brains from the ultra sound images,
+
+124
+0:06:58.550 --> 0:07:01.383
+for early diagnosis of the fetus health.
+
+125
+0:07:02.290 --> 0:07:06.460
+The analysis is done using a computer vision model
+
+126
+0:07:06.460 --> 0:07:10.140
+with convolution networks that identify key features
+
+127
+0:07:10.140 --> 0:07:11.733
+in the images.
+
+128
+0:07:16.120 --> 0:07:17.263
+Slide seven.
+
+slide-7
+0:07:18.870 --> 0:07:22.670
+Our next demo is in creative content scenario.
+
+130
+0:07:22.670 --> 0:07:25.850
+It's a new AI feature in Adobe Premier Pro
+
+131
+0:07:25.850 --> 0:07:28.230
+called Auto Reframe.
+
+132
+0:07:28.230 --> 0:07:31.420
+This feature use machine learning models
+
+133
+0:07:31.420 --> 0:07:33.370
+to analyze the video frames
+
+134
+0:07:33.370 --> 0:07:36.240
+and automatically crop each frame
+
+135
+0:07:36.240 --> 0:07:38.450
+to a different aspect ratio
+
+136
+0:07:38.450 --> 0:07:41.660
+by centering the frames around the movement
+
+137
+0:07:41.660 --> 0:07:44.600
+of the main subject in the footage.
+
+138
+0:07:44.600 --> 0:07:47.190
+This demo was given on a live stage,
+
+139
+0:07:47.190 --> 0:07:48.993
+running on the laptop PC.
+
+140
+0:07:50.970 --> 0:07:55.480
+As you can see, it only takes about a second
+
+141
+0:07:55.480 --> 0:07:59.160
+to analyze over 200 frames of its
+
+142
+0:07:59.160 --> 0:08:02.450
+approximately ten second video footage.
+
+143
+0:08:02.450 --> 0:08:04.260
+That performance with Direct ML
+
+144
+0:08:04.260 --> 0:08:07.233
+even on a laptop GPU is very impressive.
+
+145
+0:08:08.930 --> 0:08:10.130
+Slide eight.
+
+slide-8
+0:08:12.600 --> 0:08:14.990
+Our next demo is one of our Direct ML
+
+147
+0:08:14.990 --> 0:08:19.203
+public samples in GitHub called the Super Resolution Demo.
+
+148
+0:08:20.620 --> 0:08:23.400
+This is one of the high framerate scenarios
+
+149
+0:08:23.400 --> 0:08:25.330
+where the performance budget
+
+150
+0:08:25.330 --> 0:08:28.423
+for each model inference call is extremely small.
+
+151
+0:08:29.360 --> 0:08:32.370
+Each frame update of a game rendering loop,
+
+152
+0:08:32.370 --> 0:08:36.150
+runs a model that does an automatic upsample
+
+153
+0:08:36.150 --> 0:08:38.213
+of the displayed content on the fly.
+
+154
+0:08:39.630 --> 0:08:41.620
+This allows a type of game,
+
+155
+0:08:41.620 --> 0:08:44.900
+which normally requires huge graphics asset
+
+156
+0:08:44.900 --> 0:08:47.480
+to render the content at 4K
+
+157
+0:08:47.480 --> 0:08:51.300
+to use a lower resolution variants of the asset,
+
+158
+0:08:51.300 --> 0:08:54.613
+while still preserving the visual quality on the screen.
+
+159
+0:08:55.840 --> 0:08:56.980
+In this sample,
+
+160
+0:08:56.980 --> 0:09:01.660
+each inference has only between four to eight milliseconds
+
+161
+0:09:01.660 --> 0:09:06.430
+to complete or risking rendering glitch or drop frames.
+
+162
+0:09:06.430 --> 0:09:08.680
+So the performance of the ML step
+
+163
+0:09:08.680 --> 0:09:10.583
+is absolutely critical here.
+
+164
+0:09:13.800 --> 0:09:14.503
+Slide nine.
+
+slide-9
+0:09:16.920 --> 0:09:19.660
+Our next demo shows the latest versions
+
+166
+0:09:19.660 --> 0:09:24.700
+of the famous object detection model, YOLO V4.
+
+167
+0:09:24.700 --> 0:09:26.910
+Here the model analyzes each video frame
+
+168
+0:09:26.910 --> 0:09:29.423
+to identify areas of interests.
+
+169
+0:09:30.410 --> 0:09:33.650
+YOLO is one of the more complex convolution networks
+
+170
+0:09:33.650 --> 0:09:35.643
+with a significant compute workload.
+
+171
+0:09:40.570 --> 0:09:41.523
+Slide 10.
+
+slide-10
+0:09:42.740 --> 0:09:44.850
+And last but not least,
+
+173
+0:09:44.850 --> 0:09:47.390
+this is another one of our public samples
+
+174
+0:09:47.390 --> 0:09:50.100
+called style transfer.
+
+175
+0:09:50.100 --> 0:09:53.480
+This is a fun model that applies
+
+176
+0:09:53.480 --> 0:09:55.690
+a previously trained artistic style
+
+177
+0:09:55.690 --> 0:09:57.510
+to the input video frames
+
+178
+0:09:57.510 --> 0:09:59.703
+to create an interesting visual effect.
+
+179
+0:10:03.670 --> 0:10:07.860
+I hope you enjoy these demos and this short presentation.
+
+180
+0:10:07.860 --> 0:10:10.180
+I'm leaving out the links on the next slide
+
+181
+0:10:10.180 --> 0:10:11.920
+for your references.
+
+slide-11
+0:10:11.920 --> 0:10:13.103
+Thank you very much.
+
+

@@ -1,0 +1,368 @@
+WEBVTT
+
+slide-1
+00:08.160 --> 00:08.940
+Slide One
+
+00:08.940 --> 00:11.660
+First I would introduce myself briefly.
+
+00:11.660 --> 00:15.900
+I'm Zelun Chen from Netease and I'm a front-end and client development engineer.
+
+00:15.900 --> 00:17.460
+Today, the topic of my presentation is
+
+00:17.460 --> 00:21.660
+An Online Virtual Character Web Meeting With Expression Enhance Power By Machine Learning
+
+00:21.660 --> 00:23.460
+where we use WebAssembly
+
+00:23.460 --> 00:25.940
+to run Machine Learning Algorithm on the browser.
+
+00:25.940 --> 00:28.700
+Now I'll give my presentation.
+
+00:30.820 --> 00:32.420
+Slide Two
+
+slide-2
+00:32.420 --> 00:35.700
+First, let me explain the background of our project.
+
+00:35.700 --> 00:39.899
+Since the pandemic has caused great inconvenience for holding large conferences,
+
+00:39.899 --> 00:44.900
+we are thinking about building a meeting scene within our game scene
+
+00:44.900 --> 00:49.580
+so that the lecturer and the audience can join the conference via virtual images
+
+00:49.580 --> 00:52.700
+and the online conference could be vivid and immersive.
+
+00:52.700 --> 00:54.340
+As is shown in this picture,
+
+00:54.340 --> 00:57.500
+this is our meeting scene that we have built.
+
+00:57.500 --> 00:59.300
+There are audience seats
+
+00:59.300 --> 01:01.380
+and there is a podium.
+
+01:01.380 --> 01:04.100
+The lecturer can deliver a speech on the podium
+
+01:04.100 --> 01:07.580
+and display his or her presentation using the screen in the middle of it.
+
+01:07.580 --> 01:09.700
+In the lower left corner is the virtual image of the lecturer.
+
+01:09.700 --> 01:14.420
+So far, the faces of the audience and lecturers have been stiff
+
+01:14.420 --> 01:16.140
+without rich facial expressions.
+
+01:16.140 --> 01:19.460
+That's not quite what we're looking for in our immersive experience
+
+01:19.460 --> 01:22.100
+Now let me introduce our framework.
+
+01:24.200 --> 01:25.780
+Slide Three
+
+slide-3
+01:25.780 --> 01:27.740
+Our framework is as follows:
+
+01:27.740 --> 01:31.500
+First, the audience and the lecturer go to the web page in their browser
+
+01:31.500 --> 01:35.420
+and connect to a remote game client via WebRTC.
+
+01:35.420 --> 01:41.100
+Then their sounds can be transmitted through WebRTC from their local microphones to the game's audio module
+
+01:41.100 --> 01:43.580
+to allow lectures and Q&As.
+
+01:43.580 --> 01:47.500
+After building the online meeting scene in this way,
+
+01:47.500 --> 01:52.900
+we've been thinking that a successful meeting takes more than just these basic elements.
+
+01:52.900 --> 01:58.820
+We also need to enhance interactions among attendees to create a vivid and immersive meeting,
+
+01:58.820 --> 02:02.420
+for example, to allow the audience to turn around and see the look on other people's faces,
+
+02:02.420 --> 02:03.860
+or to say hello to each other,
+
+02:03.860 --> 02:07.381
+or even to see the face of the lecturer.
+
+02:07.382 --> 02:09.460
+After thinking for some time,
+
+02:09.460 --> 02:16.579
+it occurs to us that we can use the browser to capture faces from their cameras and transmit them to virtual images
+
+02:16.579 --> 02:18.260
+so that everyone can see.
+
+02:18.260 --> 02:22.900
+Our algorithm group happens to have a machine-learning-based library of emoji transmission,
+
+02:22.900 --> 02:26.380
+so we were wondering if we could run this library on our browser.
+
+02:28.860 --> 02:30.260
+Slide Four
+
+slide-4
+02:30.260 --> 02:34.420
+So here's how we're going to run this whole algorithmic engineering.
+
+02:34.420 --> 02:38.340
+First we need to use camera to capture video
+
+02:38.340 --> 02:45.340
+and send it to our algorithm to get model node parameters.
+
+02:45.340 --> 02:52.300
+Then we render these node parameters onto this virtual image in browser
+
+02:52.300 --> 02:58.140
+and repeat this step so as to convert real-time facial data into a web model.
+
+02:58.140 --> 03:04.340
+After that, we were thinking about how we can run this engineering on the Web.
+
+03:04.340 --> 03:07.980
+Slide Five
+
+slide-5
+03:07.980 --> 03:11.740
+As our machine learning algorithm is based on C++
+
+03:11.740 --> 03:15.220
+and only uses Opencv library and a machine learning inference engine internally,
+
+03:15.220 --> 03:19.780
+all we need to do is to run this C++ code on Web.
+
+03:19.780 --> 03:21.260
+So we came up with three solutions.
+
+03:21.260 --> 03:27.260
+The first one is to rewrite our source code with Javascript
+
+03:27.260 --> 03:32.460
+referencing OpencvJs library and the machine learning Inference engine Js lib.
+
+03:32.460 --> 03:36.140
+But this requires that we know both C++ and JS development
+
+03:36.140 --> 03:38.620
+and the essential difference between them,
+
+03:38.620 --> 03:40.740
+which is a lot of work.
+
+03:40.740 --> 03:42.900
+So we didn't adopt this solution in the end.
+
+03:42.980 --> 03:47.140
+The second solution is to deploy algorithmic engineering on the server
+
+03:47.140 --> 03:49.420
+and to invoke it through back end Api interface.
+
+03:49.420 --> 03:53.540
+But since we need real-time facial data to build the model,
+
+03:53.540 --> 03:56.380
+there will be network request time latency,
+
+03:56.380 --> 03:59.100
+so we didn't adopt this solution, either.
+
+03:59.100 --> 04:03.180
+The third solution is to compile the entire C++ library to WebAssembly
+
+04:03.180 --> 04:05.220
+and directly run it on the browser.
+
+04:05.220 --> 04:08.340
+In this way, the problems of the first two solutions won't occur.
+
+04:08.340 --> 04:11.140
+Eventually, we adopted the third solution.
+
+04:13.200 --> 04:14.180
+Slide Six
+
+slide-6
+04:14.980 --> 04:20.600
+So here is a routine way of compiling C++ to WebAssembly
+
+04:20.600 --> 04:22.540
+as shown in the current page.
+
+04:22.540 --> 04:28.200
+We pack it up as a WASM file and run it on our browser.
+
+04:28.200 --> 04:32.180
+Here are the results we got.
+
+04:32.180 --> 04:34.700
+The first is how it works on the browser.
+
+04:54.420 --> 04:59.180
+As you can see, it doesn't work very well on the browser.
+
+04:59.180 --> 05:03.100
+It takes about two seconds to convert facial data into model data,
+
+05:03.100 --> 05:04.660
+so it looks a bit laggy.
+
+05:04.660 --> 05:07.220
+Then let's take a look at what we did on Unity,
+
+05:07.220 --> 05:10.600
+which is what we expect to see.
+
+05:19.940 --> 05:21.420
+Slide Seven
+
+slide-7
+05:21.420 --> 05:23.620
+We can tell by comparing the two videos
+
+05:23.620 --> 05:26.660
+that our engineering doesn't work very well on WebAssembly.
+
+05:26.660 --> 05:33.580
+So here we raise a couple of questions about running WebAssembly on Web in our algorithmic engineering
+
+05:33.580 --> 05:34.820
+to discuss with you.
+
+05:34.820 --> 05:37.420
+First of all, as a front-end development engineer,
+
+05:37.420 --> 05:40.500
+when packing the entire C++ algorithm engineering,
+
+05:40.500 --> 05:45.460
+you need to know a lot of knowledge of CMake, CLang, and Cross Compile, and these libraries' source code,
+
+05:45.460 --> 05:49.860
+because some of these methods from outside libraries cannot run on WebAssembly.
+
+05:49.860 --> 05:51.980
+And here we have an idea
+
+05:51.980 --> 05:55.140
+that maybe we can build an library environment like Npm
+
+05:55.140 --> 06:00.620
+to version the LLVM-complied code library written by a developer
+
+06:00.620 --> 06:05.860
+so that WebAssembly developers can use these libraries easily whether they have knowledge of C++ or not.
+
+06:05.860 --> 06:10.740
+Second, since most of our inference libraries support OpenMp
+
+06:10.740 --> 06:12.620
+instead of PThread,
+
+06:12.620 --> 06:18.180
+we cannot use WebAssembly's multi threading to optimize.
+
+06:18.180 --> 06:22.980
+There are also biological differences to be dealt with.
+
+06:22.980 --> 06:30.200
+Third, we have encountered bad performance on matrix calculation,
+
+06:30.200 --> 06:33.980
+and would love to hear if you have any suggestions to optimize it.
+
+06:33.980 --> 06:42.660
+Fourth, our WASM file is a source code that can be acquired through reverse engineering and decompilation in browser,
+
+06:42.660 --> 06:46.460
+which lacks support on encrypt solution and does not guarantee the safety of our algorithmic engineering.
+
+06:46.460 --> 06:49.900
+Do you have any possible solutions to this?
+
+06:49.900 --> 06:53.380
+Those are the four problems that we're dealing with.
+
+06:53.380 --> 06:59.980
+We have come up with some solutions to improve its performance.
+
+06:59.980 --> 07:05.460
+For example, we first thought about using some efficient Javascript libraries
+
+07:05.460 --> 07:10.500
+and use EM_JS to call Javascript via WebAssembly.
+
+07:10.500 --> 07:17.260
+This is certainly not a good solution as it requires communication between WASM and JS files
+
+07:17.260 --> 07:20.140
+and those that call this library all need to be modified.
+
+07:20.140 --> 07:24.580
+Can we use Web common algorithm library to write some web development methods
+
+07:24.580 --> 07:27.700
+that automatically call underlying ES_JM
+
+07:27.700 --> 07:31.600
+when the environment is WebAssembly?
+
+07:31.600 --> 07:37.260
+Second, we tried to use SIMD experimental features
+
+07:37.260 --> 07:39.140
+on the latest browser.
+
+07:39.140 --> 07:41.300
+However, it didn't meet our expectations.
+
+07:41.300 --> 07:45.200
+First of all, the audience and the lecturer may not be using the most up-to-date browser.
+
+07:45.200 --> 07:48.540
+Second, it doesn't make much difference to our computational efficiency.
+
+07:51.860 --> 07:53.220
+Slide Eight
+
+slide-8
+07:53.220 --> 07:57.200
+Do you have any suggestions or opinions?
+
+07:57.200 --> 07:58.900
+Please feel free to tell us, thank you.
+
+

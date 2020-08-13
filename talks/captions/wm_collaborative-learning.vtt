@@ -1,0 +1,627 @@
+WEBVTT
+
+1
+0:00:08.490 --> 0:00:09.630
+<v ->Hello everybody,</v>
+
+2
+0:00:09.630 --> 0:00:11.800
+my name is Wolfgang Maß.
+
+3
+0:00:11.800 --> 0:00:13.180
+I am at the German Research Center
+
+4
+0:00:13.180 --> 0:00:15.600
+for Artificial Intelligence.
+
+5
+0:00:15.600 --> 0:00:19.930
+And I'm working on smart service engineering,
+
+6
+0:00:20.300 --> 0:00:24.753
+in industrial settings, healthcare settings and other domains.
+
+7
+0:00:25.700 --> 0:00:28.950
+I want to show what we are doing
+
+8
+0:00:28.950 --> 0:00:32.460
+with respect to what we call collaborative learning
+
+9
+0:00:32.460 --> 0:00:34.673
+in the next couple of slides.
+
+slide-2
+0:00:36.920 --> 0:00:39.630
+So, a background motivation for work
+
+11
+0:00:39.630 --> 0:00:42.990
+is that we are investigating smart services,
+
+12
+0:00:42.990 --> 0:00:46.200
+which can be considered as software systems
+
+13
+0:00:46.200 --> 0:00:49.000
+that adapt to user needs and are adaptive
+
+14
+0:00:49.000 --> 0:00:52.530
+to various kinds of contexts in the real world.
+
+15
+0:00:52.530 --> 0:00:57.520
+And smart services apply AI technologies,
+
+16
+0:00:57.520 --> 0:01:02.520
+processing box data, but also streaming data
+
+17
+0:01:03.800 --> 0:01:06.340
+and smart services shall be interoperable
+
+18
+0:01:06.340 --> 0:01:09.420
+and shall collaborate over the network
+
+19
+0:01:09.420 --> 0:01:11.200
+in particular the world wide web.
+
+20
+0:01:12.170 --> 0:01:16.373
+There are some goals that we investigate on one hand side:
+
+21
+0:01:17.270 --> 0:01:20.570
+we want to investigate smart services
+
+22
+0:01:20.570 --> 0:01:25.570
+that only live in a browser and not so much in data centers.
+
+23
+0:01:27.900 --> 0:01:31.650
+Smart services shall be quickly built
+
+24
+0:01:31.650 --> 0:01:36.650
+and shall be based on reusable software modules.
+
+25
+0:01:38.400 --> 0:01:43.400
+We do not want to exclude cloud based AI services,
+
+26
+0:01:44.210 --> 0:01:48.800
+but want to merge locally executed AI services
+
+27
+0:01:48.800 --> 0:01:51.223
+and cloud based AI services.
+
+28
+0:01:52.900 --> 0:01:53.630
+And another goal is
+
+29
+0:01:53.630 --> 0:01:56.583
+that smart services are self-descriptive,
+
+30
+0:01:57.490 --> 0:02:01.300
+and in this sense of self-containing.
+
+31
+0:02:01.300 --> 0:02:06.300
+And then it shall be self maintaining to a certain extent,
+
+32
+0:02:06.270 --> 0:02:08.680
+while this at the moment is rather a goal
+
+33
+0:02:08.680 --> 0:02:11.713
+than that we actually have implementations on that.
+
+34
+0:02:13.330 --> 0:02:18.330
+Furthermore, we do not want to confine ourselves
+
+35
+0:02:18.860 --> 0:02:21.810
+toward very specific architecture,
+
+36
+0:02:21.810 --> 0:02:25.260
+but by adopting an agent based approach,
+
+37
+0:02:25.260 --> 0:02:28.560
+agents shall communicate with each other,
+
+38
+0:02:28.560 --> 0:02:31.990
+they should also dedicate roles
+
+39
+0:02:31.990 --> 0:02:36.450
+to agents such as becoming a server role
+
+40
+0:02:36.450 --> 0:02:38.400
+or communication partner role,
+
+41
+0:02:38.400 --> 0:02:41.620
+and that should be done dynamically
+
+42
+0:02:41.620 --> 0:02:44.703
+in negotiation between agents.
+
+43
+0:02:47.000 --> 0:02:49.770
+We have built a platform called Tucana,
+
+44
+0:02:49.770 --> 0:02:52.390
+whose architecture you see on the right hand side
+
+45
+0:02:52.390 --> 0:02:53.650
+of the slide.
+
+46
+0:02:53.650 --> 0:02:57.500
+And Tucana is a peer to peer architecture,
+
+47
+0:02:57.500 --> 0:02:59.900
+where different kinds of environments
+
+48
+0:02:59.900 --> 0:03:02.210
+what we call Tucana environments T-ENV,
+
+49
+0:03:02.210 --> 0:03:04.580
+can communicate with one another.
+
+50
+0:03:04.580 --> 0:03:06.960
+In each Tucana environment,
+
+51
+0:03:06.960 --> 0:03:10.460
+several smart services can be executed.
+
+52
+0:03:10.460 --> 0:03:13.100
+They can communicate locally,
+
+53
+0:03:13.100 --> 0:03:15.560
+but they can also communicate
+
+54
+0:03:15.560 --> 0:03:18.873
+via peer to peer networks based on WebRTC.
+
+55
+0:03:19.790 --> 0:03:24.320
+Each smart service as you can see on the second image
+
+56
+0:03:24.320 --> 0:03:28.780
+on this slide, consists of different kinds of minions
+
+57
+0:03:28.780 --> 0:03:33.780
+and these minions are software modules with dedicated tasks.
+
+58
+0:03:34.800 --> 0:03:36.760
+We distinguish between perceiver minions,
+
+59
+0:03:36.760 --> 0:03:39.900
+thinker minions, communicator minions,
+
+60
+0:03:39.900 --> 0:03:42.730
+but also actuator minions.
+
+61
+0:03:42.730 --> 0:03:45.860
+The basic minions according to a three layer architecture
+
+62
+0:03:45.860 --> 0:03:49.170
+are perceiver minions (PMINs) and thinker minions
+
+63
+0:03:49.170 --> 0:03:50.910
+and communicator minions.
+
+64
+0:03:50.910 --> 0:03:53.650
+Perceiver minion collects data
+
+65
+0:03:53.650 --> 0:03:57.640
+and stores the data in the local database of the browser.
+
+66
+0:03:57.640 --> 0:04:00.800
+Thinker minion accesses the data
+
+67
+0:04:00.800 --> 0:04:05.800
+and processes by leveraging data analytical software,
+
+68
+0:04:05.130 --> 0:04:07.190
+in particular TensorFlow-based
+
+69
+0:04:07.190 --> 0:04:09.860
+kind of analytics but could be any kind of
+
+70
+0:04:09.860 --> 0:04:14.860
+JavaScript machine learning software or customized software,
+
+71
+0:04:16.700 --> 0:04:19.890
+while the communicator minion either communicates
+
+72
+0:04:19.890 --> 0:04:23.900
+with other smart services locally
+
+73
+0:04:23.900 --> 0:04:26.360
+via peer to peer network globally,
+
+74
+0:04:26.360 --> 0:04:29.993
+or with the end user via the browser interface.
+
+75
+0:04:31.890 --> 0:04:36.890
+We are using JavaScript for all our implementation, WebRTC.
+
+76
+0:04:37.380 --> 0:04:42.360
+For access control we use OpenAuthentication 2.0,
+
+77
+0:04:42.360 --> 0:04:47.800
+we are able to export the data that we collect into JSON-LD,
+
+78
+0:04:47.800 --> 0:04:49.700
+one implementation is using BabelNet
+
+79
+0:04:49.700 --> 0:04:52.970
+as the transformer basis.
+
+80
+0:04:52.970 --> 0:04:55.390
+We also leverage TensorFlow
+
+81
+0:04:55.390 --> 0:04:59.870
+and we are compliant with the specification of GAIA-X
+
+82
+0:04:59.870 --> 0:05:03.620
+and the International Data Space  which is
+
+83
+0:05:04.600 --> 0:05:07.700
+a widely used kind of specification
+
+84
+0:05:07.700 --> 0:05:11.910
+for Industry 4.0 applications, yes.
+
+85
+0:05:11.910 --> 0:05:16.910
+So, we specify the smart services in JSON format,
+
+86
+0:05:19.330 --> 0:05:24.500
+and we use these JSON formats in order to bind
+
+87
+0:05:25.400 --> 0:05:29.960
+the software configuration, the smart service configuration
+
+88
+0:05:29.960 --> 0:05:32.993
+to pre-installed minions.
+
+89
+0:05:34.130 --> 0:05:36.730
+Probably more interesting for this workshop
+
+90
+0:05:36.730 --> 0:05:38.780
+is the thinker minion.
+
+91
+0:05:38.780 --> 0:05:42.500
+I have here an example that we use for activity recognition
+
+92
+0:05:42.500 --> 0:05:44.133
+in the shopping context.
+
+93
+0:05:44.970 --> 0:05:48.230
+You also see here that the minions again
+
+94
+0:05:48.230 --> 0:05:52.210
+have an activate method,  a notify method
+
+95
+0:05:52.210 --> 0:05:53.863
+and a terminate method.
+
+96
+0:05:55.500 --> 0:05:59.510
+But in between we also have a method for predictPartially
+
+97
+0:05:59.510 --> 0:06:03.690
+the data that is coming in and streams for the acceleration
+
+98
+0:06:03.690 --> 0:06:08.690
+and the geolocation is used to make predictions.
+
+99
+0:06:10.700 --> 0:06:15.700
+And we are using a model that was pre-trained
+
+100
+0:06:17.750 --> 0:06:19.500
+in the server side.
+
+101
+0:06:19.500 --> 0:06:23.500
+And in during the activate method,
+
+102
+0:06:23.500 --> 0:06:27.700
+we load that model and we use it to make predictions.
+
+103
+0:06:27.700 --> 0:06:30.160
+In this case it is a very straightforward
+
+104
+0:06:30.160 --> 0:06:33.940
+and simple prediction - simply to say that a person is tired
+
+105
+0:06:33.940 --> 0:06:35.460
+or it's not tired.
+
+106
+0:06:35.460 --> 0:06:40.460
+And the integration of TensorFlow JS works quite nicely.
+
+107
+0:06:42.400 --> 0:06:45.900
+On the right hand side, you see the model topology
+
+108
+0:06:45.900 --> 0:06:50.433
+that we use here is based on LSTM layers,
+
+109
+0:06:52.690 --> 0:06:54.760
+and the fully connected layer
+
+110
+0:06:54.760 --> 0:06:57.570
+and we integrate it all together
+
+111
+0:06:57.570 --> 0:07:01.143
+and push that into our TMIN.
+
+112
+0:07:02.510 --> 0:07:06.683
+Here is an example for the whole smart service for shopping,
+
+113
+0:07:07.640 --> 0:07:09.770
+and as you can see on the left hand side
+
+114
+0:07:09.770 --> 0:07:14.540
+we have a configuration file for our smart service
+
+115
+0:07:14.540 --> 0:07:18.800
+that says we have two perceiver minions,
+
+116
+0:07:18.800 --> 0:07:21.530
+one for geolocation and the other for linear acceleration.
+
+117
+0:07:21.530 --> 0:07:26.000
+We have one TMIN for activity prediction
+
+118
+0:07:26.000 --> 0:07:28.203
+and  three CMINs.
+
+119
+0:07:29.520 --> 0:07:34.520
+The one for communicating with the user for shopping deal
+
+120
+0:07:35.590 --> 0:07:38.430
+that might be appropriate in that situation.
+
+121
+0:07:39.130 --> 0:07:42.440
+We have a pure communicator that can pass
+
+122
+0:07:43.840 --> 0:07:48.840
+information to internal locally defined
+
+123
+0:07:48.920 --> 0:07:51.210
+or via peer to peer connection
+
+124
+0:07:51.210 --> 0:07:55.900
+also to external smart services.
+
+125
+0:07:55.900 --> 0:07:59.190
+And we have another communication minion
+
+126
+0:07:59.190 --> 0:08:03.430
+that shows the acceleration also to the user.
+
+127
+0:08:04.120 --> 0:08:07.490
+And this configuration in JSON is very handy
+
+128
+0:08:07.490 --> 0:08:11.960
+and allows us very similar to the architectural
+
+129
+0:08:11.960 --> 0:08:14.370
+and topology of a machine learning model
+
+130
+0:08:14.370 --> 0:08:18.543
+to define smart service designs.
+
+131
+0:08:20.570 --> 0:08:23.593
+Okay, so let's wrap it up.
+
+132
+0:08:24.510 --> 0:08:26.710
+What are our lessons learned?
+
+133
+0:08:26.710 --> 0:08:31.290
+And where do we see potential for further development
+
+134
+0:08:31.290 --> 0:08:32.633
+and specifications?
+
+135
+0:08:33.820 --> 0:08:37.570
+First, it  would be interesting to have
+
+136
+0:08:37.570 --> 0:08:40.480
+agent-oriented architecture,
+
+137
+0:08:40.480 --> 0:08:45.180
+better being supported by current systems
+
+138
+0:08:45.180 --> 0:08:50.180
+in JavaScript, by WebRTC and by other technologies.
+
+139
+0:08:50.450 --> 0:08:52.550
+That's one element.
+
+140
+0:08:52.550 --> 0:08:55.140
+Then, on the machine learning side,
+
+141
+0:08:55.140 --> 0:08:59.290
+it would be really great if also on the JavaScript side,
+
+142
+0:08:59.290 --> 0:09:02.440
+we would have some support for federated learning,
+
+143
+0:09:02.440 --> 0:09:06.590
+distributed learning and reinforcement learning,
+
+144
+0:09:06.590 --> 0:09:07.423
+this is currently missing.
+
+145
+0:09:07.423 --> 0:09:12.359
+In WebRTC, I know that the signaling service
+
+146
+0:09:13.220 --> 0:09:16.440
+and the protocol is outside of webRTC.
+
+147
+0:09:16.440 --> 0:09:18.150
+However, I would appreciate
+
+148
+0:09:18.150 --> 0:09:21.540
+and I think the community would also appreciate
+
+149
+0:09:21.540 --> 0:09:24.650
+a general and optimized signaling protocol,
+
+150
+0:09:24.650 --> 0:09:29.650
+maybe also an environment for testing for signaling services.
+
+151
+0:09:31.119 --> 0:09:35.830
+And last but not least, OpenAuthentication 2.0 - 
+
+152
+0:09:35.830 --> 0:09:38.850
+it requires always on at the moment,
+
+153
+0:09:38.850 --> 0:09:43.850
+if you are offline authentication is a pain.
+
+154
+0:09:43.910 --> 0:09:46.480
+So, you have to switch it on and off.
+
+155
+0:09:46.480 --> 0:09:49.460
+A buffering service for authentication
+
+156
+0:09:49.460 --> 0:09:54.403
+that supports offline services would be really appreciated.
+
+

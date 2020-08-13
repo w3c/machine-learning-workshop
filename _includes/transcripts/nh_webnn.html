@@ -1,0 +1,64 @@
+<div class="slide" role='region' aria-label="Slide 1 of 10" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello everyone, welcome. I'm Ningxin Hu, a principal engineer at Intel.</p>
+<p>I'm participating in the W3C machine learning for the web community group.</p>
+<p>Today, my topic is about the new web standard proposal, the Web Neural Network API and how it can help web apps and frameworks to access purpose-built machine learning hardware.</p>
+<p>I'd like to thank everyone who contributes to this proposal.</p></div><div class="slide" role='region' aria-label="Slide 2 of 10" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>As you know, in the last decade, the machine learning, in particular, the deep learning has been getting increasingly important and widely applied in many applications, computer vision, speech recognition, noise cancellation.</p>
+<p>Nowadays, thanks to the emerging JavaScript machine learning frameworks, the web apps now can easily incorporate this innovative usage by running the machine learning models in the web browser.</p>
+<p>Underlining those frameworks usually leverage <a class=dfn>WebAssembly</a>, <a class=dfn>WebGL</a> and <a class=dfn>WebGPU</a> to run the machine learning computation on CPU and GPU, respectively.</p></div><div class="slide" role='region' aria-label="Slide 3 of 10" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>On the other hand, to the exponential increasement of the computing demand for machine learning workload, the innovation of hardware architecture is advancing very fast.</p>
+<p>The machine learning extensions has been added into the CPU and GPU.</p>
+<p>A bunch of new dedicated machine learning accelerators is emerging, such as NPU, VPU and <a class=dfn>DSP</a>.</p>
+<p>These dedicated accelerators not only help optimize the performance but also help reduce the power consumption.</p>
+<p>By taking advantage of these hardware features, the native apps got very good performance.</p>
+<p>So, how about the web?</p></div><div class="slide" role='region' aria-label="Slide 4 of 10" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>To compare the performance of web and native, we use MobileNet as workload and measure the inference latency.</p>
+<p>For hardware devices, we use a laptop with Vector Neural Network Instructions, as known as VNNI in the CPU, and a smartphone has a <a class=dfn>DSP</a>.</p>
+<p>According to the charts, there is a big performance gap between web and native.</p>
+<p>For instance, on the laptop, the native CPU inference is about 10 times faster than <a class=dfn>WebAssembly</a> for a float32 precision.</p>
+<p>The reason behind that is a native can access 256 bit Vector Instruction, however, <a class=dfn>WebAssembly</a> only has 128 bit.</p>
+<p>The native GPU inference is about nine times faster than <a class=dfn>WebGL</a> for a float16 precision.</p>
+<p>That's because optimized machine learning kernels within the GPU driver are not available to <a class=dfn>WebGL</a>.</p>
+<p>On the smartphone, we observed a similar result.</p>
+<p>If we go lower precision inference, as known as quantization, which is a widely used technique to optimize the inference performance, the VNNI and <a class=dfn>DSP</a> are designed to accelerate that.</p>
+<p>So, if using the eigh8 bit precision on the laptop, the native inference can be 24 times faster than web.</p>
+<p>And on the smartphone, the <a class=dfn>DSP</a> inference can be 16 times faster than the web.</p></div><div class="slide" role='region' aria-label="Slide 5 of 10" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>The JavaScript machine learning frameworks cannot take advantage of these hardware features, that leads to the big performance gap.</p>
+<p>It would be good to expose them on web platform.</p>
+<p>However, due to the architecture diversity of this new machine learning hardware, it is quite challenging to expose them by the general CPU and GPU compute web APIs.</p>
+<p>Given that, we are proposing a new domain specific web API to access the hardware acceleration for machine learning.</p></div><div class="slide" role='region' aria-label="Slide 6 of 10" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>The proposal is a Web Neural Network API, known as WebNN.</p>
+<p>At the first stage, it focuses on the hardware acceleration for the inference.</p>
+<p>It introduces the primitives of the deep neural network to the web platform.</p>
+<p>The primitives include <a class=dfn>tensor</a> operant.</p>
+<p>Tensor operant represents the multi-dimensional array in different data type including float point 32, 16, and integer 32, 8.</p>
+<p>The primitives also include a set of <a class=dfn>tensor</a> operations, such as <a class=dfn>convolution</a>, <a class=dfn>matrix</a> multiplication, pulling, atom-wise and activation.</p>
+<p>These operations are either compute-intensive or memory bandwidth bounded.</p>
+<p>The acceleration of them is critical to the inference performance.</p>
+<p>By using these primitives, the JavaScript machine learning framework can define a computational graph.</p>
+<p>The graph can represent part or whole of a machine learning inference model.</p>
+<p>Then, the framework can use WebNN API to compile and execute the graph for hardware acceleration.</p>
+<p>The execution of the WebNN graph can interact with kernels written in <a class=dfn>WebAssembly</a> or <a class=dfn>WebGPU</a> compute shader.</p>
+<p>With that, the frameworks can be flexible by using the WebNN for hardware acceleration and using <a class=dfn>WebAssembly</a>, <a class=dfn>WebGPU</a> for custom operation support.</p>
+<p>The primitives of WebNN can be mapped to the native machine learning API available on different operating systems, such as Android Neural Network API, DirectML on Windows, Metal Performance Shader on macOS, iOS, and <a class=dfn>OpenVINO</a>.</p>
+<p>Eventually, these native APIs will talk with compilers and drivers to run these primitives on various machine learning hardware.</p></div><div class="slide" role='region' aria-label="Slide 7 of 10" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>WebNN proposal has four major interfaces, the neural network context, model, compilation and execution.</p>
+<p>The main programming flow is like this: first, you can get a neural network context object from the global navigator object.</p>
+<p>The neural network context object has a method of <a class=dfn>tensor</a> operant and operations, so you can use that to define the computational graph as the example shows.</p>
+<p>Then, you can create a model object based on this graph.</p>
+<p>The model object represents the hardware independent form.</p>
+<p>For hardware acceleration, you need to create a compilation object, that represents the hardware specific form of this graph.</p>
+<p>You can also specify the compilation options, for example, high performance or low power so browser and native API can select an appropriate hardware for you.</p>
+<p>After the compilation is done, you can create the execution object.</p>
+<p>That represents the inference request bound with the specific input and output buffers.</p>
+<p>The current spec support CPU buffer.</p>
+<p>The GPU buffer and other type of input output will be supported in the future spec.</p>
+<p>Contributions are welcome.</p>
+<p>Execution start compute is a synchronous operation, that will hide the latency for the hardware acceleration.</p>
+<p>After the promise is solved, the result will be put into the output buffer.</p></div><div class="slide" role='region' aria-label="Slide 8 of 10" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>To prove the concept, we experimentally implemented the WebNN API in a customized Chromium browser, we followed the multi-process architecture of Chromium, we implemented the JavaScript interface of WebNN in Blink and the native API backend in GPU process.</p>
+<p>The two components talk with each other through the IPC mechanism.</p>
+<p>To test the cross-platform interoperability and performance on different devices, the prototype support 4 OSs, including Windows, Android, macOS, and Linux, and can access the CPU, GPU and accelerators on smartphone and PC.</p></div><div class="slide" role='region' aria-label="Slide 9 of 10" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>Let's see some demo of the WebNN prototype.</p>
+<p>On the laptop, first, we test the inference performance with <a class=dfn>WebAssembly</a> <a class=dfn>SIMD</a>. Then we test the performance of WebNN CPU backend for a float point 32 inference.</p>
+<p>At last, we test the performance of WebNN for integer 8 inference accelerated by VNNI.</p>
+<p>It has close-to-native performance.</p>
+<p>On the smartphone, we first tested is a <a class=dfn>WebGL</a> based inference.</p>
+<p>Then, we inference the same model with WebNN GPU backend.</p>
+<p>In the last, we use WebNN to access the <a class=dfn>DSP</a> for quantized model inference.</p>
+<p>It has the near-to-native performance.</p></div><div class="slide" role='region' aria-label="Slide 10 of 10" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/nh_webnn.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>This slide and the next one have the performance numbers of WebNN prototype we collected on laptop and smartphone.</p>
+<p>Feel free to check them out.</p>
+<p>As the number shows, by introducing the domain specific primitives and relying on the native machine learning API, WebNN can help access a purpose-built machine learning hardware and close the gap between the web and native.</p>
+<p>The Web Neural Network API is an incubation within W3C machine learning for the web Community Group.</p>
+<p>Thanks for watching and looking forward to your participation.</p></div>

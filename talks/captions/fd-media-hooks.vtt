@@ -1,0 +1,947 @@
+WEBVTT
+
+slide-1
+00:08.160 --> 00:11.560
+Hello. I'm François Daoust.
+
+2
+00:11.560 --> 00:15.720
+I work for W3C where I keep track of media related activities.
+
+4
+00:15.760 --> 00:17.760
+The goal of this presentation is
+
+5
+00:17.760 --> 00:20.920
+to take a peak at mechanisms that allow,or will allow,
+
+6
+00:20.920 --> 00:23.200
+media processing on the Web.
+
+7
+00:23.200 --> 00:26.760
+I will very hardly touch on machine learning per se,
+
+8
+00:26.760 --> 00:29.880
+just as a possible approach that people might want
+
+9
+00:29.880 --> 00:31.280
+to apply to process media.
+
+12
+00:32.120 --> 00:33.840
+Slide 2
+
+slide-2
+00:33.880 --> 00:38.160
+In the past few years, I would say that standardization has enabled
+
+15
+00:38.160 --> 00:41.320
+4 different media scenarios on the Web.
+
+17
+00:41.320 --> 00:43.800
+First one is support for basic media playback,
+
+18
+00:43.800 --> 00:46.680
+also known as progressive media playback,
+
+19
+00:46.680 --> 00:49.840
+in other words the ability to play a simple media file.
+
+20
+00:49.840 --> 00:54.320
+This was enabled by the audio and video tags in HTML
+
+21
+00:54.320 --> 00:59.120
+and the underlying HTMLMediaElement interface.
+
+23
+00:59.120 --> 01:02.480
+Second scenario is support for adaptive media playback.
+
+24
+01:02.480 --> 01:08.160
+Here, the goal is to adjust video parameters (typically, the resolution)
+
+25
+01:08.160 --> 01:11.560
+in real time to the user's current environment.
+
+26
+01:11.560 --> 01:16.520
+This scenario was enabled by Media Source Extensions or MSE for short.
+
+27
+01:16.520 --> 01:21.200
+It brought professional and commercial media content to the Web.
+
+28
+01:21.200 --> 01:24.880
+MSE is, by far, the main mechanism used
+
+29
+01:24.880 --> 01:30.560
+to stream on-demand media content on the Web today.
+
+31
+01:33.800 --> 01:34.760
+Third media scenario is different.
+
+32
+01:34.760 --> 01:38.120
+It is about real-time audio/video conversations.
+
+33
+01:38.120 --> 01:40.800
+This was enabled by WebRTC.
+
+34
+01:40.800 --> 01:44.360
+And WebRTC is also used to stream media in scenarios
+
+35
+01:44.360 --> 01:48.800
+that require latency to be minimal, for instance cloud gaming.
+
+37
+01:48.800 --> 01:52.400
+Fourth media scenario is also completely different.
+
+38
+01:52.400 --> 01:56.440
+It is about synthesized audio playback:
+
+39
+01:56.440 --> 01:59.520
+to generate music, or sound effects in games for instance.
+
+40
+01:59.520 --> 02:01.480
+This was enabled by the Web Audio API.
+
+42
+02:02.400 --> 02:03.200
+Slide 3
+
+slide-3
+02:03.200 --> 02:06.560
+The actual media content depends on the scenario.
+
+45
+02:06.560 --> 02:09.440
+We're talking about files for progressive media playback,
+
+46
+02:09.440 --> 02:12.320
+streams for adaptive media playback,
+
+47
+02:12.320 --> 02:15.400
+individual media stream tracks for WebRTC
+
+48
+02:15.400 --> 02:17.680
+and short audio samples for Web Audio.
+
+51
+02:17.680 --> 02:19.480
+Slide 4
+
+slide-4
+02:19.480 --> 02:21.000
+In a typical media pipeline,
+
+54
+02:21.000 --> 02:24.560
+media content gets recorded from a camera or microphone,
+
+55
+02:24.560 --> 02:27.280
+encoded to save memory and bandwidth.
+
+56
+02:27.280 --> 02:29.880
+Then different media tracks are muxed together
+
+57
+02:29.880 --> 02:32.920
+and the result is sent to the network.
+
+59
+02:33.600 --> 02:37.400
+The decoding side is roughly symmetric to the encoding side.
+
+60
+02:37.400 --> 02:40.760
+Media content needs to be fetched, demuxed,
+
+61
+02:40.760 --> 02:45.640
+decoded to produce raw audio and video frames,
+
+62
+02:45.640 --> 02:49.280
+and rendered to the final display or speakers.
+
+64
+02:49.280 --> 02:52.160
+The mux and demux operations are only needed
+
+65
+02:52.160 --> 02:55.720
+in progressive and adaptive media playback scenarios.
+
+66
+02:55.720 --> 02:58.720
+WebRTC deals with individual media stream tracks directly
+
+67
+02:58.720 --> 03:01.320
+so no mux and demux operations per se there.
+
+69
+03:01.320 --> 03:03.360
+In the interest of time,
+
+70
+03:03.360 --> 03:06.160
+I will mostly focus on the decoding side,
+
+71
+03:06.160 --> 03:08.640
+but some considerations apply to the encoding side as well.
+
+74
+03:08.640 --> 03:10.000
+Slide 5
+
+slide-5
+03:10.680 --> 03:13.160
+So why would people want to process media streams?
+
+77
+03:13.160 --> 03:15.440
+Well, they may want to analyze frames
+
+78
+03:15.440 --> 03:19.160
+to detect objects, faces, or gestures.
+
+79
+03:19.160 --> 03:22.560
+Or they may want to actually modify the streams in real time,
+
+80
+03:22.560 --> 03:24.120
+either to add overlays in real time
+
+81
+03:24.120 --> 03:25.720
+(for instance to add funny hats),
+
+82
+03:25.720 --> 03:28.640
+remove the background, or simply because
+
+83
+03:28.640 --> 03:31.200
+the client application is a media authoring tool.
+
+86
+03:31.200 --> 03:33.800
+Slide 6
+
+slide-6
+03:34.800 --> 03:36.400
+In most cases, these scenarios need
+
+89
+03:36.400 --> 03:41.280
+to process individual decoded audio or video frames.
+
+90
+03:41.280 --> 03:45.120
+So, if we look back at our typical media pipeline, ideally,
+
+91
+03:45.120 --> 03:47.120
+we'd like to hook processing between the record
+
+92
+03:47.120 --> 03:50.480
+and the encode operations on the encoding side,
+
+93
+03:50.480 --> 03:53.400
+and between the decode and the render operations
+
+94
+03:53.400 --> 03:54.880
+on the decoding side.
+
+97
+03:54.880 --> 03:58.400
+Slide 7
+
+slide-7
+03:58.440 --> 04:01.920
+OK, let's get back to our four media scenarios.
+
+100
+04:01.920 --> 04:03.320
+For progressive media playback,
+
+101
+04:03.320 --> 04:06.480
+the HTMLMediaElement takes the URL of a media file
+
+102
+04:06.480 --> 04:08.400
+and renders the result.
+
+103
+04:08.400 --> 04:10.320
+The browser does all the work.
+
+104
+04:10.320 --> 04:12.680
+And that's too bad, because that means
+
+105
+04:12.680 --> 04:14.840
+there is no way to hook any processing step there!
+
+108
+04:14.840 --> 04:15.880
+Slide 8
+
+slide-8
+04:15.880 --> 04:17.520
+But you can cheat!
+
+111
+04:17.520 --> 04:19.720
+You create your own processing hook.
+
+112
+04:19.720 --> 04:24.960
+For video, you can copy rendered frames repeatedly to a canvas element
+
+113
+04:24.960 --> 04:29.760
+, process pixels extracted from the canvas
+
+114
+04:29.760 --> 04:31.920
+and render the result to a canvas.
+
+115
+04:31.920 --> 04:33.800
+The solution is not fantastic
+
+116
+04:33.800 --> 04:35.200
+because it is not very efficient,
+
+117
+04:35.200 --> 04:36.640
+but at least it exists.
+
+120
+04:36.640 --> 04:38.440
+Slide 9
+
+slide-9
+04:38.440 --> 04:40.960
+MSE is essentially a demuxing API.
+
+123
+04:40.960 --> 04:43.560
+In other words, it allows applications to take control
+
+124
+04:43.560 --> 04:45.400
+of the demux operation and, by extension,
+
+125
+04:45.400 --> 04:47.400
+of the fetch operation.
+
+127
+04:47.400 --> 04:49.400
+MSE does not expose decoded frames,
+
+128
+04:49.400 --> 04:52.960
+so no processing hook either
+
+129
+04:52.960 --> 04:55.400
+but the same canvas "hack" can be used.
+
+132
+04:55.400 --> 04:56.760
+Slide 10
+
+slide-10
+04:56.760 --> 05:00.360
+For WebRTC, first remember that there is no demux operation.
+
+135
+05:00.360 --> 05:05.120
+WebRTC takes care of the fetch and decode operations.
+
+136
+05:05.120 --> 05:07.360
+In theory, that's fantastic news.
+
+137
+05:07.360 --> 05:10.200
+We should get decoded frames out of WebRTC.
+
+138
+05:10.200 --> 05:14.400
+However, in practice, a "decoded" stream in WebRTC
+
+139
+05:14.400 --> 05:18.400
+is represented as an abstract and opaque MediaStreamTrack object
+
+140
+05:18.400 --> 05:22.680
+and the actual contents of the decoded audio and video frames
+
+141
+05:22.680 --> 05:23.960
+are not exposed to applications.
+
+143
+05:23.960 --> 05:27.120
+So, back to the same canvas hack again...
+
+146
+05:27.120 --> 05:29.800
+Slide 11
+
+slide-11
+05:29.800 --> 05:33.600
+The Web Audio API is a processing API at its heart.
+
+149
+05:33.600 --> 05:39.560
+However, the whole API is meant to operate on an entire file.
+
+150
+05:39.560 --> 05:41.360
+There is no support for streaming
+
+151
+05:41.360 --> 05:45.320
+and no indication of progress when processing large file.
+
+152
+05:45.320 --> 05:47.720
+This works well for short audio samples,
+
+153
+05:47.720 --> 05:50.360
+but is really not a good fit for streaming scenarios.
+
+156
+05:50.360 --> 05:51.680
+Slide 12
+
+slide-12
+05:51.680 --> 05:55.200
+In other words, today, the only way to process audio
+
+159
+05:55.200 --> 05:56.640
+is through the Web Audio API;
+
+160
+05:56.640 --> 06:00.800
+and that is only really useful for short audio samples.
+
+161
+06:00.800 --> 06:02.280
+And the only way to process video is
+
+162
+06:02.280 --> 06:04.480
+by capturing rendered frames onto a canvas,
+
+163
+06:04.480 --> 06:05.960
+which is not very efficient.
+
+166
+06:05.960 --> 06:07.800
+Slide 13
+
+slide-13
+06:07.800 --> 06:10.520
+I lied. There is another way!
+
+169
+06:10.520 --> 06:12.800
+A Web application may also choose
+
+170
+06:12.800 --> 06:16.400
+to implement the entire media pipeline on its own,
+
+171
+06:16.400 --> 06:19.000
+using JavaScript or WebAssembly,
+
+172
+06:19.000 --> 06:21.720
+rendering the result to a canvas.
+
+173
+06:21.720 --> 06:26.640
+This is suboptimal, especially on constrained devices,
+
+174
+06:26.640 --> 06:29.200
+but know that some media authoring applications
+
+175
+06:29.200 --> 06:30.800
+actually do that.
+
+178
+06:30.800 --> 06:31.760
+Slide 14
+
+slide-14
+06:31.760 --> 06:34.640
+If existing solutions are not efficient enough,
+
+181
+06:34.640 --> 06:37.760
+what would make media processing efficient?
+
+183
+06:37.760 --> 06:40.480
+It essentially boils down to sizes.
+
+184
+06:40.480 --> 06:42.600
+To give you a rough idea,
+
+185
+06:42.600 --> 06:46.880
+a single video frame in a full HD video weighs about 24MB,
+
+186
+06:46.880 --> 06:49.360
+so processing a full HD video in real time
+
+187
+06:49.360 --> 06:53.000
+means processing about 600MB of raw data per second.
+
+189
+06:53.000 --> 06:56.720
+Any efficient solution should avoid
+
+190
+06:56.720 --> 06:59.240
+having to manipulate or copy bytes around,
+
+191
+06:59.240 --> 07:02.960
+while allowing to leverage the CPU, the GPU,
+
+192
+07:02.960 --> 07:05.120
+WebAssembly, Machine Learning hardware,
+
+193
+07:05.120 --> 07:08.680
+while also giving some knobs to control the processing speed
+
+194
+07:08.680 --> 07:10.560
+and, last but not least,
+
+195
+07:10.560 --> 07:13.800
+while also keeping related tracks synchronized!
+
+197
+07:13.800 --> 07:16.600
+That's a lot of requirements
+
+198
+07:16.600 --> 07:18.600
+and the list is not even exhaustive.
+
+199
+07:18.600 --> 07:20.000
+That typically explains why decoded media
+
+200
+07:20.000 --> 07:22.160
+has remained opaque until now.
+
+201
+07:22.160 --> 07:24.960
+It is hard to expose decoded media on the Web!
+
+204
+07:24.960 --> 07:26.280
+Slide 15
+
+slide-15
+07:26.280 --> 07:28.920
+It is hard, but it is not impossible.
+
+207
+07:28.920 --> 07:33.520
+The WebCodecs API, initially proposed by Google,
+
+208
+07:33.520 --> 07:37.240
+aims at providing access to built-in media encoders and decoders.
+
+209
+07:37.240 --> 07:41.000
+As a by-product, the API exposes decoded frames,
+
+210
+07:41.000 --> 07:42.640
+allowing applications to hook into
+
+211
+07:42.640 --> 07:45.000
+the output of the API to process these frames.
+
+213
+07:45.000 --> 07:50.640
+Note that the API does not take care of the mux/demux operations,
+
+214
+07:50.640 --> 07:52.840
+which will have to be done by the application
+
+215
+07:52.840 --> 07:56.000
+through some JavaScript or WebAssembly code.
+
+216
+07:56.000 --> 07:58.360
+This shouldn't be a problem in practice,
+
+217
+07:58.360 --> 08:00.560
+these operations are not really heavy on the CPU.
+
+220
+08:00.560 --> 08:03.120
+Slide 16
+
+slide-16
+08:03.120 --> 08:04.600
+The API is very much in flux,
+
+223
+08:04.600 --> 08:07.120
+so it's hard to assess anything on WebCodecs for now.
+
+225
+08:07.160 --> 08:09.680
+There are a number of open questions, starting with
+
+226
+08:09.680 --> 08:13.800
+"how can WebCodecs be integrated with other specs?".
+
+227
+08:13.800 --> 08:20.400
+WebAssembly, MSE, WebRTC, WebXR for rendering video in immersive contexts.
+
+228
+08:20.400 --> 08:25.560
+Well, and of course, the integration question also exists
+
+229
+08:25.560 --> 08:26.960
+for machine learning APIs.
+
+230
+08:26.960 --> 08:31.640
+It's worth noting that the WebRTC Working Group
+
+231
+08:31.640 --> 08:38.400
+has started to work WebRTC Insertable Media using Streams
+
+232
+08:38.400 --> 08:42.800
+that should eventually build on top of WebCodecs.
+
+234
+08:42.800 --> 08:44.320
+By the way, it seems worth noting that
+
+235
+08:44.320 --> 08:47.400
+WebCodecs is not based on WHATWG Streams.
+
+236
+08:47.400 --> 08:50.680
+That was the initial goal, but it turned out to be very difficult.
+
+237
+08:50.680 --> 08:53.400
+So having a way to process WHATWG Streams
+
+238
+08:53.400 --> 08:55.320
+does not necessarily mean that
+
+239
+08:55.320 --> 08:58.600
+it will be de facto possible to process media streams.
+
+241
+08:58.600 --> 09:03.280
+Incubation takes place in the Web Platform Incubator Community Group.
+
+242
+09:03.280 --> 09:04.920
+The Media Working Group may adopt
+
+243
+09:04.920 --> 09:07.280
+and standardize the proposal once it's ready.
+
+246
+09:07.280 --> 09:10.760
+Slide 17
+
+slide-17
+09:10.760 --> 09:12.760
+Before I conclude,
+
+249
+09:12.760 --> 09:15.800
+I'd like to raise a few other media technologies and proposals
+
+250
+09:15.800 --> 09:19.800
+that may or may not affect the way
+
+251
+09:19.800 --> 09:21.680
+processing gets done in the future.
+
+253
+09:21.720 --> 09:24.520
+For instance, the Media Working Group standardizes
+
+254
+09:24.520 --> 09:26.200
+a codec switching feature for MSE,
+
+255
+09:26.200 --> 09:29.440
+for instance to allow to insert an ad
+
+256
+09:29.440 --> 09:32.960
+which may be in low resolution in the middle of a 4K video.
+
+257
+09:32.960 --> 09:36.240
+How would such a switch affect processing?
+
+259
+09:36.240 --> 09:39.800
+In some "processing" scenarios,
+
+260
+09:39.800 --> 09:41.680
+all that may be required is rendering an overlay
+
+261
+09:41.680 --> 09:44.600
+on top of a video without touching the video per se.
+
+262
+09:44.600 --> 09:47.000
+That is precisely what
+
+263
+09:47.000 --> 09:52.440
+the HTMLVideoElement.requestVideoFrameCallback proposal is offering.
+
+264
+09:52.440 --> 09:56.160
+How does that affect everything that I presented so far?
+
+266
+09:56.160 --> 10:00.800
+Flat videos are no longer the only videos in town.
+
+267
+10:00.800 --> 10:03.000
+Other types of videos get rendered for VR/AR
+
+268
+10:03.000 --> 10:04.800
+and more immersive experiences.
+
+269
+10:04.800 --> 10:08.960
+This includes 360 videos, volumetric videos,
+
+270
+10:08.960 --> 10:11.680
+and more generally 3D playback experiences.
+
+271
+10:11.680 --> 10:14.360
+How does processing apply to these cases?
+
+273
+10:14.360 --> 10:18.240
+Also, I have only focused on audio and video tracks,
+
+274
+10:18.240 --> 10:20.960
+but media content also contains events tracks
+
+275
+10:20.960 --> 10:23.920
+that are more and more used to control the playback experience.
+
+276
+10:23.920 --> 10:29.280
+Media industries are putting a lot of efforts these days
+
+277
+10:29.280 --> 10:34.600
+to standardize solutions to expose media timed events to applications.
+
+278
+10:34.600 --> 10:39.520
+The generic idea is to rely on the user agent to do the work.
+
+279
+10:39.520 --> 10:44.200
+If WebCodecs requires applications to demux media content themselves,
+
+280
+10:44.200 --> 10:47.560
+then what happens to events tracks?
+
+282
+10:47.560 --> 10:51.200
+One final note on encrypted media.
+
+283
+10:51.200 --> 10:55.960
+In general, the goal there is to hide the bytes from the applications,
+
+284
+10:55.960 --> 10:59.160
+so encrypted media is typically not a good candidate
+
+285
+10:59.160 --> 11:02.560
+for application-controlled processing operations.
+
+286
+11:02.560 --> 11:04.200
+There may still be scenarios
+
+287
+11:04.200 --> 11:05.440
+where the ability to process
+
+288
+11:05.440 --> 11:09.400
+encrypted media in a separate sandbox could be useful.
+
+289
+11:09.400 --> 11:12.400
+So, something that could be worth keeping in mind.
+
+291
+11:12.400 --> 11:14.760
+All these features and others are mentioned
+
+292
+11:14.760 --> 11:17.400
+in the Overview of Media Technologies for the Web,
+
+293
+11:17.400 --> 11:20.320
+which I invite you to take a peak at.
+
+296
+11:20.320 --> 11:22.400
+Slide 18
+
+slide-18
+11:22.400 --> 11:24.400
+So, what I have tried to convey here is
+
+299
+11:24.400 --> 11:27.400
+that exposing decoded media frames to applications is
+
+300
+11:27.400 --> 11:32.360
+doable but not easy, or not as easy as it might sound.
+
+302
+11:32.360 --> 11:35.000
+There is no satisfactory solution today.
+
+303
+11:35.000 --> 11:37.800
+WebCodecs seems very promising
+
+304
+11:37.800 --> 11:40.880
+but there are lots of open questions that still need to be discussed.
+
+305
+11:40.880 --> 11:42.840
+In order to be successful,
+
+306
+11:42.840 --> 11:45.240
+the work on WebCodecs would greatly benefit
+
+307
+11:45.240 --> 11:49.440
+from coordination and engagement from people involved in other technologies.
+
+308
+11:49.440 --> 11:51.520
+And that includes people looking at
+
+309
+11:51.520 --> 11:54.400
+exposing machine learning capabilities to Web applications!
+
+311
+11:54.400 --> 11:58.120
+OK, I'm done, thank you, bye!
+
+

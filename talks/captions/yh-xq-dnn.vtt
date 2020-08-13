@@ -1,0 +1,647 @@
+WEBVTT
+
+slide-1
+0:00:07.400 --> 0:00:10.520
+Slide 1, I will be presenting today
+
+3
+0:00:10.520 --> 0:00:14.320
+is about “Enabling Distributed DNNs for the Mobile Web
+
+4
+0:00:14.320 --> 0:00:17.280
+Over Cloud, Edge and End Devices.”
+
+6
+0:00:17.280 --> 0:00:17.680
+Slide 2.
+
+slide-2
+0:00:17.680 --> 0:00:19.200
+And the contents include
+
+8
+0:00:19.200 --> 0:00:21.840
+the Overview of executing DNNs on the Web,
+
+9
+0:00:21.840 --> 0:00:25.160
+two ways for enabling distributed DNNs for the Web
+
+10
+0:00:25.160 --> 0:00:29.800
+with edge computing, and some thinking and discussion.
+
+12
+0:00:29.800 --> 0:00:30.120
+Slide 3.
+
+slide-3
+0:00:30.120 --> 0:00:33.160
+So, as we all know, Deep neural networks,
+
+14
+0:00:33.160 --> 0:00:35.720
+as a representative way of achieving
+
+15
+0:00:35.720 --> 0:00:39.880
+Artificial Intelligence in numerous applications,
+
+16
+0:00:39.880 --> 0:00:43.320
+also show great promise in providing more intelligence
+
+17
+0:00:43.320 --> 0:00:45.800
+to the web applications.
+
+19
+0:00:45.240 --> 0:00:46.600
+As shown in the figure,
+
+20
+0:00:46.600 --> 0:00:49.840
+there are two typical DNNs execution schemes on the Web.
+
+22
+0:00:50.000 --> 0:00:53.400
+The first approach is executing the whole DNNs
+
+23
+0:00:53.400 --> 0:00:56.560
+on the Web via JavaScript and WebAssembly
+
+24
+0:00:56.560 --> 0:01:05.160
+such as Tensorflow.js, Keras.js, WebDNN etc.
+
+26
+0:01:05.160 --> 0:01:08.240
+However, this approach requires a high transmission delay
+
+27
+0:01:08.240 --> 0:01:10.000
+for loading heavy DNN models.
+
+29
+0:01:10.000 --> 0:01:14.640
+For example, Tensorflow.js’s ResNet50 deep learning model,
+
+30
+0:01:14.640 --> 0:01:19.200
+whose size can be up to 97.8 MB.
+
+32
+0:01:19.200 --> 0:01:23.520
+Besides, limited computing resource of the Web
+
+33
+0:01:23.520 --> 0:01:25.920
+also performs a slow DNN inference
+
+34
+0:01:25.920 --> 0:01:31.480
+even we can accelerate computation by WebAssembly or WebGPU.
+
+36
+0:01:31.480 --> 0:01:35.160
+And more commonly, the cloud-only approach offloads
+
+37
+0:01:35.160 --> 0:01:39.480
+the whole task by executing the whole DNNs on the remote cloud.
+
+39
+0:01:39.520 --> 0:01:44.160
+Thus, large amounts of data such as images, audios and videos,
+
+40
+0:01:44.160 --> 0:01:45.960
+are sent to the remote cloud,
+
+41
+0:01:45.960 --> 0:01:48.600
+and it increases the computing pressure,
+
+42
+0:01:48.600 --> 0:01:51.360
+especially for high concurrent requests.
+
+44
+0:01:51.480 --> 0:01:56.400
+In addition, transmitting the complete task to the remote cloud
+
+45
+0:01:56.400 --> 0:01:59.560
+also raises new privacy concerns for users,
+
+46
+0:01:59.560 --> 0:02:01.680
+such as home security cameras.
+
+48
+0:02:01.680 --> 0:02:04.480
+Slide 4.
+
+slide-4
+0:02:04.480 --> 0:02:08.000
+As mobile edge computing is becoming
+
+50
+0:02:08.000 --> 0:02:12.240
+an important computing infrastructure in 5G era,
+
+51
+0:02:12.240 --> 0:02:16.160
+it is promising to consider the use of the edge cloud
+
+52
+0:02:16.160 --> 0:02:19.480
+that has the benefit of low communication costs
+
+53
+0:02:19.480 --> 0:02:27.200
+compared to offloading computations to the remote cloud,
+
+54
+0:02:27.200 --> 0:02:30.400
+and relieves the burdens of the core network.
+
+56
+0:02:30.400 --> 0:02:34.360
+To accelerate distributed DNNs for the web,
+
+57
+0:02:34.360 --> 0:02:38.480
+it is natural to consider the use of partition-offloading approach
+
+58
+0:02:38.480 --> 0:02:44.800
+to leverage computing resources of the end devices and the edge server.
+
+60
+0:02:44.120 --> 0:02:48.280
+Note that we can deploy the web applications on the edge server,
+
+61
+0:02:48.280 --> 0:02:53.280
+and remote cloud is responsible for training DNN models with GPUs.
+
+63
+0:02:53.640 --> 0:02:58.440
+This approach partitions the DNNs computation by layers
+
+64
+0:02:58.440 --> 0:03:01.240
+and dynamically distributes the computations
+
+65
+0:03:01.240 --> 0:03:03.320
+between the Web and the edge server.
+
+67
+0:03:04.000 --> 0:03:08.880
+Since the mobile web loads a small portion of DNN models
+
+68
+0:03:08.880 --> 0:03:14.280
+and executes a part of DNN computations,
+
+69
+0:03:14.280 --> 0:03:18.960
+we can protect data privacy by transmitting
+
+70
+0:03:18.960 --> 0:03:21.760
+the intermediate results to the edge server
+
+71
+0:03:21.760 --> 0:03:25.360
+for executing the rest of DNN inference
+
+72
+0:03:25.360 --> 0:03:29.960
+instead of transmitting the complete task.
+
+74
+0:03:29.960 --> 0:03:35.240
+However, the challenge is how to provide dynamic DNN partition
+
+75
+0:03:35.240 --> 0:03:40.400
+to cope with various tasks, unstable network conditions,
+
+76
+0:03:40.400 --> 0:03:44.400
+and various devices with different computing capability.
+
+78
+0:03:44.400 --> 0:03:49.400
+So, how can the web or mobile web perceive and measure
+
+79
+0:03:49.400 --> 0:03:51.520
+the computing capability of the device,
+
+80
+0:03:51.520 --> 0:03:53.760
+and monitor the network condition etc.,
+
+81
+0:03:53.760 --> 0:03:58.520
+when employing partition-offloading approach into the Web.
+
+83
+0:03:58.520 --> 0:04:02.400
+Slide 5.
+
+slide-5
+0:04:02.400 --> 0:04:07.000
+With partition-offloading approach in edge computing infrastructure,
+
+85
+0:04:07.000 --> 0:04:13.120
+although a small portion of DNN computations can be offloaded to the web,
+
+86
+0:04:13.120 --> 0:04:15.800
+the edge server still has to undertake
+
+87
+0:04:15.800 --> 0:04:18.680
+the majority of DNN computations.
+
+89
+0:04:18.680 --> 0:04:23.160
+We introduce adding an efficient branch to the traditional DNNs
+
+90
+0:04:23.160 --> 0:04:26.120
+for executing inference on the web independently.
+
+92
+0:04:26.120 --> 0:04:31.800
+Concretely, we add a binary neural network branch
+
+93
+0:04:31.800 --> 0:04:33.120
+at the first convolutional layer
+
+94
+0:04:33.120 --> 0:04:35.360
+of the traditional neural network,
+
+95
+0:04:35.360 --> 0:04:38.440
+and it has the same structure to the rest
+
+96
+0:04:38.440 --> 0:04:40.680
+of the traditional neural network.
+
+98
+0:04:40.680 --> 0:04:45.800
+Thus, it is easy to design a lightweight DNN for the Web
+
+99
+0:04:45.800 --> 0:04:52.360
+without rich expert experience and knowledge,
+
+100
+0:04:52.360 --> 0:04:57.680
+which also can provide accurate compensation
+
+101
+0:04:57.680 --> 0:05:01.200
+for the lightweight branch via collaborative mechanism.
+
+103
+0:05:01.200 --> 0:05:03.160
+For a given sample,
+
+104
+0:05:03.160 --> 0:05:05.400
+if the binary branch is confident
+
+105
+0:05:05.400 --> 0:05:08.400
+to predict the result and satisfy users,
+
+106
+0:05:08.400 --> 0:05:12.360
+the sample can exit from the binary branch directly.
+
+108
+0:05:12.360 --> 0:05:15.480
+Otherwise, it has to transfer the output
+
+109
+0:05:15.480 --> 0:05:17.280
+of the first convolutional layer
+
+110
+0:05:17.280 --> 0:05:20.160
+to the edge server for a precise result.
+
+112
+0:05:20.160 --> 0:05:23.920
+And measuring the confidence of inference results
+
+113
+0:05:23.920 --> 0:05:26.240
+can use the normalized entropy,
+
+114
+0:05:26.240 --> 0:05:30.400
+which is always employed in collaborative DNNs.
+
+116
+0:05:30.400 --> 0:05:35.400
+Then, we compared normalized entropy against a threshold
+
+117
+0:05:35.400 --> 0:05:38.280
+to determine whether or not exit from the tiny branch.
+
+119
+0:05:38.280 --> 0:05:43.720
+We pick the appropriate value by viewing exit threshold
+
+120
+0:05:43.720 --> 0:05:47.160
+as a hypeparameter during the training phase.
+
+122
+0:05:47.160 --> 0:05:52.480
+In summary, adding lightweight branch
+
+123
+0:05:52.480 --> 0:05:54.280
+can reduce the model size
+
+124
+0:05:54.280 --> 0:05:56.280
+and accelerate inference on the web,
+
+125
+0:05:56.280 --> 0:05:59.160
+which provides a collaborative mechanism
+
+126
+0:05:59.160 --> 0:06:02.520
+with the edge server for accuracy compensation.
+
+128
+0:06:02.520 --> 0:06:06.600
+Slide 6.
+
+slide-6
+0:06:06.600 --> 0:06:11.120
+Furthermore, considering that in actual scenarios,
+
+130
+0:06:11.120 --> 0:06:14.640
+user requirements for delay, network conditions,
+
+131
+0:06:14.640 --> 0:06:16.840
+and the computing capabilities of devices
+
+132
+0:06:16.840 --> 0:06:18.360
+may change dynamically,
+
+133
+0:06:18.360 --> 0:06:21.360
+so a constant lightweight branch or
+
+134
+0:06:21.360 --> 0:06:25.280
+traditional DNN compression network
+
+135
+0:06:25.280 --> 0:06:26.760
+cannot meet the requirements.
+
+137
+0:06:26.760 --> 0:06:32.960
+This requires providing a context-aware pruning algorithm
+
+138
+0:06:32.960 --> 0:06:36.720
+that incorporates the latency, the network condition
+
+139
+0:06:36.720 --> 0:06:39.400
+and the computing capability of the device.
+
+141
+0:06:39.400 --> 0:06:43.760
+In this figure, we propose a DeepAdapter framework
+
+142
+0:06:43.760 --> 0:06:48.400
+across the mobile web, the edge server and the cloud server,
+
+143
+0:06:48.400 --> 0:06:51.520
+which contains offline and online phase.
+
+145
+0:06:51.520 --> 0:06:55.360
+The offline phase consists of network pruning
+
+146
+0:06:55.360 --> 0:06:57.440
+and model cache updating.
+
+148
+0:06:57.440 --> 0:07:03.400
+DeepAdapter employs a context-aware runtime adapter
+
+149
+0:07:03.400 --> 0:07:07.400
+providing a pruned model that will be optimal
+
+150
+0:07:07.400 --> 0:07:10.960
+for the mobile user by monitoring the network condition
+
+151
+0:07:10.960 --> 0:07:15.920
+and incorporating the CPU frequency of the mobile device.
+
+153
+0:07:15.920 --> 0:07:25.520
+When this pruned model is unsatisfactory for the mobile user,
+
+154
+0:07:25.520 --> 0:07:28.360
+DeepAdapter then receives output
+
+155
+0:07:28.360 --> 0:07:30.240
+from the first convolutional layer
+
+156
+0:07:30.240 --> 0:07:35.800
+from the mobile web browser
+
+157
+0:07:35.800 --> 0:07:41.160
+and executes the rest of the inference of the unpruned model
+
+158
+0:07:41.160 --> 0:07:43.920
+on the edge server.
+
+160
+0:07:43.920 --> 0:07:48.640
+For each new request without a matched pruned model,
+
+161
+0:07:48.640 --> 0:07:51.160
+we first leverage the edge server
+
+162
+0:07:51.160 --> 0:07:53.960
+to process the mobile user’s request,
+
+163
+0:07:53.960 --> 0:07:56.520
+and then we send the pruning requirement
+
+164
+0:07:56.520 --> 0:07:58.320
+to a message request queue of
+
+165
+0:07:58.320 --> 0:08:01.600
+network pruning module on the cloud server.
+
+167
+0:08:01.600 --> 0:08:07.640
+And network pruning module obtains the requirements
+
+168
+0:08:07.640 --> 0:08:08.800
+from the request queue,
+
+169
+0:08:08.800 --> 0:08:12.600
+then prunes the network and updates the pruned model
+
+170
+0:08:12.600 --> 0:08:17.440
+to the model cache of the edge for the next similar request.
+
+172
+0:08:17.480 --> 0:08:23.400
+Slide 7.
+
+slide-7
+0:08:23.400 --> 0:08:26.840
+Although we have discussed some ideas
+
+174
+0:08:26.840 --> 0:08:30.160
+for accelerating the execution of DNNs on the web
+
+175
+0:08:30.160 --> 0:08:32.200
+to implement AI services,
+
+176
+0:08:32.200 --> 0:08:35.640
+they still face problems in actual development.
+
+178
+0:08:35.640 --> 0:08:39.720
+The first thing is what role should the edge server play
+
+179
+0:08:39.720 --> 0:08:42.640
+in providing processing support
+
+180
+0:08:42.640 --> 0:08:44.640
+for intelligent web applications
+
+181
+0:08:44.640 --> 0:08:46.680
+requiring heavy computation?
+
+183
+0:08:46.680 --> 0:08:50.640
+I mean is there a better computing collaboration
+
+184
+0:08:50.640 --> 0:08:54.240
+or deployment model for accelerating DNN?
+
+186
+0:08:54.240 --> 0:08:59.760
+The second is How to web developers use the edge server
+
+187
+0:08:59.760 --> 0:09:02.880
+more easily for accelerating DNNs
+
+188
+0:09:02.880 --> 0:09:05.920
+and collaborating with Web apps?
+
+190
+0:09:05.920 --> 0:09:10.280
+The third thing is How can the edge server deploy
+
+191
+0:09:10.280 --> 0:09:12.800
+and offload DNN computations more easily?
+
+193
+0:09:12.800 --> 0:09:18.920
+1). How Web apps can monitor changes in network conditions,
+
+194
+0:09:18.920 --> 0:09:20.560
+and response to the edge server?
+
+196
+0:09:20.560 --> 0:09:24.120
+2). How the edge server can perceive
+
+197
+0:09:24.120 --> 0:09:26.680
+the computing capability of the device,
+
+198
+0:09:26.680 --> 0:09:31.920
+and distribute appropriate computations to Web apps
+
+199
+0:09:31.920 --> 0:09:33.840
+for execution in real time?
+
+201
+0:09:33.840 --> 0:09:35.200
+Slide 7.
+
+slide-8
+0:09:35.200 --> 0:09:38.720
+OK. this is what I want to share and discuss
+
+203
+0:09:38.720 --> 0:09:41.560
+about enabling distributed DNNs
+
+204
+0:09:41.560 --> 0:09:46.160
+over the mobile web over cloud, edge and end device.
+
+205
+0:09:46.160 --> 0:09:55.120
+Thanks for your listening!
+
+

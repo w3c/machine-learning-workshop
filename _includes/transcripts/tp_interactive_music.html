@@ -1,0 +1,56 @@
+<div class="slide" role='region' aria-label="Slide 1 of 1" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/tp_interactive_music.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/tp_interactive_music.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello, everyone, my name is Tero Parviainen, and I would like to share a few thoughts on my experiences making musical applications powered by machine learning models for the web.</p>
+<p>Now I run a creative technology and design studio called Counterpoint with my partner, Sam Diggins, and we do a lot of stuff for the web.</p>
+<p>We do experiments on musical instruments, music tools, artistic works, some more commercial oriented work as well, and we quite often end up doing the things we do on the web platform.</p>
+<p>And it's been really good to us.</p>
+<p>I mean, it's hard to imagine a better way for us to do the kind of thing we do, and that's not just because of the web browser as an integrated media platform, but also because of the browser as a delivery platform, where all we have to do to share our work is to send someone a link or URL.</p>
+<p>And that's a really powerful paradigm.</p>
+<p>But most of the projects we do end up also kind of hitting the limitations of the platform as well.</p>
+<p>And almost every project kind of becomes a dance of finding the right technical compromises in order to deliver what we want to deliver.</p>
+<p>And today, I wanted to share three examples of the kind of thing I'm talking about here.</p>
+<p>Firstly, a couple of years ago, I did this series of experimental musical instruments using <a class=dfn>TensorFlow.js</a> and Magenta.js, both of which were really new at that point.</p>
+<p>Here are two of them running at the same time as an arpeggiator and a drum machine.</p>
+<p>And both are using Magenta RNN models to generate musical patterns in the symbolic domain, which I'm then turning into audio using samples.</p>
+<p>And I'm running them on two different webpages in synchrony synchronizing using web MIDI within a MIDI clock.</p>
+<p>Now there's of course, many design considerations in a musical instrument, but I find one of the most important ones is the latency between the input and output when you're playing it, so called action-response cycle, which needs to be in the low order of milliseconds for it to feel good when you're playing it.</p>
+<p>And if you're running a machine learning model, there's kind of a lot of stuff you need to cram into that time.</p>
+<p>So you press a key on your instrument, that triggers some code that turns that event into an input <a class=dfn>tensor</a>, which is uploaded to the GPU, which is then run through the machine learning model whose results are then downloaded from the GPU, and then your musical outputs are scheduled from that.</p>
+<p>That is a lot of stuff to do in a very short amount of time.</p>
+<p>And with these apps two years ago, actually I wasn't able to do that really, it was not really real time, but it can kind of feel that when you're playing then.</p>
+<p>And I did end up having to do a lot of kind of tricks and workarounds to make it feel more real time.</p>
+<p>So for example, with the arpeggiator, when you press a key on it, I started playing some kind of algorithmically generated notes while waiting for the machine learning model to come out with its results, to kind of fill in the gap to always have something playing.</p>
+<p>So there's a lot of kind of engineering that goes into making things feel more real time than they actually are.</p>
+<p>And I would prefer not to have to do that work, of course, and now it's getting increasingly better, but I think that real time aspect is really important to think about with these things.</p>
+<p>Now, the second example is a bit later, it's about a year ago, we did this project called GANHarp which had us moving from generating symbolic music data in the browser to actually generating audio data in the browser.</p>
+<p>And here we use another Magenta model called GANSynth which is a <a class=dfn>GAN</a> that generates instrument tambours samples of instrument sounds in the audio domain.</p>
+<p>And then we have this UI, which lets you kind of interpolate between them and morph between different instrumental sounds as you play.</p>
+<p>Now, of course, in the audio domain, there's a lot more data than in the symbolic domain.</p>
+<p>There's tens of thousands of samples that goes into each sound you hear, and this was nowhere near real time when we generated stuff here.</p>
+<p>So it took even on my MacBook Pro, it took 10-20 seconds to generate a single sound, which meant that how we did this is we pregenerated those sounds and then played them back using audio buffers in real time, but it would have been nice to do it in real time.</p>
+<p>And it got me thinking that maybe we can start doing this more and more as things progress, maybe not with GANSynth but maybe with some more economic machine learning models like Magenta DDSP node.</p>
+<p>And what that would mean is, of course, it would take us to this context of real time audio, which is a very constrained place, you have this task of generating 48,000 audio samples per second per channel consistently without fault.</p>
+<p>Because if you fail to do that you have an audible glitch in your outputs.</p>
+<p>So it's a very hard constraint, and it has to be deterministic because of this reason.</p>
+<p>So thinking about, how to take machine learning models into this context, where there are some considerations like you can't really use the JavaScript heap, because that might be engage the garbage collector, which is not deterministic, and that might have your glitch.</p>
+<p>You certainly can't talk to the GPU, because that's asynchronous, and you can't be asynchronous, but maybe you could do things like have inference running in <a class=dfn>WebAssembly</a> on the CPU on your audio thread, or maybe even engage some of this native APIs that people are talking about if they were available in the worklet context.</p>
+<p>This is something I would love to explore more in the near future.</p>
+<p>Now my third example today, and my final example is an app we did a few months ago for last Christmas, called Face the Music.</p>
+<p>This is something we did with Yuri Suzuki who is a partner at Pentagram design, this was Pentagram designs, holiday greeting for the last holiday season.</p>
+<p>And here we are running a face detection model and a face landmark detection model and turning the detected inputs from your face into musical output.</p>
+<p>So essentially we're letting you play music with your face.</p>
+<p>So we have an image input and musical output.</p>
+<p>Now, it kind of brings us to the same question as with my first example of having a real low latency that being the most important thing: when you make a facial gesture, you're gonna want to be able to get their musical output from that very quickly, for that to feel good and feel engaged and it's the most important thing.</p>
+<p>And I do think we were able to pull it off with this app, but that was our biggest challenge by far to have that low latency on all devices.</p>
+<p>And we had to use like a low video resolution for that to work and do all kinds of different optimizations as well.</p>
+<p>I was at some point measuring what was going on here, because we have this per-frame budget of being able to analyze what's going and schedule musical outputs from that, and that includes all kinds of tasks like getting the image from the webcam feed, drawing that onto a canvas, getting the pixel data out of the canvas, turning that into a <a class=dfn>tensor</a> and handing that to the GPU to run the model on.</p>
+<p>And that's a lot of stuff.</p>
+<p>And I was measuring that and it actually turned out that almost half of the time per-frame was used on that first part of this process of actually getting the data into the model to analyze in the first place.</p>
+<p>The convolutional networks were plenty fast to run on each frame, but there's almost as much work in getting the data in there in the first place, which got me thinking that there's probably something that the platform could help with here.</p>
+<p>Could there be some APIs that give me abstractions to do this in a more direct way to get immediate input into my machine learning model, without having to do quite so much work and run quite so much slow code on each frame.</p>
+<p>And which brings me to my summary, which is that we're doing a lot of stuff on the web, it's really working out for us really well, but there are limitations we're running against all the time and any effort that can be put into this kind of thing will really help us a lot, and most of it has to do with performance and things like having low latency, and even more importantly, predictable latency.</p>
+<p>And however, how much computation you're having to do, not having that interfere with the UI thread, or especially the audio thread, where it's catastrophic to have underruns and glitches.</p>
+<p>I would love to have more experimentation and do more experimentation around actually running inference on the audio thread, and that means having things available on the AudioWorklet context, either doing things with <a class=dfn>WebAssembly</a>, or having some other native way of doing that.</p>
+<p>And finally, I would love to see more media integrations with machine learning models.</p>
+<p>So having inputs from places like the webcam and the microphone, go more directly into inference, and maybe on the output side as well having audio and video output on the native level.</p>
+<p>And yes, that's what I wanted to share today, here are a couple of ways to reach me.</p>
+<p>There's an email address, a couple of websites and my Twitter handle.</p>
+<p>Thank you very much.</p></div>

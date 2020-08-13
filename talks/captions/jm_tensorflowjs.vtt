@@ -1,0 +1,1123 @@
+WEBVTT
+
+slide-1
+0:00:09.600 --> 0:00:10.940
+<v ->Hello, everyone. My name is Jason Mayes,</v>
+
+2
+0:00:10.940 --> 0:00:12.190
+I am the developer advocate
+
+3
+0:00:12.190 --> 0:00:14.270
+for TensorFlow.js here at Google,
+
+4
+0:00:14.270 --> 0:00:15.410
+and today we'd like to talk to you
+
+5
+0:00:15.410 --> 0:00:17.500
+about some of the opportunities and challenges
+
+6
+0:00:17.500 --> 0:00:20.900
+we've seen, whilst creating and maintaining TensorFlow.js,
+
+7
+0:00:20.900 --> 0:00:22.200
+and we believe these things will be applicable
+
+8
+0:00:22.200 --> 0:00:23.387
+to the wider Machine Learning
+
+9
+0:00:23.387 --> 0:00:25.443
+and JavaScript community as well.
+
+10
+0:00:26.510 --> 0:00:27.730
+So let's get started.
+
+11
+0:00:27.730 --> 0:00:28.650
+Next slide.
+
+slide-2
+0:00:28.650 --> 0:00:30.410
+Now, for those of you who are not aware about us,
+
+13
+0:00:30.410 --> 0:00:32.370
+essentially TensorFlow.js is an open source
+
+14
+0:00:32.370 --> 0:00:33.930
+Machine Learning Library,
+
+15
+0:00:33.930 --> 0:00:35.810
+that is built in JavaScript.
+
+16
+0:00:35.810 --> 0:00:37.800
+It allows you to do machine learning in the browser,
+
+17
+0:00:37.800 --> 0:00:38.910
+on the client-side,
+
+18
+0:00:38.910 --> 0:00:40.390
+which means you have lower latency,
+
+19
+0:00:40.390 --> 0:00:43.330
+higher privacy, and lower serving cost of course.
+
+20
+0:00:43.330 --> 0:00:45.850
+And we also support other environments such as Node.js,
+
+21
+0:00:45.850 --> 0:00:48.600
+which means we can execute in a whole bunch of places.
+
+slide-3
+0:00:48.600 --> 0:00:50.120
+And in fact, if we look at the next slide,
+
+23
+0:00:50.120 --> 0:00:52.350
+you can see all the environments we run.
+
+24
+0:00:52.350 --> 0:00:53.550
+And the reason I bring this up,
+
+25
+0:00:53.550 --> 0:00:55.770
+is because when we're defining web standards,
+
+26
+0:00:55.770 --> 0:00:56.950
+often these things trickle
+
+27
+0:00:56.950 --> 0:00:59.650
+into these other environments as well.
+
+28
+0:00:59.650 --> 0:01:01.510
+So, we've got all the common web browsers there,
+
+29
+0:01:01.510 --> 0:01:04.200
+but also, Node.js on the back end,
+
+30
+0:01:04.200 --> 0:01:05.930
+React Native for mobile native apps.
+
+31
+0:01:05.930 --> 0:01:08.450
+We've got Electron for desktop native apps,
+
+32
+0:01:08.450 --> 0:01:10.960
+and of course Raspberry Pi for Internet of Things,
+
+33
+0:01:10.960 --> 0:01:13.540
+which we can access via Node.js.
+
+34
+0:01:13.540 --> 0:01:16.200
+So, I just want to be mindful when we are thinking
+
+35
+0:01:16.200 --> 0:01:17.540
+about ideas today
+
+36
+0:01:17.540 --> 0:01:18.790
+that we are aware
+
+37
+0:01:18.790 --> 0:01:21.370
+that these things could trickle through to these other areas
+
+38
+0:01:21.370 --> 0:01:23.800
+when people try to use machine learning in JavaScript
+
+39
+0:01:23.800 --> 0:01:25.890
+in these environments as well.
+
+40
+0:01:25.890 --> 0:01:27.110
+Next slide.
+
+slide-4
+0:01:27.110 --> 0:01:28.570
+So for those of you who are not familiar
+
+42
+0:01:28.570 --> 0:01:29.880
+with our architecture,
+
+43
+0:01:29.880 --> 0:01:31.690
+this is the current stack.
+
+44
+0:01:31.690 --> 0:01:32.880
+Right now we have a bunch of pre-made models
+
+45
+0:01:32.880 --> 0:01:34.550
+that sit at the very top there,
+
+46
+0:01:34.550 --> 0:01:37.500
+that are super easy to use JavaScript classes.
+
+47
+0:01:37.500 --> 0:01:39.460
+Just below this, we have a Layers API,
+
+48
+0:01:39.460 --> 0:01:40.890
+which is a high level API
+
+49
+0:01:40.890 --> 0:01:42.950
+to allow you to do machine learning more easily,
+
+50
+0:01:42.950 --> 0:01:45.130
+which is very similar to Keras in Python,
+
+51
+0:01:45.130 --> 0:01:46.683
+if you're familiar with that.
+
+52
+0:01:47.740 --> 0:01:50.230
+Below these we have our core and Ops API,
+
+53
+0:01:50.230 --> 0:01:52.300
+which is the more mathematical layer,
+
+54
+0:01:52.300 --> 0:01:54.400
+so allows you to do the things like linear algebra,
+
+55
+0:01:54.400 --> 0:01:56.000
+and so on and so forth.
+
+56
+0:01:56.000 --> 0:01:57.990
+And this can talk to different environments,
+
+57
+0:01:57.990 --> 0:02:00.460
+such as the client-side or the server-side.
+
+58
+0:02:00.460 --> 0:02:02.250
+Now if you just focus on the client-side for a second,
+
+59
+0:02:02.250 --> 0:02:04.800
+you can see things like the browser,
+
+60
+0:02:04.800 --> 0:02:05.980
+WeChat, React Native sitting over there,
+
+61
+0:02:05.980 --> 0:02:08.400
+and each one of these environments understands
+
+62
+0:02:08.400 --> 0:02:10.670
+how to talk to different back-ends,
+
+63
+0:02:10.670 --> 0:02:14.890
+such as the CPU, WebGL or web assembly.
+
+64
+0:02:14.890 --> 0:02:17.100
+Now, of course the CPU is always available,
+
+65
+0:02:17.100 --> 0:02:19.660
+but it's the slowest form of execution.
+
+66
+0:02:19.660 --> 0:02:21.100
+If a graphics card is available,
+
+67
+0:02:21.100 --> 0:02:23.900
+we can leverage WebGL to get higher performance
+
+68
+0:02:23.900 --> 0:02:24.480
+on the graphics card,
+
+69
+0:02:24.480 --> 0:02:26.200
+and if web assembly is available,
+
+70
+0:02:26.200 --> 0:02:28.340
+we can leverage high performance on the CPU,
+
+71
+0:02:28.340 --> 0:02:30.673
+by utilizing low level instructions.
+
+72
+0:02:31.860 --> 0:02:33.200
+Now,
+
+73
+0:02:33.200 --> 0:02:35.370
+it should also be noted people can also convert models
+
+74
+0:02:35.370 --> 0:02:39.320
+from Python into JavaScript using our converters,
+
+75
+0:02:39.320 --> 0:02:41.450
+as you can see on the left-hand side,
+
+76
+0:02:41.450 --> 0:02:42.840
+and this is something to bear in mind
+
+77
+0:02:42.840 --> 0:02:45.560
+because people might try and load larger models
+
+78
+0:02:45.560 --> 0:02:48.453
+or more complex models in the future via this method.
+
+79
+0:02:49.490 --> 0:02:51.800
+Next slide.
+
+slide-5
+0:02:51.800 --> 0:02:53.800
+Now we see three key user journeys right now,
+
+81
+0:02:53.800 --> 0:02:56.250
+when people are using TensorFlow.js.
+
+82
+0:02:56.250 --> 0:02:58.910
+First one is the ability to run models that are pre-trained,
+
+83
+0:02:58.910 --> 0:03:01.860
+that's the easiest route and what people often start with.
+
+84
+0:03:01.860 --> 0:03:03.770
+People then choose to try and retrain their models
+
+85
+0:03:03.770 --> 0:03:05.490
+by transfer learning as their next step
+
+86
+0:03:05.490 --> 0:03:07.570
+to work with their own custom data,
+
+87
+0:03:07.570 --> 0:03:09.700
+and then of course a third point is
+
+88
+0:03:09.700 --> 0:03:11.160
+to write their own models completely from scratch.
+
+89
+0:03:11.160 --> 0:03:13.610
+And this might be in the browser entirely.
+
+90
+0:03:13.610 --> 0:03:15.970
+Or, it could be a combination of Node.js
+
+91
+0:03:15.970 --> 0:03:19.500
+and then running the resulting model in the browser.
+
+92
+0:03:19.500 --> 0:03:20.240
+Next slide.
+
+slide-6
+0:03:20.240 --> 0:03:21.730
+And of course
+
+94
+0:03:21.730 --> 0:03:22.540
+this can be used for anything you might dream up,
+
+95
+0:03:22.540 --> 0:03:23.810
+and here's just a few examples
+
+96
+0:03:23.810 --> 0:03:25.450
+of things people have been creating,
+
+97
+0:03:25.450 --> 0:03:27.800
+that we've seen on the internet today.
+
+98
+0:03:27.800 --> 0:03:30.180
+Things like augmented reality, sound recognition,
+
+99
+0:03:30.180 --> 0:03:32.890
+sentiment analysis, web page optimization,
+
+100
+0:03:32.890 --> 0:03:34.810
+and much much more.
+
+101
+0:03:34.810 --> 0:03:35.990
+Next slide.
+
+slide-7
+0:03:35.990 --> 0:03:37.790
+Well, almost anything.
+
+slide-8
+0:03:37.790 --> 0:03:39.180
+And today, we'd like to talk to you
+
+104
+0:03:39.180 --> 0:03:40.360
+about some of those limitations
+
+105
+0:03:40.360 --> 0:03:41.740
+and roadblocks that we found
+
+106
+0:03:41.740 --> 0:03:44.540
+whilst building and maintaining TensorFlow.js.
+
+107
+0:03:44.540 --> 0:03:45.730
+And we believe these,
+
+108
+0:03:45.730 --> 0:03:46.830
+will be applicable to any
+
+109
+0:03:46.830 --> 0:03:48.920
+Machine Learning library created going forward.
+
+110
+0:03:48.920 --> 0:03:52.310
+So the first point we want to talk about is Float32.
+
+111
+0:03:52.310 --> 0:03:54.260
+Now, this is great for many of the tasks,
+
+112
+0:03:54.260 --> 0:03:57.230
+and I know Float64 is even supported in JavaScript.
+
+slide-9
+0:03:57.230 --> 0:03:59.930
+However, when we're doing model quantization,
+
+114
+0:03:59.930 --> 0:04:02.480
+we actually want to support Float16,
+
+115
+0:04:02.480 --> 0:04:05.940
+and this currently does not exist in JavaScript or in Wasm.
+
+116
+0:04:06.918 --> 0:04:08.170
+And this is really important to us,
+
+117
+0:04:08.170 --> 0:04:10.420
+so that we can execute models faster,
+
+118
+0:04:10.420 --> 0:04:13.700
+and use less memory when doing so too.
+
+119
+0:04:13.700 --> 0:04:13.903
+And of course,
+
+120
+0:04:13.903 --> 0:04:15.980
+you might get a 10% drop-off in your model accuracy
+
+121
+0:04:15.980 --> 0:04:18.120
+by doing this, but for some environments
+
+122
+0:04:18.120 --> 0:04:19.560
+that might be acceptable,
+
+123
+0:04:19.560 --> 0:04:22.200
+especially on mobile on older devices,
+
+124
+0:04:22.200 --> 0:04:24.960
+where you might not have the speed to begin with.
+
+125
+0:04:24.960 --> 0:04:26.770
+Right now, on the server-side,
+
+126
+0:04:26.770 --> 0:04:30.000
+we can actually, store things in 16-bit.
+
+127
+0:04:30.000 --> 0:04:33.220
+However, when we load it into JavaScript memory,
+
+128
+0:04:33.220 --> 0:04:35.380
+it then gets converted to Float32,
+
+129
+0:04:35.380 --> 0:04:37.000
+and we end up using the same memory
+
+130
+0:04:37.000 --> 0:04:39.730
+and have the same speed as before,
+
+131
+0:04:39.730 --> 0:04:42.210
+which means no progress there for us.
+
+132
+0:04:42.210 --> 0:04:43.550
+Next slide.
+
+slide-10
+0:04:43.550 --> 0:04:46.430
+So, what if we could support model quantization to use
+
+134
+0:04:46.430 --> 0:04:48.860
+less memory and gain faster influence speeds
+
+135
+0:04:48.860 --> 0:04:50.350
+in JavaScript at runtime.
+
+136
+0:04:50.350 --> 0:04:53.170
+This is the question we'd like to pose to you today.
+
+137
+0:04:53.170 --> 0:04:54.770
+Now, of course, to address this,
+
+138
+0:04:54.770 --> 0:04:56.760
+we'd need to do this in both JavaScript
+
+139
+0:04:56.760 --> 0:04:57.780
+and web assembly,
+
+140
+0:04:57.780 --> 0:05:00.832
+so that supports all the environments we will execute
+
+141
+0:05:00.832 --> 0:05:02.590
+in the foreseeable future,
+
+142
+0:05:02.590 --> 0:05:05.490
+as we showed at the beginning of this presentation.
+
+slide-11
+0:05:05.490 --> 0:05:07.840
+Next up, garbage collection.
+
+144
+0:05:07.840 --> 0:05:09.800
+For WebGL.
+
+145
+0:05:09.800 --> 0:05:09.913
+As you know,
+
+146
+0:05:09.913 --> 0:05:12.460
+JavaScript is really great at cleaning up
+
+147
+0:05:12.460 --> 0:05:15.460
+after itself when writing Vanilla JavaScript code.
+
+148
+0:05:15.460 --> 0:05:18.580
+However, the same is not so true for WebGL.
+
+149
+0:05:18.580 --> 0:05:21.310
+And, as you know, TensorFlow.js uses WebGL
+
+150
+0:05:21.310 --> 0:05:22.980
+to get graphics card acceleration
+
+151
+0:05:22.980 --> 0:05:24.490
+for our Machine Learning models
+
+152
+0:05:24.490 --> 0:05:26.283
+in the web browser and beyond.
+
+153
+0:05:27.330 --> 0:05:31.280
+So, right now we have a function called TF.tidy()
+
+154
+0:05:31.280 --> 0:05:33.650
+that we've created to clean up after ourselves
+
+155
+0:05:33.650 --> 0:05:37.130
+if the user puts their code within this function.
+
+156
+0:05:37.130 --> 0:05:39.470
+However, not all users know about this
+
+157
+0:05:39.470 --> 0:05:41.670
+at the very beginning especially beginners,
+
+158
+0:05:41.670 --> 0:05:43.190
+and for that reason,
+
+159
+0:05:43.190 --> 0:05:45.640
+it'd be really nice to have the same level of clean-up
+
+160
+0:05:45.640 --> 0:05:46.730
+with graphics card memory
+
+161
+0:05:46.730 --> 0:05:49.450
+as we do with the regular JavaScript code.
+
+162
+0:05:49.450 --> 0:05:50.928
+Next slide.
+
+slide-12
+0:05:50.928 --> 0:05:52.210
+So the question is here,
+
+164
+0:05:52.210 --> 0:05:55.180
+how can we clean up WebGL memory as well?
+
+165
+0:05:55.180 --> 0:05:58.530
+So we know that WebGPU is also coming down the line,
+
+166
+0:05:58.530 --> 0:05:59.880
+but maybe this needs to be addressed
+
+167
+0:05:59.880 --> 0:06:01.590
+in that specification as well.
+
+168
+0:06:01.590 --> 0:06:04.150
+Can we clean up graphics card memory both in WebGPU
+
+169
+0:06:04.150 --> 0:06:05.859
+and WebGL.
+
+170
+0:06:05.859 --> 0:06:08.300
+And the latter, this also might benefit people
+
+171
+0:06:08.300 --> 0:06:10.190
+working with 3D graphics and other things too
+
+172
+0:06:10.190 --> 0:06:12.340
+beyond even the Machine Learning space.
+
+slide-13
+0:06:12.340 --> 0:06:14.960
+Next up, graphics card acceleration.
+
+174
+0:06:14.960 --> 0:06:17.680
+Currently, we have WebGL to execute Ops
+
+175
+0:06:17.680 --> 0:06:20.650
+in the machine learning model as we previously discussed,
+
+176
+0:06:20.650 --> 0:06:22.760
+but it'd be much more efficient if the browser exposed
+
+177
+0:06:22.760 --> 0:06:24.760
+lower level APIs to the graphics card
+
+178
+0:06:24.760 --> 0:06:27.360
+so we could more efficiently leverage the hardware.
+
+179
+0:06:27.360 --> 0:06:28.700
+Next slide.
+
+slide-14
+0:06:28.700 --> 0:06:29.710
+Now,
+
+181
+0:06:29.710 --> 0:06:32.270
+the question here is what lower level support do we need
+
+182
+0:06:32.270 --> 0:06:35.510
+for efficient Machine Learning when using the graphics card.
+
+183
+0:06:35.510 --> 0:06:37.830
+And of course, WebGPU is on the way,
+
+184
+0:06:37.830 --> 0:06:40.380
+but, what else needs to be added to that spec
+
+185
+0:06:40.380 --> 0:06:42.790
+to ensure we have something that works well,
+
+186
+0:06:42.790 --> 0:06:45.640
+specifically for machine learning.
+
+slide-15
+0:06:45.640 --> 0:06:48.570
+Next up, we've got Model Security.
+
+188
+0:06:48.570 --> 0:06:50.560
+Now we see a lot of production use cases,
+
+189
+0:06:50.560 --> 0:06:53.110
+whereby they require the model to be securely delivered
+
+190
+0:06:53.110 --> 0:06:55.400
+to the client, in a way that it can't be copied
+
+191
+0:06:55.400 --> 0:06:57.800
+and used on other websites.
+
+192
+0:06:57.800 --> 0:06:59.570
+Especially for large corporate brands,
+
+193
+0:06:59.570 --> 0:07:03.300
+they spend a lot of money and time creating these models,
+
+194
+0:07:03.300 --> 0:07:05.900
+and where they won't just give away their IP for free.
+
+195
+0:07:05.900 --> 0:07:07.500
+Next slide.
+
+slide-16
+0:07:07.500 --> 0:07:08.990
+So, our question is here,
+
+197
+0:07:08.990 --> 0:07:12.260
+how can we deliver a Machine Learning model
+
+198
+0:07:12.260 --> 0:07:15.800
+to the JavaScript environment in the Web browser,
+
+199
+0:07:15.800 --> 0:07:16.390
+without revealing it,
+
+200
+0:07:16.390 --> 0:07:18.810
+maybe there's a way that we can have a secure way
+
+201
+0:07:18.810 --> 0:07:21.870
+to grab some arbitrary JavaScript code from the server,
+
+202
+0:07:21.870 --> 0:07:23.210
+that is doing Machine Learning stuff
+
+203
+0:07:23.210 --> 0:07:24.430
+along with the model as well
+
+204
+0:07:24.430 --> 0:07:26.600
+and the assets you might need to execute,
+
+205
+0:07:26.600 --> 0:07:28.920
+and all that can be downloaded by the browser
+
+206
+0:07:28.920 --> 0:07:30.200
+behind the scenes,
+
+207
+0:07:30.200 --> 0:07:32.000
+in private memory,
+
+208
+0:07:32.000 --> 0:07:34.300
+which cannot be accessed by the JS developer
+
+209
+0:07:34.300 --> 0:07:35.460
+on the front end.
+
+210
+0:07:35.460 --> 0:07:36.293
+However,
+
+211
+0:07:36.293 --> 0:07:39.380
+they can do some kind of remote procedure call to that code,
+
+212
+0:07:39.380 --> 0:07:42.830
+so that they can execute it and get results back,
+
+213
+0:07:42.830 --> 0:07:45.323
+without exposing the model itself.
+
+214
+0:07:46.160 --> 0:07:47.550
+And this is up to discussion of course,
+
+215
+0:07:47.550 --> 0:07:50.470
+that's just one example of how it could be solved
+
+216
+0:07:50.470 --> 0:07:53.490
+which would require browser level implementation support
+
+217
+0:07:53.490 --> 0:07:54.563
+to do that properly.
+
+218
+0:07:55.420 --> 0:07:57.180
+And currently, this is a big barrier
+
+219
+0:07:57.180 --> 0:07:59.800
+for many people trying to go into production-use cases
+
+220
+0:07:59.800 --> 0:08:02.670
+but still want the benefits of running on the client side,
+
+221
+0:08:02.670 --> 0:08:05.430
+such as privacy and lower latency
+
+222
+0:08:05.430 --> 0:08:07.700
+and cost savings on the server.
+
+223
+0:08:07.700 --> 0:08:08.533
+And of course,
+
+224
+0:08:08.533 --> 0:08:10.760
+as soon as you put the model on the server-side,
+
+225
+0:08:10.760 --> 0:08:12.100
+those benefits disappear
+
+226
+0:08:12.100 --> 0:08:13.810
+because you have to then send the data from the client
+
+227
+0:08:13.810 --> 0:08:14.643
+to the server.
+
+228
+0:08:15.590 --> 0:08:16.710
+Next slide.
+
+slide-17
+0:08:16.710 --> 0:08:18.930
+And what about model warm-up,
+
+230
+0:08:18.930 --> 0:08:20.300
+it can take a couple of uses
+
+231
+0:08:20.300 --> 0:08:23.170
+before the model can actually run at the optimal speed
+
+232
+0:08:23.170 --> 0:08:25.300
+in the browser environment.
+
+233
+0:08:25.300 --> 0:08:27.200
+Of course, first of all you need to download the model.
+
+234
+0:08:27.200 --> 0:08:28.650
+Secondly you need to load it into memory
+
+235
+0:08:28.650 --> 0:08:30.700
+and pass all that stuff, and then thirdly,
+
+236
+0:08:30.700 --> 0:08:32.700
+you need to just run some data for at once
+
+237
+0:08:32.700 --> 0:08:34.710
+to get everything else set up.
+
+238
+0:08:34.710 --> 0:08:36.790
+And this can take a non trivial amount of time
+
+239
+0:08:36.790 --> 0:08:38.320
+especially for larger models.
+
+240
+0:08:38.320 --> 0:08:39.790
+Next slide.
+
+slide-18
+0:08:39.790 --> 0:08:42.260
+So the question here becomes,
+
+242
+0:08:42.260 --> 0:08:44.130
+what if there is a standardized way
+
+243
+0:08:44.130 --> 0:08:46.620
+to specify that a better model is available
+
+244
+0:08:46.620 --> 0:08:48.850
+and should be prepared and swapped to when ready
+
+245
+0:08:48.850 --> 0:08:51.500
+kinda like progressive enhancement.
+
+246
+0:08:51.500 --> 0:08:53.130
+Now taking a very hypothetical example,
+
+247
+0:08:53.130 --> 0:08:55.990
+maybe you've got an object recognition model,
+
+248
+0:08:55.990 --> 0:08:57.550
+and this could be something like COCO SSD
+
+249
+0:08:57.550 --> 0:08:59.220
+that gives you the bounding box data.
+
+250
+0:08:59.220 --> 0:09:01.480
+This loads really fast in the web browser right now
+
+251
+0:09:01.480 --> 0:09:03.960
+and can be used very quickly and efficiently.
+
+252
+0:09:03.960 --> 0:09:06.400
+But maybe your end goal is to actually have some
+
+253
+0:09:06.400 --> 0:09:07.990
+kind of image segmentation model
+
+254
+0:09:07.990 --> 0:09:10.210
+which might be heavier to load.
+
+255
+0:09:10.210 --> 0:09:13.250
+So what if you could take that initial smaller model,
+
+256
+0:09:13.250 --> 0:09:16.700
+load that, get some results coming in straight away,
+
+257
+0:09:16.700 --> 0:09:17.540
+but once
+
+258
+0:09:17.540 --> 0:09:19.220
+heavier model is actually ready,
+
+259
+0:09:19.220 --> 0:09:21.110
+you can switch to that automatically.
+
+260
+0:09:21.110 --> 0:09:22.540
+And this could be very interesting
+
+261
+0:09:22.540 --> 0:09:25.130
+as things progress and we start seeing larger models
+
+262
+0:09:25.130 --> 0:09:29.800
+being used in the web environment in many years to come.
+
+slide-19
+0:09:29.800 --> 0:09:29.913
+And with that,
+
+264
+0:09:29.913 --> 0:09:31.830
+thanks for watching and I encourage people to check out
+
+265
+0:09:31.830 --> 0:09:34.500
+the #MadeWithTFJS hashtag on Twitter
+
+266
+0:09:34.500 --> 0:09:37.600
+or LinkedIn to see what our community has been making.
+
+267
+0:09:37.600 --> 0:09:38.780
+You can see a whole bunch of awesome stuff
+
+268
+0:09:38.780 --> 0:09:40.480
+that our community has made,
+
+269
+0:09:40.480 --> 0:09:41.860
+which might inspire you as well
+
+270
+0:09:41.860 --> 0:09:44.210
+of other questions for this discussion.
+
+271
+0:09:44.210 --> 0:09:46.710
+People are really pushing the boundaries by combining
+
+272
+0:09:46.710 --> 0:09:48.250
+TensorFlow.js
+
+273
+0:09:48.250 --> 0:09:51.850
+with things like WebGL, WebRTC,
+
+274
+0:09:51.850 --> 0:09:52.683
+WebXR,
+
+275
+0:09:52.683 --> 0:09:54.490
+all these other web standards are combining
+
+276
+0:09:54.490 --> 0:09:57.610
+with Machine Learning to do many many great things.
+
+277
+0:09:57.610 --> 0:09:59.250
+So, feel free to check that out,
+
+278
+0:09:59.250 --> 0:10:01.610
+and we'd love to talk to you later on
+
+279
+0:10:01.610 --> 0:10:03.430
+for the full discussion about this topic.
+
+280
+0:10:03.430 --> 0:10:05.800
+Thank you very much for watching.
+
+

@@ -1,0 +1,76 @@
+<div class="slide" role='region' aria-label="Slide 1 of 9" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello, and welcome to our talk. Today we are going to introduce you to our approach to machine learning at Artie, Inc.</p>
+<p>My name is Josh Meyer and today I'm co-presenting this talk with Lindy Rauchenstein.</p>
+<p>We are lead scientists for speech and vision at Artie, Inc.</p></div><div class="slide" role='region' aria-label="Slide 2 of 9" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>At Artie, we are working on web-based mobile-first instant games that rely heavily on machine intelligence.</p>
+<p>That is, if you are a user, you can click on a link anywhere in the web, and the next instant you are in one of our experiences, playing one of our games, no download required.</p>
+<p>When we talk about machine intelligence, we're specifically talking about both conversational intelligence and visual awareness, visual intelligence.</p>
+<p>The user is able to interact with the digital character by voice, text, or vision.</p>
+<p>They're looking to have fun.</p>
+<p>They're looking to have an interesting conversation with some digital character.</p>
+<p>In that light, they're going to have a very low tolerance for machine learning models that are either underperforming or have some kind of high latency.</p>
+<p>Imagine you're having a conversation with your favorite character, and then all of a sudden that conversation comes difficult because the character is not responding fast enough, or the character's not understanding.</p></div><div class="slide" role='region' aria-label="Slide 3 of 9" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>So given our use case and our specific users' requirements, we started to think about how we're going to deploy our solution with respect to our different machine learning models, so that for any given experience we might have a handful of different models from speech and vision to <a class=dfn>NLP</a>.</p>
+<p>And so the traditional approach goes, basically put the big models on the server and put the small models on device.</p>
+<p>And taking that a little further, shrink the big models down so you can put those on device too.</p>
+<p>So get everything on device.</p></div><div class="slide" role='region' aria-label="Slide 4 of 9" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>Well, this approach to shrinking down larger models and putting as many as possible on device, is interesting to us at Artie because it's inherently privacy-preserving, and it offers us a chance to make some gains in latency and data costs for customers.</p>
+<p>It does cause some headaches.</p>
+<p>If you have a large machine learning model and you try to shrink it down, you usually have to make a choice.</p>
+<p>Are you going to make a smaller model that does the same thing as the original model, but just not as well?</p>
+<p>Like, you're losing accuracy.</p>
+<p>Or do you take that original model and constrain its domain or functionality and take that smaller model and put it on device?</p>
+<p>No matter what, if you're shrinking down a model you have to choose.</p>
+<p>Are you going to lose accuracy and performance or are you going to lose functionality?</p>
+<p>So let's take a concrete example from Artie's machine learning stack and what our thought process is like when we're talking about shrinking down models.</p>
+<p>For speech recognition, our interactions call for something that's pretty open domain, large vocabulary, because our users can say just about anything to our digital characters.</p>
+<p>This isn't a typical command and control kind of scenario where you're saying up, down, left, and right.</p>
+<p>We're trying to elicit conversations from our users.</p>
+<p>So we need to recognize that.</p>
+<p>Our model right now is made up of two parts.</p>
+<p>It's made up of an acoustic model and a language model.</p>
+<p>This is pretty standard for speech recognition.</p>
+<p>The acoustic model converts audio, sound, raw sound into some kind of probability distribution over letters in the alphabet.</p>
+<p>And then the language model converts that into a string of words that is hopefully going to be the correct transcription that was said.</p>
+<p>So if we want to shrink this model down, this system, these two models, the acoustic model, starting, is going to be about 180 megs.</p>
+<p>And the language model is going to be something more in the gigs range.</p>
+<p>Let's say about one gig.</p>
+<p>If we want to get something that's as small as possible, but still functional, that still recognizes an open vocabulary, the acoustic model, we might be able to get down to 40 megs, let's say, if we're lucky, and the language model, we could actually just throw that out right away and make our lives easier.</p>
+<p>So we have at the end of the day, a large vocabulary model that is just 40 megs.</p>
+<p>This model is going to be very underperformant.</p>
+<p>And furthermore, it's not going to be small enough for our use case.</p>
+<p>We need models that are so small that when the user clicks the link, they're already talking to the character instantaneously.</p>
+<p>They're not going to wait for a 40 megabyte download.</p></div><div class="slide" role='region' aria-label="Slide 5 of 9" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>So in light of this discussion of why we're not able to shrink down a large vocabulary speech recognizer to something that's instantaneously downloadable, we can't get it in the order of kilobytes by any stretch, we decided to keep that on the backend.</p>
+<p>We've decided to keep all of our language stack, including <a class=dfn>ASR</a> and <a class=dfn>NLP</a>, on the backend while we can still put our vision models on the front end because we can have models in the order of kilobytes and still have good accuracy.</p>
+<p>And this is actually really nice because in the grand scheme of things, users are going to feel much more attached to their video and photo data, the pixel data, from the camera than they are from the voice itself.</p>
+<p>So we're able to make a win here for privacy by keeping video vision models on device.</p></div><div class="slide" role='region' aria-label="Slide 6 of 9" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Very briefly, our language stack, the <a class=dfn>ASR</a> and <a class=dfn>NLP</a> models that are on the backend server, are built on open source solutions.</p>
+<p>For speech in particular, we have a server, a web socket server solution that we call Artie DeepServe that we built around Mozilla's DeepSpeech, where we've actually added to the core DeepSpeech code the ability to do batching inference efficiently, and also the ability to add hot word, hints, so we are able to run a smoother experience that way.</p></div><div class="slide" role='region' aria-label="Slide 7 of 9" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>So the language models run on a server, but all of the computer vision models run in the browser on the user's device, usually on a mobile device.</p>
+<p>This was firstly motivated by privacy.</p>
+<p>So we run facial expression recognition, user engagement, pose estimation, semantic segmentation, object detection models for different game mechanics.</p>
+<p>So the camera acquires video during gameplay inside of users' homes.</p>
+<p>And for privacy reasons, we aren't interested in transmitting or saving any of that video data off of the device.</p>
+<p>We want to process everything privately right there in the web browser.</p>
+<p>We also wanted the lowest possible latency.</p>
+<p>So to use visual input for natural-feeling things, like having a character that smiles back at you, or that nods at appropriate times in a conversation to acknowledge that they're listening, a delay would feel unnatural.</p>
+<p>But the most important constraint is that our product is built on top of Unity's Project Tiny, which is a beta release game engine for the browser.</p>
+<p>The game engine is extremely efficient in the web, but one of the things that it constrained us to on the machine learning side is that we cannot do any dynamic memory allocations, and avoiding dynamic memory allocations was the core constraint that led us to choosing the particular machine learning framework that we chose, which was <a class=dfn>TensorFlow</a> Lite for Microcontrollers.</p></div><div class="slide" role='region' aria-label="Slide 8 of 9" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>So <a class=dfn>TensorFlow</a> Lite is a version of <a class=dfn>TensorFlow</a> that's widely used in mobile development.</p>
+<p>And <a class=dfn>TensorFlow</a> Lite for Microcontrollers is a subset and an adaptation of that subset, an adaptation from <a class=dfn>TensorFlow</a>.</p>
+<p>So <a class=dfn>TensorFlow</a> Lite doesn't support training.</p>
+<p>It only supports inference.</p>
+<p>It doesn't have support for every data type, doesn't include support for double data types, for example.</p>
+<p>It doesn't have every operation it would have available when you're building <a class=dfn>TensorFlow</a> models to run on a server.</p>
+<p>But in exchange it's much smaller.</p>
+<p>It's optimized to run on ARM Cortex CPU used on mobile phones.</p>
+<p>It uses OpenGL to work with GPUs.</p>
+<p>It has great model conversion tools that you use for quantizing your networks into eight-bit neural networks.</p>
+<p>So you can easily shrink your models by 75% from the 32-bit float versions.</p>
+<p>And the version of <a class=dfn>TensorFlow</a> Lite that we use, <a class=dfn>TensorFlow</a> Lite for Microcontrollers, is even more constrained in that it has a really tiny runtime, which for us was perfect.</p>
+<p>We have a lot of parts of our product that need to download when you play instant game animations and game logic and everything.</p>
+<p>So the runtime binary is only 20 kilobytes.</p>
+<p>And because the framework is designed to run on microcontrollers, which oftentimes have to run for years on embedded devices, it doesn't continuously allocate in DID memory.</p>
+<p>So that's the reason that we chose it for our version of running models on the web over other solutions of <a class=dfn>TensorFlow.js</a>, for example.</p>
+<p>I built an interface from the native code into our game engine and it performs really well.</p></div><div class="slide" role='region' aria-label="Slide 9 of 9" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jm_lr_mobile.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>So to wrap things up, the web-based approach to the machine learning that we use at Artie incorporates a client-side piece provision, a server-side piece for voice, and that works really well for us.</p>
+<p>And it gives us a lot of power and flexibility.</p>
+<p>We're excited at the prospect of shrinking down as many models as possible, making them faster and more performant.</p>
+<p>For natural language, we're a ways away from getting useful models that are in the range of kilobytes.</p>
+<p>For vision, we're there already, and we can run MobileNet, for example, very quickly in the browser.</p>
+<p>One worthwhile thing to mention is that Unity has another project called Barracuda, which right now can't run in the web-based version of their game engine, but it's a framework for running neural networks through Unity Shaders.</p>
+<p>And using Shaders to run neural networks directly is something that is a really great alternative, very efficient, we're continuing to explore at Artie.</p>
+<p>I'm looking forward to hearing about all of your experiences and approaches doing machine learning in the web.</p>
+<p>Thank you.</p></div>

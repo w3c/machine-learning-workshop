@@ -1,0 +1,450 @@
+﻿WEBVTT
+
+slide-1
+00:00:09.226 --> 00:00:10.726
+<v Kelly>Hello.</v>
+
+2
+00:00:10.726 --> 00:00:12.296
+I am Kelly Davis,
+
+3
+00:00:12.296 --> 00:00:15.966
+the manager of the Mozilla Machine Learning Group.
+
+4
+00:00:15.966 --> 00:00:17.126
+The title of my talk
+
+5
+00:00:17.126 --> 00:00:21.366
+is Wreck a Nice Beach in the Browser:
+
+6
+00:00:21.366 --> 00:00:24.606
+Getting the Browser to Recognize Speech.
+
+7
+00:00:24.606 --> 00:00:27.446
+So with an eye on the clock,
+
+8
+00:00:27.446 --> 00:00:28.699
+let's get started.
+
+slide-2
+00:00:30.406 --> 00:00:32.789
+Here's the general outline of my talk.
+
+10
+00:00:33.666 --> 00:00:36.266
+I'll begin with a quick introduction
+
+11
+00:00:36.266 --> 00:00:38.116
+to speech recognition in the browser.
+
+12
+00:00:39.016 --> 00:00:41.166
+And follow that with a few words
+
+13
+00:00:41.166 --> 00:00:44.296
+on the standardization, or lack thereof,
+
+14
+00:00:44.296 --> 00:00:47.359
+of our browser-based speech recognition API.
+
+15
+00:00:48.566 --> 00:00:51.906
+Next, I'll move on to examine some
+
+16
+00:00:51.906 --> 00:00:54.466
+of the hurdles, privacy issues
+
+17
+00:00:54.466 --> 00:00:56.386
+that arise when one attempts
+
+18
+00:00:56.386 --> 00:00:59.259
+to bring speech recognition to the browser.
+
+19
+00:01:00.626 --> 00:01:03.825
+After that, I have a few words to say
+
+20
+00:01:03.825 --> 00:01:05.946
+on the implementation details
+
+21
+00:01:05.946 --> 00:01:09.456
+of speech to text in the browser,
+
+22
+00:01:09.456 --> 00:01:13.996
+to embed or not to embed the speech recognition engine
+
+23
+00:01:13.996 --> 00:01:15.179
+into the browser.
+
+24
+00:01:16.226 --> 00:01:19.156
+Finally, I'll conclude with some words
+
+25
+00:01:19.156 --> 00:01:21.196
+on the current lay of the land
+
+26
+00:01:21.196 --> 00:01:23.869
+for browser-based speech recognition.
+
+slide-3
+00:01:26.436 --> 00:01:30.266
+So let us begin at the beginning
+
+28
+00:01:30.266 --> 00:01:34.049
+with an introduction to speech recognition in the browser.
+
+slide-4
+00:01:36.346 --> 00:01:38.596
+As I'm sure you're well aware,
+
+30
+00:01:38.596 --> 00:01:41.709
+there are numerous browser-based APIs
+
+31
+00:01:41.709 --> 00:01:45.576
+from Web Audio to Web Workers,
+
+32
+00:01:45.576 --> 00:01:48.128
+however, the Web Speech API,
+
+33
+00:01:48.128 --> 00:01:52.086
+the API which is responsible for exposing speech recognition
+
+34
+00:01:52.086 --> 00:01:55.239
+in the browser, is a bit behind the curve.
+
+35
+00:01:56.576 --> 00:02:00.526
+It's still only a draft community group report
+
+36
+00:02:00.526 --> 00:02:02.526
+but it's already old.
+
+37
+00:02:02.526 --> 00:02:05.166
+It's been around about 10 years.
+
+38
+00:02:05.166 --> 00:02:09.676
+So speech in the browser is, despite its age,
+
+39
+00:02:09.676 --> 00:02:11.609
+still rather immature.
+
+slide-5
+00:02:13.266 --> 00:02:16.136
+One reason for its immaturity
+
+41
+00:02:16.136 --> 00:02:18.829
+is the struggle over standardization.
+
+slide-6
+00:02:20.506 --> 00:02:24.036
+The current Web Speech API reflects the times
+
+43
+00:02:24.036 --> 00:02:27.599
+in which it was originally written about 10 years ago.
+
+44
+00:02:28.536 --> 00:02:30.976
+In particular, it doesn't make use
+
+45
+00:02:30.976 --> 00:02:34.136
+of the subsequent advances in, for example,
+
+46
+00:02:34.136 --> 00:02:36.476
+the Web Audio API.
+
+47
+00:02:36.476 --> 00:02:41.426
+In addition, there are some privacy issues the API exposes
+
+48
+00:02:41.426 --> 00:02:43.159
+that still need to be addressed.
+
+slide-7
+00:02:45.226 --> 00:02:48.166
+Questions of privacy that were present
+
+50
+00:02:48.166 --> 00:02:50.426
+in the original API
+
+51
+00:02:50.426 --> 00:02:53.316
+and new ones that arose since the original
+
+52
+00:02:53.316 --> 00:02:57.469
+was written nip at the heels of standardization.
+
+slide-8
+00:02:59.526 --> 00:03:04.526
+For example, speech recognition exposes GDPR issues.
+
+54
+00:03:06.926 --> 00:03:10.926
+If speech recognition happens server side, as it does
+
+55
+00:03:10.926 --> 00:03:13.756
+in the vast majority of cases,
+
+56
+00:03:13.756 --> 00:03:15.866
+and your speech is retained
+
+57
+00:03:15.866 --> 00:03:19.586
+to help train future speech recognition engines,
+
+58
+00:03:19.586 --> 00:03:22.269
+as is now a standard in the industry,
+
+59
+00:03:23.566 --> 00:03:27.539
+how is the GDPR right of erasure implemented?
+
+60
+00:03:28.896 --> 00:03:32.739
+The current Web Speech API is silent on this point.
+
+61
+00:03:34.816 --> 00:03:38.516
+Also, if your speech is retained,
+
+62
+00:03:38.516 --> 00:03:40.286
+as it is for the majority
+
+63
+00:03:40.286 --> 00:03:43.169
+of server-based speech recognition engines,
+
+64
+00:03:44.146 --> 00:03:47.589
+how is the GDPR right of access implemented?
+
+65
+00:03:49.086 --> 00:03:52.979
+The current Web Speech API is silent on this point too.
+
+66
+00:03:55.236 --> 00:03:57.546
+At the core of these issues
+
+67
+00:03:57.546 --> 00:03:59.119
+is the issue of consent.
+
+68
+00:04:00.226 --> 00:04:03.776
+How does the Web Speech API handle the issues
+
+69
+00:04:03.776 --> 00:04:08.396
+of consent that arise when speech data is stored
+
+70
+00:04:08.396 --> 00:04:09.849
+and reused server side?
+
+71
+00:04:10.946 --> 00:04:13.826
+For the future of the Web Speech API,
+
+72
+00:04:13.826 --> 00:04:17.299
+it is critical to address these privacy issues.
+
+slide-9
+00:04:19.206 --> 00:04:23.216
+However, some of these privacy issues
+
+74
+00:04:23.216 --> 00:04:25.946
+can be addressed by addressing the question
+
+75
+00:04:25.946 --> 00:04:28.749
+of whether to embed or not to embed.
+
+76
+00:04:30.426 --> 00:04:34.596
+Whether to embed the speech recognition engine client side
+
+77
+00:04:34.596 --> 00:04:37.586
+or to keep it server side
+
+78
+00:04:37.586 --> 00:04:40.199
+as is current common practice.
+
+slide-10
+00:04:42.616 --> 00:04:47.596
+Answering the question to embed or not to embed involves
+
+80
+00:04:47.596 --> 00:04:49.159
+a number of trade-offs.
+
+81
+00:04:51.296 --> 00:04:54.066
+Embedding improves latency:
+
+82
+00:04:54.066 --> 00:04:56.609
+responses are almost immediate.
+
+83
+00:04:57.496 --> 00:04:59.039
+Privacy and security:
+
+84
+00:05:00.046 --> 00:05:02.299
+the data never leaves your machine.
+
+85
+00:05:03.566 --> 00:05:08.076
+It also cuts recurring and non-recurring costs
+
+86
+00:05:08.076 --> 00:05:09.609
+for the browser provider.
+
+87
+00:05:11.736 --> 00:05:14.089
+Not embedding has benefits too.
+
+88
+00:05:15.786 --> 00:05:18.576
+As one has access to more compute,
+
+89
+00:05:18.576 --> 00:05:22.529
+one can obtain better-quality speech recognition.
+
+90
+00:05:23.516 --> 00:05:27.406
+Also, one can retain speech data
+
+91
+00:05:27.406 --> 00:05:29.966
+to learn more about your users
+
+92
+00:05:29.966 --> 00:05:33.996
+and to use as a source of training data.
+
+93
+00:05:33.996 --> 00:05:36.956
+In addition, the data retained
+
+94
+00:05:36.956 --> 00:05:39.376
+is a competitive advantage
+
+95
+00:05:39.376 --> 00:05:41.696
+over those that change to embed
+
+96
+00:05:42.956 --> 00:05:46.639
+as they have to obtain training data some other way,
+
+97
+00:05:47.696 --> 00:05:51.979
+which is usually time consuming and expensive.
+
+slide-11
+00:05:54.036 --> 00:05:57.669
+With all of this and more in play,
+
+99
+00:05:58.886 --> 00:06:02.296
+one can see that the lay of the land
+
+100
+00:06:02.296 --> 00:06:06.709
+for browser-based speech recognition is complicated.
+
+slide-12
+00:06:09.376 --> 00:06:13.736
+Currently, no browser implements the API
+
+102
+00:06:13.736 --> 00:06:16.779
+as specified by the Web Speech API.
+
+103
+00:06:18.786 --> 00:06:21.176
+The current implementations all come
+
+104
+00:06:21.176 --> 00:06:25.746
+with asterisks, indicating that they are deficient
+
+105
+00:06:25.746 --> 00:06:27.246
+in some way.
+
+106
+00:06:27.246 --> 00:06:30.893
+For example, using of a vendor prefix
+
+107
+00:06:30.893 --> 00:06:35.726
+or putting limitations on how the pages can be served.
+
+108
+00:06:35.726 --> 00:06:40.116
+So as you can see, the Web Speech API
+
+109
+00:06:40.116 --> 00:06:44.239
+is currently very much a work in progress.
+
+slide-13
+00:06:46.386 --> 00:06:47.946
+Fini.
+
+111
+00:06:47.946 --> 00:06:49.246
+That's the end of my talk.
+
+112
+00:06:50.086 --> 00:06:51.136
+Thanks for listening.
+
