@@ -41,12 +41,12 @@
 <p>The solution is not fantastic because it is not very efficient, but at least it exists.</p>
 <p> MSE is essentially a demuxing API.</p>
 <p>In other words, it allows applications to take control of the demux operation and, by extension, of the fetch operation.</p>
-<p>MSE does not expose decoded frames, so no processing hook either but the same canvas "hack" can be used.</p>
+<p>MSE does not expose decoded frames, so no processing hook either but the same canvas “hack” can be used.</p>
 <p> For <a class=dfn>WebRTC</a>, first remember that there is no demux operation.</p>
 <p><a class=dfn>WebRTC</a> takes care of the fetch and decode operations.</p>
 <p>In theory, that's fantastic news.</p>
 <p>We should get decoded frames out of <a class=dfn>WebRTC</a>.</p>
-<p>However, in practice, a "decoded" stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque MediaStreamTrack object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
+<p>However, in practice, a “decoded” stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque MediaStreamTrack object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
 <p>So, back to the same canvas hack again...</p>
 <p> The Web Audio API is a processing API at its heart.</p>
 <p>However, the whole API is meant to operate on an entire file.</p>
@@ -71,7 +71,8 @@
 <p>Note that the API does not take care of the mux/demux operations, which will have to be done by the application through some JavaScript or <a class=dfn>WebAssembly</a> code.</p>
 <p>This shouldn't be a problem in practice, these operations are not really heavy on the CPU.</p>
 <p> The API is very much in flux, so it's hard to assess anything on WebCodecs for now.</p>
-<p>There are a number of open questions, starting with "how can WebCodecs be integrated with other specs?".</p>
+<p>There are a number of open questions, starting with “how can WebCodecs be integrated with other specs?</p>
+<p>”.</p>
 <p><a class=dfn>WebAssembly</a>, MSE, <a class=dfn>WebRTC</a>, <a class=dfn>WebXR</a> for rendering video in immersive contexts.</p>
 <p>Well, and of course, the integration question also exists for machine learning APIs.</p>
 <p>It's worth noting that the <a class=dfn>WebRTC</a> Working Group has started to work <a class=dfn>WebRTC</a> Insertable Media using Streams that should eventually build on top of WebCodecs.</p>
@@ -83,7 +84,7 @@
 <p> Before I conclude, I'd like to raise a few other media technologies and proposals that may or may not affect the way processing gets done in the future.</p>
 <p>For instance, the Media Working Group standardizes a codec switching feature for MSE, for instance to allow to insert an ad which may be in low resolution in the middle of a 4K video.</p>
 <p>How would such a switch affect processing?</p>
-<p>In some "processing" scenarios, all that may be required is rendering an overlay on top of a video without touching the video per se.</p>
+<p>In some “processing” scenarios, all that may be required is rendering an overlay on top of a video without touching the video per se.</p>
 <p>That is precisely what the HTMLVideoElement.requestVideoFrameCallback proposal is offering.</p>
 <p>How does that affect everything that I presented so far?</p>
 <p>Flat videos are no longer the only videos in town.</p>
