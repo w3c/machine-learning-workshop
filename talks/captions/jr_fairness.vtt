@@ -1,0 +1,793 @@
+WEBVTT
+
+slide-1
+0:00:09.900 --> 0:00:12.600
+<v ->Hi, this is John Rochford.</v>
+
+2
+0:00:12.600 --> 0:00:15.460
+It's my honor and privilege to present to you today,
+
+3
+0:00:15.460 --> 0:00:18.180
+my talk title is AI Machine Learning,
+
+4
+0:00:18.180 --> 0:00:21.390
+Bias and Garbage In, Bias and Garbage Out.
+
+5
+0:00:21.390 --> 0:00:24.620
+I am the INDEX program director and a faculty member
+
+6
+0:00:24.620 --> 0:00:26.510
+at the Eunice Kennedy Shriver Center,
+
+7
+0:00:26.510 --> 0:00:28.840
+part of UMass Medical School.
+
+8
+0:00:28.840 --> 0:00:32.593
+I'm an Invited Expert for the World Wide Web Consortium.
+
+slide-2
+0:00:35.210 --> 0:00:38.920
+A little about me, I am legally blind.
+
+10
+0:00:38.920 --> 0:00:41.690
+I trade privacy for utility.
+
+11
+0:00:41.690 --> 0:00:44.930
+The 14 Alexas in my home enable me to control devices
+
+12
+0:00:44.930 --> 0:00:47.140
+with interfaces I can't see.
+
+13
+0:00:47.140 --> 0:00:48.963
+Hey Alexa, what time is it now?
+
+14
+0:00:50.640 --> 0:00:53.400
+<v Alexa>I am tired of telling you what time it is.</v>
+
+15
+0:00:53.400 --> 0:00:55.170
+Look at a clock.
+
+16
+0:00:55.170 --> 0:00:56.810
+<v ->Screw you!</v>
+
+17
+0:00:56.810 --> 0:00:58.790
+And of course, Alexa records to the cloud
+
+18
+0:00:58.790 --> 0:01:00.530
+everything I say.
+
+19
+0:01:00.530 --> 0:01:04.310
+I'm an AI researcher focused on ML text simplification,
+
+20
+0:01:04.310 --> 0:01:06.660
+ML fairness and empowerment
+
+21
+0:01:06.660 --> 0:01:09.953
+and I'm a 35-year developer of technology for the disabled.
+
+slide-3
+0:01:12.200 --> 0:01:14.430
+These are some of the INDEX staff.
+
+23
+0:01:15.380 --> 0:01:17.240
+From all over the world,
+
+24
+0:01:17.240 --> 0:01:21.200
+we are speakers of 16 languages,
+
+25
+0:01:21.200 --> 0:01:23.553
+we are women, we are the disabled.
+
+slide-4
+0:01:25.900 --> 0:01:27.500
+A big INDEX project is creating
+
+27
+0:01:27.500 --> 0:01:31.380
+easy-to-understand COVID-19 information worldwide.
+
+28
+0:01:31.380 --> 0:01:34.530
+With our easy Text.AI startup,
+
+29
+0:01:34.530 --> 0:01:36.980
+INDEX ML engineers and disabled staff
+
+30
+0:01:36.980 --> 0:01:39.360
+are developing our ML model
+
+31
+0:01:39.360 --> 0:01:42.900
+and using crowdsourcing to simplify COVID-19 texts
+
+32
+0:01:42.900 --> 0:01:46.430
+from the websites of every country's governments.
+
+33
+0:01:47.700 --> 0:01:50.860
+Simple COVID-19 texts will help huge populations
+
+34
+0:01:50.860 --> 0:01:55.380
+of people with cognitive disabilities, low literacy,
+
+35
+0:01:55.380 --> 0:01:58.410
+non-native language speakers and seniors
+
+36
+0:01:58.410 --> 0:02:00.243
+make the world safe and healthy.
+
+slide-5
+0:02:04.130 --> 0:02:09.130
+My presentation targets are ML Social Bias,
+
+38
+0:02:09.250 --> 0:02:12.320
+why we should care, what we should do about it,
+
+39
+0:02:12.320 --> 0:02:14.140
+how we can do it.
+
+40
+0:02:14.140 --> 0:02:15.360
+And I hope to persuade you
+
+41
+0:02:15.360 --> 0:02:17.990
+that for your machine learning efforts to be successful,
+
+42
+0:02:17.990 --> 0:02:21.733
+their development and data must include disabled people.
+
+slide-6
+0:02:23.200 --> 0:02:26.640
+But first, a shout out to Black Lives Matter.
+
+44
+0:02:26.640 --> 0:02:29.630
+University of Toronto and MIT researchers
+
+45
+0:02:29.630 --> 0:02:32.660
+found that every facial recognition system they tested
+
+46
+0:02:32.660 --> 0:02:35.480
+performed better on lighter-skinned faces.
+
+47
+0:02:35.480 --> 0:02:37.430
+That includes a one-in-three failure rate
+
+48
+0:02:37.430 --> 0:02:40.470
+with identifying darker-skinned females.
+
+49
+0:02:40.470 --> 0:02:42.820
+This is from the article, Gender Shades,
+
+50
+0:02:42.820 --> 0:02:44.830
+Intersectional Accuracy Disparities
+
+51
+0:02:44.830 --> 0:02:46.983
+and Commercial Gender Classification.
+
+slide-7
+0:02:48.770 --> 0:02:53.770
+The author of that article, Joy has a TED talk.
+
+53
+0:02:54.130 --> 0:02:57.443
+It's called How I'm Fighting Bias in Algorithms.
+
+54
+0:02:58.380 --> 0:03:00.450
+And what she's showing here in the picture
+
+55
+0:03:00.450 --> 0:03:04.780
+is that for her face to be recognized,
+
+56
+0:03:04.780 --> 0:03:06.690
+she has to wear
+
+57
+0:03:06.690 --> 0:03:09.103
+a mask of a white female.
+
+slide-8
+0:03:10.500 --> 0:03:11.397
+Why care?
+
+59
+0:03:11.397 --> 0:03:13.347
+Profound responsibility.
+
+60
+0:03:13.347 --> 0:03:15.297
+"There's nothing artificial about AI.
+
+61
+0:03:15.297 --> 0:03:18.427
+"It's inspired by people, it's created by people
+
+62
+0:03:18.427 --> 0:03:20.937
+"and most importantly, it impacts people.
+
+63
+0:03:20.937 --> 0:03:22.377
+"It is a powerful tool
+
+64
+0:03:22.377 --> 0:03:24.917
+"we are only just beginning to understand
+
+65
+0:03:24.917 --> 0:03:27.610
+"and that is a profound responsibility."
+
+66
+0:03:27.610 --> 0:03:30.300
+From the article Bias in, Bias out,
+
+67
+0:03:30.300 --> 0:03:34.523
+the Stanford Scientist Out to Make AI Less White and Male.
+
+slide-9
+0:03:36.100 --> 0:03:38.810
+Why care about machine learning fairness and disability?
+
+69
+0:03:39.720 --> 0:03:43.130
+It's the most significant challenge of our time.
+
+70
+0:03:43.890 --> 0:03:47.730
+If it doesn't work for all, nobody will trust it.
+
+71
+0:03:47.730 --> 0:03:52.250
+The disabled are part of every segment of society.
+
+72
+0:03:52.250 --> 0:03:55.850
+Thus, if we can solve the problem for the disabled,
+
+73
+0:03:55.850 --> 0:03:58.430
+we can solve the problem for everyone.
+
+slide-10
+0:03:59.360 --> 0:04:00.193
+Why care?
+
+75
+0:04:00.193 --> 0:04:01.627
+What about you?
+
+76
+0:04:01.627 --> 0:04:03.867
+"Bias in ML has been almost ubiquitous
+
+77
+0:04:03.867 --> 0:04:06.627
+"when the application is involved in people
+
+78
+0:04:06.627 --> 0:04:08.747
+"and it has already hurt the benefit of people
+
+79
+0:04:08.747 --> 0:04:12.717
+"in minority groups or historically disadvantageous groups.
+
+80
+0:04:12.717 --> 0:04:14.537
+"Not only people in minority groups
+
+81
+0:04:14.537 --> 0:04:18.167
+"but everyone should care about the bias in AI.
+
+82
+0:04:18.167 --> 0:04:19.327
+"If no one cares,
+
+83
+0:04:19.327 --> 0:04:21.647
+"it is highly likely that the next person
+
+84
+0:04:21.647 --> 0:04:24.527
+"who suffers from bias treatment is one of us."
+
+85
+0:04:25.820 --> 0:04:27.160
+From the article,
+
+86
+0:04:27.160 --> 0:04:29.543
+A Tutorial in Fairness in machine learning.
+
+slide-11
+0:04:31.970 --> 0:04:34.747
+Being smart can be a deficit in ML.
+
+88
+0:04:34.747 --> 0:04:38.397
+"People who perform better on a test of pattern detection,
+
+89
+0:04:38.397 --> 0:04:40.707
+"a measure of cognitive ability
+
+90
+0:04:40.707 --> 0:04:44.297
+"are also quicker to form and apply stereotypes.
+
+91
+0:04:44.297 --> 0:04:45.130
+"In other words,
+
+92
+0:04:45.130 --> 0:04:48.997
+"being smart might put you at a greater risk of prejudice
+
+93
+0:04:48.997 --> 0:04:51.497
+"but you can still fight against those instincts
+
+94
+0:04:51.497 --> 0:04:53.570
+"by challenging your thinking
+
+95
+0:04:53.570 --> 0:04:56.190
+"and getting to know people who aren't like you."
+
+96
+0:04:56.190 --> 0:04:57.630
+This is from the article,
+
+97
+0:04:57.630 --> 0:05:00.393
+Smart People Are More Likely To Stereotype.
+
+slide-12
+0:05:02.880 --> 0:05:05.860
+How can you get to know people who aren't like you?
+
+99
+0:05:05.860 --> 0:05:09.553
+Include the disabled in machine learning development.
+
+100
+0:05:10.857 --> 0:05:12.957
+"To ensure AI-based systems
+
+101
+0:05:12.957 --> 0:05:15.627
+"are treating people with disabilities fairly,
+
+102
+0:05:15.627 --> 0:05:17.667
+"it is essential to include them
+
+103
+0:05:17.667 --> 0:05:19.567
+"in the development process."
+
+104
+0:05:21.100 --> 0:05:22.290
+This is from the article,
+
+105
+0:05:22.290 --> 0:05:26.163
+How to tackle AI Bias For People With Disabilities.
+
+slide-13
+0:05:27.917 --> 0:05:31.687
+Here's an MIT failure to include the disabled.
+
+107
+0:05:31.687 --> 0:05:35.657
+An MIT project claimed to translate American Sign Language
+
+108
+0:05:35.657 --> 0:05:38.697
+with machine learning and sign-language gloves.
+
+109
+0:05:38.697 --> 0:05:40.307
+It failed because sign language
+
+110
+0:05:40.307 --> 0:05:42.667
+is much more than communicating with hands.
+
+111
+0:05:42.667 --> 0:05:46.127
+It's about body language and facial expressions.
+
+112
+0:05:46.127 --> 0:05:48.207
+MIT would have known that was essential,
+
+113
+0:05:48.207 --> 0:05:51.680
+had it involved the deaf community.
+
+114
+0:05:51.680 --> 0:05:52.570
+From the article,
+
+115
+0:05:52.570 --> 0:05:55.843
+Why Sign-Language Gloves Don't Help Deaf People.
+
+slide-14
+0:05:57.357 --> 0:06:00.257
+A big issue is lack of data from the disabled
+
+117
+0:06:00.257 --> 0:06:02.183
+due to privacy concerns.
+
+118
+0:06:03.370 --> 0:06:06.377
+Many of us do not disclose our disabilities.
+
+119
+0:06:06.377 --> 0:06:10.747
+When we do, we are denied employment, housing and more.
+
+120
+0:06:10.747 --> 0:06:14.970
+Thus, despite being 15% of the population,
+
+121
+0:06:14.970 --> 0:06:17.473
+we are significantly underrepresented in training data.
+
+slide-15
+0:06:19.137 --> 0:06:22.547
+What can we do about a lack of data from the disabled?
+
+123
+0:06:22.547 --> 0:06:24.687
+Accurate analysis.
+
+124
+0:06:24.687 --> 0:06:26.747
+"We are helping machine learning engineers,
+
+125
+0:06:26.747 --> 0:06:29.857
+"figure out what questions to ask of their data,
+
+126
+0:06:29.857 --> 0:06:31.987
+"to diagnose why their systems
+
+127
+0:06:31.987 --> 0:06:34.510
+"may be making unfair predictions."
+
+128
+0:06:34.510 --> 0:06:35.660
+This is from the article,
+
+129
+0:06:35.660 --> 0:06:39.260
+MIT Researchers Show How To Detect and Address
+
+130
+0:06:39.260 --> 0:06:41.763
+AI Bias Without Loss in Accuracy.
+
+slide-16
+0:06:43.367 --> 0:06:44.737
+What can we do with data
+
+132
+0:06:44.737 --> 0:06:47.397
+we do have from the disabled?
+
+133
+0:06:47.397 --> 0:06:49.687
+Fairness through unawareness:
+
+134
+0:06:49.687 --> 0:06:52.367
+"No information about protected attributes,
+
+135
+0:06:52.367 --> 0:06:55.857
+"e.g gender, age, disability is gathered
+
+136
+0:06:55.857 --> 0:06:58.527
+"and used in the decision-making.
+
+137
+0:06:58.527 --> 0:07:00.647
+Fairness through awareness:
+
+138
+0:07:00.647 --> 0:07:03.797
+"Membership in a protected group is explicitly known
+
+139
+0:07:03.797 --> 0:07:06.207
+"and fairness can be formally defined,
+
+140
+0:07:06.207 --> 0:07:09.540
+"tested, and enforced algorithmically."
+
+141
+0:07:09.540 --> 0:07:10.640
+This is from the article,
+
+142
+0:07:10.640 --> 0:07:13.993
+AI Fairness For People With Disabilities Point of View.
+
+slide-17
+0:07:15.770 --> 0:07:18.200
+What can we do to mitigate our lack of data
+
+144
+0:07:18.200 --> 0:07:19.417
+from the disabled?
+
+145
+0:07:19.417 --> 0:07:22.627
+One possibility is to use synthetic data.
+
+146
+0:07:22.627 --> 0:07:25.167
+"Given a data set involving a protected attribute
+
+147
+0:07:25.167 --> 0:07:27.947
+"with a privileged and unprivileged group,
+
+148
+0:07:27.947 --> 0:07:30.770
+"we create an ideal world data set.
+
+149
+0:07:30.770 --> 0:07:31.747
+"For every data sample,
+
+150
+0:07:31.747 --> 0:07:35.270
+"we create a new sample having the same features
+
+151
+0:07:35.270 --> 0:07:37.187
+"except the protected attributes
+
+152
+0:07:37.187 --> 0:07:39.687
+"and label as the original sample
+
+153
+0:07:39.687 --> 0:07:43.380
+"but with the opposite protected attribute value."
+
+154
+0:07:43.380 --> 0:07:44.880
+This is from the article,
+
+155
+0:07:44.880 --> 0:07:47.910
+Data Augmentation for Discrimination Prevention
+
+156
+0:07:47.910 --> 0:07:49.643
+and Bias Disambiguation.
+
+slide-18
+0:07:51.490 --> 0:07:55.307
+What tools will help us implement machine learning fairness?
+
+158
+0:07:55.307 --> 0:07:57.127
+Well there are commercial tools,
+
+159
+0:07:57.127 --> 0:07:59.307
+many companies such as Microsoft,
+
+160
+0:07:59.307 --> 0:08:03.497
+Amazon, IBM offer bias mitigation services
+
+161
+0:08:03.497 --> 0:08:05.133
+in their ML platforms.
+
+162
+0:08:05.997 --> 0:08:07.827
+There are open source tools.
+
+163
+0:08:07.827 --> 0:08:11.117
+There are an increasing number on GitHub.
+
+164
+0:08:11.117 --> 0:08:13.653
+The following are the best of the current ones.
+
+slide-19
+0:08:15.327 --> 0:08:17.127
+The Google What-If Tool
+
+166
+0:08:17.127 --> 0:08:18.827
+visually probe the behavior
+
+167
+0:08:18.827 --> 0:08:22.417
+of trained machine learning models with minimal coding.
+
+168
+0:08:22.417 --> 0:08:24.667
+This interface looks pretty cool to me
+
+169
+0:08:24.667 --> 0:08:26.323
+but then again, I'm blind.
+
+slide-20
+0:08:28.367 --> 0:08:32.927
+Fairlearn, a Python package to assess and improve fairness
+
+171
+0:08:32.927 --> 0:08:34.327
+of machine learning models.
+
+slide-21
+0:08:35.627 --> 0:08:39.497
+Skater, a Python library designed to demystify
+
+173
+0:08:39.497 --> 0:08:42.537
+the learned structures of a black box model,
+
+174
+0:08:42.537 --> 0:08:46.417
+both globally, inference on the basis of a complete dataset
+
+175
+0:08:46.417 --> 0:08:50.303
+and locally, inference about an individual prediction.
+
+slide-22
+0:08:51.927 --> 0:08:54.747
+Pymetrics, it detects demographic differences
+
+177
+0:08:54.747 --> 0:08:56.617
+and the output of machine learning models
+
+178
+0:08:56.617 --> 0:08:58.730
+or other assessments.
+
+slide-23
+0:08:59.887 --> 0:09:03.257
+IBM AI Fairness 360 Open Source Toolkits,
+
+180
+0:09:03.257 --> 0:09:05.597
+a comprehensive set of fairness metrics
+
+181
+0:09:05.597 --> 0:09:07.797
+for dataset machine learning models,
+
+182
+0:09:07.797 --> 0:09:09.777
+explanations for these metrics
+
+183
+0:09:09.777 --> 0:09:13.130
+and algorithms to mitigate bias in data sets and models.
+
+slide-24
+0:09:14.147 --> 0:09:16.877
+IBM AI Factsheets 360,
+
+185
+0:09:16.877 --> 0:09:19.887
+A research effort to foster trust in AI
+
+186
+0:09:19.887 --> 0:09:23.407
+by increasing transparency and enabling governance.
+
+slide-25
+0:09:24.910 --> 0:09:27.460
+Final thought about disability,
+
+188
+0:09:27.460 --> 0:09:29.830
+there is a saying we shout from the rooftops
+
+189
+0:09:29.830 --> 0:09:31.700
+for all to hear.
+
+190
+0:09:31.700 --> 0:09:32.747
+I hope you do.
+
+191
+0:09:32.747 --> 0:09:35.157
+"Nothing about us without us"
+
+slide-26
+0:09:37.000 --> 0:09:39.110
+A final thought for you,
+
+193
+0:09:39.110 --> 0:09:42.583
+you need to be woke if you want your AI to be woke.
+
+slide-27
+0:09:46.720 --> 0:09:48.830
+Here's my contact info.
+
+195
+0:09:48.830 --> 0:09:53.250
+There's a QR code for my presentation and a link to it.
+
+196
+0:09:53.250 --> 0:09:57.280
+There's another link to AI Fairness resources.
+
+197
+0:09:57.280 --> 0:09:59.380
+I thank you for listening
+
+198
+0:09:59.380 --> 0:10:02.513
+to the little I know about machine learning fairness.
