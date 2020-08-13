@@ -235,11 +235,6 @@ a.ref {
   width: 100%;
 }
 
-.menu a:hover {
-  background: #111;
-  color: #fff;
-}
-
 .menu a:active {
   opacity: .75;
 }
@@ -247,9 +242,13 @@ a.ref {
 .menu a.active-tab {
   background: #fff;
   font-weight: bold;
-  pointer-events: none;
   border-top: solid thin #005a9c;
   border-bottom: solid thin #005a9c;
+}
+
+.menu a:link:hover {
+  background: #111;
+  color: #fff;
 }
 
 ul {
