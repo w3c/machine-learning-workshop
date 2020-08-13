@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sentence-splitter": "^3.2.0",
+    "webvtt-parser": "^2.1.2"
+  }
+}
