@@ -168,7 +168,7 @@ and that should be done dynamically
 0:02:41.620 --> 0:02:44.703
 in negotiation between agents.
 
-43
+slide-3
 0:02:47.000 --> 0:02:49.770
 We have built a platform called Tucana,
 
@@ -360,7 +360,7 @@ Probably more interesting for this workshop
 0:05:36.730 --> 0:05:38.780
 is the thinker minion.
 
-91
+slide-4
 0:05:38.780 --> 0:05:42.500
 I have here an example that we use for activity recognition
 
@@ -444,7 +444,7 @@ and we integrate it all together
 0:06:57.570 --> 0:07:01.143
 and push that into our TMIN.
 
-112
+slide-5
 0:07:02.510 --> 0:07:06.683
 Here is an example for the whole smart service for shopping,
 
@@ -520,7 +520,7 @@ and topology of a machine learning model
 0:08:14.370 --> 0:08:18.543
 to define smart service designs.
 
-131
+slide-6
 0:08:20.570 --> 0:08:23.593
 Okay, so let's wrap it up.
 
@@ -625,3 +625,6 @@ A buffering service for authentication
 that supports offline services would be really appreciated.
 
 
+slide-7
+0:09:54.403 --> 0:10:00.000
+...
