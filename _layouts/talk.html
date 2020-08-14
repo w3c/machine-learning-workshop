@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-      {{ page.title }} - Presentation at W3C Workshop on Web and Machine Learning
+      {{ page.title }}, by {{page.author}} {% if page.affiliation %} ({{page.affiliation}}) {% endif %}- Presentation at W3C Workshop on Web and Machine Learning
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../style.css">
@@ -12,7 +12,7 @@
     <meta name="twitter:site" content="@w3c">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content=
-    "{{page.title}}">
+    "{{page.title}}, by {{page.author}} {% if page.affiliation %} ({{page.affiliation}}) {% endif %}">
     <!-- TODO <meta property="og:description" content=
     ""> -->
     <meta property="og:image" content=
@@ -39,20 +39,8 @@
         {% endfor %}
         </ul>
       </nav>
-      <h2>{{page.title}}</h2>
-      <!--
-      <p class=buttons>
-          <button type=submit form=form formaction="@@@prev"
-          class="picto im-arrow-left">Previous: @@@prevtitle</button>
-
-          <a href="../presentations.html" class="picto im-data"
-          >All talks</a>
-
-          <button type=submit form=form formaction="@@@next">Next:
-          @@@nexttitle<span
-          class="picto im-arrow-right"></span></button>
-        </p>
-      -->
+      <h2>{{page.title}} - by {{page.author}}{% if page.affiliation %} ({{page.affiliation}}) {% endif %}</h2>
+        {% include horizontal-nav.html %}
     </header>
     {% assign shortname = page.shortname %}
     {% assign path = "../" %}
@@ -119,7 +107,7 @@
       {% include transcripts/{{shortname}}.html %}
       {% endif  %}
         </div><!-- id=player -->
-        <!-- @@@ talk navigation from above -->
+        {% include horizontal-nav.html %}
     </form>
     <div id=lexicon></div>
     </main>

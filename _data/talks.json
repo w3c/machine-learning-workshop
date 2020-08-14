@@ -1,17 +1,17 @@
 {
-  "ay_tensorflow": {
-    "title": "Fast client-side ML with TensorFlow.js",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
-    "author": "Ann Yuan",
-    "affiliation": "Google"
+  "pl_privacy": {
+    "title": "Privacy-first approach to machine learning",
+    "author": "Philip Laszkowicz",
+    "affiliation": "",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdor50iyc9lm07729dsrtpqu"
   },
-  "cc_directml": {
-    "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
-    "author": "Chai Chaoweeraprasit",
-    "affiliation": "Microsoft",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobv3o075l707723b397arm/thumbs/thumb-004.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobv3o075l707723b397arm"
+  "jm_tensorflowjs": {
+    "title": "Opportunities and Challenges for TensorFlow.js and beyond",
+    "author": "Jason Mayes",
+    "affiliation": "Google",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobxb1t766z0772f2e19nqo/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobxb1t766z0772f2e19nqo"
   },
   "dhm-web-platform-overview": {
     "title": "Web Platform: a 30,000 feet view / Web Platform and JS environment constraints",
@@ -20,13 +20,6 @@
     "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77h2f4st7077212hxr6v7/thumbs/thumb-001.jpeg",
     "video": "https://app.streamfizz.live/embed/ckdo77h2f4st7077212hxr6v7",
     "format": "shower"
-  },
-  "en_onnxjs": {
-    "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js",
-    "author": "Emma Ning",
-    "affiliation": "Microsoft",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobtrbx74rf0772xh98cjs1/thumbs/thumb-004.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobtrbx74rf0772xh98cjs1"
   },
   "fd-media-hooks": {
     "title": "Media processing hooks for the Web",
@@ -37,61 +30,26 @@
     "format": "shower",
     "url": "https://www.w3.org/2020/Talks/fd-media-processing/#"
   },
-  "jm_lr_mobile": {
-    "title": "Mobile-first web-based Machine Learning",
-    "author": "Josh Meyer & Lindy Rauchenstein",
-    "affiliation": "Artie",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4"
-  },
-  "jm_tensorflowjs": {
-    "title": "Opportunities and Challenges for TensorFlow.js and beyond",
-    "author": "Jason Mayes",
-    "affiliation": "Google",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobxb1t766z0772f2e19nqo/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobxb1t766z0772f2e19nqo"
-  },
-  "jmv_rnnoise": {
-    "title": "RNNoise, Neural Speech Enhancement, and the Browser",
-    "author": "Jean-Marc Valin",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocse0q7mt70772two73led/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocse0q7mt70772two73led"
-  },
-  "jr_fairness": {
-    "title": "AI (Machine Learning): Bias & Garbage In, Bias & Garbage Out",
-    "author": "John Rochford",
-    "affiliation": "University of Massachusetts Medical School",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdsucx1kuw5d077297vz9ob3/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdsucx1kuw5d077297vz9ob3"
-  },
-  "jt_ai-bias": {
-    "title": "We Count: Fair Treatment, Disability and Machine Learning",
-    "author": "Jutta Treviranus",
-    "affiliation": "OCAD University",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyfxs76fm0772ymgk0qfv/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobyfxs76fm0772ymgk0qfv"
-  },
-  "kd_speech": {
-    "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
-    "author": "Kelly Davis",
-    "affiliation": "Mozilla",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdone3vbbufj0772u1a3hudu/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdone3vbbufj0772u1a3hudu"
-  },
-  "lmc_musicians": {
-    "title": "Empowering Musicians and Artists using Machine Learning to Build Their Own Tools in the Browser",
-    "author": "Louis McCallum",
-    "affiliation": "University of London",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocqdzk7ljl07724aih3whc/thumbs/thumb-005.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocqdzk7ljl07724aih3whc"
-  },
-  "ms_ab_wasinn": {
-    "title": "Introducing WASI-NN",
-    "author": "Mingqiu Sun & Andrew Brown",
+  "nh_webnn": {
+    "title": "Access purpose-built ML hardware with Web Neural Network API",
+    "author": "Ningxin Hu",
     "affiliation": "Intel",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobysfk76ns0772a6u4dbq5/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobysfk76ns0772a6u4dbq5"
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo75ck44sip0772u0gj0kog/thumbs/thumb-006.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdo75ck44sip0772u0gj0kog"
+  },
+  "jb_model": {
+    "title": "A proposed web standard to load and run ML models on the web",
+    "author": "Jonathan Bingham",
+    "affiliation": "Google",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocr5ma7m0y0772d7i5jkub/thumbs/thumb-002.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdocr5ma7m0y0772d7i5jkub"
+  },
+  "cc_directml": {
+    "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
+    "author": "Chai Chaoweeraprasit",
+    "affiliation": "Microsoft",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobv3o075l707723b397arm/thumbs/thumb-004.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobv3o075l707723b397arm"
   },
   "mw-androidnn": {
     "title": "Accelerate ML inference on mobile devices with Android NNAPI",
@@ -100,35 +58,40 @@
     "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo78esr4t0j0772i5r7h1td/thumbs/thumb-001.jpeg",
     "video": "https://app.streamfizz.live/embed/ckdo78esr4t0j0772i5r7h1td"
   },
-  "nh_webnn": {
-    "title": "Access purpose-built ML hardware with Web Neural Network API",
-    "author": "Ningxin Hu",
+  "yh-xq-dnn": {
+    "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",
+    "author": "Yakun Huang & Xiuquan Qiao",
+    "affiliation": "BPTU",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyv0p76q107720jc58j6h/thumbs/thumb-002.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobyv0p76q107720jc58j6h"
+  },
+  "wm_collaborative-learning": {
+    "title": "Collaborative Learning",
+    "author": "Wolfgang Maß",
+    "affiliation": "DFKI",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobw6x0764l07729krgy57d/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobw6x0764l07729krgy57d"
+  },
+  "ms_ab_wasinn": {
+    "title": "Introducing WASI-NN",
+    "author": "Mingqiu Sun & Andrew Brown",
     "affiliation": "Intel",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo75ck44sip0772u0gj0kog/thumbs/thumb-006.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo75ck44sip0772u0gj0kog"
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobysfk76ns0772a6u4dbq5/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobysfk76ns0772a6u4dbq5"
   },
-  "op_content-filtering": {
-    "title": "Machine Learning on the Web for content filtering applications",
-    "author": "Oleksandr Paraska",
-    "affiliation": "eyeo",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo73x214sg70772y38lkixw/thumbs/thumb-003.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo73x214sg70772y38lkixw"
+  "ay_tensorflow": {
+    "title": "Fast client-side ML with TensorFlow.js",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
+    "author": "Ann Yuan",
+    "affiliation": "Google"
   },
-  "pl_privacy": {
-    "title": "Privacy-first approach to machine learning",
-    "author": "Philip Laszkowicz",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor50iyc9lm07729dsrtpqu"
-  },
-  "pm_visualization": {
-    "title": "Exploring unsupervised image segmentation results",
-    "author": "Piotr Migdal & Bartłomiej Olechno",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
-    "format": "shiny",
-    "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"
+  "en_onnxjs": {
+    "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js",
+    "author": "Emma Ning",
+    "affiliation": "Microsoft",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobtrbx74rf0772xh98cjs1/thumbs/thumb-004.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobtrbx74rf0772xh98cjs1"
   },
   "pw_paddlejs": {
     "title": "Paddle.js - Machine Learning for the Web",
@@ -145,6 +108,43 @@
     "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
     "noslide": true
   },
+  "op_content-filtering": {
+    "title": "Machine Learning on the Web for content filtering applications",
+    "author": "Oleksandr Paraska",
+    "affiliation": "eyeo",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo73x214sg70772y38lkixw/thumbs/thumb-003.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdo73x214sg70772y38lkixw"
+  },
+  "pm_visualization": {
+    "title": "Exploring unsupervised image segmentation results",
+    "author": "Piotr Migdal & Bartłomiej Olechno",
+    "affiliation": "",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
+    "format": "shiny",
+    "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/#"
+  },
+  "jm_lr_mobile": {
+    "title": "Mobile-first web-based Machine Learning",
+    "author": "Josh Meyer & Lindy Rauchenstein",
+    "affiliation": "Artie",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/thumb-002.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4"
+  },
+  "jt_ai-bias": {
+    "title": "We Count: Fair Treatment, Disability and Machine Learning",
+    "author": "Jutta Treviranus",
+    "affiliation": "OCAD University",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyfxs76fm0772ymgk0qfv/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdobyfxs76fm0772ymgk0qfv"
+  },
+  "jr_fairness": {
+    "title": "AI (Machine Learning): Bias & Garbage In, Bias & Garbage Out",
+    "author": "John Rochford",
+    "affiliation": "University of Massachusetts Medical School",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdsucx1kuw5d077297vz9ob3/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdsucx1kuw5d077297vz9ob3"
+  },
   "tp_interactive_music": {
     "title": "Interactive ML - Powered Music Applications on the Web",
     "author": "Tero Parviainen",
@@ -153,19 +153,12 @@
     "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
     "noslide": true
   },
-  "wm_collaborative-learning": {
-    "title": "Collaborative Learning",
-    "author": "Wolfgang Maß",
-    "affiliation": "DFKI",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobw6x0764l07729krgy57d/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobw6x0764l07729krgy57d"
-  },
-  "yh-xq-dnn": {
-    "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",
-    "author": "Yakun Huang & Xiuquan Qiao",
-    "affiliation": "BPTU",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyv0p76q107720jc58j6h/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobyv0p76q107720jc58j6h"
+  "kd_speech": {
+    "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
+    "author": "Kelly Davis",
+    "affiliation": "Mozilla",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdone3vbbufj0772u1a3hudu/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdone3vbbufj0772u1a3hudu"
   },
   "zc_expression": {
     "title": "A virtual character web meeting with expression enhance power by machine learning",
@@ -173,5 +166,19 @@
     "affiliation": "Netease",
     "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocpfld7kwy0772xhma7lrs/thumbs/thumb-002.jpeg",
     "video": "https://app.streamfizz.live/embed/ckdocpfld7kwy0772xhma7lrs"
+  },
+  "jmv_rnnoise": {
+    "title": "RNNoise, Neural Speech Enhancement, and the Browser",
+    "author": "Jean-Marc Valin",
+    "affiliation": "",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocse0q7mt70772two73led/thumbs/thumb-001.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdocse0q7mt70772two73led"
+  },
+  "lmc_musicians": {
+    "title": "Empowering Musicians and Artists using Machine Learning to Build Their Own Tools in the Browser",
+    "author": "Louis McCallum",
+    "affiliation": "University of London",
+    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocqdzk7ljl07724aih3whc/thumbs/thumb-005.jpeg",
+    "video": "https://app.streamfizz.live/embed/ckdocqdzk7ljl07724aih3whc"
   }
 }

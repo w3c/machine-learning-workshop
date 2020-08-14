@@ -1,0 +1,13 @@
+        <p class=buttons>
+          {% if page.prevlink %}
+          <button type=submit form=form formaction="{{page.prevlink}}"
+          class="picto im-arrow-left">Previous: {{page.prevtitle}}</button>
+          {% endif %}
+          <a href="../presentations.html" class="picto im-data"
+          >All talks</a>
+          {% if page.nextlink %}
+          <button type=submit form=form formaction="{{page.nextlink}}">Next:
+          {{page.nexttitle}}<span
+                         class="picto im-arrow-right"></span></button>
+          {% endif %}
+        </p>
