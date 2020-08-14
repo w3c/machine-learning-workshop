@@ -25,7 +25,7 @@ function annotateSentence(sentence) {
 for (let shortname of Object.keys(talks)) {
   const {cues} = parser.parse(fs.readFileSync("talks/captions/" + shortname + ".vtt", 'utf-8'));
 
-  const sentences = splitter.split(cues.map(c => c.text.replace('"','')).join(' '))
+  const sentences = splitter.split(cues.map(c => c.text.replace(/^slide [0-9]+$/i, '').replace('"','')).join(' '))
         .map(s => s.raw.trim()).filter(s => s);
 
   const divs = [];
