@@ -48,6 +48,9 @@
     if (timecodes[0] == 0) timecodes[0] = 0.01;
   }
 
+  // Activate and announce the first slide. (Assumes there is at least one.)
+  syncelts[0].classList.add("active");
+  announce(0);
 
 
   // announce -- show the slide label in the output element

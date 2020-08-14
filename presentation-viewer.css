@@ -1,4 +1,18 @@
-.button {-webkit-appearance: button;
+      @import "https://www.w3.org/2019/09/TPAC-template/fonts/iconmonstr-iconic-font.css";
+
+      /* Miscellaneous icons. Add something like class="picto im-info" to an
+	 element to prefix the element with the im-info icon from the
+	 iconmonstr-iconic font. */
+      .picto::before {font-family: iconmonstr-iconic-font;
+	font-size-adjust: 1.0; line-height: 0.6; font-style: normal;
+	display: inline-block; margin-right: 0.33em;
+	vertical-align: middle; text-indent: 0;
+	text-rendering: auto; -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale}
+      li.picto {list-style: none; padding-left: 0; margin-left: 0}
+
+      /* Elements with class=button approximate a native <button>. */
+      .button {-webkit-appearance: button;
         appearance: button; text-decoration: none; cursor: default;
         color: buttontext; letter-spacing: normal;
         word-spacing: normal; display: inline-block;
@@ -11,60 +25,72 @@
       .button.picto, button.picto {padding-right: 4px}
       #sync {position: relative; z-index: 1; width: 1em;
         margin: 0 -1.5em 0 0.5em}
-      #player {margin-top: 1.2rem}
+      #player {margin-top: 1.2rem;
+        border-top: 1px solid transparent /* Trick to stop margin collapsing */}
       .buttons button {font: inherit; font-weight: 700; cursor: pointer}
-      .slide:target {outline: none} /* No big green outline */
-      section:nth-of-type(2n+2) .button:focus,
-      section:nth-of-type(2n+2) button:focus {outline-color: white}
+      .slide:target {outline: none}
 
       iframe {width: 100%; height: 100%}
       #video1 {overflow: hidden} /* Force border-radius on the video */
 
-      output button {cursor: pointer}
+      /* output button {cursor: pointer} */
+      label.button::before {content: none} /* Undo a rule in style.css */
 
-      /* On small screens, the slides are scaled down. */
-      .slide {font-size: 2.32vw}
-      @media (min-aspect-ratio: 12/9) { .slide {font-size: 2.03vw} }
-      @media (min-aspect-ratio: 18/9) { .slide {font-size: 3.3vh} }
-      #video1, #audio, #slidenr {width: 88vw; margin: 0 0 1rem 0}
-      #video1 {height: 49.5vw}
-      #slidenr, #caption {box-sizing: border-box}
+      .comment, .progress {display: none}
+      .slide {width: 40.889em; max-width: 100%; height: 23em; /* Ratio 16:9 */
+	/* Add a border, because the slides are white: */
+	overflow: hidden; box-sizing: border-box; border: 1px solid;
+	display: block; margin: 0 0 1rem 0; /*box-shadow: none*/}
+      .slide canvas {vertical-align: bottom}
 
-      #player, #slides {position: relative}
-      #player::after {content: " "; display: block; height: 0; clear: both}
-      #video1, #slidenr, #caption, #cue {border-radius: 0.5em}
+      summary::before {font-size: 1em; margin-left: 0}
+
+      /* Normal layout (medium or wide window), with the video about half
+	 the width of the slides and shown to the right of the slides,
+	 slightly overlapping. */
+      #slidenr, #caption {box-sizing: border-box; line-height: 1.3}
+      #video1, #slidenr, #caption, #cue, .slide {border-radius: 0.5em}
       #video1, #audio {border: none}
-      #audio {display: block; height: 54px}
       #slidenr {display: block; background: hsla(204,69%,15%,0.8);
                 text-align: center}
       #slidenr a:link { color: white;}
       #caption, #prevnext {display: none}
-      #caption {height: 3.2em}
-      #caption, #cue {background: hsl(204,69%,16%)}
+      #caption {height: 3.2em /* Room for two lines and padding */}
+      #caption, #cue {background:hsl(204,69%,16%)}
       #caption, #slidenr {text-align: center; padding: 0.3em;
-                          margin: 0 0 1rem 0; color: white;}
-      #cue {display: block; margin: -0.3em; padding: 0.3em; font-size: 1.4em;}
+	margin: 0 0 1em 0; color: white}
+      #cue {display: block; margin: -0.3em; padding: 0.3em; min-height: 3.2em}
       #cue[lang|=zh] {font-size: 110%; min-height: 1.6em}
       #cuelang {float: right}
-      .comment, .progress {display: none}
-      .slide {width: 40.889em;
-        height: auto; min-height: 23em; /* AC-2020-slides.css uses rem */
-        display: block; margin: 0 0 1rem 0; box-shadow: none}
-      .slide li {padding-left: 0}
-      .slide table {font-size: 100%} /* Undo 0.9em in tpac2.css */
+      #player {clear: both}
+      #player, #slides {position: relative}
+      #player::after {content: " "; display: block; height: 0; clear: both}
+      #slides, #caption {width: 40.889em; max-width: 100%}
+      #slidenr, #video1 {margin: 0; display: block; position: fixed;
+	right: 1em; z-index: 2; width: 20em}
+      #video1 {bottom: 3.6em; height: 11.25em /* 20em * 9/16 */;
+        max-height: 100%}
+      #slidenr {bottom: 1em}
 
-      #talk details {margin-bottom: 2em}
-      summary::before {font-size: 1em; margin-left: 0}
-      
-      /* Tables. Set the defaults explicitly, to override tpac2.css */
-      #slides {hyphens: manual}
-      #slides table {background: none; display: table; border-spacing: 2px;
-        width: auto;
-        border-collapse: separate; box-sizing: border-box; text-indent: 0}
-      #slides td, #slides th {border: none; padding: 1px; height: auto;
-        white-space: normal; width: auto;
-        display: table-cell; vertical-align: inherit; text-align: unset}
-      #slides th {text-align: center}
+      /* If sticky positioning is supported, use that instead of fixed. */
+      @supports (position: sticky) or (position: -webkit-sticky) {
+	body {overflow: visible}
+	#slidenr, #video1 {position: -webkit-sticky; position: sticky;
+	  right: auto; bottom: auto; left: 100%}
+	#video1 {top: 1em; margin-top: 1em;
+	  margin-bottom: -12.25em /* Negative of height + margin-top */}
+	#slidenr {margin-top: 13.25em; /* The height of the video + margins */
+	  top: 13.25em; /* Top of the video + height of the video + margins */
+	  margin-bottom: -15.15em /* -margin-top - line-height - padding */}
+      }
+
+      /* In synchronized mode, the video is absolutely positioned next to
+	 the slide (actually in the same place as with sticky positioning,
+	 if that is supported). */
+      #sync:checked ~ #player #slidenr, #sync:checked ~ #player #video1 {
+	position: absolute; right: 0; left: auto; bottom: auto}
+      #sync:checked ~ #player #video1 {top: 1em; margin: 0}
+      #sync:checked ~ #player #slidenr {top: 13.25em; margin: 0}
 
       /* In synchronized mode, show only the active slide. */
       #sync:checked ~ #player .slide {position: absolute; top: 0; left: 0;
@@ -91,137 +117,14 @@
       /* Turn off transitions on A inside slides in synchronized mode. */
       #sync:checked ~ #player .slide a {transition: none}
 
-      /* When the section has 2rem margins. */
-      @media (min-width: 46em) and (max-aspect-ratio: 18/9) {
-        .slide {/* A section has borders of 2rem, so its width is
-          (100vw - 4rem) minus whatever the browser scrollbar needs. If we
-          estimate the scrollbar at 15px, then to make the slide (which is
-          40.889em by 23em) fill exactly that width, the slide font size
-          must be as follows: */
-          font-size: 1rem; font-size: calc((100vw - 4rem - 15px) * 9/16/23);
-          height: 23rem; height: calc((100vw - 4rem - 15px) * 9/16);
-          overflow: hidden}
-      }
 
-      /* When the section has wide margins. */
-      @media (min-width: 56em) and (max-aspect-ratio: 18/9) {
-        #slides, #caption, #audio, #video1, #slidenr {width: 40.889em}
-        #video1 {height: 23em}
-        .slide {font-size: 1em; height: 23em; width: 40.889em}
-      }
-
-      /* If the window is wide enough for a slide at its normal size
-      and a bit more, show the video on the right. At small window
-      sizes, the video is 22rem wide and overlaps the slides a bit. As
-      the window grows, the video overlaps less.
-
-      At 73em, there is no overlap anymore and the video can start to grow.
-
-      At 104em, the video is the same size as the slides and it can
-      stops to grow. The gap between the slides and the video
-      increases as the window grows further.
-
-      At 107em, the gap is wide enough and the margin between the
-      #player element and the left window edge increases
-      instead. (I.e., the ‘left’ of the #player no longer increases,
-      but stays at -25.5rem relative to the section content.)
-      */
-
-      @media (min-width: 62em) {
-        #slides, #caption {width: 40.889em}
-        .slide {font-size: 1em; height: 23em; width: 40.889em}
-
-        /* When video and slides are not synchronized, the video is fixed. */
-        #slidenr, #video1, #audio {margin: 0; position: fixed;
-          right: 1em; z-index: 2; width: 22rem; width: calc(45.6rem - 23em)}
-        #video1 {height: 10.125rem; height: calc((45.6rem - 23em) * 9/16);
-          max-height: 100%}
-        #slidenr {bottom: 1em}
-        #video1, #audio {bottom: 3.5em}
-        #player {left: calc(28rem - 50vw);
-          width: calc(100% + 2 * (50vw - 28rem))}
-
-        /* In synchronized mode, the video may partly overlap the slide. */
-        #sync:checked ~ #player #slidenr,
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1 {position: absolute;
-          left: 32.5em; left: calc(32.5em + 100vw - 62rem);
-          bottom: auto; right: auto; top: 8em}
-        #sync:checked ~ #player #slidenr {
-          margin-top: calc(1rem + (45.6rem - 23em) * 9/16)}
-        #sync:checked ~ #player #audio + #slidenr {
-          margin-top: calc(1rem + 54px)}
-
-        #caption, #slidenr {height: 1.9em}
-
-        /* If sticky positioning is supported, use that instead of fixed. */
-        @supports (position: sticky) or (position: -webkit-sticky) {
-          body {overflow: visible}
-          #slidenr, #video1, #audio {position: -webkit-sticky; position: sticky;
-            right: auto; bottom: auto; left: 100%; z-index: 2}
-          #video1 {top: 0.5em; margin-bottom: calc((23em - 45.6rem) * 9/16)}
-          #audio {top: 0.5em; margin-bottom: -54px}
-          #slidenr {margin-top: calc(1rem + (45.6rem - 23em) * 9/16);
-            top: calc(1.5rem + (45.6rem - 23em) * 9/16);
-            margin-bottom: calc(-1rem - 1.9em - (45.6rem - 23em) * 9/16)}
-          #audio + #slidenr {margin-top: calc(1rem + 54px);
-            top: calc(1rem + 0.5em + 54px);
-            margin-bottom: calc(-1rem - 1.9em - 54px)}
-        }
-      }
-
-      @media (min-width: 73em) {
-        #slidenr, #video1, #audio {width: 16.9332rem;
-          width: calc(100vw - 6rem - 40.889em)}
-        #video1 {height: 9.524925rem;
-          height: calc((100vw - 6rem - 40.889em) * 9/16)}
-        #sync:checked ~ #player #slidenr,
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1 {left: 50rem;
-          left: calc(32.5em + 11rem);
-          top: calc(32.2rem - 31vw)}
-        #sync:checked ~ #player #slidenr {
-          margin-top: calc(1rem + (100vw - 6rem - 40.889em) * 9/16)}
-
-        @supports (position: sticky) or (position: -webkit-sticky) {
-          #video1 {margin-bottom: calc(0em - (100vw - 6rem - 40.889em) * 9/16)}
-          #slidenr {margin-top: calc(1rem + (100vw - 6rem - 40.889em) * 9/16);
-            top: calc(1.5rem + (100vw - 6rem - 40.889em) * 9/16);
-            margin-bottom: calc(-1rem - 1.9em - (100vw - 6rem - 40.889em) * 9/16)}
-        }
-      }
-
-      @media (min-width: 104em) {
-        #slidenr, #audio, #video1 {width: 40.889em}
-        #video1 {height: 23em}
-        #sync:checked ~ #player #slidenr,
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1 {width: 40.889em}
-        #sync:checked ~ #player #video1 {height: 23em}
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1,
-        #sync:checked ~ #player #slidenr {top: 0; left: calc(100vw - 45em)}
-        #sync:checked ~ #player #slidenr {margin-top: calc(1rem + 23em)}
-
-        @supports (position: sticky) or (position: -webkit-sticky) {
-          #video1 {margin-bottom: -23em}
-          #slidenr {margin-top: calc(1rem + 23em);
-            top: calc(1.5rem + 23em);
-            margin-bottom: calc(-1rem - 1.9em - 23em)}
-        }
-      }
-
-      /* If the window is large, put the slide and the video side by side. */
-      @media (min-width: 107em) {
-        #player {left: -25.5rem}
-        #sync:checked ~ #player #slidenr,
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1 {left: 53rem}
-        #sync:checked ~ #player #audio,
-        #sync:checked ~ #player #video1,
-        #sync:checked ~ #player #slidenr {top: 0em}
-
-        @supports (position: sticky) or (position: -webkit-sticky) {
-          #player {width: calc(100% + 51rem)}
-        }
+      /* If the body is narrow, leave the video above the slides instead */
+      @media (max-width: 76em) {
+	#sync:checked ~ #player #slidenr, #slidenr,
+	#sync:checked ~ #player #video1, #video1 {position: static;
+          margin: 1em auto}
+	#slides {margin-left: auto; margin-right: auto}
+	.slide {width: 100%; height: 46.9vw;
+	  width: calc(100vw - 15px - 6em); /* 15px = estimated scrollbar */
+	  height: calc((100vw - 15px - 6em) * 9/16)}
       }

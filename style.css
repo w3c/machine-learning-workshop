@@ -8,11 +8,11 @@
 
 html,
 body {
-  background: #fff;
+  background: #fafafa;
 }
 
 html {
-  font-size: 14px;
+  /*font-size: 14px;*/
   padding: 3em;
 }
 
@@ -169,6 +169,7 @@ a.ref {
   width: 19em;
   z-index: 2;
   background-color: #f2fdff;
+  margin-bottom: 1em;
 }
 
 .box + .box {
