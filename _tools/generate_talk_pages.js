@@ -5,18 +5,50 @@ const toSlug = title => title.replace(/([A-Z])/g, s => s.toLowerCase())
         .replace(/[^a-z0-9]/g, '_')
         .replace(/_+/g, '_');
 
-const shortnames = Object.keys(talks);
+let sectionNum = 0;
+let prevlink = "", prevtitle = "";
+for (let section of talks) {
+  sectionNum++;
+  const shortnames = Object.keys(section);
+  let sectionContent = `<dl class="talks">` ;
 for(let i = 0; i < shortnames.length; i++) {
   const shortname = shortnames[i];
-  const talk = talks[shortname];
+  const talk = section[shortname];
+
+  sectionContent += `<dt>${talk.title}</dt>`;
+  sectionContent += `<dd><dl>`;
+  sectionContent += `<dt>Speaker</dt>`;
+  sectionContent += `<dd>${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""}</dd>`;
+  if (talk.bio) {
+    sectionContent += `<dd>${talk.bio}</dd>`;
+  }
+  if (talk.abstract) {
+    sectionContent += `<dt>Speaker</dt>`;
+    sectionContent += `<dd>${talk.abstract}</dd>`;
+  }
+  sectionContent += "</dl></dd>\n"; 
+
+  if (!talk.video) continue;
   const format = talk.format || "pdf";
   const slidesurl = talk.noslide ? "" : talk.url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf';
   const slug = toSlug(talk.title)
-  console.log(i, shortnames[i], shortnames[i-1]);
-  const prevlink = i > 0 ? toSlug(talks[shortnames[i-1]].title) + ".html" : "";
-  const prevtitle = i> 0 ? talks[shortnames[i-1]].title : "";
-  const nextlink = i < shortnames.length - 1 ? toSlug(talks[shortnames[i + 1]].title) + ".html" : "";
-  const nexttitle = i < shortnames.length - 1 ? talks[shortnames[i + 1]].title :  "";
+  let nextTalk;
+  let cur = i;
+  let sectionCur = sectionNum - 1;
+  while (true) {
+    cur++;
+    if (cur < Object.keys(talks[sectionCur]).length ) {
+      nextTalk = talks[sectionCur][Object.keys(talks[sectionCur])[cur]];
+      if (nextTalk && nextTalk.video) break;
+    } else if ( sectionCur < talks.length) {
+      sectionCur++;
+      cur = -1;
+    } else {
+      break
+    }
+  }
+  const nextlink =  nextTalk ? toSlug(nextTalk.title) + ".html" : "";
+  const nexttitle = nextTalk ? nextTalk.title : "";
   const content = `---
 title: "${talk.title}"
 author: ${talk.author} (${talk.affiliation})
@@ -33,6 +65,11 @@ nexttitle: "${nexttitle}"
 ---
 `;
 
-    fs.writeFileSync("talks/" + slug + ".html", content, {encoding: "utf-8"});
+  fs.writeFileSync("talks/" + slug + ".html", content, {encoding: "utf-8"});
+  prevlink = toSlug(talk.title) + ".html";
+  prevtitle = talk.title;
 }
+  sectionContent += "</dl>";
+  fs.writeFileSync("_includes/talk-list" + sectionNum + ".html", sectionContent, {encoding: "utf-8"});
 
+}

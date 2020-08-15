@@ -2,7 +2,7 @@ const fs = require("fs");
 const WebVTTParser = require("webvtt-parser").WebVTTParser;
 const parser = new WebVTTParser();
 const splitter = require("sentence-splitter");
-const talks = require("../_data/talks.json");
+const talks = require("../_data/talks.json").reduce((acc, obj) => Object.assign(acc, obj), {});
 const lexicon = require("../lexicon.json");
 
 const linkableTerms = Object.keys(lexicon);
@@ -23,7 +23,12 @@ function annotateSentence(sentence) {
 }
 
 for (let shortname of Object.keys(talks)) {
-  const {cues} = parser.parse(fs.readFileSync("talks/captions/" + shortname + ".vtt", 'utf-8'));
+  let cues;
+  try {
+    ({cues} = parser.parse(fs.readFileSync("talks/captions/" + shortname + ".vtt", 'utf-8')));
+  } catch (e) {
+    continue;
+  }
 
   const sentences = splitter.split(cues.map(c => c.text.replace(/^slide [0-9]+$/i, '').replace('"','')).join(' '))
         .map(s => s.raw.trim()).filter(s => s);
@@ -44,7 +49,7 @@ for (let shortname of Object.keys(talks)) {
       if (sentence.startsWith(c.text)) {
         break;
       }
-      if (!sentence.match(/^slide [a-z0-9]*\.?$/i)) {
+      if (!sentence.match(/^slide [a-z0-9]+\.?$/i)) {
         div.push(annotateSentence(sentence));
       }
       sentencesCursor++;
