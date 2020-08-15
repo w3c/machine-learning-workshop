@@ -87,9 +87,9 @@
   "embedUrl": "{{page.videourl}}"}
 </script>
 
-          <div id="video1"><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
-          picture-in-picture" allowfullscreen="" width="640" height="360" frameborder="0"></iframe></div>
-        {% if page.slidesurl != "" %}
+          <div {% if page.slidesurl %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
+          picture-in-picture" allowfullscreen="" {% if page.slidesurl %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
+        {% if page.slidesurl %}
           <output id="slidenr" aria-live="polite"><a href="#start">Slide 1 of 40</a></output>
           
           <div id="slides" class="fade-in" role="region" aria-live="off" aria-label="Slide container">

@@ -128,3 +128,4 @@
 	  width: calc(100vw - 15px - 6em); /* 15px = estimated scrollbar */
 	  height: calc((100vw - 15px - 6em) * 9/16)}
       }
+      iframe.fw { width: 100%; height: 400px;}
