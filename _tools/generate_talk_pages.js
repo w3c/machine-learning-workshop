@@ -15,10 +15,11 @@ for(let i = 0; i < shortnames.length; i++) {
   const shortname = shortnames[i];
   const talk = section[shortname];
   const slug = toSlug(talk.title)
-
   if (talk.video) {
+    const duration = talk.duration.split(':')[0].replace(/^0/, '');
+
     sectionContent += `<dt><a href="talks/${slug}.html">${talk.title}</a></dt>`;
-    sectionContent += `<dd><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="" width=200 class=tn> ${talk.duration.split(':')[0]} minutes presentation</a></dd>`;
+    sectionContent += `<dd><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="" width=200 class=tn> ${duration} minutes presentation</a></dd>`;
   } else {
     sectionContent += `<dt>${talk.title}</dt>`;
   }
@@ -45,7 +46,7 @@ for(let i = 0; i < shortnames.length; i++) {
     if (cur < Object.keys(talks[sectionCur]).length ) {
       nextTalk = talks[sectionCur][Object.keys(talks[sectionCur])[cur]];
       if (nextTalk && nextTalk.video) break;
-    } else if ( sectionCur < talks.length) {
+    } else if ( sectionCur < talks.length - 1) {
       sectionCur++;
       cur = -1;
     } else {
@@ -54,6 +55,7 @@ for(let i = 0; i < shortnames.length; i++) {
   }
   const nextlink =  nextTalk ? toSlug(nextTalk.title) + ".html" : "";
   const nexttitle = nextTalk ? nextTalk.title : "";
+  const duration_so = "PT" + talk.duration.split(":")[0] + "M" + talk.duration.split(":")[1] + "S";
   const content = `---
 title: "${talk.title}"
 author: ${talk.author} (${talk.affiliation})
@@ -67,6 +69,7 @@ prevlink: ${prevlink}
 prevtitle: "${prevtitle}"
 nextlink: ${nextlink}
 nexttitle: "${nexttitle}"
+duration_so: "${duration_so}"
 ---
 `;
 

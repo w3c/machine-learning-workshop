@@ -1,298 +1,299 @@
 [
   {
     "pl_privacy": {
-    "title": "Privacy-first approach to machine learning",
-    "author": "Philip Laszkowicz",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor50iyc9lm07729dsrtpqu",
+      "title": "Privacy-first approach to machine learning",
+      "author": "Philip Laszkowicz",
+      "affiliation": "",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdor50iyc9lm07729dsrtpqu",
       "abstract": "The presentation will discuss how developers should be building modern web apps and what is missing in the existing ecosystem to make privacy-first ML possible including the challenges with WASI, modular web architecture, and localized analytics.",
       "duration": "11:05"
-  },
-  "ba_realtime-media": {
-    "title": "Real-time ML Process of media in-browser",
-    "author": "Bernard Aboba",
-    "affiliation": "Microsoft",
-    "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU."
-  },
-  "cb_hardware": {
-    "title": "ML hardware advancements: leveraging for performance while retaining portability",
-    "author": "Cormac Brick",
-    "affiliation": "Intel",
-    "bio": "Cormac leads Edge Inference IP architecture at Intel with a focus on both silicon and software. Cormac joined Intel as part of Movidius Acquisition in 2016 where he lead Machine Intelligence.",
-    "abstract": "There are a lot of interesting innovations coming in hardware technology, including hardware acceleration, weight compression, weight sparsity, low precision."
-  },
-  "jm_tensorflowjs": {
-    "title": "Opportunities and Challenges for TensorFlow.js and beyond",
-    "author": "Jason Mayes",
-    "affiliation": "Google",
-    "bio": "Developer Advocate for TensorFlow.js",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobxb1t766z0772f2e19nqo/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobxb1t766z0772f2e19nqo",
-    "abstract": "This talk will give a brief overview of TensorFlow.js, how it helps developers build ML-powered applications along with examples of work that is pushing the boundaries of the web, and discuss future directions for the web tech stack to help overcome barriers to ML in the web the TF.js community has encountered.",
-    "duration": "10:11"
-  },
-  "ym_how-far": {
-    "title": "Moving Deep Learning into Web Browser: How Far Can We Go?",
-    "author": "Yun Ma",
-    "bio": "Yun Ma is a postdoc researcher in School of Software, Tsinghua University, China. He got his Ph.D. degree in Jun. 2017 from Peking University. His research interests lie in mobile computing, Web systems, and services computing. He has published several papers on WWW and ACM Trans on the Web. Recently he focuses on how to enable browsers to support deep learning tasks better.",
-    "abstract": "Recently, several JavaScript-based deep learning frameworks have emerged, making it possible to perform deep learning tasks directly in browsers. However, little is known on what and how well we can do with these frameworks for deep learning in browsers. In this talk, I’ll present our recent empirical study of deep learning in browsers. We survey 7 most popular JavaScript-based deep learning frameworks, investigating to what extent deep learning tasks have been supported in browsers so far. Then we measure the performance of different frameworks when running different deep learning tasks. Finally, we dig out the performance gap between deep learning in browsers and on native platforms by comparing the performance of TensorFlow.js and TensorFlow in Python. Our findings could help application developers, deep-learning framework vendors and browser vendors to improve the efficiency of deep learning in browsers. The content of this talk was published in WWW 2019."
-  }
+    },
+    "ba_realtime-media": {
+      "title": "Real-time ML Process of media in-browser",
+      "author": "Bernard Aboba",
+      "affiliation": "Microsoft",
+      "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU."
+    },
+    "cb_hardware": {
+      "title": "ML hardware advancements: leveraging for performance while retaining portability",
+      "author": "Cormac Brick",
+      "affiliation": "Intel",
+      "bio": "Cormac leads Edge Inference IP architecture at Intel with a focus on both silicon and software. Cormac joined Intel as part of Movidius Acquisition in 2016 where he lead Machine Intelligence.",
+      "abstract": "There are a lot of interesting innovations coming in hardware technology, including hardware acceleration, weight compression, weight sparsity, low precision."
+    },
+    "jm_tensorflowjs": {
+      "title": "Opportunities and Challenges for TensorFlow.js and beyond",
+      "author": "Jason Mayes",
+      "affiliation": "Google",
+      "bio": "Developer Advocate for TensorFlow.js",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobxb1t766z0772f2e19nqo/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdobxb1t766z0772f2e19nqo",
+      "abstract": "This talk will give a brief overview of TensorFlow.js, how it helps developers build ML-powered applications along with examples of work that is pushing the boundaries of the web, and discuss future directions for the web tech stack to help overcome barriers to ML in the web the TF.js community has encountered.",
+      "duration": "10:11"
+    },
+    "ym_how-far": {
+      "title": "Moving Deep Learning into Web Browser: How Far Can We Go?",
+      "author": "Yun Ma",
+      "bio": "Yun Ma is a postdoc researcher in School of Software, Tsinghua University, China. He got his Ph.D. degree in Jun. 2017 from Peking University. His research interests lie in mobile computing, Web systems, and services computing. He has published several papers on WWW and ACM Trans on the Web. Recently he focuses on how to enable browsers to support deep learning tasks better.",
+      "abstract": "Recently, several JavaScript-based deep learning frameworks have emerged, making it possible to perform deep learning tasks directly in browsers. However, little is known on what and how well we can do with these frameworks for deep learning in browsers. In this talk, I’ll present our recent empirical study of deep learning in browsers. We survey 7 most popular JavaScript-based deep learning frameworks, investigating to what extent deep learning tasks have been supported in browsers so far. Then we measure the performance of different frameworks when running different deep learning tasks. Finally, we dig out the performance gap between deep learning in browsers and on native platforms by comparing the performance of TensorFlow.js and TensorFlow in Python. Our findings could help application developers, deep-learning framework vendors and browser vendors to improve the efficiency of deep learning in browsers. The content of this talk was published in WWW 2019."
+    }
   }    ,
-    {
-  "dhm-web-platform-overview": {
-    "title": "Web Platform: a 30,000 feet view / Web Platform and JS environment constraints",
-    "author": "Dominique Hazaël-Massieux",
-    "bio": "    Dominique is part of the full-time technical staff employed by W3C to animate the Web standardization work. He is in particular responsible for the work on WebRTC, WebXR and Web & Networks, led the effort to start a WebTransport Working Group and is one of the organizers of the Web and Machine Learning workshop.",
-    "affiliation": "W3C",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77h2f4st7077212hxr6v7/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo77h2f4st7077212hxr6v7",
-    "format": "shower",
-    "abstract": "    Background talk on the specificities of the Web browser as a development platform.",
-    "duration": "10:11"
-  },
-  "fd-media-hooks": {
-    "title": "Media processing hooks for the Web",
-    "author": "François Daoust",
-    "bio": "François is part of the full-time technical staff employed by W3C and supervizes there the work related to media technologies.",
-    "affiliation": "W3C",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo86r7h5725077210nfqpeg/thumbs/thumb-007.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo86r7h5725077210nfqpeg",
-    "format": "shower",
-    "url": "https://www.w3.org/2020/Talks/fd-media-processing/#",
-    "abstract": "This talk will provide an overview of existing, planned or possible hooks for processing muxed and demuxed media (audio and video) in real time in Web applications, and rendering the results. It will also present high-level requirements for efficient media processing.",
-    "duration": "12:03"
-  },
-  "nh_webnn": {
-    "title": "Access purpose-built ML hardware with Web Neural Network API",
-    "author": "Ningxin Hu",
-    "affiliation": "Intel",
-    "bio": "Ningxin is a principal software engineer at Intel. Ningxin is co-editing the Web Neural Network (WebNN) API spec within W3C Machine Learning for the Web Community Group.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo75ck44sip0772u0gj0kog/thumbs/thumb-006.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo75ck44sip0772u0gj0kog",
-    "abstract": "The WebNN API is a new web standard proposal that allows web apps and frameworks to accelerate deep neural networks with dedicated on-device hardware such as GPUs, CPUs with deep learning extensions, or purpose-built AI accelerators. A prototype of WebNN API will be used to demonstrate the near-native speed of deep neural network execution for object detection by accessing AI accelerators on phone and PC.",
-    "duration": "10:15"
-  },
-  "jb_model": {
-    "title": "A proposed web standard to load and run ML models on the web",
-    "author": "Jonathan Bingham",
-    "bio": "Jonathan is a web product manager at Google.",
-    "affiliation": "Google",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocr5ma7m0y0772d7i5jkub/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocr5ma7m0y0772d7i5jkub",
-    "abstract": "The Model Loader API is a new proposal for a web standard to make it easy to load and run ML models from JavaScript, taking advantage of available hardware acceleration. The API surface is similar to existing model serving APIs (like TensorFlow Serving, TensorRT, and MXNet Model Server), and it is complementary to the Web NN graph API proposal as well as lower level WebGL and WebGPU APIs.",
-    "duration": "10:08"
-  },
-  "cc_directml": {
-    "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
-    "author": "Chai Chaoweeraprasit",
-    "bio": "Chai leads development of machine learning platform at Microsoft",
-    "affiliation": "Microsoft",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobv3o075l707723b397arm/thumbs/thumb-004.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobv3o075l707723b397arm",
-    "abstract": "DirectML is Microsoft's hardware-accelerated machine learning platform that powers popular frameworks such as TensorFlow and ONNX Runtime. It expands the framework's hardware footprint by enabling high-performance training and inference on any device with DirectX-capable GPU",
-    "duration": "10:19"
-  },
-  "mw-androidnn": {
-    "title": "Accelerate ML inference on mobile devices with Android NNAPI",
-    "author": "Miao Wang",
-    "affiliation": "Google",
-    "bio": "    Software Engineer for Android Neural Networks API",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo78esr4t0j0772i5r7h1td/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo78esr4t0j0772i5r7h1td",
-    "abstract": "The Android Neural Networks API (NNAPI) is an Android C API designed for running computationally intensive operations for machine learning on Android devices. NNAPI is designed to provide a base layer of functionality for higher-level machine learning frameworks, such as TensorFlow Lite and Caffe2, that build and train neural networks. The API is available on all Android devices running Android 8.1 (API level 27) or higher. Based on an app’s requirements and the hardware capabilities on an Android device, NNAPI can efficiently distribute the computation workload across available on-device processors, including dedicated neural network hardware (NPUs and TPUs), graphics processing units (GPUs), and digital signal processors (DSPs).",
-    "duration": "07:50"
-  },
-  "jh_parallel-programming": {
-    "title": "Heterogeneous parallel programming with open standards using oneAPI and Data Parallel C++",
-    "author": "Jeff Hammond",
-    "affiliation": "Intel",
-    "bio": "Jeff Hammond is a Principal Engineer at Intel where he works on a wide range of high-performance computing topics, including parallel programming models, system architecture and open-source software. He has published more than 60 journal and conference papers on parallel computing, computational chemistry, and linear algebra software. Jeff received his PhD in Physical Chemistry from the University of Chicago.",
-    "abstract": "Diversity in computer architecture and the unceasing demand for application performance in data-intensive workloads are never-ending challenges for programmers. This talk will describe Intel’s oneAPI initiative, which is an open ecosystem for heterogeneous computing that supports high-performance data analytics, machine learning and other workloads. A key component of this is Data Parallel C++, which is based on C++17 and Khronos SYCL and supports direct programming of CPU, GPU and FPGA platforms. We will describe how oneAPI and Data Parallel C++ can be used to build high-performance applications for a range of devices."
-  },
-  "yh-xq-dnn": {
-    "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",
-    "author": "Yakun Huang & Xiuquan Qiao",
-    "affiliation": "BPTU",
-    "abstract": "    This talk introduces two deep learning technologies for the mobile web over cloud, edge and end devices. One is an adaptive DNN execution scheme, which partitions and performs the computation that can be done within the mobile web, reducing the computing pressure of the edge cloud. The other is a lightweight collaborative DNN over cloud, edge and devices, which provides a collaborative mechanism with the edge cloud for accurate compensation.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyv0p76q107720jc58j6h/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobyv0p76q107720jc58j6h",
-    "duration": "09:55"
-  },
-  "wm_collaborative-learning": {
-    "title": "Collaborative Learning",
-    "author": "Wolfgang Maß",
-    "affiliation": "DFKI",
-    "bio": "    Professor at Saarland University and scientific director at DFKI",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobw6x0764l07729krgy57d/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobw6x0764l07729krgy57d",
-    "abstract": "    The execution of data analysis services in a browser on devices has recently gained momentum, but the lack of computing resources on devices and data protection regulations are forcing strong constraints. In our talk we will present a browser-based collaborative learning approach for running data analysis services on peer-to-peer networks of devices. Our platform is developed in Javascript, supports modularization of services, model training and usage on devices (tensorflow.js), sensor communication (mqtt), and peer-to-peer communication (WebRTC) with role-based access-control (oauth 2.0).",
-    "duration": "10:01"
-  },
-  "ms_ab_wasinn": {
-    "title": "Introducing WASI-NN",
-    "author": "Mingqiu Sun & Andrew Brown",
-    "affiliation": "Intel",
-    "bio": "    Senior PE at Intel & software engineer at Intel",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobysfk76ns0772a6u4dbq5/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobysfk76ns0772a6u4dbq5",
-    "abstract": "    Trained machine learning models are typically deployed on a variety of devices with different architectures and operating systems. WebAssembly provides an ideal portable form of deployment for those models. In this talk, we will introduce the WASI-NN initiative we have started in the WebAssembly System Interface (WASI) community, which would standardize the neural network system interface for WebAssembly programs.",
-    "duration": "07:21"
-  }}, {
-  "ay_tensorflow": {
-    "title": "Fast client-side ML with TensorFlow.js",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
-    "author": "Ann Yuan",
-    "affiliation": "Google",
-    "bio": "    Software Engineer for TensorFlow.js",
-    "abstract": "    This talk will present how TensorFlow.js enables ML execution in the browser utilizing web technologies such as WebGL for GPU acceleration, Web Assembly, and technical design considerations.",
-    "duration": "08:56"
-  },
-  "en_onnxjs": {
-    "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js",
-    "author": "Emma Ning",
-    "affiliation": "Microsoft",
-    "bio": "    Emma Ning is a senior Product manager in AI Framework team under Microsoft Cloud + AI Group, focusing on AI model operationalization and acceleration with ONNX/ONNX Runtime for open and interoperable AI. She has more than five years of product experience in search engine taking advantage of machine learning techniques and spent more than three years exploring AI adoption among various businesses. She is passionate about bringing AI solutions to solve business problems as well as enhance product experience.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobtrbx74rf0772xh98cjs1/thumbs/thumb-004.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobtrbx74rf0772xh98cjs1",
-    "abstract": "    ONNX.js is a Javascript library for running ONNX models on browsers and on Node.js, on both CPU and GPU. Thanks to ONNX interoperability, it’s also compatible with Tensorflow and Pytroch. For running on CPU, ONNX.js adopts WebAssembly to execute the model at near-native speed and utilizes Web Workers to provide a “multi-threaded” environment, achieving very promising performance gains. For running on GPU, ONNX.js takes advantage of WebGL which is a popular standard for accessing GPU capabilities. By reducing data transfer between CPU and GPU as well as GPU processing cycles, ONNX.js further push the performance to the maximum.",
-    "duration": "14:22"
-  },
-  "pw_paddlejs": {
-    "title": "Paddle.js - Machine Learning for the Web",
-    "author": "Ping Wu",
-    "affiliation": "Baidu",
-    "bio": "    Architect at Baidu, Lead of Paddle.js",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4rqzc9ix0772t2z9zo80/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor4rqzc9ix0772t2z9zo80",
-    "abstract": "    Paddle.js is a high-performance JavaScript DL framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem with web community. This talk will introduce Paddle.js design principle, implementation, use scenario and future work the project would like to explore. ",
-    "duration": "05:51"
-  },
-  "sm_architecture": {
-    "title": "Machine Learning in Web Architecture",
-    "author": "Sangwhan Moon",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
-    "noslide": true,
-    "duration": "04:29"
-  },
-  "op_content-filtering": {
-    "title": "Machine Learning on the Web for content filtering applications",
-    "author": "Oleksandr Paraska",
-    "affiliation": "eyeo",
-    "bio": "    eyeo GmbH is the company behind Adblock plus",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo73x214sg70772y38lkixw/thumbs/thumb-003.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo73x214sg70772y38lkixw",
-    "abstract": "    eyeo GmbH has recently deployed tensorflow.js into their product for better ad blocking functionality and has identified gaps in what the WebNN draft covers, e.g. using the DOM as input data, or primitives needed for Graph Convolutional Networks. The talk will present the relevant use case and give indications on how can it be best supported by the new standard.",
-    "duration": "11:05"
-  },
-  "pm_visualization": {
-    "title": "Exploring unsupervised image segmentation results",
-    "author": "Piotr Migdal & Bartłomiej Olechno",
-    "affiliation": "",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
-    "format": "shiny",
-    "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/#",
-    "abstract": "    This talk will present the usage of web-based tools to interactively explore machine learning models, with the example of an interactive D3.js-based visualization to see the results of unsupervised image segmentation.",
-    "duration": "06:38"
-  },
-  "jm_lr_mobile": {
-    "title": "Mobile-first web-based Machine Learning",
-    "author": "Josh Meyer & Lindy Rauchenstein",
-    "affiliation": "Artie",
-    "bio": "    Lead Scientist at Artie, Inc. and Machine Learning Fellow at Mozilla, Lead Scientist at Artie",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4",
-    "abstract": "    This talk is an overview of some of Artie's machine learning tech stack, which is web-based and mobile first. It will discuss peculiarities of working with voice, text, and images originating from a user's phone, while running an application in the browser and will include discussions about balancing user preferences with privacy, latency, and performance.",
-    "duration": "11:16"
-  }}, {
-  "jt_ai-bias": {
-    "title": "We Count: Fair Treatment, Disability and Machine Learning",
-    "author": "Jutta Treviranus",
-    "bio": "    Director & Professor, Inclusive Design Research Centre, OCAD University",
-    "affiliation": "OCAD University",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyfxs76fm0772ymgk0qfv/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdobyfxs76fm0772ymgk0qfv",
-    "abstract": "<p>The risks of AI Bias have recently received attention in public discourse. Numerous stories of the automation and amplification of existing discrimination and inequity are emerging, as more and more critical decisions and functions are handed over to machine learning systems. There is a growing movement to tackle non-representative data and to prevent the introduction of human biases into machine learning algorithms.</p><p>However, these efforts are not addressing a fundamental characteristic of data driven decisions that presents significant risk if you have a disability. Even if there is full proportional representation and even if all human bias is removed from AI systems, the systems will favour the majority and dominant patterns. This has implications for individuals and groups that are outliers, small minorities or highly heterogeneous. The only common characteristic of disability is sufficient difference from the average such that most systems are a misfit and present a barrier. Machine learning requires large data sets. Many people with disabilities represent a data set of one. Decisions based on population data will decide against small minorities and for the majority. The further you are from average the harder it will be to train machine learning systems to serve your needs. To add insult to injury, if you are an outlier and highly unique, privacy protections won’t work for you and you will be most vulnerable to data abuse and misuse.</p><p>This presentation will:<ul><li>       outline the risks and opportunities presented by machine learning systems;<li>       address strategies to mitigate the risks; and<li>       discuss steps needed to support decisions that do not discriminate against outliers and small minorities.</ul><p>The benefits for innovation and the well-being of society as a whole will also be discussed",
-    "duration": "13:37"
-  },
-  "jr_fairness": {
-    "title": "AI (Machine Learning): Bias & Garbage In, Bias & Garbage Out",
-    "author": "John Rochford",
-    "affiliation": "University of Massachusetts Medical School",
-    "bio": "Director, INDEX Program, Eunice Kennedy Shriver Center, University of Massachusetts Medical School",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdsucx1kuw5d077297vz9ob3/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdsucx1kuw5d077297vz9ob3",
-    "abstract": "Biased training data produces untrustworthy, unfair, useless results. Such results include:<ul><li>   predicting black prisoners are the most likely recidivist; and<li>   killing a wheelchair user in a street crosswalk by autonomous car ML models.</ul><p>   Training data must include representation of people with disabilities, all races, all ethnicities, all genders, etc. Creation of training data must include those populations. There are opensource and commercial toolkits and APIs to facilitate bias mitigation.</p>         <p>John is an expert in this area focused on AI fairness and empowerment for people with disabilities and is a member of the Machine Learning for the Web Community Group.",
-    "duration": "10:08"
-  },
-  "tp_interactive_music": {
-    "title": "Interactive ML - Powered Music Applications on the Web",
-    "author": "Tero Parviainen",
-    "affiliation": "Counterpoint",
-    "bio": "    Tero Parviainen is a software developer in music, media, and the arts. As a co-founder of creative technology studio Counterpoint, he's recently built installations for The Barbican Centre, Somerset House, The Helsinki Festival, The Dallas Museum of Art, and various corners of the web. He also contributes at Wavepaths, building generative music systems for psychedelic therapy.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo76mfh4sne0772endmrepx/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
-    "noslide": true,
-    "abstract": "    This talk will present a few projects Counterpoint has built with TensorFlow.js and Magenta.js over the past couple of years. Ranging from experimental musical instruments to interactive artworks, they've really stretched what can be done in the browser context. It will focus on the special considerations needed in music & audio applications, the relationship between ML models and Web Audio, and the limitations encountered while combining the two.",
-    "duration": "10:26"
-  },
-  "kd_speech": {
-    "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
-    "author": "Kelly Davis",
-    "affiliation": "Mozilla",
-    "bio": "    Manager of the machine learning group at Mozilla. Kelly's work at Mozilla includes Deep Speech (an open speech recognition system), Common Voice (a crowdsourced tool for creating opens speech corpora), Mozilla's TTS (an open source speech synthesis system), Snakepit (an open source ML job scheduler), as well as ML research and many other projects.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdone3vbbufj0772u1a3hudu/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdone3vbbufj0772u1a3hudu",
-    "abtract": "    In narrow domains ML based speech recognition systems have recently begun to approach human-like levels of performance. However, browser based support for such systems is spotty or lacking. This talk will be concerned with the industry's ongoing work to bring ML based speech recognition into the browser. It will cover a wide spectrum of topics: the struggle to standardize a browser based API, the privacy questions such an API exposes, the technical details of embedding (or not) an ML based system into the browser, along with many other topics.",
-    "duration": "06:57"
-  },
-  "rt_nlp": {
-    "title": "Challenges to create great user experience using natural language processing model in B2B SaaS product on the web",
-    "author": "Ryuichi Tanimoto",
-    "affiliation": "Stockmark",
-    "bio": "    web developer/system architect at Stockmark Inc.",
-    "abstract": "    Stockmark develops a B2B SaaS product based on machine learning and natural language processing technology to provide search and analysis UX of business news on the web and support the market research or competitive analysis in the business scene. This talk will share Stockmark's experience with developing the machine learning processes with fastText or BERT model in browser that suggests certain news or phrases or quantitative information in the text of searched news, in response to user's action to the web page."
-  },
-  "nb_privacy-translation": {
-    "title": "Privacy focussed machine translation in Firefox",
-    "author": "Nikolay Bogoychev",
-    "affiliation": "University of Edinburgh",
-    "bio": "    Postdoc researcher at the University of Edinburgh",
-    "abstract": "    In the recent years, machine translation has been widely adopted by the end user, making online content in foreign languages more accessible than ever. However, machine translation has always been treated as a computationally heavy problem and as such is usually delivered to the end user via online services such as Google Translate, which may not be appropriate for sensitive content. We present a privacy focussed machine translation system that runs locally on the user's machine and is accessible through a Firefox browser extension. The translation models used are just 16MB and translation speed is high enough for a seamless user experience even on laptops from 2012."
-  },
-  "zc_expression": {
-    "title": "A virtual character web meeting with expression enhance power by machine learning",
-    "author": "Zelun Chen",
-    "affiliation": "Netease",
-    "bio": "    Front-end and Client Development Engineer of Netease",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocpfld7kwy0772xhma7lrs/thumbs/thumb-002.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocpfld7kwy0772xhma7lrs",
-    "abstract": "    This talk will cover the use of machine learning to enhance participant's expression in a virtual character web meeting and highlight the problems of using webassembly to running AI models In browser.",
-    "duration": "08:25"
-  },
-  "jmv_rnnoise": {
-    "title": "RNNoise, Neural Speech Enhancement, and the Browser",
-    "author": "Jean-Marc Valin",
-    "affiliation": "",
-    "bio": "    Jean-Marc Valin has previously contributed to the Opus and AV1 codecs. He is employed by Amazon, but is giving this talk as an individual.",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocse0q7mt70772two73led/thumbs/thumb-001.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocse0q7mt70772two73led",
-    "abstract": "     This talk presents RNNoise, a small and fast real-time noise suppression algorithm that combines classical signal processing with deep learning. We will discuss the algorithm and how the browser can be improved to make RNNoise and other neural speech enhancement algorithms more efficient.",
-    "duration": "07:46"
-  },
-  "lmc_musicians": {
-    "title": "Empowering Musicians and Artists using Machine Learning to Build Their Own Tools in the Browser",
-    "author": "Louis McCallum",
-    "bio": "Louis  is an experienced software developer, researcher, artist and musician. Currently, he holds a Post Doctoral position at the Embodied AudioVisual Interaction Group, Goldsmiths, University of London, where he is also an Associate Lecturer. He is also lead developer on the <a href='https://mimicproject.com'>MIMIC platform</a> and accompanying <a href='https://mimicproject.com/guides/learner'>Learner.js</a> and <a href='https://mimicproject.com/guides/maxi-instrument'>MaxiInstrument.js</a> libraries",
-    "affiliation": "University of London",
-    "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocqdzk7ljl07724aih3whc/thumbs/thumb-005.jpeg",
-    "video": "https://app.streamfizz.live/embed/ckdocqdzk7ljl07724aih3whc",
-    "abstract": "Over the past 2 years, as part of the RCUK AHRC funded <a href='http://mimicproject.com/'>MIMIC project</a> we have provided platforms and libraries for musicians and artists to use, perform and collaborate online using machine learning. Although it has a lot to offer these communities, their skill sets and requirements often diverge from more conventional machine learning use cases. For example, requirements for dynamic provision of data and on-the-fly training in the browser raises challenges with performance, connectivity and storage. We seek to address the non trivial challenges of connecting inputs from a variety of sources, running potentially computationally expensive feature extractors alongside lightweight machine learning models and generating audio and visual output, in real time, without interference. Whilst technologies like AudioWorklets addresses this to some extent, there remain issues with implementation, documentation and adoption (currently limited to Chrome). For example, issues with <a href='https://bugs.chromium.org/p/chromium/issues/detail?id=1033493#c42'>garbage collection (created by the worker thread messaging system)</a> caused wide scale disruption to many developers using AudioWorklets and was only addressed by a <a href='https://github.com/padenot/ringbuf.js'>ringbuffer solution</a> that developers must integrate outside of the core API. We are also keen to ensure the <a href='https://gpuweb.github.io/gpuweb/'>WebGPU API</a>  takes realtime media into consideration as it is introduced. Our talk will cover both the user’s perspectives as uncovered by our user-centered research and a developer’s perspective from the technical challenges we have faced developing tools to meet the needs of these users in both creative and educational settings.",
-    "duration": "07:22"
-  }
-  }
+  {
+    "dhm-web-platform-overview": {
+      "title": "Web Platform: a 30,000 feet view / Web Platform and JS environment constraints",
+      "author": "Dominique Hazaël-Massieux",
+      "bio": "    Dominique is part of the full-time technical staff employed by W3C to animate the Web standardization work. He is in particular responsible for the work on WebRTC, WebXR and Web & Networks, led the effort to start a WebTransport Working Group and is one of the organizers of the Web and Machine Learning workshop.",
+      "affiliation": "W3C",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77h2f4st7077212hxr6v7/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdo77h2f4st7077212hxr6v7",
+      "format": "shower",
+      "abstract": "    Background talk on the specificities of the Web browser as a development platform.",
+      "duration": "10:11"
+    },
+    "fd-media-hooks": {
+      "title": "Media processing hooks for the Web",
+      "author": "François Daoust",
+      "bio": "François is part of the full-time technical staff employed by W3C and supervizes there the work related to media technologies.",
+      "affiliation": "W3C",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo86r7h5725077210nfqpeg/thumbs/thumb-007.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdo86r7h5725077210nfqpeg",
+      "format": "shower",
+      "url": "https://www.w3.org/2020/Talks/fd-media-processing/#",
+      "abstract": "This talk will provide an overview of existing, planned or possible hooks for processing muxed and demuxed media (audio and video) in real time in Web applications, and rendering the results. It will also present high-level requirements for efficient media processing.",
+      "duration": "12:03"
+    },
+    "nh_webnn": {
+      "title": "Access purpose-built ML hardware with Web Neural Network API",
+      "author": "Ningxin Hu",
+      "affiliation": "Intel",
+      "bio": "Ningxin is a principal software engineer at Intel. Ningxin is co-editing the Web Neural Network (WebNN) API spec within W3C Machine Learning for the Web Community Group.",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo75ck44sip0772u0gj0kog/thumbs/thumb-006.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdo75ck44sip0772u0gj0kog",
+      "abstract": "The WebNN API is a new web standard proposal that allows web apps and frameworks to accelerate deep neural networks with dedicated on-device hardware such as GPUs, CPUs with deep learning extensions, or purpose-built AI accelerators. A prototype of WebNN API will be used to demonstrate the near-native speed of deep neural network execution for object detection by accessing AI accelerators on phone and PC.",
+      "duration": "10:15"
+    },
+    "jb_model": {
+      "title": "A proposed web standard to load and run ML models on the web",
+      "author": "Jonathan Bingham",
+      "bio": "Jonathan is a web product manager at Google.",
+      "affiliation": "Google",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocr5ma7m0y0772d7i5jkub/thumbs/thumb-002.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdocr5ma7m0y0772d7i5jkub",
+      "abstract": "The Model Loader API is a new proposal for a web standard to make it easy to load and run ML models from JavaScript, taking advantage of available hardware acceleration. The API surface is similar to existing model serving APIs (like TensorFlow Serving, TensorRT, and MXNet Model Server), and it is complementary to the Web NN graph API proposal as well as lower level WebGL and WebGPU APIs.",
+      "duration": "10:08"
+    },
+    "cc_directml": {
+      "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
+      "author": "Chai Chaoweeraprasit",
+      "bio": "Chai leads development of machine learning platform at Microsoft",
+      "affiliation": "Microsoft",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobv3o075l707723b397arm/thumbs/thumb-004.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdobv3o075l707723b397arm",
+      "abstract": "DirectML is Microsoft's hardware-accelerated machine learning platform that powers popular frameworks such as TensorFlow and ONNX Runtime. It expands the framework's hardware footprint by enabling high-performance training and inference on any device with DirectX-capable GPU",
+      "duration": "10:19"
+    },
+    "mw-androidnn": {
+      "title": "Accelerate ML inference on mobile devices with Android NNAPI",
+      "author": "Miao Wang",
+      "affiliation": "Google",
+      "bio": "    Software Engineer for Android Neural Networks API",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo78esr4t0j0772i5r7h1td/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdo78esr4t0j0772i5r7h1td",
+      "abstract": "The Android Neural Networks API (NNAPI) is an Android C API designed for running computationally intensive operations for machine learning on Android devices. NNAPI is designed to provide a base layer of functionality for higher-level machine learning frameworks, such as TensorFlow Lite and Caffe2, that build and train neural networks. The API is available on all Android devices running Android 8.1 (API level 27) or higher. Based on an app’s requirements and the hardware capabilities on an Android device, NNAPI can efficiently distribute the computation workload across available on-device processors, including dedicated neural network hardware (NPUs and TPUs), graphics processing units (GPUs), and digital signal processors (DSPs).",
+      "duration": "07:50"
+    },
+    "jh_parallel-programming": {
+      "title": "Heterogeneous parallel programming with open standards using oneAPI and Data Parallel C++",
+      "author": "Jeff Hammond",
+      "affiliation": "Intel",
+      "bio": "Jeff Hammond is a Principal Engineer at Intel where he works on a wide range of high-performance computing topics, including parallel programming models, system architecture and open-source software. He has published more than 60 journal and conference papers on parallel computing, computational chemistry, and linear algebra software. Jeff received his PhD in Physical Chemistry from the University of Chicago.",
+      "abstract": "Diversity in computer architecture and the unceasing demand for application performance in data-intensive workloads are never-ending challenges for programmers. This talk will describe Intel’s oneAPI initiative, which is an open ecosystem for heterogeneous computing that supports high-performance data analytics, machine learning and other workloads. A key component of this is Data Parallel C++, which is based on C++17 and Khronos SYCL and supports direct programming of CPU, GPU and FPGA platforms. We will describe how oneAPI and Data Parallel C++ can be used to build high-performance applications for a range of devices."
+    },
+    "yh-xq-dnn": {
+      "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",
+      "author": "Yakun Huang & Xiuquan Qiao",
+      "affiliation": "BPTU",
+      "abstract": "    This talk introduces two deep learning technologies for the mobile web over cloud, edge and end devices. One is an adaptive DNN execution scheme, which partitions and performs the computation that can be done within the mobile web, reducing the computing pressure of the edge cloud. The other is a lightweight collaborative DNN over cloud, edge and devices, which provides a collaborative mechanism with the edge cloud for accurate compensation.",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyv0p76q107720jc58j6h/thumbs/thumb-002.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdobyv0p76q107720jc58j6h",
+      "duration": "09:55"
+    },
+    "wm_collaborative-learning": {
+      "title": "Collaborative Learning",
+      "author": "Wolfgang Maß",
+      "affiliation": "DFKI",
+      "bio": "    Professor at Saarland University and scientific director at DFKI",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobw6x0764l07729krgy57d/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdobw6x0764l07729krgy57d",
+      "abstract": "    The execution of data analysis services in a browser on devices has recently gained momentum, but the lack of computing resources on devices and data protection regulations are forcing strong constraints. In our talk we will present a browser-based collaborative learning approach for running data analysis services on peer-to-peer networks of devices. Our platform is developed in Javascript, supports modularization of services, model training and usage on devices (tensorflow.js), sensor communication (mqtt), and peer-to-peer communication (WebRTC) with role-based access-control (oauth 2.0).",
+      "duration": "10:01"
+    },
+    "ms_ab_wasinn": {
+      "title": "Introducing WASI-NN",
+      "author": "Mingqiu Sun & Andrew Brown",
+      "affiliation": "Intel",
+      "bio": "    Senior PE at Intel & software engineer at Intel",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobysfk76ns0772a6u4dbq5/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdobysfk76ns0772a6u4dbq5",
+      "abstract": "    Trained machine learning models are typically deployed on a variety of devices with different architectures and operating systems. WebAssembly provides an ideal portable form of deployment for those models. In this talk, we will introduce the WASI-NN initiative we have started in the WebAssembly System Interface (WASI) community, which would standardize the neural network system interface for WebAssembly programs.",
+      "duration": "07:21"
+    }}, {
+      "ay_tensorflow": {
+        "title": "Fast client-side ML with TensorFlow.js",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
+        "author": "Ann Yuan",
+        "affiliation": "Google",
+        "bio": "    Software Engineer for TensorFlow.js",
+        "abstract": "    This talk will present how TensorFlow.js enables ML execution in the browser utilizing web technologies such as WebGL for GPU acceleration, Web Assembly, and technical design considerations.",
+        "duration": "08:56"
+      },
+      "en_onnxjs": {
+        "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js",
+        "author": "Emma Ning",
+        "affiliation": "Microsoft",
+        "bio": "    Emma Ning is a senior Product manager in AI Framework team under Microsoft Cloud + AI Group, focusing on AI model operationalization and acceleration with ONNX/ONNX Runtime for open and interoperable AI. She has more than five years of product experience in search engine taking advantage of machine learning techniques and spent more than three years exploring AI adoption among various businesses. She is passionate about bringing AI solutions to solve business problems as well as enhance product experience.",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobtrbx74rf0772xh98cjs1/thumbs/thumb-004.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdobtrbx74rf0772xh98cjs1",
+        "abstract": "    ONNX.js is a Javascript library for running ONNX models on browsers and on Node.js, on both CPU and GPU. Thanks to ONNX interoperability, it’s also compatible with Tensorflow and Pytroch. For running on CPU, ONNX.js adopts WebAssembly to execute the model at near-native speed and utilizes Web Workers to provide a “multi-threaded” environment, achieving very promising performance gains. For running on GPU, ONNX.js takes advantage of WebGL which is a popular standard for accessing GPU capabilities. By reducing data transfer between CPU and GPU as well as GPU processing cycles, ONNX.js further push the performance to the maximum.",
+        "duration": "14:22"
+      },
+      "pw_paddlejs": {
+        "title": "Paddle.js - Machine Learning for the Web",
+        "author": "Ping Wu",
+        "affiliation": "Baidu",
+        "bio": "    Architect at Baidu, Lead of Paddle.js",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4rqzc9ix0772t2z9zo80/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdor4rqzc9ix0772t2z9zo80",
+        "abstract": "    Paddle.js is a high-performance JavaScript DL framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem with web community. This talk will introduce Paddle.js design principle, implementation, use scenario and future work the project would like to explore. ",
+        "duration": "05:51"
+      },
+      "sm_architecture": {
+        "title": "Machine Learning in Web Architecture",
+        "author": "Sangwhan Moon",
+        "affiliation": "",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
+        "noslide": true,
+        "duration": "04:29"
+      },
+      "op_content-filtering": {
+        "title": "Machine Learning on the Web for content filtering applications",
+        "author": "Oleksandr Paraska",
+        "affiliation": "eyeo",
+        "bio": "    eyeo GmbH is the company behind Adblock plus",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo73x214sg70772y38lkixw/thumbs/thumb-003.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdo73x214sg70772y38lkixw",
+        "abstract": "    eyeo GmbH has recently deployed tensorflow.js into their product for better ad blocking functionality and has identified gaps in what the WebNN draft covers, e.g. using the DOM as input data, or primitives needed for Graph Convolutional Networks. The talk will present the relevant use case and give indications on how can it be best supported by the new standard.",
+        "duration": "11:05"
+      },
+      "pm_visualization": {
+        "title": "Exploring unsupervised image segmentation results",
+        "author": "Piotr Migdal & Bartłomiej Olechno",
+        "affiliation": "",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
+        "format": "shiny",
+        "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/#",
+        "abstract": "    This talk will present the usage of web-based tools to interactively explore machine learning models, with the example of an interactive D3.js-based visualization to see the results of unsupervised image segmentation.",
+        "duration": "06:38"
+      },
+      "jm_lr_mobile": {
+        "title": "Mobile-first web-based Machine Learning",
+        "author": "Josh Meyer & Lindy Rauchenstein",
+        "affiliation": "Artie",
+        "bio": "    Lead Scientist at Artie, Inc. and Machine Learning Fellow at Mozilla, Lead Scientist at Artie",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/thumb-002.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4",
+        "abstract": "    This talk is an overview of some of Artie's machine learning tech stack, which is web-based and mobile first. It will discuss peculiarities of working with voice, text, and images originating from a user's phone, while running an application in the browser and will include discussions about balancing user preferences with privacy, latency, and performance.",
+        "duration": "11:16"
+      }
+    }, {
+      "jt_ai-bias": {
+        "title": "We Count: Fair Treatment, Disability and Machine Learning",
+        "author": "Jutta Treviranus",
+        "bio": "    Director & Professor, Inclusive Design Research Centre, OCAD University",
+        "affiliation": "OCAD University",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyfxs76fm0772ymgk0qfv/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdobyfxs76fm0772ymgk0qfv",
+        "abstract": "<p>The risks of AI Bias have recently received attention in public discourse. Numerous stories of the automation and amplification of existing discrimination and inequity are emerging, as more and more critical decisions and functions are handed over to machine learning systems. There is a growing movement to tackle non-representative data and to prevent the introduction of human biases into machine learning algorithms.</p><p>However, these efforts are not addressing a fundamental characteristic of data driven decisions that presents significant risk if you have a disability. Even if there is full proportional representation and even if all human bias is removed from AI systems, the systems will favour the majority and dominant patterns. This has implications for individuals and groups that are outliers, small minorities or highly heterogeneous. The only common characteristic of disability is sufficient difference from the average such that most systems are a misfit and present a barrier. Machine learning requires large data sets. Many people with disabilities represent a data set of one. Decisions based on population data will decide against small minorities and for the majority. The further you are from average the harder it will be to train machine learning systems to serve your needs. To add insult to injury, if you are an outlier and highly unique, privacy protections won’t work for you and you will be most vulnerable to data abuse and misuse.</p><p>This presentation will:<ul><li>       outline the risks and opportunities presented by machine learning systems;<li>       address strategies to mitigate the risks; and<li>       discuss steps needed to support decisions that do not discriminate against outliers and small minorities.</ul><p>The benefits for innovation and the well-being of society as a whole will also be discussed",
+        "duration": "13:37"
+      },
+      "jr_fairness": {
+        "title": "AI (Machine Learning): Bias & Garbage In, Bias & Garbage Out",
+        "author": "John Rochford",
+        "affiliation": "University of Massachusetts Medical School",
+        "bio": "Director, INDEX Program, Eunice Kennedy Shriver Center, University of Massachusetts Medical School",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdsucx1kuw5d077297vz9ob3/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdsucx1kuw5d077297vz9ob3",
+        "abstract": "Biased training data produces untrustworthy, unfair, useless results. Such results include:<ul><li>   predicting black prisoners are the most likely recidivist; and<li>   killing a wheelchair user in a street crosswalk by autonomous car ML models.</ul><p>   Training data must include representation of people with disabilities, all races, all ethnicities, all genders, etc. Creation of training data must include those populations. There are opensource and commercial toolkits and APIs to facilitate bias mitigation.</p>         <p>John is an expert in this area focused on AI fairness and empowerment for people with disabilities and is a member of the Machine Learning for the Web Community Group.",
+        "duration": "10:08"
+      },
+      "tp_interactive_music": {
+        "title": "Interactive ML - Powered Music Applications on the Web",
+        "author": "Tero Parviainen",
+        "affiliation": "Counterpoint",
+        "bio": "    Tero Parviainen is a software developer in music, media, and the arts. As a co-founder of creative technology studio Counterpoint, he's recently built installations for The Barbican Centre, Somerset House, The Helsinki Festival, The Dallas Museum of Art, and various corners of the web. He also contributes at Wavepaths, building generative music systems for psychedelic therapy.",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo76mfh4sne0772endmrepx/thumbs/thumb-002.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
+        "noslide": true,
+        "abstract": "    This talk will present a few projects Counterpoint has built with TensorFlow.js and Magenta.js over the past couple of years. Ranging from experimental musical instruments to interactive artworks, they've really stretched what can be done in the browser context. It will focus on the special considerations needed in music & audio applications, the relationship between ML models and Web Audio, and the limitations encountered while combining the two.",
+        "duration": "10:26"
+      },
+      "kd_speech": {
+        "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
+        "author": "Kelly Davis",
+        "affiliation": "Mozilla",
+        "bio": "    Manager of the machine learning group at Mozilla. Kelly's work at Mozilla includes Deep Speech (an open speech recognition system), Common Voice (a crowdsourced tool for creating opens speech corpora), Mozilla's TTS (an open source speech synthesis system), Snakepit (an open source ML job scheduler), as well as ML research and many other projects.",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdone3vbbufj0772u1a3hudu/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdone3vbbufj0772u1a3hudu",
+        "abtract": "    In narrow domains ML based speech recognition systems have recently begun to approach human-like levels of performance. However, browser based support for such systems is spotty or lacking. This talk will be concerned with the industry's ongoing work to bring ML based speech recognition into the browser. It will cover a wide spectrum of topics: the struggle to standardize a browser based API, the privacy questions such an API exposes, the technical details of embedding (or not) an ML based system into the browser, along with many other topics.",
+        "duration": "06:57"
+      },
+      "rt_nlp": {
+        "title": "Challenges to create great user experience using natural language processing model in B2B SaaS product on the web",
+        "author": "Ryuichi Tanimoto",
+        "affiliation": "Stockmark",
+        "bio": "    web developer/system architect at Stockmark Inc.",
+        "abstract": "    Stockmark develops a B2B SaaS product based on machine learning and natural language processing technology to provide search and analysis UX of business news on the web and support the market research or competitive analysis in the business scene. This talk will share Stockmark's experience with developing the machine learning processes with fastText or BERT model in browser that suggests certain news or phrases or quantitative information in the text of searched news, in response to user's action to the web page."
+      },
+      "nb_privacy-translation": {
+        "title": "Privacy focussed machine translation in Firefox",
+        "author": "Nikolay Bogoychev",
+        "affiliation": "University of Edinburgh",
+        "bio": "    Postdoc researcher at the University of Edinburgh",
+        "abstract": "    In the recent years, machine translation has been widely adopted by the end user, making online content in foreign languages more accessible than ever. However, machine translation has always been treated as a computationally heavy problem and as such is usually delivered to the end user via online services such as Google Translate, which may not be appropriate for sensitive content. We present a privacy focussed machine translation system that runs locally on the user's machine and is accessible through a Firefox browser extension. The translation models used are just 16MB and translation speed is high enough for a seamless user experience even on laptops from 2012."
+      },
+      "zc_expression": {
+        "title": "A virtual character web meeting with expression enhance power by machine learning",
+        "author": "Zelun Chen",
+        "affiliation": "Netease",
+        "bio": "    Front-end and Client Development Engineer of Netease",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocpfld7kwy0772xhma7lrs/thumbs/thumb-002.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdocpfld7kwy0772xhma7lrs",
+        "abstract": "    This talk will cover the use of machine learning to enhance participant's expression in a virtual character web meeting and highlight the problems of using webassembly to running AI models In browser.",
+        "duration": "08:25"
+      },
+      "jmv_rnnoise": {
+        "title": "RNNoise, Neural Speech Enhancement, and the Browser",
+        "author": "Jean-Marc Valin",
+        "affiliation": "",
+        "bio": "    Jean-Marc Valin has previously contributed to the Opus and AV1 codecs. He is employed by Amazon, but is giving this talk as an individual.",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocse0q7mt70772two73led/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdocse0q7mt70772two73led",
+        "abstract": "     This talk presents RNNoise, a small and fast real-time noise suppression algorithm that combines classical signal processing with deep learning. We will discuss the algorithm and how the browser can be improved to make RNNoise and other neural speech enhancement algorithms more efficient.",
+        "duration": "07:46"
+      },
+      "lmc_musicians": {
+        "title": "Empowering Musicians and Artists using Machine Learning to Build Their Own Tools in the Browser",
+        "author": "Louis McCallum",
+        "bio": "Louis  is an experienced software developer, researcher, artist and musician. Currently, he holds a Post Doctoral position at the Embodied AudioVisual Interaction Group, Goldsmiths, University of London, where he is also an Associate Lecturer. He is also lead developer on the <a href='https://mimicproject.com'>MIMIC platform</a> and accompanying <a href='https://mimicproject.com/guides/learner'>Learner.js</a> and <a href='https://mimicproject.com/guides/maxi-instrument'>MaxiInstrument.js</a> libraries",
+        "affiliation": "University of London",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocqdzk7ljl07724aih3whc/thumbs/thumb-005.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckdocqdzk7ljl07724aih3whc",
+        "abstract": "Over the past 2 years, as part of the RCUK AHRC funded <a href='http://mimicproject.com/'>MIMIC project</a> we have provided platforms and libraries for musicians and artists to use, perform and collaborate online using machine learning. Although it has a lot to offer these communities, their skill sets and requirements often diverge from more conventional machine learning use cases. For example, requirements for dynamic provision of data and on-the-fly training in the browser raises challenges with performance, connectivity and storage. We seek to address the non trivial challenges of connecting inputs from a variety of sources, running potentially computationally expensive feature extractors alongside lightweight machine learning models and generating audio and visual output, in real time, without interference. Whilst technologies like AudioWorklets addresses this to some extent, there remain issues with implementation, documentation and adoption (currently limited to Chrome). For example, issues with <a href='https://bugs.chromium.org/p/chromium/issues/detail?id=1033493#c42'>garbage collection (created by the worker thread messaging system)</a> caused wide scale disruption to many developers using AudioWorklets and was only addressed by a <a href='https://github.com/padenot/ringbuf.js'>ringbuffer solution</a> that developers must integrate outside of the core API. We are also keen to ensure the <a href='https://gpuweb.github.io/gpuweb/'>WebGPU API</a>  takes realtime media into consideration as it is introduced. Our talk will cover both the user’s perspectives as uncovered by our user-centered research and a developer’s perspective from the technical challenges we have faced developing tools to meet the needs of these users in both creative and educational settings.",
+        "duration": "07:22"
+      }
+    }
 ]
