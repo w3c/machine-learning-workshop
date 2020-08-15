@@ -14,8 +14,14 @@ for (let section of talks) {
 for(let i = 0; i < shortnames.length; i++) {
   const shortname = shortnames[i];
   const talk = section[shortname];
+  const slug = toSlug(talk.title)
 
-  sectionContent += `<dt>${talk.title}</dt>`;
+  if (talk.video) {
+    sectionContent += `<dt><a href="talks/${slug}.html">${talk.title}</a></dt>`;
+    sectionContent += `<dd><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="" width=200 class=tn> ${talk.duration.split(':')[0]} minutes presentation</a></dd>`;
+  } else {
+    sectionContent += `<dt>${talk.title}</dt>`;
+  }
   sectionContent += `<dd><dl>`;
   sectionContent += `<dt>Speaker</dt>`;
   sectionContent += `<dd>${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""}</dd>`;
@@ -23,7 +29,7 @@ for(let i = 0; i < shortnames.length; i++) {
     sectionContent += `<dd>${talk.bio}</dd>`;
   }
   if (talk.abstract) {
-    sectionContent += `<dt>Speaker</dt>`;
+    sectionContent += `<dt>Abstract</dt>`;
     sectionContent += `<dd>${talk.abstract}</dd>`;
   }
   sectionContent += "</dl></dd>\n"; 
@@ -31,7 +37,6 @@ for(let i = 0; i < shortnames.length; i++) {
   if (!talk.video) continue;
   const format = talk.format || "pdf";
   const slidesurl = talk.noslide ? "" : talk.url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf';
-  const slug = toSlug(talk.title)
   let nextTalk;
   let cur = i;
   let sectionCur = sectionNum - 1;
