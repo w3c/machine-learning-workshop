@@ -25,7 +25,8 @@
   "WebBluetooth": "WebBluetooth (sometimes WebBLE in short) is a browser JavaScript API to interact with Bluetooth low-energy devices",
   "WebBLE": {"alias": "WebBluetooth"},
   "WASI": "WASI stands for WebAssembly System Interfaces, a series of APIs developed by the WebAssembly Community Group, meant to help running WebAssembly outside of the browsers by providing integration with operating systems",
-  "CG": "CG stands for W3C Community Group, a type of group W3C makes available for everyone to propose and to join and where a lot of the W3C pre-standardization work happens",
+  "community group": "Community Groups (CG for short) are a type of group W3C makes available for everyone to propose and to join and where a lot of the W3C pre-standardization work happens",
+  "CG": {"alias": "Community Group"},
   "OpenVINO": "OpenVINO is an Intel toolking to optimizing machine learning models",
   "PyTorch": "PyTorch is one of the most popular Python library for machine learning development, providing a low-level API",
   "Keras": "Keras is one of the most popular Python library for machine learning development that provides a high-level API running on top of other Machine Learning frameworks (such as TensorFlow)",
@@ -41,5 +42,10 @@
   "NPM": "NPM is a package management system for <a class=dfn>node.js</a>",
   "Node.js": "Node.js is a non-browser JavaScript runtime and environment, which usually expose different set of APIs than the ones used in a browser",
   "WebRTC": "WebRTC stands for Web Real-Time Communications, a set of browser APIs and protocols that enable the exchange of audio, video and data in near real-time",
-  "WebXR": "WebXR is a set of browser JavaScript APIs that enable to develop in-browser Virtual and Augmented Reality experiences"
+  "WebXR": "WebXR is a set of browser JavaScript APIs that enable to develop in-browser Virtual and Augmented Reality experiences",
+  "WinML": "WinML is the platform APIs for Machine Learning on Windows",
+  "CoreML": "CoreML is the platform APIs for Machine Learning on Apple OSes (incl iOS and macOS)",
+  "Model Loader API": { "href": "https://github.com/webmachinelearning/model-loader/blob/master/explainer.md"},
+  "WebML Community Group": {"href": "https://www.w3.org/community/webmachinelearning/"},
+  "Machine Learning for the Web Community Group": {"href": "https://www.w3.org/community/webmachinelearning/"}
 }

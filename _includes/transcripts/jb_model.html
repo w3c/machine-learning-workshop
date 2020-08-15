@@ -1,0 +1,118 @@
+<div class="slide" role='region' aria-label="Slide 1 of 19" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hello, I'm Jonathan Bingham, a product manager at Google. I'm going to talk about how the web could provide native support for machine learning or ML.</p>
+<p></p></div><div class="slide" role='region' aria-label="Slide 2 of 19" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>This proposal is being incubated in the machine learning <a class=dfn>community group</a>.</p>
+<p>You can read all about it on the website and in GitHub.</p></div><div class="slide" role='region' aria-label="Slide 3 of 19" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>The basic concept of the <a class=dfn>Model Loader API</a> is that a web developer has a pre-trained ML model that's available by URL.</p>
+<p>The model itself might've been created by a data scientist at the developer's company or organization or it could be shared as a public model available to anybody online.</p>
+<p>With just the model URL, a few lines of JavaScript can load the model and compile it to the native hardware.</p>
+<p>After that, the web app can perform predictions with it.</p>
+<p>The particular ML model could be anything.</p>
+<p>It could perform image classification on a selected photo.</p>
+<p>It could detect an abusive comment that a user is typing into a text field, or it could transform a video feed to create augmented reality.</p>
+<p>Really any idea you might have.</p></div><div class="slide" role='region' aria-label="Slide 4 of 19" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>Why would developers want to do this inside the browser on the client side?</p>
+<p>Why not do it on the server?</p>
+<p>According to the <a class=dfn>TensorFlow.js</a> team, there are three main reasons.</p>
+<p>Lower latency, greater privacy, and lower serving cost.</p>
+<p>Latency because no request and response needs to go to the server and come back.</p>
+<p>Privacy because all of the data that's fed into the model can live on the device and never go to the servers.</p>
+<p>And then lower serving cost because the cost of doing the prediction is not borne by the host website.</p>
+<p>The cost of doing the computation is done on the user's device.</p></div><div class="slide" role='region' aria-label="Slide 5 of 19" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>None of these benefits are specific to <a class=dfn>TensorFlow.js</a>.</p>
+<p>They apply to any JavaScript library for machine learning on the web.</p>
+<p>Here are just a few of the other options.</p>
+<p>There are many.</p></div><div class="slide" role='region' aria-label="Slide 6 of 19" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Now you might wonder if there are already so many JavaScript libraries out there for doing ML, why create a new web standard?</p>
+<p>After all the community has risen to the occasion and has made these great libraries available.</p>
+<p>Standards take a long time to get agreed on and then implemented in browsers.</p>
+<p>Why not just use a JavaScript library today?</p></div><div class="slide" role='region' aria-label="Slide 7 of 19" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>The short answer is speed.</p>
+<p>It's all about performance.</p>
+<p>ML is compute intensive, faster processors unlock new applications and make new experiences possible.</p>
+<p>For certain kinds of computation, ML runs much faster on GPUs than it does on CPUs.</p>
+<p>And new <a class=dfn>tensor</a> processing units and other ML specific hardware runs much faster even than GPUs for some workloads.</p>
+<p>That's why the major hardware vendors like Intel, Nvidia, Qualcomm, and yes, Google and Apple, are all working on new chips to make ML run faster.</p>
+<p>We'd like web developers to be able to get access to the performance benefits too.</p>
+<p>The web platform and web standards are how we can enable that.</p></div><div class="slide" role='region' aria-label="Slide 8 of 19" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>We already have evidence that some of the recent web standards have improved performance for ML, sometimes dramatically.</p>
+<p>The <a class=dfn>TensorFlow</a> team ran some benchmarks comparing plain JavaScript to <a class=dfn>WebAssembly</a>, <a class=dfn>WebAssembly</a> with <a class=dfn>SIMD</a>, and <a class=dfn>WebGL</a>.</p>
+<p>The results show that mobile net models run 10 to 20 times faster on <a class=dfn>WebGL</a> compared to plain JavaScript.</p>
+<p>That's a huge performance boost.</p>
+<p>That's great.</p>
+<p>But these standards are not specific to ML and they weren't created to make ML workloads specifically run faster.</p>
+<p>They were created for graphics or for general purpose computing.</p>
+<p>The question is, is there room for even more improvement?</p>
+<p>If the browser can take advantage of native hardware, that really is optimized for ML.</p></div><div class="slide" role='region' aria-label="Slide 9 of 19" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>The short answer is yes.</p>
+<p>Ningxin at Intel has done probably more benchmarking on this than anyone.</p>
+<p>Results that he had produced a year ago showed that running even one or two ML operations that are very compute intensive and common in deep learning in neural networks can lead to much faster performance.</p>
+<p>Importantly, the performance gains are even larger than what's available with <a class=dfn>WebGL</a> or <a class=dfn>WebAssembly</a> alone.</p>
+<p>There are some performance gains that can be unlocked by adding new standards beyond just general purpose computing APIs.</p></div><div class="slide" role='region' aria-label="Slide 10 of 19" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>The previous slides showed the benefit of accelerating just a few computational operations using some recently added web standards that are very low level.</p>
+<p>They provide access to binary execution in the case of <a class=dfn>WebAssembly</a> or GPUs in the case of <a class=dfn>WebGL</a>.</p>
+<p>There are other ways we could help web developers run ML faster, some a little higher level.</p>
+<p>All these different approaches though have benefits and challenges.</p>
+<p>Let's look at four of the alternatives.</p></div><div class="slide" role='region' aria-label="Slide 11 of 19" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>We've already seen that operations, this is slide 11 now, can provide a large performance boost.</p>
+<p>They're small, simple APIs, which is great.</p>
+<p>We could add more low level APIs to accelerate deep learning like <a class=dfn>convolution</a>, <a class=dfn>matrix</a> multiplication.</p>
+<p>There's a limit to how much performance gain can be achieved looking at operations individually though.</p>
+<p>An ML model is a graph of many operations typically.</p>
+<p>If some can happen on GPUs, but others happen on CPUs, it can be expensive to switch back and forth between the two contexts.</p>
+<p>Memory buffers might need to be copied, execution handoffs can take time.</p>
+<p>Also web developers aren't likely to directly use these low level operation APIs.</p>
+<p>They'll typically rely on JavaScript libraries like <a class=dfn>TensorFlow.js</a> to deal with all of the low level details for them.</p></div><div class="slide" role='region' aria-label="Slide 12 of 19" id="slide-12" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=12"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=12">Slide 12</a></noscript></div><div role='region'><p>Next, let's look at graph APIs.</p>
+<p>One of the most popular examples of a graph API for ML is the neural network API for Android.</p>
+<p>It supports models trained in multiple ML frameworks like <a class=dfn>TensorFlow</a> and <a class=dfn>PyTorch</a>.</p>
+<p>And it can run on mobile devices with various chip sets.</p>
+<p>These are all great attributes.</p>
+<p>The NN API was the inspiration for the web neural network proposal that's also being incubated in the web ML <a class=dfn>community group</a>.</p>
+<p>By building up a graph of low level operations in JavaScript, and then handing off the whole graph to the browser for execution, it's possible to do smart things like run everything on GPUs or split up the graph and decide which parts to run on which chips.</p>
+<p>One big challenge for a graph API is that it has JavaScript APIs for every different operation that's supported.</p>
+<p>For perspective, the Android NN API supports over 120 operations.</p>
+<p><a class=dfn>TensorFlow</a> supports more than 1,000.</p>
+<p>That number has been growing by around 20% per year, which makes it really challenging to standardize.</p></div><div class="slide" role='region' aria-label="Slide 13 of 19" id="slide-13" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=13"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=13">Slide 13</a></noscript></div><div role='region'><p>You can learn more about the web neural network API proposal on the website.</p>
+<p>There's a whole bunch of information and some active GitHub issues and threads and discussion that's been going on.</p></div><div class="slide" role='region' aria-label="Slide 14 of 19" id="slide-14" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=14"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=14">Slide 14</a></noscript></div><div role='region'><p>Compared to operations APIs, or a graph API, an application specific API, like the shape detection API is something that a web developer would use directly.</p>
+<p>It's super simple.</p>
+<p>No JavaScript ML library is required.</p>
+<p>You can look at the code snippet on this slide.</p>
+<p>To the extent that there are specific ML applications that are common, that developers want access to and that are likely to remain common for many years, it makes sense to provide an easy way to add them to a web app.</p>
+<p>Most of the animation in ML though is happening with custom models.</p>
+<p>A company might want to optimize their ML models based on their own locale or their product catalog or other features that a high level API would have a hard time accommodating.</p>
+<p>You know, there are a small number of APIs that are extremely valuable, that are common, that many people would want to use.</p>
+<p>It makes sense to have an API for each of those.</p>
+<p>But there's a much larger number of potential models that people would want to run.</p>
+<p>And you can't easily make an API for each one of those.</p></div><div class="slide" role='region' aria-label="Slide 15 of 19" id="slide-15" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=15"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=15">Slide 15</a></noscript></div><div role='region'><p>The <a class=dfn>Model Loader API</a> tries to strike the balance between flexibility and developer friendliness.</p>
+<p>It provides a small, simple JavaScript service that could stand the test of time.</p>
+<p>It supports all of the performance optimizations that you can get with a graph API.</p>
+<p>The main difference from the graph API is that it moves the definition for the 100 or more operations from JavaScript, as in the graph API, into the model file format, just stored at a URL.</p>
+<p>That file still needs to be parsed and validated by the browser and secured against potentially malicious code.</p>
+<p>Machine learning execution engines, like <a class=dfn>CoreML</a>, <a class=dfn>TensorFlow</a>, and <a class=dfn>WinML</a> already know how to execute an ML model in their respective formats and they can be optimized for the underlying operating system.</p></div><div class="slide" role='region' aria-label="Slide 16 of 19" id="slide-16" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=16"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=16">Slide 16</a></noscript></div><div role='region'><p>Summarizing the options for ML APIs on the web then: the goal for all of them is to increase performance.</p>
+<p>That's why we want to have ML specific APIs rather than just do everything in JavaScript using existing general purpose APIs.</p>
+<p>There are multiple approaches and each one of them has pros and cons.</p>
+<p>The <a class=dfn>Model Loader API</a> is complementary to the others and we could choose to pursue it in addition to one or more of the other approaches.</p>
+<p>We could do all of them, or we could pick one.</p>
+<p>We don't know yet though which is really the best.</p>
+<p>So I'd like to see us move ahead and get some feedback from developers who are going to actually use these APIs.</p></div><div class="slide" role='region' aria-label="Slide 17 of 19" id="slide-17" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=17"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=17">Slide 17</a></noscript></div><div role='region'><p>There's some important caveats.</p>
+<p>It's really important to call them out because these are potential showstoppers and we need to be aware of them upfront.</p>
+<p>The first major caveat is just that ML is evolving super fast.</p>
+<p>New operations and approaches are being invented by researchers and published literally every day.</p>
+<p>Hardware is evolving as well.</p>
+<p>That's on a slower cycle, of course, because of the cost of fabrication and setting up manufacturing at scale.</p>
+<p>But hardware is changing quickly, too.</p>
+<p>Meanwhile, the web is forever.</p>
+<p>Backwards compatibility is essential.</p>
+<p>Just as an example, the neural network API hasn't really solved backwards compatibility despite broad adoption.</p>
+<p>The web is just getting started with ML standards.</p>
+<p>So it's early.</p>
+<p>Finally, there are multiple popular ML frameworks.</p>
+<p><a class=dfn>TensorFlow</a> is one of them.</p>
+<p><a class=dfn>CoreML</a>, and <a class=dfn>WinML</a> are really important too because those are the frameworks that operating system vendors, Apple and Microsoft, support natively.</p>
+<p>Each of these frameworks chooses what set of operations to support and they make those decisions independently with their own communities.</p>
+<p>That means that they all have chosen differently and are choosing differently, and they're evolving at different rates.</p>
+<p>There's only partial overlap from one ML framework to the next in terms of what operations they support.</p>
+<p>And conversion is not possible in general.</p>
+<p>Fortunately, a subset of those operations can be converted and standardized.</p>
+<p>There's an initiative called ONNX that is working on exactly this problem.</p>
+<p>But it's worth calling out that conversion is hard and is not going to be a hundred percent complete.</p>
+<p>My personal perspective is that the <a class=dfn>Model Loader API</a> gives us a way to explore ML on the web with full hardware acceleration while all of these uncertainties are being worked out.</p></div><div class="slide" role='region' aria-label="Slide 18 of 19" id="slide-18" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=18"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=18">Slide 18</a></noscript></div><div role='region'><p>I want to conclude with a status report about where the <a class=dfn>Model Loader API</a> is in the standards process.</p>
+<p>Currently, it's incubating in a <a class=dfn>community group</a>.</p>
+<p>Engineers in Chrome and ChromeOS are working on an experimental browser build with TF-lite integration as a backend.</p>
+<p>It's a goal to be able to support other ML engines as well.</p>
+<p>There's a bunch of tactical things to work out like process isolation, file validation, security protection.</p>
+<p>Once those have been addressed, the next step would be to implement the <a class=dfn>Model Loader API</a> on top of it and to make a custom browser build available so that developers could take a look at it.</p>
+<p>We'd really like to get feedback from some early developers to understand what we can do to make a better API and whether this is the right level of abstraction.</p></div><div class="slide" role='region' aria-label="Slide 19 of 19" id="slide-19" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=19"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jb_model.pdf#page=19">Slide 19</a></noscript></div><div role='region'><p>Thank you for listening.</p>
+<p>This is the end of the talk.</p>
+<p>You can read more about the <a class=dfn>Model Loader API</a> in the <a class=dfn>WebML Community Group</a> site on GitHub.</p>
+<p>Thank you.</p>
+<p>(techno music) (techno music) (techno music)</p></div>

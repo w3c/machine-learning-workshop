@@ -1,0 +1,1283 @@
+﻿WEBVTT
+
+
+slide-1
+00:00:08.550 --> 00:00:12.050
+<v ->Hello, I'm Jonathan Bingham, a product manager at Google.</v>
+
+6
+00:00:12.050 --> 00:00:13.280
+I'm going to talk about how the web
+
+7
+00:00:13.280 --> 00:00:16.693
+could provide native support for machine learning or ML.
+
+8
+00:00:17.670 --> 00:00:18.960
+Next slide.
+
+slide-2
+00:00:18.960 --> 00:00:20.750
+This proposal is being incubated
+
+10
+00:00:20.750 --> 00:00:22.810
+in the machine learning community group.
+
+11
+00:00:22.810 --> 00:00:25.060
+You can read all about it on the website
+
+12
+00:00:25.060 --> 00:00:26.350
+and in GitHub.
+
+13
+00:00:26.350 --> 00:00:27.870
+Slide three.
+
+slide-3
+00:00:27.870 --> 00:00:30.600
+The basic concept of the Model Loader API
+
+15
+00:00:30.600 --> 00:00:34.090
+is that a web developer has a pre-trained ML model
+
+16
+00:00:34.090 --> 00:00:36.100
+that's available by URL.
+
+17
+00:00:36.100 --> 00:00:39.110
+The model itself might've been created by a data scientist
+
+18
+00:00:39.110 --> 00:00:41.810
+at the developer's company or organization
+
+19
+00:00:41.810 --> 00:00:42.860
+or it could be shared
+
+20
+00:00:43.700 --> 00:00:47.140
+as a public model available to anybody online.
+
+21
+00:00:47.140 --> 00:00:49.100
+With just the model URL,
+
+22
+00:00:49.100 --> 00:00:51.650
+a few lines of JavaScript can load the model
+
+23
+00:00:51.650 --> 00:00:53.910
+and compile it to the native hardware.
+
+24
+00:00:53.910 --> 00:00:57.740
+After that, the web app can perform predictions with it.
+
+25
+00:00:57.740 --> 00:00:59.920
+The particular ML model could be anything.
+
+26
+00:00:59.920 --> 00:01:03.970
+It could perform image classification on a selected photo.
+
+27
+00:01:03.970 --> 00:01:06.050
+It could detect an abusive comment
+
+28
+00:01:06.050 --> 00:01:08.470
+that a user is typing into a text field,
+
+29
+00:01:08.470 --> 00:01:10.320
+or it could transform a video feed
+
+30
+00:01:10.320 --> 00:01:12.130
+to create augmented reality.
+
+31
+00:01:12.130 --> 00:01:14.163
+Really any idea you might have.
+
+32
+00:01:15.650 --> 00:01:16.870
+Slide four.
+
+slide-4
+00:01:16.870 --> 00:01:19.400
+Why would developers want to do this
+
+34
+00:01:19.400 --> 00:01:21.920
+inside the browser on the client side?
+
+35
+00:01:21.920 --> 00:01:24.220
+Why not do it on the server?
+
+36
+00:01:24.220 --> 00:01:26.160
+According to the TensorFlow.js team,
+
+37
+00:01:26.160 --> 00:01:28.100
+there are three main reasons.
+
+38
+00:01:28.100 --> 00:01:30.550
+Lower latency, greater privacy,
+
+39
+00:01:30.550 --> 00:01:32.400
+and lower serving cost.
+
+40
+00:01:32.400 --> 00:01:34.750
+Latency because no request and response
+
+41
+00:01:34.750 --> 00:01:36.850
+needs to go to the server and come back.
+
+42
+00:01:36.850 --> 00:01:39.940
+Privacy because all of the data that's fed into the model
+
+43
+00:01:39.940 --> 00:01:43.800
+can live on the device and never go to the servers.
+
+44
+00:01:43.800 --> 00:01:45.870
+And then lower serving cost because
+
+45
+00:01:45.870 --> 00:01:47.810
+the cost of doing the prediction
+
+46
+00:01:47.810 --> 00:01:51.820
+is not borne by the host website.
+
+47
+00:01:51.820 --> 00:01:53.200
+The cost of doing the computation
+
+48
+00:01:53.200 --> 00:01:55.660
+is done on the user's device.
+
+49
+00:01:55.660 --> 00:01:56.950
+Slide five.
+
+slide-5
+00:01:56.950 --> 00:02:00.180
+None of these benefits are specific to TensorFlow.js.
+
+51
+00:02:00.180 --> 00:02:02.250
+They apply to any JavaScript library
+
+52
+00:02:02.250 --> 00:02:03.940
+for machine learning on the web.
+
+53
+00:02:03.940 --> 00:02:05.820
+Here are just a few of the other options.
+
+54
+00:02:05.820 --> 00:02:07.380
+There are many.
+
+55
+00:02:07.380 --> 00:02:08.660
+Slide six.
+
+slide-6
+00:02:08.660 --> 00:02:10.360
+Now you might wonder
+
+57
+00:02:10.360 --> 00:02:12.800
+if there are already so many JavaScript libraries
+
+58
+00:02:12.800 --> 00:02:14.270
+out there for doing ML,
+
+59
+00:02:14.270 --> 00:02:16.350
+why create a new web standard?
+
+60
+00:02:16.350 --> 00:02:18.830
+After all the community has risen to the occasion
+
+61
+00:02:18.830 --> 00:02:21.720
+and has made these great libraries available.
+
+62
+00:02:21.720 --> 00:02:24.370
+Standards take a long time to get agreed on
+
+63
+00:02:24.370 --> 00:02:26.240
+and then implemented in browsers.
+
+64
+00:02:26.240 --> 00:02:28.933
+Why not just use a JavaScript library today?
+
+65
+00:02:30.090 --> 00:02:31.420
+Slide seven.
+
+slide-7
+00:02:31.420 --> 00:02:33.700
+The short answer is speed.
+
+67
+00:02:33.700 --> 00:02:35.640
+It's all about performance.
+
+68
+00:02:35.640 --> 00:02:38.570
+ML is compute intensive, faster processors
+
+69
+00:02:38.570 --> 00:02:42.360
+unlock new applications and make new experiences possible.
+
+70
+00:02:42.360 --> 00:02:44.250
+For certain kinds of computation,
+
+71
+00:02:44.250 --> 00:02:48.200
+ML runs much faster on GPUs than it does on CPUs.
+
+72
+00:02:48.200 --> 00:02:50.510
+And new tensor processing units
+
+73
+00:02:50.510 --> 00:02:52.560
+and other ML specific hardware
+
+74
+00:02:52.560 --> 00:02:56.480
+runs much faster even than GPUs for some workloads.
+
+75
+00:02:56.480 --> 00:02:58.220
+That's why the major hardware vendors
+
+76
+00:02:58.220 --> 00:03:00.510
+like Intel, Nvidia, Qualcomm,
+
+77
+00:03:00.510 --> 00:03:02.670
+and yes, Google and Apple,
+
+78
+00:03:02.670 --> 00:03:06.200
+are all working on new chips to make ML run faster.
+
+79
+00:03:06.200 --> 00:03:08.240
+We'd like web developers to be able to get access
+
+80
+00:03:08.240 --> 00:03:10.020
+to the performance benefits too.
+
+81
+00:03:10.020 --> 00:03:12.220
+The web platform and web standards
+
+82
+00:03:12.220 --> 00:03:14.710
+are how we can enable that.
+
+83
+00:03:14.710 --> 00:03:16.090
+Slide eight.
+
+slide-8
+00:03:16.090 --> 00:03:17.690
+We already have evidence
+
+85
+00:03:17.690 --> 00:03:19.500
+that some of the recent web standards
+
+86
+00:03:19.500 --> 00:03:23.430
+have improved performance for ML, sometimes dramatically.
+
+87
+00:03:23.430 --> 00:03:25.500
+The TensorFlow team ran some benchmarks
+
+88
+00:03:25.500 --> 00:03:28.476
+comparing plain JavaScript to WebAssembly,
+
+89
+00:03:28.476 --> 00:03:30.126
+WebAssembly with SIMD, and WebGL.
+
+90
+00:03:31.780 --> 00:03:33.660
+The results show that mobile net models
+
+91
+00:03:33.660 --> 00:03:36.350
+run 10 to 20 times faster on WebGL
+
+92
+00:03:36.350 --> 00:03:38.040
+compared to plain JavaScript.
+
+93
+00:03:38.040 --> 00:03:39.770
+That's a huge performance boost.
+
+94
+00:03:39.770 --> 00:03:41.120
+That's great.
+
+95
+00:03:41.120 --> 00:03:45.020
+But these standards are not specific to ML
+
+96
+00:03:45.020 --> 00:03:47.180
+and they weren't created to make ML workloads
+
+97
+00:03:47.180 --> 00:03:49.250
+specifically run faster.
+
+98
+00:03:49.250 --> 00:03:50.840
+They were created for graphics
+
+99
+00:03:50.840 --> 00:03:53.010
+or for general purpose computing.
+
+100
+00:03:53.010 --> 00:03:56.720
+The question is, is there room for even more improvement?
+
+101
+00:03:56.720 --> 00:03:59.090
+If the browser can take advantage of native hardware,
+
+102
+00:03:59.090 --> 00:04:01.890
+that really is optimized for ML.
+
+103
+00:04:01.890 --> 00:04:02.723
+Slide nine.
+
+slide-9
+00:04:04.210 --> 00:04:06.610
+The short answer is yes.
+
+105
+00:04:06.610 --> 00:04:08.320
+Ningxin at Intel has done
+
+106
+00:04:08.320 --> 00:04:11.300
+probably more benchmarking on this than anyone.
+
+107
+00:04:11.300 --> 00:04:13.380
+Results that he had produced a year ago
+
+108
+00:04:13.380 --> 00:04:16.110
+showed that running even one or two ML operations
+
+109
+00:04:16.110 --> 00:04:18.630
+that are very compute intensive
+
+110
+00:04:18.630 --> 00:04:21.040
+and common in deep learning in neural networks
+
+111
+00:04:21.040 --> 00:04:23.600
+can lead to much faster performance.
+
+112
+00:04:23.600 --> 00:04:26.520
+Importantly, the performance gains are even larger
+
+113
+00:04:26.520 --> 00:04:29.690
+than what's available with WebGL or WebAssembly alone.
+
+114
+00:04:29.690 --> 00:04:32.720
+There are some performance gains that can be unlocked by
+
+115
+00:04:32.720 --> 00:04:37.460
+adding new standards beyond just general purpose
+
+116
+00:04:37.460 --> 00:04:39.620
+computing APIs.
+
+117
+00:04:39.620 --> 00:04:41.060
+Slide 10.
+
+slide-10
+00:04:41.060 --> 00:04:43.820
+The previous slides showed the benefit of accelerating
+
+119
+00:04:43.820 --> 00:04:46.140
+just a few computational operations
+
+120
+00:04:46.140 --> 00:04:48.000
+using some recently added web standards
+
+121
+00:04:48.000 --> 00:04:50.050
+that are very low level.
+
+122
+00:04:50.050 --> 00:04:52.070
+They provide access to binary execution
+
+123
+00:04:52.070 --> 00:04:56.420
+in the case of WebAssembly or GPUs in the case of WebGL.
+
+124
+00:04:56.420 --> 00:04:58.610
+There are other ways we could help web developers
+
+125
+00:04:58.610 --> 00:05:02.280
+run ML faster, some a little higher level.
+
+126
+00:05:02.280 --> 00:05:03.520
+All these different approaches though
+
+127
+00:05:03.520 --> 00:05:05.730
+have benefits and challenges.
+
+128
+00:05:05.730 --> 00:05:08.910
+Let's look at four of the alternatives.
+
+slide-11
+00:05:08.910 --> 00:05:10.930
+We've already seen that operations,
+
+130
+00:05:10.930 --> 00:05:13.030
+this is slide 11 now,
+
+131
+00:05:13.030 --> 00:05:15.250
+can provide a large performance boost.
+
+132
+00:05:15.250 --> 00:05:18.110
+They're small, simple APIs, which is great.
+
+133
+00:05:18.110 --> 00:05:20.050
+We could add more low level APIs
+
+134
+00:05:20.050 --> 00:05:21.290
+to accelerate deep learning
+
+135
+00:05:21.290 --> 00:05:24.630
+like convolution, matrix multiplication.
+
+136
+00:05:24.630 --> 00:05:26.500
+There's a limit to how much performance gain
+
+137
+00:05:26.500 --> 00:05:27.333
+can be achieved
+
+138
+00:05:27.333 --> 00:05:30.070
+looking at operations individually though.
+
+139
+00:05:30.070 --> 00:05:33.530
+An ML model is a graph of many operations typically.
+
+140
+00:05:33.530 --> 00:05:37.570
+If some can happen on GPUs, but others happen on CPUs,
+
+141
+00:05:37.570 --> 00:05:39.370
+it can be expensive to switch back and forth
+
+142
+00:05:39.370 --> 00:05:41.030
+between the two contexts.
+
+143
+00:05:41.030 --> 00:05:42.750
+Memory buffers might need to be copied,
+
+144
+00:05:42.750 --> 00:05:45.260
+execution handoffs can take time.
+
+145
+00:05:45.260 --> 00:05:48.850
+Also web developers aren't likely to directly use
+
+146
+00:05:48.850 --> 00:05:51.210
+these low level operation APIs.
+
+147
+00:05:51.210 --> 00:05:53.250
+They'll typically rely on JavaScript libraries
+
+148
+00:05:53.250 --> 00:05:55.040
+like TensorFlow.js to deal with all of
+
+149
+00:05:55.040 --> 00:05:56.603
+the low level details for them.
+
+150
+00:05:57.470 --> 00:05:58.890
+Slide 12.
+
+slide-12
+00:05:58.890 --> 00:06:01.440
+Next, let's look at graph APIs.
+
+152
+00:06:01.440 --> 00:06:04.800
+One of the most popular examples of a graph API for ML
+
+153
+00:06:04.800 --> 00:06:07.330
+is the neural network API for Android.
+
+154
+00:06:07.330 --> 00:06:10.330
+It supports models trained in multiple ML frameworks
+
+155
+00:06:10.330 --> 00:06:12.640
+like TensorFlow and PyTorch.
+
+156
+00:06:12.640 --> 00:06:15.610
+And it can run on mobile devices with various chip sets.
+
+157
+00:06:15.610 --> 00:06:17.623
+These are all great attributes.
+
+158
+00:06:18.550 --> 00:06:21.440
+The NN API was the inspiration for
+
+159
+00:06:21.440 --> 00:06:23.070
+the web neural network proposal
+
+160
+00:06:23.070 --> 00:06:26.290
+that's also being incubated in the web ML community group.
+
+161
+00:06:26.290 --> 00:06:28.470
+By building up a graph of low level operations
+
+162
+00:06:28.470 --> 00:06:29.640
+in JavaScript,
+
+163
+00:06:29.640 --> 00:06:31.570
+and then handing off the whole graph
+
+164
+00:06:31.570 --> 00:06:33.410
+to the browser for execution,
+
+165
+00:06:33.410 --> 00:06:35.130
+it's possible to do smart things
+
+166
+00:06:35.130 --> 00:06:37.050
+like run everything on GPUs
+
+167
+00:06:37.050 --> 00:06:39.080
+or split up the graph and decide which parts
+
+168
+00:06:39.080 --> 00:06:41.290
+to run on which chips.
+
+169
+00:06:41.290 --> 00:06:43.530
+One big challenge for a graph API
+
+170
+00:06:43.530 --> 00:06:45.620
+is that it has JavaScript APIs
+
+171
+00:06:45.620 --> 00:06:48.830
+for every different operation that's supported.
+
+172
+00:06:48.830 --> 00:06:49.980
+For perspective,
+
+173
+00:06:49.980 --> 00:06:54.040
+the Android NN API supports over 120 operations.
+
+174
+00:06:54.040 --> 00:06:56.670
+TensorFlow supports more than 1,000.
+
+175
+00:06:56.670 --> 00:06:59.670
+That number has been growing by around 20% per year,
+
+176
+00:06:59.670 --> 00:07:02.243
+which makes it really challenging to standardize.
+
+177
+00:07:03.150 --> 00:07:04.610
+Slide 13.
+
+slide-13
+00:07:04.610 --> 00:07:07.120
+You can learn more about the web neural network API proposal
+
+179
+00:07:07.120 --> 00:07:08.060
+on the website.
+
+180
+00:07:08.060 --> 00:07:09.500
+There's a whole bunch of information
+
+181
+00:07:09.500 --> 00:07:11.690
+and some active GitHub issues and threads
+
+182
+00:07:11.690 --> 00:07:13.920
+and discussion that's been going on.
+
+183
+00:07:13.920 --> 00:07:15.600
+Slide 14.
+
+slide-14
+00:07:15.600 --> 00:07:19.440
+Compared to operations APIs, or a graph API,
+
+185
+00:07:19.440 --> 00:07:23.210
+an application specific API, like the shape detection API
+
+186
+00:07:23.210 --> 00:07:26.040
+is something that a web developer would use directly.
+
+187
+00:07:26.040 --> 00:07:27.850
+It's super simple.
+
+188
+00:07:27.850 --> 00:07:30.180
+No JavaScript ML library is required.
+
+189
+00:07:30.180 --> 00:07:33.010
+You can look at the code snippet on this slide.
+
+190
+00:07:33.010 --> 00:07:35.720
+To the extent that there are specific ML applications
+
+191
+00:07:35.720 --> 00:07:38.460
+that are common, that developers want access to
+
+192
+00:07:38.460 --> 00:07:41.310
+and that are likely to remain common for many years,
+
+193
+00:07:41.310 --> 00:07:42.800
+it makes sense to provide an easy way
+
+194
+00:07:42.800 --> 00:07:44.830
+to add them to a web app.
+
+195
+00:07:44.830 --> 00:07:47.940
+Most of the animation in ML though
+
+196
+00:07:47.940 --> 00:07:50.050
+is happening with custom models.
+
+197
+00:07:50.050 --> 00:07:53.300
+A company might want to optimize their ML models
+
+198
+00:07:53.300 --> 00:07:55.940
+based on their own locale or their product catalog
+
+199
+00:07:56.940 --> 00:07:59.230
+or other features that a high level API
+
+200
+00:07:59.230 --> 00:08:01.080
+would have a hard time accommodating.
+
+201
+00:08:02.700 --> 00:08:04.550
+You know, there are a small number of APIs
+
+202
+00:08:04.550 --> 00:08:06.500
+that are extremely valuable,
+
+203
+00:08:06.500 --> 00:08:08.730
+that are common, that many people would want to use.
+
+204
+00:08:08.730 --> 00:08:11.200
+It makes sense to have an API for each of those.
+
+205
+00:08:11.200 --> 00:08:13.760
+But there's a much larger number of potential models
+
+206
+00:08:13.760 --> 00:08:15.680
+that people would want to run.
+
+207
+00:08:15.680 --> 00:08:20.240
+And you can't easily make an API for each one of those.
+
+208
+00:08:20.240 --> 00:08:21.930
+Slide 15.
+
+slide-15
+00:08:21.930 --> 00:08:24.450
+The Model Loader API tries to strike the balance
+
+210
+00:08:24.450 --> 00:08:27.450
+between flexibility and developer friendliness.
+
+211
+00:08:27.450 --> 00:08:30.200
+It provides a small, simple JavaScript service
+
+212
+00:08:30.200 --> 00:08:32.140
+that could stand the test of time.
+
+213
+00:08:32.140 --> 00:08:34.020
+It supports all of the performance optimizations
+
+214
+00:08:34.020 --> 00:08:36.010
+that you can get with a graph API.
+
+215
+00:08:36.010 --> 00:08:38.050
+The main difference from the graph API
+
+216
+00:08:38.050 --> 00:08:39.810
+is that it moves the definition
+
+217
+00:08:41.520 --> 00:08:44.650
+for the 100 or more operations from JavaScript,
+
+218
+00:08:44.650 --> 00:08:47.760
+as in the graph API, into the model file format,
+
+219
+00:08:47.760 --> 00:08:49.970
+just stored at a URL.
+
+220
+00:08:49.970 --> 00:08:52.210
+That file still needs to be parsed and validated
+
+221
+00:08:52.210 --> 00:08:53.100
+by the browser
+
+222
+00:08:53.100 --> 00:08:56.210
+and secured against potentially malicious code.
+
+223
+00:08:56.210 --> 00:08:57.930
+Machine learning execution engines,
+
+224
+00:08:57.930 --> 00:09:01.150
+like CoreML, TensorFlow, and WinML
+
+225
+00:09:01.150 --> 00:09:03.170
+already know how to execute an ML model
+
+226
+00:09:03.170 --> 00:09:04.850
+in their respective formats
+
+227
+00:09:04.850 --> 00:09:05.820
+and they can be optimized
+
+228
+00:09:05.820 --> 00:09:08.320
+for the underlying operating system.
+
+229
+00:09:08.320 --> 00:09:09.980
+Slide 16.
+
+slide-16
+00:09:09.980 --> 00:09:13.283
+Summarizing the options for ML APIs on the web then:
+
+231
+00:09:15.220 --> 00:09:17.380
+the goal for all of them is to increase performance.
+
+232
+00:09:17.380 --> 00:09:19.960
+That's why we want to have ML specific APIs
+
+233
+00:09:19.960 --> 00:09:22.150
+rather than just do everything in JavaScript
+
+234
+00:09:22.150 --> 00:09:25.280
+using existing general purpose APIs.
+
+235
+00:09:25.280 --> 00:09:27.040
+There are multiple approaches
+
+236
+00:09:27.040 --> 00:09:29.810
+and each one of them has pros and cons.
+
+237
+00:09:29.810 --> 00:09:31.370
+The Model Loader API
+
+238
+00:09:31.370 --> 00:09:33.450
+is complementary to the others
+
+239
+00:09:33.450 --> 00:09:35.840
+and we could choose to pursue it
+
+240
+00:09:35.840 --> 00:09:38.150
+in addition to one or more of the other approaches.
+
+241
+00:09:38.150 --> 00:09:40.490
+We could do all of them, or we could pick one.
+
+242
+00:09:40.490 --> 00:09:43.070
+We don't know yet though which is really the best.
+
+243
+00:09:43.070 --> 00:09:44.530
+So
+
+244
+00:09:44.530 --> 00:09:46.520
+I'd like to see us move ahead
+
+245
+00:09:46.520 --> 00:09:48.030
+and get some feedback from developers
+
+246
+00:09:48.030 --> 00:09:50.250
+who are going to actually use these APIs.
+
+247
+00:09:50.250 --> 00:09:51.163
+Slide 17.
+
+slide-17
+00:09:52.147 --> 00:09:53.940
+There's some important caveats.
+
+249
+00:09:53.940 --> 00:09:56.650
+It's really important to call them out
+
+250
+00:09:56.650 --> 00:09:58.810
+because these are potential showstoppers
+
+251
+00:09:58.810 --> 00:10:01.460
+and we need to be aware of them upfront.
+
+252
+00:10:01.460 --> 00:10:03.050
+The first major caveat
+
+253
+00:10:03.050 --> 00:10:06.050
+is just that ML is evolving super fast.
+
+254
+00:10:06.050 --> 00:10:08.330
+New operations and approaches are being invented
+
+255
+00:10:08.330 --> 00:10:12.390
+by researchers and published literally every day.
+
+256
+00:10:12.390 --> 00:10:14.490
+Hardware is evolving as well.
+
+257
+00:10:14.490 --> 00:10:15.610
+That's on a slower cycle,
+
+258
+00:10:15.610 --> 00:10:17.550
+of course, because of the cost of fabrication
+
+259
+00:10:17.550 --> 00:10:18.383
+and setting up
+
+260
+00:10:19.900 --> 00:10:21.520
+manufacturing at scale.
+
+261
+00:10:21.520 --> 00:10:23.840
+But hardware is changing quickly, too.
+
+262
+00:10:23.840 --> 00:10:26.310
+Meanwhile, the web is forever.
+
+263
+00:10:26.310 --> 00:10:28.373
+Backwards compatibility is essential.
+
+264
+00:10:29.520 --> 00:10:30.560
+Just as an example,
+
+265
+00:10:30.560 --> 00:10:33.010
+the neural network API hasn't really solved
+
+266
+00:10:33.010 --> 00:10:35.523
+backwards compatibility despite broad adoption.
+
+267
+00:10:36.610 --> 00:10:38.700
+The web is just getting started with ML standards.
+
+268
+00:10:38.700 --> 00:10:39.763
+So it's early.
+
+269
+00:10:40.750 --> 00:10:43.710
+Finally, there are multiple popular ML frameworks.
+
+270
+00:10:43.710 --> 00:10:45.270
+TensorFlow is one of them.
+
+271
+00:10:45.270 --> 00:10:48.190
+CoreML, and WinML are really important too
+
+272
+00:10:48.190 --> 00:10:49.520
+because those are the frameworks
+
+273
+00:10:49.520 --> 00:10:51.560
+that operating system vendors,
+
+274
+00:10:51.560 --> 00:10:54.040
+Apple and Microsoft, support natively.
+
+275
+00:10:54.040 --> 00:10:56.510
+Each of these frameworks chooses what set of operations
+
+276
+00:10:56.510 --> 00:10:58.960
+to support and they make those decisions independently
+
+277
+00:10:58.960 --> 00:11:00.313
+with their own communities.
+
+278
+00:11:01.510 --> 00:11:04.070
+That means that they all have chosen differently
+
+279
+00:11:04.070 --> 00:11:05.450
+and are choosing differently,
+
+280
+00:11:05.450 --> 00:11:07.700
+and they're evolving at different rates.
+
+281
+00:11:07.700 --> 00:11:09.940
+There's only partial overlap
+
+282
+00:11:09.940 --> 00:11:12.120
+from one ML framework to the next
+
+283
+00:11:12.120 --> 00:11:14.660
+in terms of what operations they support.
+
+284
+00:11:14.660 --> 00:11:19.330
+And conversion is not possible in general.
+
+285
+00:11:19.330 --> 00:11:22.090
+Fortunately, a subset of those operations
+
+286
+00:11:22.090 --> 00:11:24.150
+can be converted and standardized.
+
+287
+00:11:24.150 --> 00:11:26.090
+There's an initiative called ONNX
+
+288
+00:11:26.090 --> 00:11:28.550
+that is working on exactly this problem.
+
+289
+00:11:28.550 --> 00:11:31.830
+But it's worth calling out that conversion is hard
+
+290
+00:11:31.830 --> 00:11:34.900
+and is not going to be a hundred percent complete.
+
+291
+00:11:34.900 --> 00:11:36.200
+My personal perspective
+
+292
+00:11:36.200 --> 00:11:39.520
+is that the Model Loader API gives us a way to explore
+
+293
+00:11:39.520 --> 00:11:42.430
+ML on the web with full hardware acceleration
+
+294
+00:11:42.430 --> 00:11:45.730
+while all of these uncertainties are being worked out.
+
+295
+00:11:45.730 --> 00:11:47.130
+Slide 18.
+
+slide-18
+00:11:47.130 --> 00:11:48.960
+I want to conclude with a status report
+
+297
+00:11:48.960 --> 00:11:50.980
+about where the Model Loader API is
+
+298
+00:11:50.980 --> 00:11:52.810
+in the standards process.
+
+299
+00:11:52.810 --> 00:11:55.770
+Currently, it's incubating in a community group.
+
+300
+00:11:55.770 --> 00:11:59.290
+Engineers in Chrome and ChromeOS are working on
+
+301
+00:11:59.290 --> 00:12:01.100
+an experimental browser build
+
+302
+00:12:01.100 --> 00:12:03.810
+with TF-lite integration as a backend.
+
+303
+00:12:03.810 --> 00:12:05.210
+It's a goal
+
+304
+00:12:05.210 --> 00:12:08.773
+to be able to support other ML engines as well.
+
+305
+00:12:10.120 --> 00:12:11.860
+There's a bunch of tactical things to work out
+
+306
+00:12:11.860 --> 00:12:15.000
+like process isolation, file validation,
+
+307
+00:12:15.000 --> 00:12:17.150
+security protection.
+
+308
+00:12:17.150 --> 00:12:19.280
+Once those have been addressed,
+
+309
+00:12:19.280 --> 00:12:21.030
+the next step would be to implement
+
+310
+00:12:21.030 --> 00:12:23.180
+the Model Loader API on top of it
+
+311
+00:12:23.180 --> 00:12:25.750
+and to make a custom browser build available
+
+312
+00:12:25.750 --> 00:12:27.810
+so that developers could take a look at it.
+
+313
+00:12:27.810 --> 00:12:30.660
+We'd really like to get feedback from some early developers
+
+314
+00:12:30.660 --> 00:12:33.540
+to understand what we can do to make a better API
+
+315
+00:12:33.540 --> 00:12:36.090
+and whether this is the right level of abstraction.
+
+316
+00:12:37.270 --> 00:12:38.650
+Slide 19.
+
+slide-19
+00:12:38.650 --> 00:12:39.950
+Thank you for listening.
+
+318
+00:12:39.950 --> 00:12:41.640
+This is the end of the talk.
+
+319
+00:12:41.640 --> 00:12:43.740
+You can read more about the Model Loader API
+
+320
+00:12:43.740 --> 00:12:46.500
+in the WebML Community Group site on GitHub.
+
+321
+00:12:46.500 --> 00:12:47.574
+Thank you.
+
+322
+00:12:47.574 --> 00:12:49.748 line:15% 
+(techno music)
+
+323
+00:12:49.748 --> 00:12:52.127 line:15% 
+(techno music)
+
+324
+00:12:52.127 --> 00:12:53.977 line:15% 
+(techno music)
+

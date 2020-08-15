@@ -3,6 +3,10 @@ fetch("../lexicon.json").then(r => r.json())
     const alreadyDone = {};
     [...document.querySelectorAll("a.dfn")].forEach(a => {
       if (lexicon[a.textContent] && !alreadyDone[a.textContent]) {
+        if (lexicon[a.textContent].href) {
+          a.href = lexicon[a.textContent].href;
+          return;
+        }
         let dfnTarget;
         if (!lexicon[a.textContent].alias) {
           dfnTarget = a.textContent;
