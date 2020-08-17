@@ -176,3 +176,12 @@
       .slide ol {
           margin: inherit;
       }
+      .slide iframe {
+	width: 133%;
+	height: 133%;
+	transform: scale(0.75);
+	transform-origin: 0 0;
+      }
+      .slide.iframe {
+          height: 26em;
+      }

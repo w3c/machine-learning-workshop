@@ -72,7 +72,7 @@ for (let shortname of Object.keys(talks)) {
   let content = "";
   let dom;
   const format = talks[shortname].format || 'pdf';
-  if (format !== 'pdf' && talks[shortname].url) {
+  if (format === 'shower' && talks[shortname].url) {
     dom = await JSDOM.fromURL(talks[shortname].url);
   }
   for (i = 1 ; i < divs.length; i++) {
@@ -88,8 +88,10 @@ for (let shortname of Object.keys(talks)) {
           });
           content += slide.outerHTML ;
         }
-      } else {
+      } else if (format === "pdf") {
         content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript>`;
+      } else {
+        content += `<div class="slide iframe" role="region" aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}"><iframe src="${slideurl}#${i}"></iframe>`;
       }
       content += "</div>";
     }

@@ -195,7 +195,7 @@
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
         "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
         "format": "shiny",
-        "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/#",
+        "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/slides.html",
         "abstract": "    This talk will present the usage of web-based tools to interactively explore machine learning models, with the example of an interactive D3.js-based visualization to see the results of unsupervised image segmentation.",
         "duration": "06:38"
       },
