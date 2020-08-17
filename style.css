@@ -63,10 +63,16 @@ header #translations {
 
 #top h1,
 #top h2 {
-    margin-left:450px;
   padding: 1rem;
   color: white;
   text-shadow: 4px 4px 20px black;
+}
+
+@media all and (min-width: 787px) {
+  #top h1,
+  #top h2 {
+    margin-left: 450px;
+  }
 }
 
 #top.small h1 {
