@@ -10,7 +10,7 @@ let prevlink = "", prevtitle = "";
 for (let section of talks) {
   sectionNum++;
   const shortnames = Object.keys(section);
-  let sectionContent = `<dl class="talks">` ;
+  let sectionContent = `<div class="talks">` ;
 for(let i = 0; i < shortnames.length; i++) {
   const shortname = shortnames[i];
   const talk = section[shortname];
@@ -18,12 +18,12 @@ for(let i = 0; i < shortnames.length; i++) {
   if (talk.video) {
     const duration = talk.duration.split(':')[0].replace(/^0/, '');
 
-    sectionContent += `<dt><a href="talks/${slug}.html">${talk.title}</a></dt>`;
-    sectionContent += `<dd><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="" width=200 class=tn> ${duration} minutes presentation</a></dd>`;
+    sectionContent += `<details class=talk><summary><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="Watch ${talk.title}" width=200 class="tn"></a><a href="talks/${slug}.html">${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""} - ${duration} min</span></summary>`;
+    sectionContent += `<p><a href="talks/${slug}.html">${duration} minutes presentation</a></p>`;
   } else {
-    sectionContent += `<dt>${talk.title}</dt>`;
+    sectionContent += `<details><summary><span>PENDING </span><a>${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""}</span></summary>`;
   }
-  sectionContent += `<dd><dl>`;
+  sectionContent += `<dl>`;
   sectionContent += `<dt>Speaker</dt>`;
   sectionContent += `<dd>${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""}</dd>`;
   if (talk.bio) {
@@ -33,7 +33,7 @@ for(let i = 0; i < shortnames.length; i++) {
     sectionContent += `<dt>Abstract</dt>`;
     sectionContent += `<dd>${talk.abstract}</dd>`;
   }
-  sectionContent += "</dl></dd>\n"; 
+  sectionContent += "</dl></details>\n"; 
 
   if (!talk.video) continue;
   const format = talk.format || "pdf";
