@@ -204,7 +204,7 @@
         "author": "Josh Meyer & Lindy Rauchenstein",
         "affiliation": "Artie",
         "bio": "    Lead Scientist at Artie, Inc. and Machine Learning Fellow at Mozilla, Lead Scientist at Artie",
-        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/thumb-002.jpeg",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/artie-tn.jpg",
         "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4",
         "abstract": "    This talk is an overview of some of Artie's machine learning tech stack, which is web-based and mobile first. It will discuss peculiarities of working with voice, text, and images originating from a user's phone, while running an application in the browser and will include discussions about balancing user preferences with privacy, latency, and performance.",
         "duration": "11:16"
