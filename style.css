@@ -561,18 +561,18 @@ div.talks details[open] .summary, div.talks details[open] a:nth-child(4) {
     display: none;
 }
 
- dt {
+div.talks dt {
   margin: 0;
 }
 
- dd {
+div.talks dd {
      margin: 0;
      padding-left: 1rem;
 }
 
- dd + dd { font-style: italic;}
+div.talks dd + dd { font-style: italic;}
 
- dd + dt {
+div.talks dd + dt {
   padding-top: 1rem;
 }
 

@@ -6,6 +6,9 @@
       {{ page.title }}, by {{page.author}} {% if page.affiliation %} ({{page.affiliation}}) {% endif %}- Presentation at W3C Workshop on Web and Machine Learning
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.format == "shower" %}
+    <link rel="stylesheet" href="https://www.w3.org/2020/Talks/fd-media-processing/template/slides.css">
+    {% endif %}
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../presentation-viewer.css">
     <link rel="stylesheet" href="../tooltip.css">
@@ -141,10 +144,13 @@
       var shortname = "{{shortname}}";
     </script>
     <script src="../webvtt-parser.js"></script>
-    <!-- TODO: load only for PDF presentations -->
+    {% if page.format == "pdf" %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.js"></script>
+    {% endif %}
     <script src="../presentation-viewer.js"></script>
+    {% if page.format == "pdf" %}
     <script src="../pdf-loader.js"></script>
+    {% endif %}
     <script src="../tooltip.js"></script>
     <script src="../lexicon.js"></script>
   </body>

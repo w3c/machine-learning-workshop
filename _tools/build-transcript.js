@@ -4,7 +4,7 @@ const parser = new WebVTTParser();
 const splitter = require("sentence-splitter");
 const talks = require("../_data/talks.json").reduce((acc, obj) => Object.assign(acc, obj), {});
 const lexicon = require("../lexicon.json");
-
+const { JSDOM } = require("jsdom");
 const linkableTerms = Object.keys(lexicon);
 
 function annotateSentence(sentence) {
@@ -22,6 +22,7 @@ function annotateSentence(sentence) {
   return sentence;
 }
 
+(async function () {
 for (let shortname of Object.keys(talks)) {
   let cues;
   try {
@@ -47,7 +48,7 @@ for (let shortname of Object.keys(talks)) {
     }
     while (sentencesCursor < sentences.length) {
       const sentence = sentences[sentencesCursor];
-      if (sentence.startsWith(c.text.replace(/^slide [0-9a-z]+\. /i,''))) {
+      if (sentence.startsWith(c.text.split('.')[0])) {
         break;
       }
       if (!sentence.match(/^slide [a-z0-9]+\.?$/i)) {
@@ -68,12 +69,29 @@ for (let shortname of Object.keys(talks)) {
     sentencesCursor++;
   }
   divs.push(div);
-  let content = ""
+  let content = "";
+  let dom;
+  const format = talks[shortname].format || 'pdf';
+  if (format !== 'pdf' && talks[shortname].url) {
+    dom = await JSDOM.fromURL(talks[shortname].url);
+  }
   for (i = 1 ; i < divs.length; i++) {
     const slideurl = talks[shortname].noslide ? "" : talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i;
-    const format = talks[shortname].format || 'pdf';
     if (slideurl) {
-      content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript></div>`;
+      if (dom) {
+        const slide = dom.window.document.querySelectorAll(".slide")[i - 1];
+        if (slide) {
+          [...slide.querySelectorAll("img[src]")].forEach(n => {
+            n.setAttribute("src", n.src);
+            slide.setAttribute("role", "region");
+            slide.setAttribute("aria-label", `Slide ${i} of ${divs.length - 1}`);
+          });
+          content += slide.outerHTML ;
+        }
+      } else {
+        content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript>`;
+      }
+      content += "</div>";
     }
     content += `<div role='region'>`;
     content += "<p>" + divs[i].join("</p>\n<p>") + "</p>";
@@ -81,3 +99,8 @@ for (let shortname of Object.keys(talks)) {
   }
   fs.writeFileSync("_includes/transcripts/" + shortname + ".html", content, {encoding: "utf-8"});
 }
+})().catch(
+  err => {
+    console.error(err);
+    process.exit(2);
+  });

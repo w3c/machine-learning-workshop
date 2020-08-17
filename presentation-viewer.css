@@ -156,3 +156,23 @@
       }
 }
       main { clear: left;}
+      .slide[data-fmt="shower"] {
+	font-size: 1em;
+	height: 26em;
+	width: 40.889em;
+      }
+      html {
+          font-size: 1em;
+      }
+
+      .slide h1,
+      .slide h2,
+      .slide h3,
+      .slide h4,
+      .slide h5,
+      .slide p,
+      .slide dl,
+      .slide ul,
+      .slide ol {
+          margin: inherit;
+      }
