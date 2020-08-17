@@ -29,8 +29,9 @@ for (let shortname of Object.keys(talks)) {
   } catch (e) {
     continue;
   }
-
-  const sentences = splitter.split(cues.map(c => c.text.replace(/^slide [0-9]+$/i, '').replace('"','')).join(' '))
+  cues.forEach(c => c.text = c.text.replace(/^slide [0-9]+$/i, '')
+               .replace('"',''));
+  const sentences = splitter.split(cues.map(c => c.text).join(' '))
         .map(s => s.raw.trim()).filter(s => s);
 
   const divs = [];
@@ -46,7 +47,7 @@ for (let shortname of Object.keys(talks)) {
     }
     while (sentencesCursor < sentences.length) {
       const sentence = sentences[sentencesCursor];
-      if (sentence.startsWith(c.text)) {
+      if (sentence.startsWith(c.text.replace(/^slide [0-9a-z]+\. /i,''))) {
         break;
       }
       if (!sentence.match(/^slide [a-z0-9]+\.?$/i)) {
