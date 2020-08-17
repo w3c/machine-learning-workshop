@@ -1,6 +1,6 @@
 WEBVTT
 
-1
+slide-1
 00:08.160 --> 00:09.440
 Hello,
 
@@ -36,7 +36,7 @@ as @dontcallmeDOM
 00:30.560 --> 00:33.800
 (but do call me Dom).
 
-11
+slide-2
 00:33.800 --> 00:37.400
 This talk aims to give a very high-level overview
 
@@ -80,7 +80,7 @@ of these specificities and how it impacts
 01:00.880 --> 01:05.880
 the deployment of new technologies in Web browsers.
 
-23
+slide-3
 01:05.880 --> 01:10.800
 So what is it that we call the Web platform?
 
@@ -152,17 +152,17 @@ So that's for the technology stack
 02:10.480 --> 02:14.800
 that constitutes the Web platform.
 
-44
+slide-4
 02:14.800 --> 02:17.960
 But there are four key aspects I want to highlight today
 
 45
 02:17.960 --> 02:22.320
-that make browsers a unique execution environment:
+that make browsers a unique execution environment.
 
-47
+slide-5
 02:25.200 --> 02:28.440
-a first aspect is that browsers are built
+A first aspect is that browsers are built
 
 48
 02:28.440 --> 02:30.880
@@ -190,11 +190,11 @@ are anchored in network identifers,
 
 54
 02:44.960 --> 02:49.120
-mostly via DNS and certificates
+mostly via DNS and certificates.
 
-57
+slide-6
 02:49.120 --> 02:52.960
-a second aspect is that browsers are designed as user agents
+A second aspect is that browsers are designed as user agents
 
 58
 02:52.960 --> 02:57.320
@@ -236,9 +236,9 @@ to what developers can do in the code
 03:22.400 --> 03:23.840
 that browsers will run for them.
 
-70
+slide-7
 03:23.840 --> 03:28.480
-a third important aspect is that
+A third important aspect is that
 
 71
 03:28.480 --> 03:31.520
@@ -268,9 +268,9 @@ and are made available freely to developers
 03:44.680 --> 03:46.000
 and end-users alike.
 
-80
+slide-8
 03:46.000 --> 03:52.000
-finally, browsers are available on most end-user devices,
+Finally, browsers are available on most end-user devices,
 
 81
 03:52.000 --> 03:55.560
@@ -292,7 +292,7 @@ need to be as device- and platform-independent as possible,
 04:09.000 --> 04:16.480
 and provide accommodations for situations where they cannot be.
 
-88
+slide-9
 04:16.480 --> 04:19.480
 With that characterization in mind,
 
@@ -308,7 +308,7 @@ a new technology such as machine learning
 04:24.800 --> 04:26.240
 to the Web platform ?
 
-93
+slide-10
 04:26.240 --> 04:31.560
 A first characteristic is that in most cases,
 
@@ -392,7 +392,7 @@ that technologies that require heavy CPU operations
 05:38.480 --> 05:43.960
 need to carefully integrate with these architectural constraints.
 
-115
+slide-11
 05:43.960 --> 05:46.800
 A second characteristic is that
 
@@ -448,7 +448,7 @@ and may also need additional sandboxing to respect
 06:30.480 --> 06:32.360
 the end user security and privacy.
 
-130
+slide-12
 06:32.360 --> 06:36.840
 A third similar characteristic,
 
@@ -512,7 +512,7 @@ a lot of these evolutions can have deep impact
 07:19.920 --> 07:22.400
 in how new Web technologies get designed.
 
-147
+slide-13
 07:22.400 --> 07:28.200
 As a final characteristic to call attention to
 
@@ -624,7 +624,7 @@ that W3C hosts revolve around finding the right trade-offs
 08:57.560 --> 09:00.160
 among the competing needs they represent.
 
-177
+slide-14
 09:00.160 --> 09:04.880
 Naturally, these constraints don't exist in a vacuum
 
@@ -664,7 +664,7 @@ while preserving the characteristics
 09:33.720 --> 09:37.600
 that make the Web the most universal platform available.
 
-187
+slide-15
 09:37.600 --> 09:42.840
 I hope the presentations and discussions at the workshop
 
