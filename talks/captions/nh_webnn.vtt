@@ -1,5 +1,7 @@
 WEBVTT
 
+
+slide-1
 1
 0:00:09.300 --> 0:00:11.460
 <v ->Hello everyone, welcome.</v>
@@ -740,6 +742,7 @@ of WebNN prototype we collected on laptop and smartphone.
 0:09:37.230 --> 0:09:39.570
 Feel free to check them out.
 
+slide-11
 186
 0:09:39.570 --> 0:09:41.900
 As the number shows,
