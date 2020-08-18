@@ -40,7 +40,7 @@
       .slide {width: 40.889em; height: 23em; /* Ratio 16:9 */
 	/* Add a border, because the slides are white: */
 	overflow: hidden; box-sizing: border-box; border: 1px solid;
-	display: block; margin: 0 0 1em 0}
+	display: block; margin: 0 0 1em 0; box-shadow: none}
       .slide canvas {vertical-align: bottom}
 
       summary::before {font-size: 1em; margin-left: 0}
