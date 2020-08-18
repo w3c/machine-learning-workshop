@@ -89,11 +89,10 @@ for (let shortname of Object.keys(talks)) {
           content += slide.outerHTML ;
         }
       } else if (format === "pdf") {
-        content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript>`;
+        content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript></div>`;
       } else {
-        content += `<div class="slide iframe" role="region" aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}"><iframe src="${slideurl}#${i}"></iframe>`;
+        content += `<div class="slide iframe" role="region" aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}"><iframe src="${slideurl}#${i}"></iframe></div>`;
       }
-      content += "</div>";
     }
     content += `<div role='region'>`;
     content += "<p>" + divs[i].join("</p>\n<p>") + "</p>";
