@@ -214,7 +214,7 @@ W3C pays particular attention to considerations of
 
 62
 03:06.800 --> 03:09.960
-security, privacy, accessibility and internalization
+security, privacy, accessibility and internationalization
 
 63
 03:09.960 --> 03:11.440
@@ -596,7 +596,7 @@ to adapt their application to the specific end user context,
 08:30.640 --> 08:34.520
 while preserving as much as possible the user privacy.
 
-169
+slide-14
 08:34.520 --> 08:40.720
 For people coming from other execution environments,
 
@@ -624,7 +624,7 @@ that W3C hosts revolve around finding the right trade-offs
 08:57.560 --> 09:00.160
 among the competing needs they represent.
 
-slide-14
+176
 09:00.160 --> 09:04.880
 Naturally, these constraints don't exist in a vacuum
 
