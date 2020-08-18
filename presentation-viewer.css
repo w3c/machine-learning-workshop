@@ -38,6 +38,8 @@
 
       .comment, .progress {display: none}
       .slide {width: 40.889em; height: 23em; /* Ratio 16:9 */
+	/* Add a border, because the slides are white: */
+	overflow: hidden; box-sizing: border-box; border: 1px solid;
 	display: block; margin: 0 0 1em 0}
       .slide canvas {vertical-align: bottom}
 
