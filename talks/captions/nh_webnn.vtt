@@ -1,5 +1,7 @@
 WEBVTT
 
+
+slide-1
 1
 0:00:09.300 --> 0:00:11.460
 <v ->Hello everyone, welcome.</v>
@@ -30,7 +32,7 @@ and how it can help web apps and frameworks
 
 8
 0:00:30.900 --> 0:00:34.300
-to access purpose-built machine learning hardware.
+to access the purpose-built machine learning hardware.
 
 9
 0:00:34.300 --> 0:00:38.360
@@ -58,7 +60,7 @@ and widely applied in many applications,
 
 15
 0:00:50.650 --> 0:00:55.290
-computer vision, speech recognition, noise cancellation.
+like computer vision, speech recognition, noise cancellation.
 
 16
 0:00:55.290 --> 0:00:57.500
@@ -146,7 +148,7 @@ but also help reduce the power consumption.
 
 37
 0:01:53.520 --> 0:01:56.780
-By taking advantage of these hardware features,
+By taking advantage of these new hardware features,
 
 38
 0:01:56.780 --> 0:02:00.300
@@ -266,7 +268,7 @@ the VNNI and DSP are designed to accelerate that.
 
 67
 0:03:20.120 --> 0:03:23.230
-So, if using the eigh8 bit precision on the laptop,
+So, if using the 8 bit precision on the laptop,
 
 68
 0:03:23.230 --> 0:03:28.000
@@ -350,11 +352,11 @@ to the web platform.
 
 88
 0:04:25.000 --> 0:04:28.500
-The primitives include tensor operant.
+The primitives include tensor operand.
 
 89
 0:04:28.500 --> 0:04:31.350
-Tensor operant represents the multi-dimensional array
+Tensor operand represents the multi-dimensional array
 
 90
 0:04:31.350 --> 0:04:35.850
@@ -374,7 +376,7 @@ such as convolution, matrix multiplication,
 
 94
 0:04:46.640 --> 0:04:49.173
-pulling, atom-wise and activation.
+pooling, element-wise and activation.
 
 95
 0:04:50.500 --> 0:04:53.720
@@ -506,7 +508,7 @@ The neural network context object
 
 127
 0:06:27.000 --> 0:06:30.300
-has a method of tensor operant and operations,
+has methods of tensor operand and operations,
 
 128
 0:06:30.300 --> 0:06:34.250
@@ -646,7 +648,7 @@ on different devices,
 
 162
 0:08:11.890 --> 0:08:14.500
-the prototype support 4 OSs,
+this prototype support 4 OSs,
 
 163
 0:08:14.500 --> 0:08:17.940
@@ -706,7 +708,7 @@ On the smartphone,
 
 177
 0:09:03.680 --> 0:09:06.847
-we first tested is a WebGL based inference.
+we first tested the WebGL based inference.
 
 178
 0:09:10.570 --> 0:09:14.943
@@ -740,6 +742,7 @@ of WebNN prototype we collected on laptop and smartphone.
 0:09:37.230 --> 0:09:39.570
 Feel free to check them out.
 
+slide-11
 186
 0:09:39.570 --> 0:09:41.900
 As the number shows,
