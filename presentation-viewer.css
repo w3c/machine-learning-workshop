@@ -37,10 +37,10 @@
       label.button::before {content: none} /* Undo a rule in style.css */
 
       .comment, .progress {display: none}
-      .slide {width: 40.889em; max-width: 100%; height: 23em; /* Ratio 16:9 */
+      .slide {width: 40.889em; height: 23em; /* Ratio 16:9 */
 	/* Add a border, because the slides are white: */
 	overflow: hidden; box-sizing: border-box; border: 1px solid;
-	display: block; margin: 0 0 1rem 0; /*box-shadow: none*/}
+	display: block; margin: 0 0 1em 0; box-shadow: none}
       .slide canvas {vertical-align: bottom}
 
       summary::before {font-size: 1em; margin-left: 0}
@@ -51,7 +51,7 @@
       #slidenr, #caption {box-sizing: border-box; line-height: 1.3}
       #video1, #slidenr, #caption, #cue, .slide {border-radius: 0.5em}
       #video1, #audio {border: none}
-      #slidenr {display: block; background: hsla(204,69%,15%,0.8);
+      #slidenr {display: block; background: hsl(204,69%,15%);
                 text-align: center}
       #slidenr a:link { color: white;}
       #caption, #prevnext {display: none}
@@ -67,7 +67,7 @@
       #player::after {content: " "; display: block; height: 0; clear: both}
       #slides, #caption {width: 40.889em; max-width: 100%}
       #slidenr, #video1 {margin: 0; display: block; position: fixed;
-	right: 1em; z-index: 2; width: 20em}
+	right: 1em; z-index: 2; width: 20em; max-width: 100%}
       #video1 {bottom: 3.6em; height: 11.25em /* 20em * 9/16 */;
         max-height: 100%}
       #slidenr {bottom: 1em}
@@ -119,15 +119,27 @@
 
 
       /* If the body is narrow, leave the video above the slides instead */
-      @media (max-width: 76em) {
+      @media (max-width: 68em) {
 	#sync:checked ~ #player #slidenr, #slidenr,
 	#sync:checked ~ #player #video1, #video1 {position: static;
-          margin: 1em auto}
-	#slides {margin-left: auto; margin-right: auto}
-	.slide {width: 100%; height: 46.9vw;
-	  width: calc(100vw - 15px - 1em); /* 15px = estimated scrollbar */
-	  height: calc((100vw - 15px - 1em) * 9/16)}
+          margin: 1em 0}
       }
+
+      /* If the body is very narrow, scale the slides down. */
+      @media (max-width: 46.5em) {
+	.slide {transform-origin: 0 100%; transform: scale(0.8);
+	  margin-top: -4.6em}
+      }
+      @media (max-width: 38em) {
+	.slide {transform: scale(0.6); margin-top: -9.2em}
+      }
+      @media (max-width: 29em) {
+	.slide {transform: scale(0.4); margin-top: -13.8em}
+      }
+      @media (max-width: 19.5em) {
+	.slide {transform: scale(0.2); margin-top: -18.4em}
+      }
+
       iframe.fw { width: 100%; height: 400px;}
       .buttons > * {
 	background: #103852;
@@ -174,14 +186,14 @@
       .slide dl,
       .slide ul,
       .slide ol {
-          margin: inherit;
+          /*margin: inherit;*/
       }
       .slide iframe {
-	width: 133%;
-	height: 133%;
-	transform: scale(0.75);
-	transform-origin: 0 0;
+	/*width: 133%;*/
+	/*height: 133%;*/
+	/*transform: scale(0.75);*/
+	/*transform-origin: 0 0;*/
       }
       .slide.iframe {
-          height: 26em;
+          /*height: 26em;*/
       }
