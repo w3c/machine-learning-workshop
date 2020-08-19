@@ -2,7 +2,7 @@ var pdfjsLib = window['pdfjs-dist/build/pdf'];
 var pdfjsViewer = window['pdfjs-dist/web/pdf_viewer'];
 
 // The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.js';
 
 const firstPdfSlide = document.querySelector('[data-fmt="pdf"][data-src]');
 if (firstPdfSlide) {
