@@ -1,4 +1,4 @@
-<div class="slide cover clear" id="start">
+<div class="slide cover clear" id="start" role="region" aria-label="Slide 1 of 18">
     <div>
       <p>W3C workshop on<br>Web and Machine Learning</p>
       <h1>Media processing hooks for the Web</h1>
@@ -11,7 +11,7 @@
 <p>I'm François Daoust.</p>
 <p>I work for W3C where I keep track of media related activities.</p>
 <p>The goal of this presentation is to take a peak at mechanisms that allow,or will allow, media processing on the Web.</p>
-<p>I will very hardly touch on machine learning per se, just as a possible approach that people might want to apply to process media.</p></div><div class="slide" id="media-scenarios">
+<p>I will very hardly touch on machine learning per se, just as a possible approach that people might want to apply to process media.</p></div><div class="slide" id="media-scenarios" role="region" aria-label="Slide 2 of 18">
     <h1>Main media scenarios</h1>
     <dl>
       <dt>① Progressive media playback</dt>
@@ -44,7 +44,7 @@
 <p>And <a class=dfn>WebRTC</a> is also used to stream media in scenarios that require latency to be minimal, for instance cloud gaming.</p>
 <p>Fourth media scenario is also completely different.</p>
 <p>It is about synthesized audio playback: to generate music, or sound effects in games for instance.</p>
-<p>This was enabled by the Web Audio API.</p></div><div class="slide" id="content">
+<p>This was enabled by the Web Audio API.</p></div><div class="slide" id="content" role="region" aria-label="Slide 3 of 18">
     <h1>Media content</h1>
     <dl>
       <dt>① Progressive media playback</dt>
@@ -72,7 +72,7 @@
 <p>Media content needs to be fetched, demuxed, decoded to produce raw audio and video frames, and rendered to the final display or speakers.</p>
 <p>The mux and demux operations are only needed in progressive and adaptive media playback scenarios.</p>
 <p><a class=dfn>WebRTC</a> deals with individual media stream tracks directly so no mux and demux operations per se there.</p>
-<p>In the interest of time, I will mostly focus on the decoding side, but some considerations apply to the encoding side as well.</p></div><div class="slide" id="processing-scenarios">
+<p>In the interest of time, I will mostly focus on the decoding side, but some considerations apply to the encoding side as well.</p></div><div class="slide" id="processing-scenarios" role="region" aria-label="Slide 5 of 18">
     <h1>Media processing scenarios</h1>
 
     <dl>
@@ -138,7 +138,7 @@
 <p>In theory, that's fantastic news.</p>
 <p>We should get decoded frames out of <a class=dfn>WebRTC</a>.</p>
 <p>However, in practice, a “decoded” stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque MediaStreamTrack object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
-<p>So, back to the same canvas hack again...</p></div><div class="slide" id="hooks-audio">
+<p>So, back to the same canvas hack again...</p></div><div class="slide" id="hooks-audio" role="region" aria-label="Slide 11 of 18">
     <h1>Existing hooks for…<br>④ synthesized audio playback</h1>
     <ul>
       <li>The Web Audio API is a processing API at its heart</li>
@@ -149,7 +149,7 @@
   </div><div role='region'><p>The Web Audio API is a processing API at its heart.</p>
 <p>However, the whole API is meant to operate on an entire file.</p>
 <p>There is no support for streaming and no indication of progress when processing large file.</p>
-<p>This works well for short audio samples, but is really not a good fit for streaming scenarios.</p></div><div class="slide" id="hooks-summary">
+<p>This works well for short audio samples, but is really not a good fit for streaming scenarios.</p></div><div class="slide" id="hooks-summary" role="region" aria-label="Slide 12 of 18">
     <h1>Existing hooks…<br>summary</h1>
     <ul>
       <li>Dedicated API for audio but not geared towards streaming scenarios</li>
@@ -168,7 +168,7 @@
   </div><div role='region'><p>I lied.</p>
 <p>There is another way!</p>
 <p>A Web application may also choose to implement the entire media pipeline on its own, using JavaScript or <a class=dfn>WebAssembly</a>, rendering the result to a canvas.</p>
-<p>This is suboptimal, especially on constrained devices, but know that some media authoring applications actually do that.</p></div><div class="slide" id="efficient">
+<p>This is suboptimal, especially on constrained devices, but know that some media authoring applications actually do that.</p></div><div class="slide" id="efficient" role="region" aria-label="Slide 14 of 18">
     <h1>Main requirements for efficient media processing</h1>
     <p class="note">Raw data processing needs:<br>
       1 video frame in a HD video ≈ 1920x1080 x 3 components x 4 bytes ≈ <b>24MB</b><br>
@@ -199,7 +199,7 @@
 <p>The WebCodecs API, initially proposed by Google, aims at providing access to built-in media encoders and decoders.</p>
 <p>As a by-product, the API exposes decoded frames, allowing applications to hook into the output of the API to process these frames.</p>
 <p>Note that the API does not take care of the mux/demux operations, which will have to be done by the application through some JavaScript or <a class=dfn>WebAssembly</a> code.</p>
-<p>This shouldn't be a problem in practice, these operations are not really heavy on the CPU.</p></div><div class="slide" id="webcodecs-status">
+<p>This shouldn't be a problem in practice, these operations are not really heavy on the CPU.</p></div><div class="slide" id="webcodecs-status" role="region" aria-label="Slide 16 of 18">
     <h1>WebCodecs — status</h1>
     <ul>
       <li>Interfaces being shaped as this talk is recorded</li>
@@ -225,7 +225,7 @@
 <p>That was the initial goal, but it turned out to be very difficult.</p>
 <p>So having a way to process WHATWG Streams does not necessarily mean that it will be de facto possible to process media streams.</p>
 <p>Incubation takes place in the Web Platform Incubator Community Group.</p>
-<p>The Media Working Group may adopt and standardize the proposal once it's ready.</p></div><div class="slide" id="other">
+<p>The Media Working Group may adopt and standardize the proposal once it's ready.</p></div><div class="slide" id="other" role="region" aria-label="Slide 17 of 18">
     <h1>Other media features and specs that may impact processing</h1>
     <ul>
       <li>Codec switching in MSE</li>
@@ -253,7 +253,7 @@
 <p>In general, the goal there is to hide the bytes from the applications, so encrypted media is typically not a good candidate for application-controlled processing operations.</p>
 <p>There may still be scenarios where the ability to process encrypted media in a separate sandbox could be useful.</p>
 <p>So, something that could be worth keeping in mind.</p>
-<p>All these features and others are mentioned in the Overview of Media Technologies for the Web, which I invite you to take a peak at.</p></div><div class="slide" id="conclusion">
+<p>All these features and others are mentioned in the Overview of Media Technologies for the Web, which I invite you to take a peak at.</p></div><div class="slide" id="conclusion" role="region" aria-label="Slide 18 of 18">
     <h1>Conclusion</h1>
     <ul>
       <li>Exposing decoded frames to applications is easier said than done</li>

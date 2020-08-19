@@ -83,9 +83,9 @@ for (let shortname of Object.keys(talks)) {
         if (slide) {
           [...slide.querySelectorAll("img[src]")].forEach(n => {
             n.setAttribute("src", n.src);
-            slide.setAttribute("role", "region");
-            slide.setAttribute("aria-label", `Slide ${i} of ${divs.length - 1}`);
           });
+          slide.setAttribute("role", "region");
+          slide.setAttribute("aria-label", `Slide ${i} of ${divs.length - 1}`);
           content += slide.outerHTML ;
         }
       } else if (format === "pdf") {

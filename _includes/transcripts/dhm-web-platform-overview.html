@@ -1,4 +1,4 @@
-<div class="slide cover clear" id="start">
+<div class="slide cover clear" id="start" role="region" aria-label="Slide 1 of 15">
     <div>
       <p>W3C workshop on<br>Web and Machine Learning</p>
       <h1>Web Platform: a 30,000 feet view</h1>
@@ -21,7 +21,7 @@
 <p>The simplest way to approach that question is through a technology stack lens: most devices with an internet connection provide their users with at least one browser that can fetch content over HTTP (and a few other network protocols) , render HTML content styled with Cascading Style Sheets (CSS) and interpret JavaScript code that can interact with that content through a set of APIs called the Document Object Model (DOM).</p>
 <p>Browsers also provide a large and growing number of JavaScript APIs that enable interacting with various hardware and OS capabilities.</p>
 <p>For the past couple of years, browsers have also provided a native-performance bytecode called <a class=dfn>WebAssembly</a> that among other things let compile existing non-JavaScript codebase into browser-runnable applications.</p>
-<p>So that's for the technology stack that constitutes the Web platform.</p></div><div class="slide">
+<p>So that's for the technology stack that constitutes the Web platform.</p></div><div class="slide" role="region" aria-label="Slide 4 of 15">
     <h1>Web Platform specificities</h1>
     <ol class="four">
       <li>Networked</li>
@@ -32,7 +32,7 @@
   </ol></div><div role='region'><p>But there are four key aspects I want to highlight today that make browsers a unique execution environment.</p></div><div class="slide" role="region" aria-label="Slide 5 of 15">
     <h1>Anchored in the network</h1>
     <p style="text-align: center"><img src="https://www.w3.org/2020/Talks/mlws/dhm-webplatform/network-anchor.svg" alt="Web browsers anchor their security boundaries and their trust model in the network, with a rich palette of protocols to interact seamlessly within these boundaries" height="300"></p>
-  </div><div role='region'><p>A first aspect is that browsers are built with networking as a core design point this means that it is relatively easy to bring in resources from different network sources, but it also comes with constraints in that usage: in particular, a lot of the trust and security boundaries are anchored in network identifers, mostly via DNS and certificates.</p></div><div class="slide">
+  </div><div role='region'><p>A first aspect is that browsers are built with networking as a core design point this means that it is relatively easy to bring in resources from different network sources, but it also comes with constraints in that usage: in particular, a lot of the trust and security boundaries are anchored in network identifers, mostly via DNS and certificates.</p></div><div class="slide" role="region" aria-label="Slide 6 of 15">
     <h1><strong>USER</strong> agent</h1>
     <p>Browsers mediate user needs and wishes, including</p>
     <ul>
@@ -46,7 +46,7 @@
 <p>To respect that position agent of the user, it is often necessary to impose limits to what developers can do in the code that browsers will run for them.</p></div><div class="slide" role="region" aria-label="Slide 7 of 15">
     <h1>Standards-based</h1>
         <img src="https://www.w3.org/2020/Talks/mlws/dhm-webplatform/standards-based.svg" alt="The Web Platform in anchored in Royalty-Free standards defined in the open and implemented in competing products" height="350">
-  </div><div role='region'><p>A third important aspect is that all the technologies that constitute the platform are defined through open standardization processes, including naturally in W3C, and these standards are implemented in multiple competing products and are made available freely to developers and end-users alike.</p></div><div class="slide">
+  </div><div role='region'><p>A third important aspect is that all the technologies that constitute the platform are defined through open standardization processes, including naturally in W3C, and these standards are implemented in multiple competing products and are made available freely to developers and end-users alike.</p></div><div class="slide" role="region" aria-label="Slide 8 of 15">
     <h1>Cross-platform</h1>
     <p>Independent of</p>
     <ul>
@@ -56,7 +56,7 @@
       <li>operating systems</li>
     </ul>
   </div><div role='region'><p>Finally, browsers are available on most end-user devices, no matter their operating system and their hardware, including computing architectures and capabilities.</p>
-<p>In particular, technologies made available through browsers need to be as device- and platform-independent as possible, and provide accommodations for situations where they cannot be.</p></div><div class="slide">
+<p>In particular, technologies made available through browsers need to be as device- and platform-independent as possible, and provide accommodations for situations where they cannot be.</p></div><div class="slide" role="region" aria-label="Slide 9 of 15">
     <h1>Impact?</h1>
     <p>Intersection with Machine Learning?</p>
   </div><div role='region'><p>With that characterization in mind, what does it imply when it comes to bringing a new technology such as machine learning to the Web platform ?</p></div><div class="slide" role="region" aria-label="Slide 10 of 15">
@@ -66,12 +66,12 @@
 <p>This means developers mostly aren't exposed to concurreny issues, which is a good thing, but it also creates constraints in how programs can be architected.</p>
 <p>In particular, in browsers, the main JavaScript event loop can block the rendering or interactivity of the page that loaded it so running blocking synchronous operations or other heavy processing in that context can very rapidly deteriorate the user experience.</p>
 <p>Various mechanisms are available to enable developers to run different pieces of their code concurrently, most notably asynchonous APIs, workers and worklets, but they come with their own set of execution constraints.</p>
-<p>The high level consideration to keep in mind is that technologies that require heavy CPU operations need to carefully integrate with these architectural constraints.</p></div><div class="slide">
+<p>The high level consideration to keep in mind is that technologies that require heavy CPU operations need to carefully integrate with these architectural constraints.</p></div><div class="slide" role="region" aria-label="Slide 11 of 15">
     <h1>Constraint: Same-Origin-Policy</h1>
     <p>Network sources define the security boundaries in Web browsers</p>
   </div><div role='region'><p>A second characteristic is that from within a Web application, most interactions with the network will by default be limited to the domain of where the application is hosted (more specifically, its origin), and access to other network destinations will only be granted if that other destination opts-in to it.</p>
 <p>This helps limit exposures to private resources in local networks (for instance a home network or an enterprise network).</p>
-<p>In the context of machine learning, this means that for instance, loading a trained model from a third party service would need to conform to this constraint and may also need additional sandboxing to respect the end user security and privacy.</p></div><div class="slide">
+<p>In the context of machine learning, this means that for instance, loading a trained model from a third party service would need to conform to this constraint and may also need additional sandboxing to respect the end user security and privacy.</p></div><div class="slide" role="region" aria-label="Slide 12 of 15">
     <h1>Constraint: Tracking protection</h1>
     <p>Protecting users’ privacy via</p>
     <ul>
@@ -79,7 +79,7 @@
       <li>Limiting how storage can be used by apps</li>
     </ul>
   </div><div role='region'><p>A third similar characteristic, and one of rapidly growing importance, is that browsers limit what identifiable information can be tracked across Web sites: while a lot of parties attempt to identify users as they browse through different Web sites, browsers attempt to give users control on what gets shared and when and how to limit what gets shared without user awareness.</p>
-<p>In particular, a lot of the recent evolutions in how “cookies” are managed, how data gets stored and how much uniquely-identifiable data is exposed in APIs (that data can be used to “fingerprint” a particular user or a particular device), a lot of these evolutions can have deep impact in how new Web technologies get designed.</p></div><div class="slide">
+<p>In particular, a lot of the recent evolutions in how “cookies” are managed, how data gets stored and how much uniquely-identifiable data is exposed in APIs (that data can be used to “fingerprint” a particular user or a particular device), a lot of these evolutions can have deep impact in how new Web technologies get designed.</p></div><div class="slide" role="region" aria-label="Slide 13 of 15">
     <h1>Constraint: Platform neutrality</h1>
     <p>Optimize for but work without:</p>
     <ul>
@@ -97,7 +97,7 @@
     <img src="https://www.w3.org/2020/Talks/mlws/dhm-webplatform/tradeoff.svg" alt="W3C can help figuring out the right trade-off between bringing more power and more features while preserving the needs and wishes from end-users">
   </div><div role='region'><p>For people coming from other execution environments, these constraints can sometimes appear overwhelming, and in truth, they can in fact be pretty challenging to address in a number of cases a good chunk of the open standardization process that W3C hosts revolve around finding the right trade-offs among the competing needs they represent.</p>
 <p>Naturally, these constraints don't exist in a vacuum they are the pilars that have enabled the Web platform to grow to be the most deployed software platform, available to more than 4 billion people around the globe, and with the largest community of developers available.</p>
-<p>W3C has built processes, culture and institutional knowledge to ensure that the Web platform keeps pace with the evolving capabilities of computing devices while preserving the characteristics that make the Web the most universal platform available.</p></div><div class="slide">
+<p>W3C has built processes, culture and institutional knowledge to ensure that the Web platform keeps pace with the evolving capabilities of computing devices while preserving the characteristics that make the Web the most universal platform available.</p></div><div class="slide" role="region" aria-label="Slide 15 of 15">
     <h1>Thanks</h1>
     <p><a href="twitter.com/dontcallmeDOM">dontcallmeDOM</a> / dom@w3.org</p>
     <p style="text-align:center">Machine Learning
