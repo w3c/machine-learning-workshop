@@ -390,7 +390,7 @@ For example,
 
 98
 0:03:42.460 --> 0:03:44.286
-we might want to use the body pics feature extractor
+we might want to use the BodyPix feature extractor
 
 99
 0:03:44.286 --> 0:03:46.760
@@ -454,7 +454,7 @@ to many developers using AudioWorklets,
 
 114
 0:04:15.786 --> 0:04:18.566
-and was only really addressed by a bring buffer solution
+and was only really addressed by a ring buffer solution
 
 115
 0:04:18.566 --> 0:04:20.496
@@ -658,7 +658,7 @@ who are able to produce software and resources
 
 165
 0:06:12.960 --> 0:06:15.286
-to enable end users who wanna use machine learning
+to enable end users who want to use machine learning
 
 166
 0:06:15.286 --> 0:06:16.226
@@ -722,7 +722,7 @@ the Black in AI, online community,
 
 181
 0:06:44.806 --> 0:06:46.236
-as well as adhering to the practice of
+as well as adhering to the praxis of
 
 182
 0:06:46.236 --> 0:06:48.506
