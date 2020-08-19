@@ -32,6 +32,15 @@
       "abstract": "This talk will give a brief overview of TensorFlow.js, how it helps developers build ML-powered applications along with examples of work that is pushing the boundaries of the web, and discuss future directions for the web tech stack to help overcome barriers to ML in the web the TF.js community has encountered.",
       "duration": "10:11"
     },
+    "sm_architecture": {
+      "title": "Machine Learning in Web Architecture",
+      "author": "Sangwhan Moon",
+      "affiliation": "",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
+      "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
+      "noslide": true,
+      "duration": "04:29"
+    },
     "ym_how-far": {
       "title": "Moving Deep Learning into Web Browser: How Far Can We Go?",
       "author": "Yun Ma",
@@ -169,15 +178,6 @@
         "video": "https://app.streamfizz.live/embed/ckdor4rqzc9ix0772t2z9zo80",
         "abstract": "    Paddle.js is a high-performance JavaScript DL framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem with web community. This talk will introduce Paddle.js design principle, implementation, use scenario and future work the project would like to explore. ",
         "duration": "05:51"
-      },
-      "sm_architecture": {
-        "title": "Machine Learning in Web Architecture",
-        "author": "Sangwhan Moon",
-        "affiliation": "",
-        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
-        "noslide": true,
-        "duration": "04:29"
       },
       "op_content-filtering": {
         "title": "Machine Learning on the Web for content filtering applications",
