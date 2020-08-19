@@ -9,6 +9,9 @@
     {% if page.format == "shower" %}
     <link rel="stylesheet" href="https://www.w3.org/2020/Talks/fd-media-processing/template/slides.css">
     {% endif %}
+    {% if page.format == "pdf" %}
+    <link rel="stylesheet" href="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.css">
+    {% endif %}
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../presentation-viewer.css">
     <link rel="stylesheet" href="../tooltip.css">
@@ -145,7 +148,8 @@
     </script>
     <script src="../webvtt-parser.js"></script>
     {% if page.format == "pdf" %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.js"></script>
     {% endif %}
     <script src="../presentation-viewer.js"></script>
     {% if page.format == "pdf" %}

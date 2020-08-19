@@ -1,37 +1,37 @@
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
+var pdfjsViewer = window['pdfjs-dist/web/pdf_viewer'];
 
 // The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.js';
 
 const firstPdfSlide = document.querySelector('[data-fmt="pdf"][data-src]');
 if (firstPdfSlide) {
   const url = firstPdfSlide.dataset.src.split('#')[0];
   var loadingTask = pdfjsLib.getDocument(url);
+  var eventBus = new pdfjsViewer.EventBus();
   loadingTask.promise.then(function(pdf) {
     [...document.querySelectorAll('div[data-fmt="pdf"][data-src][id^="slide-"]')].forEach(div => {
       // Fetch the first page
       var pageNumber = parseInt(div.id.slice(6));
       pdf.getPage(pageNumber).then(function(page) {
-        var canvas = document.createElement("canvas");
-        div.appendChild(canvas);
-        canvas.height = div.clientHeight;
-        let scale = (canvas.height / page.view[3]);
-        let viewport = page.getViewport({scale: scale});
-        canvas.width = page.view[2] * scale;
-
-        // Prepare canvas using PDF page dimensions
-        var context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {
+        // Make slides fit the available space (Note the need to convert from
+        // CSS points to CSS pixels for page dimensions)
+        const scale = Math.min(
+          div.clientHeight / page.view[3],
+          div.clientWidth / page.view[2]) * 72 / 96;
+        const viewport = page.getViewport({ scale });
+        var pdfPageView = new pdfjsViewer.PDFPageView({
+          container: div,
+          id: pageNumber,
+          scale: scale,
+          defaultViewport: viewport,
+          eventBus: eventBus,
+          textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+          annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory()
         });
+        // Associates the actual page with the view, and drawing it
+        pdfPageView.setPdfPage(page);
+        return pdfPageView.draw();
       });
     });
   }, function (reason) {
