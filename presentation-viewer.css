@@ -51,14 +51,14 @@
       #slidenr, #caption {box-sizing: border-box; line-height: 1.3}
       #video1, #slidenr, #caption, #cue, .slide {border-radius: 0.5em}
       #video1, #audio {border: none}
-      #slidenr {display: block; background: hsl(204,69%,15%);
+      #slidenr {display: block; background: #eee; color: black;
                 text-align: center}
-      #slidenr a:link { color: white;}
+      #slidenr a:link {color: inherit}
       #caption, #prevnext {display: none}
       #caption {height: 3.2em /* Room for two lines and padding */}
-      #caption, #cue {background:hsl(204,69%,16%)}
+      #caption, #cue {background: #eee; color: black}
       #caption, #slidenr {text-align: center; padding: 0.3em;
-	margin: 0 0 1em 0; color: white}
+	margin: 0 0 1em 0}
       #cue {display: block; margin: -0.3em; padding: 0.3em; min-height: 3.2em}
       #cue[lang|=zh] {font-size: 110%; min-height: 1.6em}
       #cuelang {float: right}
