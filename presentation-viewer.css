@@ -197,3 +197,9 @@
       .slide.iframe {
           /*height: 26em;*/
       }
+
+/**
+ * Following rule is needed for PDF.js to position the text layer correctly
+ * relative to the canvas
+ */
+.slide .page { position: relative; }
