@@ -28,6 +28,7 @@
       #player {margin-top: 1.2rem;
         border-top: 1px solid transparent /* Trick to stop margin collapsing */}
       .buttons button {font: inherit; font-weight: 700; cursor: pointer}
+      .buttons a:hover {color: white;}
       .slide:target {outline: none}
 
       iframe {width: 100%; height: 100%}
