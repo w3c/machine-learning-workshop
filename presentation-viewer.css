@@ -160,6 +160,7 @@
 	margin: 0 2rem 2rem 0;
 	text-align: center;
         min-height: 6.5em;
+	height: auto;
         }
       @media (min-width: 33em) {
       .buttons > *, .badges > * {
