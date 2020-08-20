@@ -696,3 +696,16 @@ img.tn {
     vertical-align:middle;
     padding-right:.5em;
 }
+
+div.related {
+	background-color: #C2CDCF;
+	border-radius: .6em;
+	padding: 0.5em;
+}
+div.related p {
+    margin-bottom: 0;
+}
+div.related ul {
+    margin-top: 0;
+    margin-left: 1em;
+}

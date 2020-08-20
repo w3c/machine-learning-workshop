@@ -16,9 +16,9 @@ const toSlug = title => title.replace(/([A-Z])/g, s => s.toLowerCase())
     let htmlIssueList = ghIssues.filter(i => i.body.includes(url)).sort((a, b) => a.number - b.number)
         .map(i => `<li><a href='${i.html_url}'>#${i.number} ${i.title}</a></li>`).join('\n');
     if (htmlIssueList !== "") {
-      content = "<p>Related conversations on <a href='https://github.com/w3c/machine-learning-workshop/issues'>GitHub</a>:</p><ul>";
+      content = "<div class=related><p>Related conversations on <a href='https://github.com/w3c/machine-learning-workshop/issues'>GitHub</a>:</p><ul>";
       content += htmlIssueList;
-      content += "</ul>";
+      content += "</ul></div>";
     }
   fs.writeFileSync("_includes/related-issues/" + shortname + ".html", content, {encoding: "utf-8"});
   }
