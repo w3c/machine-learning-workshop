@@ -3,22 +3,20 @@ fetch("../lexicon.json").then(r => r.json())
     const alreadyDone = {};
     [...document.querySelectorAll("a.dfn")].forEach(a => {
       if (lexicon[a.textContent] && !alreadyDone[a.textContent]) {
-        if (lexicon[a.textContent].href) {
-          a.href = lexicon[a.textContent].href;
+        let target = lexicon[a.textContent];
+        if (target.alias) {
+          target = lexicon[target.alias];
+        }
+        if (target.href) {
+          a.href = target.href;
           return;
         }
-        let dfnTarget;
-        if (!lexicon[a.textContent].alias) {
-          dfnTarget = a.textContent;
-        } else {
-          dfnTarget = lexicon[a.textContent].alias;
-        }
-        const dfnId = dfnTarget.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const dfnId = target.toLowerCase().replace(/[^a-z0-9]/g, '');
 
         const dfn = document.createElement("p");
         dfn.id = dfnId;
         dfn.className = "hidden";
-        dfn.innerHTML = lexicon[dfnTarget];
+        dfn.innerHTML = target;
         document.getElementById("lexicon").appendChild(dfn);
 
         a.className = "js-simple-tooltip";
