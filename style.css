@@ -518,6 +518,8 @@ span.title {
 div.talks > details {
     border: 1px solid #ccc;
     box-shadow: .3em .3em 0 rgba(0,0,0,.1);
+    margin-top: 20px;
+    padding: 1em;
 }
 div.talks details:nth-of-type(odd) {
     background: #F2FDFF;
@@ -533,9 +535,26 @@ div.talks > details > summary {
 div.talks > details > summary::-webkit-details-marker {
   display: none;
 }
+
+div.talks > details > summary:after {
+    content: 'more ►';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    color: gray;
+}
+
+div.talks > details[open] > summary:after {
+    content: 'less ▼';
+    cursor: pointer;
+}
+
 summary span:first-child, summary a:first-child {
     grid-column: 1;
     grid-row: 1 / -1;
+    place-self: center;
+    color: gray;
 }
 summary a:nth-child(2) {
     grid-column:2;
@@ -544,6 +563,7 @@ summary a:nth-child(2) {
 summary .summary {
     grid-column: 2;
     grid-row: 2;
+    padding-bottom: 2em;
 }
 summary a:nth-child(4) {
     grid-row: 3;
@@ -551,7 +571,7 @@ summary a:nth-child(4) {
     text-align:right;
     font-size:0.8em;
 }
-summary .summary a {
+summary .summary span {
     position: absolute;
     bottom:0;
     right:0;
