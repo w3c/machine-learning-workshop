@@ -77,6 +77,10 @@
   // activate -- deactivate the current element and activate the new one
   function activate(new_index)
   {
+    if (!syncelts[current]) {
+      announce(new_index);
+      return;
+    }
     if (new_index < current) {
 
       // Deactivate the old current element and activate the new.

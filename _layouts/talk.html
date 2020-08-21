@@ -52,11 +52,20 @@
     {% assign path = "../" %}
     <main>
       {% include related-issues/{{shortname}}.html %}
-    <form id="form">
-        {% if page.slidesurl  %}
+      {% assign videoSync = false %}
+      {% if page.slidesurl %}
+      {% assign videoSync = true %}
+      {% endif %}
+      {% if page.nosync == true%}
+      {% assign videoSync = false %}
+      {% endif %}
+
+    <form id="form" {% if videoSync  %}{% else if page.slidesurl %}class="videonav"{% endif %}>
+        {% if videoSync  %}
         <input type="checkbox" name="sync" id="sync"><label for="sync" class="button">Sync video and hide transcript
         <a href="https://www.w3.org/2020/05/AC/talk-help.html"  rel=help title="Help" class="picto im-question"></a></label>&nbsp;
-
+        {% endif %}
+        {% if page.slidesurl %}
         <a class="picto im-angle-up button" id="align" href="#align" title="Align to top of window"></a>&nbsp;
         <span id="prevnext" aria-label="Slide navigation controls" role="navigation">
           <a id="firstslide" href="#firstslide" title="First slide" class="button" role="button">1st</a>
@@ -78,10 +87,16 @@
   "uploadDate": "2020-08-17T13:00:00+02:00",
   "duration": "{{page.duration_so}}",
   "embedUrl": "{{page.videourl}}"}
-</script>
-
-          <div {% if page.slidesurl %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
-          picture-in-picture" allowfullscreen="" {% if page.slidesurl %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
+      </script>
+          <div {% if videoSync %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
+                                                                                                                                                            picture-in-picture" allowfullscreen="" {% if videoSync %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
+          {% if page.nosync == true %}
+      <p id=caption>
+        <output id=cue aria-live=off>
+          <noscript>(Synchronization requires JavaScript)</noscript>
+        </output>
+      </p>
+      {% endif %}
         {% if page.slidesurl %}
           <output id="slidenr" aria-live="polite"><a href="#start">Slide 1 of 40</a></output>
           
