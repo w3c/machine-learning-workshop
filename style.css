@@ -709,3 +709,6 @@ div.related ul {
     margin-top: 0;
     margin-left: 1em;
 }
+.simpletooltip a:link, .simpletooltip a:visited {
+    color: #acf;
+}

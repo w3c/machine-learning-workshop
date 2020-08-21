@@ -137,7 +137,7 @@
 <p><a class=dfn>WebRTC</a> takes care of the fetch and decode operations.</p>
 <p>In theory, that's fantastic news.</p>
 <p>We should get decoded frames out of <a class=dfn>WebRTC</a>.</p>
-<p>However, in practice, a “decoded” stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque MediaStreamTrack object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
+<p>However, in practice, a “decoded” stream in <a class=dfn>WebRTC</a> is represented as an abstract and opaque <a class=dfn>MediaStreamTrack</a> object and the actual contents of the decoded audio and video frames are not exposed to applications.</p>
 <p>So, back to the same canvas hack again...</p></div><div class="slide" id="hooks-audio" role="region" aria-label="Slide 11 of 18">
     <h1>Existing hooks for…<br>④ synthesized audio playback</h1>
     <ul>
@@ -196,7 +196,7 @@
     </ul>
     <img src="https://www.w3.org/2020/Talks/fd-media-processing/processing-webcodecs.svg" alt="WebCodecs allow applications to take control of the decode operation in the decoding pipeline and to feed the result into a canvas. As opposed to WebRTC, applications would be able to access decoded frames for processing.">
   </div><div role='region'><p>It is hard, but it is not impossible.</p>
-<p>The WebCodecs API, initially proposed by Google, aims at providing access to built-in media encoders and decoders.</p>
+<p>The <a class=dfn>WebCodecs</a> API, initially proposed by Google, aims at providing access to built-in media encoders and decoders.</p>
 <p>As a by-product, the API exposes decoded frames, allowing applications to hook into the output of the API to process these frames.</p>
 <p>Note that the API does not take care of the mux/demux operations, which will have to be done by the application through some JavaScript or <a class=dfn>WebAssembly</a> code.</p>
 <p>This shouldn't be a problem in practice, these operations are not really heavy on the CPU.</p></div><div class="slide" id="webcodecs-status" role="region" aria-label="Slide 16 of 18">
@@ -215,13 +215,13 @@
       <li>Not based on WHATWG Streams</li>
       <li>Incubation in <abbr title="Web Platform Incubator Community Group">WICG</abbr>, potential deliverable for Media <abbr title="Working Group">WG</abbr></li>
     </ul>
-  </div><div role='region'><p>The API is very much in flux, so it's hard to assess anything on WebCodecs for now.</p>
-<p>There are a number of open questions, starting with “how can WebCodecs be integrated with other specs?</p>
+  </div><div role='region'><p>The API is very much in flux, so it's hard to assess anything on <a class=dfn>WebCodecs</a> for now.</p>
+<p>There are a number of open questions, starting with “how can <a class=dfn>WebCodecs</a> be integrated with other specs?</p>
 <p>”.</p>
 <p><a class=dfn>WebAssembly</a>, MSE, <a class=dfn>WebRTC</a>, <a class=dfn>WebXR</a> for rendering video in immersive contexts.</p>
 <p>Well, and of course, the integration question also exists for machine learning APIs.</p>
-<p>It's worth noting that the <a class=dfn>WebRTC</a> Working Group has started to work <a class=dfn>WebRTC</a> Insertable Media using Streams that should eventually build on top of WebCodecs.</p>
-<p>By the way, it seems worth noting that WebCodecs is not based on WHATWG Streams.</p>
+<p>It's worth noting that the <a class=dfn>WebRTC</a> Working Group has started to work <a class=dfn>WebRTC</a> Insertable Media using Streams that should eventually build on top of <a class=dfn>WebCodecs</a>.</p>
+<p>By the way, it seems worth noting that <a class=dfn>WebCodecs</a> is not based on WHATWG Streams.</p>
 <p>That was the initial goal, but it turned out to be very difficult.</p>
 <p>So having a way to process WHATWG Streams does not necessarily mean that it will be de facto possible to process media streams.</p>
 <p>Incubation takes place in the Web Platform Incubator Community Group.</p>
@@ -248,7 +248,7 @@
 <p>Also, I have only focused on audio and video tracks, but media content also contains events tracks that are more and more used to control the playback experience.</p>
 <p>Media industries are putting a lot of efforts these days to standardize solutions to expose media timed events to applications.</p>
 <p>The generic idea is to rely on the user agent to do the work.</p>
-<p>If WebCodecs requires applications to demux media content themselves, then what happens to events tracks?</p>
+<p>If <a class=dfn>WebCodecs</a> requires applications to demux media content themselves, then what happens to events tracks?</p>
 <p>One final note on encrypted media.</p>
 <p>In general, the goal there is to hide the bytes from the applications, so encrypted media is typically not a good candidate for application-controlled processing operations.</p>
 <p>There may still be scenarios where the ability to process encrypted media in a separate sandbox could be useful.</p>
@@ -265,7 +265,7 @@
     <p>Thank you!</p>
   </div><div role='region'><p>So, what I have tried to convey here is that exposing decoded media frames to applications is doable but not easy, or not as easy as it might sound.</p>
 <p>There is no satisfactory solution today.</p>
-<p>WebCodecs seems very promising but there are lots of open questions that still need to be discussed.</p>
-<p>In order to be successful, the work on WebCodecs would greatly benefit from coordination and engagement from people involved in other technologies.</p>
+<p><a class=dfn>WebCodecs</a> seems very promising but there are lots of open questions that still need to be discussed.</p>
+<p>In order to be successful, the work on <a class=dfn>WebCodecs</a> would greatly benefit from coordination and engagement from people involved in other technologies.</p>
 <p>And that includes people looking at exposing machine learning capabilities to Web applications!</p>
 <p>OK, I'm done, thank you, bye!</p></div>
