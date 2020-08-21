@@ -9,11 +9,14 @@
       "abstract": "The presentation will discuss how developers should be building modern web apps and what is missing in the existing ecosystem to make privacy-first ML possible including the challenges with WASI, modular web architecture, and localized analytics.",
       "duration": "11:05"
     },
-    "ba_realtime-media": {
-      "title": "Real-time ML Process of media in-browser",
+    "ba-media": {
+      "title": "Machine Learning and Web Media",
       "author": "Bernard Aboba",
       "affiliation": "Microsoft",
-      "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU."
+      "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU.",
+      "video": "https://app.streamfizz.live/embed/cke43ihp10fub0731lohsnpmo",
+      "duration": "07:45",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke43ihp10fub0731lohsnpmo/thumbs/thumb-001.jpeg"
     },
     "cb_hardware": {
       "title": "ML hardware advancements: leveraging for performance while retaining portability",
