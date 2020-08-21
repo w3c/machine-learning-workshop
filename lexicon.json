@@ -54,5 +54,6 @@
   "WHATWG Streams API": "<a href='https://streams.spec.whatwg.org/'>WHATWG Streams</a> provide a uniform API to manage readable and writable streams of data",
   "AV1": "AV1 is a royalty-free video codec developed in the Alliance for Open Media",
   "MediaStreamTrack": "A <a href='https://w3c.github.io/mediacapture-main/getusermedia.html#mediastreamtrack'>JavaScript API</a> used to represent a live media source in browsers",
-  "Insertable Streams": "A <a href='https://github.com/w3c/webrtc-insertable-streams/blob/master/explainer.md'>proposed JavaScript browser API</a> to allow efficient media processing"
+  "Insertable Streams": "A <a href='https://github.com/w3c/webrtc-insertable-streams/blob/master/explainer.md'>proposed JavaScript browser API</a> to allow efficient media processing",
+  "our WNGT 2020 submission": {"href": "https://kheafield.com/papers/edinburgh/wngt20.pdf"}
 }

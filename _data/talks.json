@@ -260,11 +260,15 @@
         "abstract": "    Stockmark develops a B2B SaaS product based on machine learning and natural language processing technology to provide search and analysis UX of business news on the web and support the market research or competitive analysis in the business scene. This talk will share Stockmark's experience with developing the machine learning processes with fastText or BERT model in browser that suggests certain news or phrases or quantitative information in the text of searched news, in response to user's action to the web page."
       },
       "nb_privacy-translation": {
-        "title": "Privacy focussed machine translation in Firefox",
+        "title": "Privacy focused machine translation in Firefox",
         "author": "Nikolay Bogoychev",
         "affiliation": "University of Edinburgh",
         "bio": "    Postdoc researcher at the University of Edinburgh",
-        "abstract": "    In the recent years, machine translation has been widely adopted by the end user, making online content in foreign languages more accessible than ever. However, machine translation has always been treated as a computationally heavy problem and as such is usually delivered to the end user via online services such as Google Translate, which may not be appropriate for sensitive content. We present a privacy focussed machine translation system that runs locally on the user's machine and is accessible through a Firefox browser extension. The translation models used are just 16MB and translation speed is high enough for a seamless user experience even on laptops from 2012."
+        "abstract": "    In the recent years, machine translation has been widely adopted by the end user, making online content in foreign languages more accessible than ever. However, machine translation has always been treated as a computationally heavy problem and as such is usually delivered to the end user via online services such as Google Translate, which may not be appropriate for sensitive content. We present a privacy focussed machine translation system that runs locally on the user's machine and is accessible through a Firefox browser extension. The translation models used are just 16MB and translation speed is high enough for a seamless user experience even on laptops from 2012.",
+        "nosync": true,
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke3s7cvyvz7i0772b94ebcg6/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/cke3s7cvyvz7i0772b94ebcg6",
+        "duration": "06:00"
       },
       "zc_expression": {
         "title": "A virtual character web meeting with expression enhance power by machine learning",
