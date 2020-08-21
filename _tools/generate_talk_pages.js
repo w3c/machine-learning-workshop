@@ -65,7 +65,8 @@ shortname: ${shortname}
 thumbnailurl: ${talk.thumbnail}
 videourl: ${talk.video}
 slidesurl: ${slidesurl}
-prevlink: ${prevlink}
+` + (talk.nosync ? `nosync: ${talk.nosync}\n` : '') +
+`prevlink: ${prevlink}
 prevtitle: "${prevtitle}"
 nextlink: ${nextlink}
 nexttitle: "${nexttitle}"

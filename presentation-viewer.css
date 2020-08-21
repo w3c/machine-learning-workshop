@@ -98,9 +98,9 @@
         visibility: hidden}
       #sync:checked ~ #player .slide.active {position: relative;
         visibility: visible}
-      #sync:checked ~ #prevnext {display: inline}
+      .videonav #prevnext, #sync:checked ~ #prevnext {display: inline}
       #sync:checked ~ #player #slides > *:not(.slide) {display: none}
-      #sync:checked ~ #player #caption {display: block}
+      .videonav #player #caption, #sync:checked ~ #player #caption {display: block}
 
       /* ... and only the active elements of incremental display. */
       #sync:checked ~ #player .next {visibility: hidden}
