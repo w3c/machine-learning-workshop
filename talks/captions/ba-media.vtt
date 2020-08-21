@@ -1,0 +1,439 @@
+WEBVTT
+
+slide-1
+0:00:08.160 --> 0:00:10.120
+Slide 1.
+
+2
+0:00:10.120 --> 0:00:13.400
+I’m Bernard Aboba,
+
+3
+0:00:13.400 --> 0:00:19.240
+presenting on behalf of the Chairs of the WebRTC Working Group:
+
+4
+0:00:19.240 --> 0:00:27.360
+myself, Harald Alvestrand and Jan-Ivar Bruaroey
+
+5
+0:00:27.360 --> 0:00:33.360
+on the topic of Machine Learning and Web Media.
+
+7
+0:00:33.360 --> 0:00:36.000
+Slide 2.
+
+slide-2
+0:00:36.000 --> 0:00:40.440
+The Pandemic of 2020 has been a pivotal moment for the world,
+
+9
+0:00:40.440 --> 0:00:45.600
+with many institutions experiencing unprecedented stress.
+
+10
+0:00:45.600 --> 0:00:49.120
+Amidst all the tragedy, we have seen an unparalleled level of
+
+11
+0:00:49.120 --> 0:00:52.920
+user-driven innovation as consumers and businesses
+
+12
+0:00:52.920 --> 0:00:57.840
+struggle to survive and perhaps even thrive,
+
+13
+0:00:57.840 --> 0:01:02.480
+leading to a decade’s worth of innovation in only a few months,
+
+14
+0:01:02.480 --> 0:01:10.480
+in areas as diverse as politics, art, entertainment and sports.
+
+15
+0:01:10.480 --> 0:01:16.560
+Yogi Berra said, “you can observe a lot, just by watching”.
+
+16
+0:01:16.560 --> 0:01:26.200
+What have you observed?  Here are some of the things in my scrapbook.
+
+18
+0:01:26.200 --> 0:01:29.600
+Slide 3.
+
+slide-3
+0:01:29.600 --> 0:01:36.440
+Live theatre has been particularly hard hit during the pandemic.
+
+20
+0:01:36.440 --> 0:01:41.320
+Rather than cancelling their 2020-2021 season,
+
+21
+0:01:41.320 --> 0:01:50.640
+Tacoma Little Theatre has chosen to move it online.
+
+22
+0:01:50.640 --> 0:01:54.160
+Their first online production, of “Robin Hood”,
+
+23
+0:01:54.160 --> 0:01:57.600
+utilized custom backgrounds for scenery,
+
+24
+0:01:57.600 --> 0:02:01.200
+combining conferencing (for the live production)
+
+25
+0:02:01.200 --> 0:02:05.120
+with Youtube for archiving and subsequent streaming.
+
+26
+0:02:05.120 --> 0:02:10.440
+Typically, custom backgrounds are implemented
+
+27
+0:02:10.440 --> 0:02:13.400
+using machine learning algorithms
+
+28
+0:02:13.400 --> 0:02:16.280
+that locally operate on captured video,
+
+29
+0:02:16.280 --> 0:02:19.160
+extracting human forms which are then overlaid
+
+30
+0:02:19.160 --> 0:02:28.640
+on the selected backgrounds before being encoded for transmission.
+
+32
+0:02:28.640 --> 0:02:32.600
+Slide 4.
+
+slide-4
+0:02:32.600 --> 0:02:35.480
+During the pandemic, sporting matches have had
+
+34
+0:02:35.480 --> 0:02:39.400
+to be conducted in the absence of fans.
+
+35
+0:02:39.400 --> 0:02:45.800
+To incorporate fans back into the game,
+
+36
+0:02:45.800 --> 0:02:48.600
+the NBA collaborated with Microsoft
+
+37
+0:02:48.600 --> 0:02:52.920
+to introduce “Together Mode” where video from fans
+
+38
+0:02:52.920 --> 0:02:55.920
+are combined so as to make it seem
+
+39
+0:02:55.920 --> 0:02:59.600
+like they are viewing the game courtside.
+
+40
+0:02:59.600 --> 0:03:00.960
+As with the previous example,
+
+41
+0:03:00.960 --> 0:03:05.320
+this one involves machine learning algorithms operating locally
+
+42
+0:03:05.320 --> 0:03:09.240
+on captured video prior to encoding and transmission
+
+43
+0:03:09.240 --> 0:03:13.880
+to a server producing a composite video
+
+44
+0:03:13.880 --> 0:03:20.520
+including both the fans as well as the game.
+
+46
+0:03:20.520 --> 0:03:23.640
+Slide 5.
+
+slide-5
+0:03:23.640 --> 0:03:26.400
+Machine learning algorithms in these use cases
+
+48
+0:03:26.400 --> 0:03:32.320
+operate on captured media  prior to encoding or transmission.
+
+49
+0:03:32.320 --> 0:03:36.240
+For audio, machine learning can be used for noise suppression,
+
+50
+0:03:36.240 --> 0:03:39.120
+and for video it might provide for background removal,
+
+51
+0:03:39.120 --> 0:03:42.640
+“together mode”, or “funny hats”.
+
+52
+0:03:42.640 --> 0:03:45.680
+Processing may also occur
+
+53
+0:03:45.680 --> 0:03:49.400
+on a centralized server acting as a receiver,
+
+54
+0:03:49.400 --> 0:03:53.440
+such as production of a composite video.
+
+55
+0:03:53.440 --> 0:03:54.680
+On the local system,
+
+56
+0:03:54.680 --> 0:03:58.000
+one proposal for obtaining access to raw video
+
+57
+0:03:58.000 --> 0:04:01.880
+is to add a method on a MediaStreamTrack.
+
+59
+0:04:01.880 --> 0:04:07.160
+Slide 6.
+
+slide-6
+0:04:07.160 --> 0:04:09.880
+APIs that provide access to encoded media
+
+61
+0:04:09.880 --> 0:04:14.400
+such as Insertable Streams and WebCodecs
+
+62
+0:04:14.400 --> 0:04:18.280
+operate at a different place in the pipeline,
+
+63
+0:04:18.280 --> 0:04:21.280
+after encoding (on the sender)
+
+64
+0:04:21.280 --> 0:04:25.360
+or prior to decode (on the receiver).
+
+66
+0:04:25.360 --> 0:04:31.280
+Since raw video is considerably larger than encoded video,
+
+67
+0:04:31.280 --> 0:04:33.280
+and the processing can be quite different,
+
+68
+0:04:33.280 --> 0:04:37.520
+the performance of a Transform stream operating
+
+69
+0:04:37.520 --> 0:04:42.320
+on encoded media within Insertable Streams
+
+70
+0:04:42.320 --> 0:04:47.000
+may not be sufficient for machine learning algorithms
+
+71
+0:04:47.000 --> 0:04:49.680
+operating on raw media.
+
+73
+0:04:49.680 --> 0:04:53.640
+Slide 7.
+
+slide-7
+0:04:53.640 --> 0:05:00.400
+Performance across the pipeline is an important requirement:
+
+75
+0:05:00.400 --> 0:05:06.400
+capture, application of machine learning models,
+
+76
+0:05:06.400 --> 0:05:10.720
+encoding and transmission.
+
+77
+0:05:10.720 --> 0:05:13.160
+It is desirable for each pipeline stage
+
+78
+0:05:13.160 --> 0:05:17.680
+to operate on buffers provided by the previous stage,
+
+79
+0:05:17.680 --> 0:05:20.960
+avoiding memory copies.
+
+80
+0:05:20.960 --> 0:05:23.960
+For example, if the capture device can provide buffers
+
+81
+0:05:23.960 --> 0:05:28.200
+to the machine learning algorithm (perhaps a GPU buffer?)
+
+82
+0:05:28.200 --> 0:05:32.400
+without extraneous copies.
+
+83
+0:05:32.400 --> 0:05:34.560
+After processing by machine learning algorithms,
+
+84
+0:05:34.560 --> 0:05:36.640
+WebCodecs would encode
+
+85
+0:05:36.640 --> 0:05:40.400
+and WebTransport would perform network I/O,
+
+86
+0:05:40.400 --> 0:05:44.240
+also ideally without extraneous copies.
+
+88
+0:05:47.800 --> 0:05:49.240
+Slide 8.
+
+slide-8
+0:05:49.240 --> 0:05:51.920
+The Insertable Streams and WebCodecs proposals
+
+90
+0:05:51.920 --> 0:05:54.920
+share data structures such as
+
+91
+0:05:54.920 --> 0:05:58.440
+the representation of audio and video frames.
+
+92
+0:05:58.440 --> 0:06:03.360
+So even though WebCodecs does not use the WHATWG Streams API
+
+93
+0:06:03.360 --> 0:06:06.880
+used by Insertable Streams and WebTransport,
+
+94
+0:06:06.880 --> 0:06:08.560
+WebCodecs is still leveraging
+
+95
+0:06:08.560 --> 0:06:13.120
+the Insertable Streams implementation experience.
+
+97
+0:06:13.120 --> 0:06:16.880
+Slide 9.
+
+slide-9
+0:06:16.880 --> 0:06:23.400
+A few words about AV1 support in realtime communications.
+
+99
+0:06:23.400 --> 0:06:27.440
+AV1 offers not only improved compression efficiency
+
+100
+0:06:27.440 --> 0:06:32.680
+but also a new image format (AVIF)
+
+101
+0:06:32.680 --> 0:06:36.240
+likely to be widely adopted in browsers.
+
+102
+0:06:36.240 --> 0:06:38.720
+The higher encoding complexity of AV1
+
+103
+0:06:38.720 --> 0:06:43.200
+makes performance considerations particularly important,
+
+104
+0:06:43.200 --> 0:06:49.360
+but there are proposals to enable software encoders to be practical
+
+105
+0:06:49.360 --> 0:06:52.640
+before hardware acceleration becomes widely available.
+
+106
+0:06:52.640 --> 0:06:56.240
+These include capability advertisement
+
+107
+0:06:56.240 --> 0:07:01.280
+to allows AV1 to be only used for decode;
+
+108
+0:07:01.280 --> 0:07:02.920
+mixed-codec simulcast,
+
+109
+0:07:02.920 --> 0:07:07.520
+allowing AV1 to be used to encode low bitrate video
+
+110
+0:07:07.520 --> 0:07:10.440
+with other codecs used for higher bitrate encodings;
+
+111
+0:07:10.440 --> 0:07:14.240
+content-hints, allowing AV1 to be used
+
+112
+0:07:14.240 --> 0:07:18.360
+for screen content coding (often at low framerates),
+
+113
+0:07:18.360 --> 0:07:20.480
+and scalable video coding.
+
+115
+0:07:20.480 --> 0:07:23.560
+Slide 10.
+
+slide-10
+0:07:23.560 --> 0:07:26.720
+Thank you for listening to this presentation.
+
+117
+0:07:26.720 --> 0:07:31.840
+In addition to the participants and Chairs of the WebRTC Working Group
+
+118
+0:07:31.840 --> 0:07:35.760
+we would like to thank Dom who provided feedback
+
+119
+0:07:35.760 --> 0:07:45.960
+on the presentation and helped put it together.
+
+
