@@ -524,19 +524,22 @@ div.talks > details {
 div.talks details:nth-of-type(odd) {
     background: #F2FDFF;
 }
-div.talks > details > summary {
+div.talks > details > summary div.grid {
     position: relative;
     display: grid;
     grid-template-columns: 200px auto;
     grid-template-rows: auto auto;
-    list-style: none;
+}
+
+div.talks > details > summary {
+  list-style: none;
 }
 
 div.talks > details > summary::-webkit-details-marker {
   display: none;
 }
 
-div.talks > details > summary:after {
+div.talks > details > summary div.grid:after {
     content: 'more ►';
     position: absolute;
     right: 0;
@@ -545,7 +548,7 @@ div.talks > details > summary:after {
     color: gray;
 }
 
-div.talks > details[open] > summary:after {
+div.talks > details[open] > summary div.grid:after {
     content: 'less ▼';
     cursor: pointer;
 }
