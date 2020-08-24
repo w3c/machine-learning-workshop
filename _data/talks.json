@@ -96,6 +96,18 @@
       "abstract": "The Model Loader API is a new proposal for a web standard to make it easy to load and run ML models from JavaScript, taking advantage of available hardware acceleration. The API surface is similar to existing model serving APIs (like TensorFlow Serving, TensorRT, and MXNet Model Server), and it is complementary to the Web NN graph API proposal as well as lower level WebGL and WebGPU APIs.",
       "duration": "10:08"
     },
+    "mod_webgpu": {
+      "title": "SIMD operations in WebGPU for ML",
+      "author": "Mehmet Oguz Derin",
+      "affiliation": "",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8ahza81hlp0731tiz1d295/thumbs/thumb-002.jpeg",
+      "video": "https://app.streamfizz.live/embed/cke8ahza81hlp0731tiz1d295",
+      "abstract": "",
+      "duration": "05:40",
+      "format": "marpit",
+      "url": "https://www.w3.org/2020/Talks/mlws/mod_webgpu/"
+    },
+
     "cc_directml": {
       "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
       "author": "Chai Chaoweeraprasit",
