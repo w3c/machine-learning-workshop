@@ -6,11 +6,11 @@ slide-1
 
 2
 0:00:12.600 --> 0:00:15.460
-It's my honor and privilege to present to you today,
+It's my honor and privilege to present to you today.
 
 3
 0:00:15.460 --> 0:00:18.180
-my talk title is AI Machine Learning,
+My talk title is AI Machine Learning:
 
 4
 0:00:18.180 --> 0:00:21.390
@@ -90,15 +90,15 @@ These are some of the INDEX staff.
 
 23
 0:01:15.380 --> 0:01:17.240
-We are from all over the world,
+We are from all over the world.
 
 24
 0:01:17.240 --> 0:01:21.200
-we are speakers of 16 languages,
+We are speakers of 16 languages.
 
 25
 0:01:21.200 --> 0:01:23.553
-we are women, we are the disabled.
+We are women. We are the disabled.
 
 slide-4
 0:01:25.900 --> 0:01:27.500
@@ -206,7 +206,7 @@ and Commercial Gender Classification.
 
 slide-7
 0:02:48.770 --> 0:02:53.770
-The author of that article, Joy has a TED talk.
+The author of that article, Joy, has a TED talk.
 
 53
 0:02:54.130 --> 0:02:57.443
@@ -354,15 +354,15 @@ Being smart can be a deficit in ML.
 
 89
 0:04:38.397 --> 0:04:40.707
-"a measure of cognitive ability
+"a measure of cognitive ability,
 
 90
 0:04:40.707 --> 0:04:44.297
-"are also quicker to form and apply stereotypes.
+"are also quicker to form and apply stereotypes.”
 
 91
 0:04:44.297 --> 0:04:45.130
-"In other words,
+“In other words,
 
 92
 0:04:45.130 --> 0:04:48.997
@@ -446,11 +446,11 @@ It's about body language and facial expressions.
 
 112
 0:05:46.127 --> 0:05:48.207
-MIT would have known that was essential,
+MIT would have known that was essential
 
 113
 0:05:48.207 --> 0:05:51.680
-had it involved the deaf community.
+had it involved the Deaf community.
 
 114
 0:05:51.680 --> 0:05:52.570
@@ -474,7 +474,7 @@ Many of us do not disclose our disabilities.
 
 119
 0:06:06.377 --> 0:06:10.747
-When we do, we are denied employment, housing and more.
+When we do, we are denied employment, housing, and more.
 
 120
 0:06:10.747 --> 0:06:14.970
@@ -630,11 +630,11 @@ What tools will help us implement machine learning fairness?
 
 158
 0:07:55.307 --> 0:07:57.127
-Well there are commercial tools,
+Well there are commercial tools.
 
 159
 0:07:57.127 --> 0:07:59.307
-many companies such as Microsoft,
+Many companies such as Microsoft,
 
 160
 0:07:59.307 --> 0:08:03.497
@@ -662,7 +662,7 @@ The Google What-If Tool
 
 166
 0:08:17.127 --> 0:08:18.827
-visually probe the behavior
+visually probes the behavior
 
 167
 0:08:18.827 --> 0:08:22.417
@@ -670,11 +670,11 @@ of trained machine learning models with minimal coding.
 
 168
 0:08:22.417 --> 0:08:24.667
-This interface looks pretty cool to me
+This interface looks pretty cool to me.
 
 169
 0:08:24.667 --> 0:08:26.323
-but then again, I'm blind.
+But then again, I'm blind.
 
 slide-20
 0:08:28.367 --> 0:08:32.927
@@ -694,15 +694,15 @@ the learned structures of a black box model,
 
 174
 0:08:42.537 --> 0:08:46.417
-both globally, inference on the basis of a complete dataset
+both globally (inference on the basis of a complete dataset)
 
 175
 0:08:46.417 --> 0:08:50.303
-and locally, inference about an individual prediction.
+and locally (inference about an individual prediction).
 
 slide-22
 0:08:51.927 --> 0:08:54.747
-Pymetrics, it detects demographic differences
+Pymetrics. It detects demographic differences
 
 177
 0:08:54.747 --> 0:08:56.617
@@ -714,11 +714,11 @@ or other assessments.
 
 slide-23
 0:08:59.887 --> 0:09:03.257
-IBM AI Fairness 360 Open Source Toolkits,
+IBM AI Fairness 360 Open Source Toolkit.
 
 180
 0:09:03.257 --> 0:09:05.597
-a comprehensive set of fairness metrics
+A comprehensive set of fairness metrics
 
 181
 0:09:05.597 --> 0:09:07.797
@@ -726,7 +726,7 @@ for dataset machine learning models,
 
 182
 0:09:07.797 --> 0:09:09.777
-explanations for these metrics
+explanations for these metrics,
 
 183
 0:09:09.777 --> 0:09:13.130
@@ -734,7 +734,7 @@ and algorithms to mitigate bias in data sets and models.
 
 slide-24
 0:09:14.147 --> 0:09:16.877
-IBM AI Factsheets 360,
+IBM AI Factsheets 360.
 
 185
 0:09:16.877 --> 0:09:19.887
@@ -746,11 +746,11 @@ by increasing transparency and enabling governance.
 
 slide-25
 0:09:24.910 --> 0:09:27.460
-Final thought about disability,
+Final thought about disability.
 
 188
 0:09:27.460 --> 0:09:29.830
-there is a saying we shout from the rooftops
+There is a saying we shout from the rooftops
 
 189
 0:09:29.830 --> 0:09:31.700
