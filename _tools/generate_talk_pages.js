@@ -18,10 +18,10 @@ for(let i = 0; i < shortnames.length; i++) {
   if (talk.video) {
     const duration = talk.duration.split(':')[0].replace(/^0/, '');
 
-    sectionContent += `<details class=talk><summary><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="Watch ${talk.title}" width=200 class="tn"></a><a href="talks/${slug}.html">${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""} - ${duration} min <span></span></span></summary>`;
+    sectionContent += `<details class=talk><summary><div class="grid"><a href="talks/${slug}.html"><img src="${talk.thumbnail}" alt="Watch ${talk.title}" width=200 class="tn"></a><a href="talks/${slug}.html">${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""} - ${duration} min <span></span></span></div></summary>`;
     sectionContent += `<p><a href="talks/${slug}.html">${duration} minutes presentation</a></p>`;
   } else {
-    sectionContent += `<details><summary><span>PENDING </span><a>${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""} <span></span></span></summary>`;
+    sectionContent += `<details><summary><div class="grid"><span>PENDING </span><a>${talk.title}</a><span class="summary"> by ${talk.author}${talk.affiliation ? " (" + talk.affiliation + ")" : ""} <span></span></span></div></summary>`;
   }
   sectionContent += `<dl>`;
   sectionContent += `<dt>Speaker</dt>`;
