@@ -55,5 +55,13 @@
   "AV1": "AV1 is a royalty-free video codec developed in the Alliance for Open Media",
   "MediaStreamTrack": "A <a href='https://w3c.github.io/mediacapture-main/getusermedia.html#mediastreamtrack'>JavaScript API</a> used to represent a live media source in browsers",
   "Insertable Streams": "A <a href='https://github.com/w3c/webrtc-insertable-streams/blob/master/explainer.md'>proposed JavaScript browser API</a> to allow efficient media processing",
+  "Personalization Semantics": {"href": "https://www.w3.org/TR/personalization-semantics-1.0/" },
+  "CR": {"alias": "Candidate Recommendation"},
+  "Candidate Recommendation": "Candidate Recommendation (CR for short) is a stage in the W3C standardization process which signals a specification has received wide review and is ready for feedback from implementation experience",
+  "APA": {"alias": "Accessible Platform Architectures (APA) Working Group"},
+  "Accessible Platforms Architecture group": {"alias": "Accessible Platform Architectures (APA) Working Group"},
+  "Accessible Platform Architectures (APA) Working Group": "The <a href='https://www.w3.org/WAI/APA/'>Accessible Platform Architectures Working Group</a> (APA) is a W3C Working Group with the mission to ensure W3C specifications provide support for accessibility to people with disabilities",
+  "Research Questions Task Force": {"href": "https://www.w3.org/WAI/APA/task-forces/research-questions/"},
+  "Cognitive Accessibility Task Force": {"href": "https://www.w3.org/WAI/GL/task-forces/coga/"},
   "our WNGT 2020 submission": {"href": "https://kheafield.com/papers/edinburgh/wngt20.pdf"}
 }
