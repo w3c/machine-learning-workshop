@@ -246,6 +246,14 @@
         "abstract": "Biased training data produces untrustworthy, unfair, useless results. Such results include:<ul><li>   predicting black prisoners are the most likely recidivist; and<li>   killing a wheelchair user in a street crosswalk by autonomous car ML models.</ul><p>   Training data must include representation of people with disabilities, all races, all ethnicities, all genders, etc. Creation of training data must include those populations. There are opensource and commercial toolkits and APIs to facilitate bias mitigation.</p>         <p>John is an expert in this area focused on AI fairness and empowerment for people with disabilities and is a member of the Machine Learning for the Web Community Group.",
         "duration": "10:08"
       },
+      "ls_joc_cognitive": {
+        "title": "Cognitive Accessibility and Machine Learning",
+        "author": "Lisa Seeman, Joshue O’Connor",
+        "affiliation": "",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8szrew1mu70731eppx3v5h/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/cke8szrew1mu70731eppx3v5h",
+        "duration": "13:51"
+      },
       "tp_interactive_music": {
         "title": "Interactive ML - Powered Music Applications on the Web",
         "author": "Tero Parviainen",

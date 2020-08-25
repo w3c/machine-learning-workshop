@@ -1,0 +1,94 @@
+<div class="slide" role='region' aria-label="Slide 1 of 16" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hi, welcome to our cognitive accessibility and machine learning presentation for the W3C machine-learning workshop.</p>
+<p>I'm very, very happy to be here.</p>
+<p>My name's is Josh O'Connor.</p>
+<p>I'm emerging technology specialist with W3C Web Accessibility Initiative.</p>
+<p>I'm here with my colleague, Lisa Seeman also, who is the task force facilitator from the COGA, the <a class=dfn>Cognitive Accessibility Task Force</a>.</p>
+<p>And we are going to be talking about cognitive accessibility and machine learning - beyond rule-based testing environments.</p>
+<p>So great, Lisa, over to you.</p>
+<p>Let's hear a little bit about what we're gonna be discussing.</p></div><div class="slide" role='region' aria-label="Slide 2 of 16" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>And these are really research topics or early prototype stages for these kinds of things.</p>
+<p>The first is that machine learning can offer potential solutions for people with cognitive disability, to bridge the gap in understanding on what people can can comprehend and putting things in a format that they can understand better, like simplified languages, as one example, usability testing for people with cognitive disabilities to be as software as a service or some other compatible mechanism that would enable automatic testing.</p>
+<p>And also, there's some movement in the other direction.</p>
+<p>Because I think there's the potential for what we're doing for support for cognitive disabilities, to actually help machine learning type algorithms perform better, and have maybe an anchor or more information on what's going on in the page so that if it's adapting it for other applications, it will perform a bit better.</p>
+<p>So we're going to be talking about how machine learning can support people with cognitive disabilities, how this could potentially enable the better testing of that support.</p>
+<p>Just generally understand how inclusive design can support even machine learning by developing data sets, which understand what works or what does not work for particular diverse user groups.</p>
+<p>Is that right?</p>
+<p>Yeah.</p>
+<p>Some kind of going in the other direction.</p>
+<p>There's tons of things where machine learning can help us as people trying to provide support for people with Cognitive and Learning Disabilities, and create new tools.</p>
+<p>But actually, we could be helping other examples of machine learning application by what we're doing.</p>
+<p>Absolutely.</p></div><div class="slide" role='region' aria-label="Slide 3 of 16" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>So going on to the next sections on slide two: user testing and cognitive and machine learning.</p>
+<p>Yeah, so right now, a lot of the conformance for accessibility regulations and guidelines are kind of pattern matching rules.</p>
+<p>So does this image have an alt tag?</p>
+<p>If not, it might not conform to something.</p>
+<p>You know part level of pattern match.</p>
+<p>And that really didn't work well for us, trying to incorporate the user needs for people with Cognitive and Learning Disabilities .</p></div><div class="slide" role='region' aria-label="Slide 4 of 16" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>For instance, move to slide two, an example of a user need or pattern that we would be introducing Cognitive and Learning Disabilities is: can we identify the controls on the page?</p>
+<p>Does a button look like a button?</p>
+<p>Or do they think it's a heading?</p>
+<p>Or just text?</p>
+<p>Is it recognizable?</p>
+<p>Well, this is something that's very hard to do with straightforward rules.</p>
+<p>You know, if this is missing, if there's a button that doesn't have this, then it's a fail.</p>
+<p>Those kind of unit test rules.</p>
+<p>It's very hard.</p>
+<p>It's a bit...</p>
+<p>it's subjective, and it moves.</p>
+<p>What's familiar depends on which group.</p>
+<p>So we would recommend user testing with a bunch of different groups, and recording what people find usable.</p></div><div class="slide" role='region' aria-label="Slide 5 of 16" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>So if you're using a link, and it's blue and underlined, let's assume that it's recognizable.</p>
+<p>But if you've got other ways of doing a link, well, it might be very different for an 18-year-old with down syndrome to a 70-year-old with age appropriate forgetfulness, who's having trouble learning new design patterns.</p></div><div class="slide" role='region' aria-label="Slide 6 of 16" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>Putting that into a standard has been really, really challenging.</p>
+<p>People will often know if it's recognizable or not, but how do you make that something that you could test?</p>
+<p>So there are issues, Lisa, with mapping affordances in a way that's consistent, depending on a user's preference, or the user's requirements, particularly if they've got diverse ability.</p>
+<p>Yes, that's one thing...</p>
+<p>that's one way we're trying to look at it.</p>
+<p>So the advantages of machine learning here is that the algorithm could be trained on what people have found usable and recognize straight away, and learn what for this user base is considered recognizable and what's not recognizable.</p>
+<p>And we could introduce a certainty components such as if we say something should be likely it's over 90% certainties, assume that it's accessible.</p></div><div class="slide" role='region' aria-label="Slide 7 of 16" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>And that could kind of bridge the gap.</p>
+<p>As we've got on slide five, between the need of saying, perform user testing, that's how you're gonna know and having some kind of automated solution that's less scary and  easier.</p>
+<p>So, the machine learning patterns will have a way of giving us a certain statistical confidence that something is likely to work or not based on large pattern matching of various different kinds of interactions.</p></div><div class="slide" role='region' aria-label="Slide 8 of 16" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>So how can inclusive design support machine learning?</p></div><div class="slide" role='region' aria-label="Slide 9 of 16" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>If we move on then to slide six?</p>
+<p>Well, we have some new technologies that we've made.</p>
+<p>We've got at wide review going to <a class=dfn>CR</a> of <a class=dfn>Personalization Semantics</a>, where we will put on a mapping to a concept notes so that symbols can be added for different use cases or symbols can be adapted if people have learned a specific symbol set, and that's what is familiar to them, as well as other support can be integrated into the page such as instructions or help scaffolding.</p>
+<p>So this kind of information actually tells machine learning, the right answer of what this button is, what does this do?</p>
+<p>What concept did I mean when I said this?</p>
+<p>So that would then have almost a 100% certainty or close to it.</p>
+<p>You can then use that for giving context, and that could upgrade the performance of things like automatic translation, and other transformations or analysis of web content.</p>
+<p>Great.</p>
+<p>That sounds great.</p></div><div class="slide" role='region' aria-label="Slide 10 of 16" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>So we're talking about, on slide seven semantic tokens, allowing the association of these various different preferred symbols with current elements.</p>
+<p>How do you see machine learning even supporting the creation of these symbols?</p>
+<p>Do you think it's because if you have things described in a way that's semantically accurate, that allows levels of abstraction that machine learning could support in a large kind of aggregated manner?</p>
+<p>Is that something that you think…?</p>
+<p>Yeah, it can go back and forth Josh.</p>
+<p>Because if you've got, say, an authoring tool that adds the concept notes, if you like, into the code.</p>
+<p>And if it does it 80% accurate, which currently is about the rate.</p>
+<p>It makes mistakes, but the author will understand the symbol and will understand what they intended.</p>
+<p>So if you said bank and you meant the financial institution, it puts a bank of river, you'll know this is wrong and you can switch it, if you're using that as an anchor for machine translation to other languages maybe, and I leave this to the audience who knows more, but maybe that could provide the context to provide better machine translation, you know, a bit of context can trigger more certainty down the line, and we're all fighting the same ambiguities when we make mistakes.</p>
+<p>So if we're solving it to be able to translate across different symbol languages, in one language, then it could also potentially help to map across different languages.</p></div><div class="slide" role='region' aria-label="Slide 11 of 16" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>Great stuff.</p>
+<p>So in terms of new solutions for inclusion why do you feel that machine learning can be more similar to how humans actually think that's a very interesting insight?</p></div><div class="slide" role='region' aria-label="Slide 12 of 16" id="slide-12" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=12"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=12">Slide 12</a></noscript></div><div role='region'><p>Yeah, well, machine learning and new on that, for instance, is more similar to how most people think, most of us don't think like, not often so much in a sequential way of these rule-based algorithms.</p>
+<p>So in a way machine learning is based on how people think.</p>
+<p>And so therefore, it could fill the gaps on where there's some kind of problem.</p>
+<p>So, for instance, people with dyscalculia, the area of the brain, which processes numerical concepts, is impaired.</p>
+<p>So they struggle very much with money and trying to figure out what's more, what's less, let alone what's expensive.</p>
+<p>So being able to make a judgment call on whether this item is expensive or not, that would be quite a long sequential algorithm with traditional computing.</p>
+<p>Something like machine learning might be...</p>
+<p>I mean, I know some bots that are working on that, so that kind of decision making, it could be supportive.</p>
+<p>Another example is vision loss.</p>
+<p>You have an image, they haven't all had got alternative text.</p>
+<p>What would be a good description of the image?</p>
+<p>And what's the image trying to convey with its red and yellow signage?</p>
+<p>That might be a warning, which is more than OCR could do.</p>
+<p>So that's more like that the instant recognition of the mood of this image that's portraying something.</p>
+<p>Right.</p>
+<p>So that's sophisticated image recognition, which can support different disability types.</p></div><div class="slide" role='region' aria-label="Slide 13 of 16" id="slide-13" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=13"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=13">Slide 13</a></noscript></div><div role='region'><p>I know one of the things that you are quite concerned about is the inclusion of people with cognitive disabilities and their related data within the data sets, they're used to power machine learning or any kind of algorithmic based application, such as smart cities or whatnot.</p>
+<p>So could you speak a little bit about just the importance of having diverse data sets?</p></div><div class="slide" role='region' aria-label="Slide 14 of 16" id="slide-14" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=14"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=14">Slide 14</a></noscript></div><div role='region'><p>Yeah.</p>
+<p>And this is one of the big fears, I think.</p>
+<p>And it happens already that people with disabilities, or other groups, it might be people who can't afford a smartphone.</p>
+<p>They're not using the apps and they're not using the websites and some of the tools that the phone calls that you can't manage because of the phone menu systems can be very difficult for people to manage.</p>
+<p>And so then they don't call because they know they can't reach a human and then missed out of the data gathering process and not in those data sets.</p>
+<p>And therefore they're kind of invisible in the whole decision making process that's based on these data sets, whether it's machine learning, or other algorithms.</p>
+<p>And that then will result in solutions that don't consider them.</p>
+<p>But as this becomes more pervasive with smart cities, with managing all these critical services, and people again think, “Oh yes, our services are good.” Et cetera.</p>
+<p>And it's just because the people who can't manage this service, who aren't getting the critical help they need are missing from the data sets.</p>
+<p>And that's going to be a very big fear.</p>
+<p>Well, I think that's a very prescient and a sobering kind of assessment and shows that when we have generic data sets that are being used to drive algorithmic type decisions, it can have a very negative impact on people in ways that we can't initially perceive.</p>
+<p>So Lisa, just finally, thanks very much.</p>
+<p>This is really, really great.</p></div><div class="slide" role='region' aria-label="Slide 15 of 16" id="slide-15" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=15"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=15">Slide 15</a></noscript></div><div role='region'><p>We do focus in <a class=dfn>APA</a>, the <a class=dfn>Accessible Platforms Architecture group</a>, and the <a class=dfn>Research Questions Task Force</a> on where there are various nexuses between different technologies, different platforms and accessibility.</p>
+<p>You know, we do invite everyone who's at this workshop to contribute to this work and we welcome feedback on the presentation that we've given and the research that Lisa's is doing in the <a class=dfn>Cognitive Accessibility Task Force</a>.</p>
+<p>And we hope that this discussion is useful and beneficial, and everyone has enjoyed it, and found it useful.</p></div><div class="slide" role='region' aria-label="Slide 16 of 16" id="slide-16" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=16"><noscript><a href="https://www.w3.org/2020/Talks/mlws/ls_joc_cognitive.pdf#page=16">Slide 16</a></noscript></div><div role='region'><p>Lisa, thank you very much.</p>
+<p>Thank you, Josh.</p></div>

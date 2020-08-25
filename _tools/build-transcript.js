@@ -10,7 +10,6 @@ const linkableTerms = Object.keys(lexicon);
 function annotateSentence(sentence) {
   sentence = sentence.replace(/^slide [a-z0-9]*\.?/i, '');
   sentence = sentence.replace(/^next slide\.?/i, '');
-  sentence = sentence.replace(/<v [^>]*>/, '').replace(/<\/v>/, '');
   for (let term of linkableTerms) {
     sentence = sentence.replace(new RegExp("(.)?(" + term + ")(.)?", "g"), (match,p1,p2,p3) => {
       if ((!p1 || !p1.match(/[a-zA-Z0-9>]/)) && (!p3 || !p3.match(/[<a-zA-Z0-9]/)))
@@ -31,6 +30,7 @@ for (let shortname of Object.keys(talks)) {
     continue;
   }
   cues.forEach(c => c.text = c.text.replace(/^slide [0-9]+$/i, '')
+                 .replace(/<v [^>]*>/, '').replace(/<\/v>/, '')
                .replace('"',''));
   const sentences = splitter.split(cues.map(c => c.text).join(' '))
         .map(s => s.raw.trim()).filter(s => s);
