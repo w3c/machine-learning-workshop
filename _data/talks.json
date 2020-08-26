@@ -16,7 +16,8 @@
       "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU.",
       "video": "https://app.streamfizz.live/embed/cke43ihp10fub0731lohsnpmo",
       "duration": "07:45",
-      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke43ihp10fub0731lohsnpmo/thumbs/thumb-001.jpeg"
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke43ihp10fub0731lohsnpmo/thumbs/thumb-001.jpeg",
+      "added": "2020-08-26"
     },
     "cb_hardware": {
       "title": "ML hardware advancements: leveraging for performance while retaining portability",
@@ -105,7 +106,8 @@
       "abstract": "",
       "duration": "05:40",
       "format": "marpit",
-      "url": "https://www.w3.org/2020/Talks/mlws/mod_webgpu/"
+      "url": "https://www.w3.org/2020/Talks/mlws/mod_webgpu/",
+      "added": "2020-08-26"
     },
 
     "cc_directml": {
@@ -252,7 +254,8 @@
         "affiliation": "",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8szrew1mu70731eppx3v5h/thumbs/thumb-001.jpeg",
         "video": "https://app.streamfizz.live/embed/cke8szrew1mu70731eppx3v5h",
-        "duration": "13:51"
+        "duration": "13:51",
+      "added": "2020-08-26"
       },
       "tp_interactive_music": {
         "title": "Interactive ML - Powered Music Applications on the Web",
@@ -291,7 +294,8 @@
         "nosync": true,
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke3s7cvyvz7i0772b94ebcg6/thumbs/thumb-001.jpeg",
         "video": "https://app.streamfizz.live/embed/cke3s7cvyvz7i0772b94ebcg6",
-        "duration": "06:00"
+        "duration": "06:00",
+      "added": "2020-08-26"
       },
       "zc_expression": {
         "title": "A virtual character web meeting with expression enhance power by machine learning",

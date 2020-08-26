@@ -532,6 +532,7 @@ div.talks > details > summary div.grid {
 }
 
 div.talks > details > summary {
+    position: relative;
   list-style: none;
 }
 
@@ -734,4 +735,14 @@ div.related ul {
 }
 .simpletooltip a:link, .simpletooltip a:visited {
     color: #acf;
+}
+details span.added {
+    top:-1em;
+    left: -1em;
+    padding: 0.2em;
+	position: absolute;
+	background-color: #ff0;
+	font-size: 0.8em;
+	transform: translate(-3em) rotate(-45deg);
+	transform-origin: top right;
 }
