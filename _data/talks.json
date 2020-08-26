@@ -196,6 +196,12 @@
         "abstract": "    Paddle.js is a high-performance JavaScript DL framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem with web community. This talk will introduce Paddle.js design principle, implementation, use scenario and future work the project would like to explore. ",
         "duration": "05:51"
       },
+      "en_ml5js": {
+        "title": "ML5.js",
+        "author": "Ellen Nickles",
+        "affiliation": "New York University",
+        "bio": "ml5.js contributor and researcher at Interactive Telecommunications Program (ITP)"
+      },
       "op_content-filtering": {
         "title": "Machine Learning on the Web for content filtering applications",
         "author": "Oleksandr Paraska",
