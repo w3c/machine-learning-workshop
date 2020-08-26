@@ -8,12 +8,21 @@ const toSlug = title => title.replace(/([A-Z])/g, s => s.toLowerCase())
 
 (async function() {
   const ghIssues = await fetch("https://labs.w3.org/github-cache/v3/repos/w3c/machine-learning-workshop/issues?state=open").then(r => r.json());
+  const ghComments = await Promise.all(
+    ghIssues.map(
+      i => fetch(
+        i.comments_url.replace("https://api.github.com/", "https://labs.w3.org/github-cache/v3/")
+      ).then(r => r.json()))
+  ).then(data => data.flat());
 
   for (let shortname of Object.keys(talks)) {
     const talk = talks[shortname];
     const url = "https://www.w3.org/2020/06/machine-learning-workshop/talks/" + toSlug(talk.title) + ".html";
     let content = "";
-    let htmlIssueList = ghIssues.filter(i => i.body.includes(url)).sort((a, b) => a.number - b.number)
+    const relevantComments = ghComments.filter(c => c.body.includes(url));
+    const relevantIssues = ghIssues.filter(i => i.body.includes(url) || relevantComments.find(c => c.issue_url === i.url));
+
+    let htmlIssueList = relevantIssues.sort((a, b) => a.number - b.number)
         .map(i => `<li><a href='${i.html_url}'>#${i.number} ${i.title}</a></li>`).join('\n');
     if (htmlIssueList !== "") {
       content = "<div class=related><p>Related conversations on <a href='https://github.com/w3c/machine-learning-workshop/issues'>GitHub</a>:</p><ul>";
