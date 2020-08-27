@@ -119,10 +119,14 @@
       #sync:checked ~ #player .slide a {transition: none}
 
 
-      /* If the body is narrow, leave the video above the slides instead */
+      /* If the body is narrow, leave the video above the slides
+         instead. Use 'relative' instead of 'static', so that
+         'z-index' continues to apply and the video is on top of the
+         negative margin of the following slides. */
       @media (max-width: 68em) {
 	#sync:checked ~ #player #slidenr, #slidenr,
-	#sync:checked ~ #player #video1, #video1 {position: static;
+	#sync:checked ~ #player #video1, #video1 {position: relative;
+          top: auto; left: auto;
           margin: 1em 0}
       }
 
