@@ -7,7 +7,7 @@ const toSlug = title => title.replace(/([A-Z])/g, s => s.toLowerCase())
         .replace(/_+/g, '_');
 
 (async function() {
-  const ghIssues = await fetch("https://labs.w3.org/github-cache/v3/repos/w3c/machine-learning-workshop/issues?state=open").then(r => r.json());
+  const ghIssues = await fetch("https://labs.w3.org/github-cache/v3/repos/w3c/machine-learning-workshop/issues?ttl=0&state=open").then(r => r.json());
   const ghComments = await Promise.all(
     ghIssues.map(
       i => fetch(
