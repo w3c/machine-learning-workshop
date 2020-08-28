@@ -2,7 +2,7 @@
   {
     "pl_privacy": {
       "title": "Privacy-first approach to machine learning",
-      “title_zh”: "隐私优先的机器学习方法",
+      "title_zh": "隐私优先的机器学习方法",
       "author": "Philip Laszkowicz",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
@@ -13,7 +13,7 @@
     },
     "ba-media": {
       "title": "Machine Learning and Web Media",
-      “title_zh”: "机器学习和 Web 媒体",
+      "title_zh": "机器学习和 Web 媒体",
       "author": "Bernard Aboba",
       "affiliation": "Microsoft",
       "affiliation_zh": "微软",
@@ -26,7 +26,7 @@
     },
     "cb_hardware": {
       "title": "ML hardware advancements: leveraging for performance while retaining portability",
-      “title_zh”: "机器学习硬件的改进：在保持可移植性的同时利用性能",
+      "title_zh": "机器学习硬件的改进：在保持可移植性的同时利用性能",
       "author": "Cormac Brick",
       "affiliation": "Intel",
       "affiliation_zh": "英特尔",
@@ -37,7 +37,7 @@
     },
     "jm_tensorflowjs": {
       "title": "Opportunities and Challenges for TensorFlow.js and beyond",
-      “title_zh”: "TensorFlow.js 及以后的机遇与挑战",
+      "title_zh": "TensorFlow.js 及以后的机遇与挑战",
       "author": "Jason Mayes",
       "affiliation": "Google",
       "affiliation_zh": "谷歌",
@@ -51,7 +51,7 @@
     },
     "sm_architecture": {
       "title": "Machine Learning in Web Architecture",
-      “title_zh”: "Web 架构中的机器学习 ",
+      "title_zh": "Web 架构中的机器学习 ",
       "author": "Sangwhan Moon",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
@@ -61,7 +61,7 @@
     },
     "ym_how-far": {
       "title": "Moving Deep Learning into Web Browser: How Far Can We Go?",
-      “title_zh”: "将深度学习引入浏览器：我们能走多远?",
+      "title_zh": "将深度学习引入浏览器：我们能走多远?",
       "author": "Yun Ma",
       "bio": "Yun Ma is a postdoc researcher in School of Software, Tsinghua University, China. He got his Ph.D. degree in Jun. 2017 from Peking University. His research interests lie in mobile computing, Web systems, and services computing. He has published several papers on WWW and ACM Trans on the Web. Recently he focuses on how to enable browsers to support deep learning tasks better.",
       "bio_zh": "马郓，清华大学软件学院博士后研究员。他于2017年6月在北京大学获得博士学位。他的研究兴趣在于移动计算、网络系统和服务计算。他在万维网的WWW和ACM Trans上发表了几篇论文。最近，他专注于如何让浏览器更好地支持深度学习任务。",
@@ -72,7 +72,7 @@
   {
     "dhm-web-platform-overview": {
       "title": "Web Platform: a 30,000 feet view / Web Platform and JS environment constraints",
-      “title_zh”: "Web平台：30,000英尺高的视角来审视 Web平台和JS环境约束",
+      "title_zh": "Web平台：30,000英尺高的视角来审视 Web平台和JS环境约束",
       "author": "Dominique Hazaël-Massieux",
       "bio": "    Dominique is part of the full-time technical staff employed by W3C to animate the Web standardization work. He is in particular responsible for the work on WebRTC, WebXR and Web & Networks, led the effort to start a WebTransport Working Group and is one of the organizers of the Web and Machine Learning workshop.",
       "bio_zh": "Dominique 是W3C的全职技术人员之一，负责推动Web标准化工作。他特别负责WebRTC、WebXR和Web & Networks的工作，领导创建了一个WebTransport工作组，也是Web和机器学习研讨会的组织者之一。",
@@ -87,7 +87,7 @@
     },
     "fd-media-hooks": {
       "title": "Media processing hooks for the Web",
-      “title_zh”: "Web 的媒体处理挂钩",
+      "title_zh": "Web 的媒体处理挂钩",
       "author": "François Daoust",
       "bio": "François is part of the full-time technical staff employed by W3C and supervizes there the work related to media technologies.",
       "bio_zh": "Francois是W3C的全职技术人员之一，负责管理与媒体技术相关的工作。",
@@ -102,7 +102,7 @@
     },
     "nh_webnn": {
       "title": "Access purpose-built ML hardware with Web Neural Network API",
-      “title_zh”: "使用Web神经网络API访问专用的机器学习硬件",
+      "title_zh": "使用Web神经网络API访问专用的机器学习硬件",
       "author": "Ningxin Hu",
       "affiliation": "Intel",
       "affiliation_zh": "英特尔",
@@ -116,7 +116,7 @@
     },
     "jb_model": {
       "title": "A proposed web standard to load and run ML models on the web",
-      “title_zh”: "在web上加载和运行机器学习模型的提议web标准",
+      "title_zh": "在web上加载和运行机器学习模型的提议web标准",
       "author": "Jonathan Bingham",
       "bio": "Jonathan is a web product manager at Google.",
       "bio_zh": "Jonathan是Google的web端产品经理.",
@@ -130,7 +130,7 @@
     },
     "mod_webgpu": {
       "title": "SIMD operations in WebGPU for ML",
-      “title_zh”: "SIMD运行在WebGPU的机器学习",
+      "title_zh": "SIMD运行在WebGPU的机器学习",
       "author": "Mehmet Oguz Derin",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8ahza81hlp0731tiz1d295/thumbs/thumb-002.jpeg",
@@ -145,7 +145,7 @@
 
     "cc_directml": {
       "title": "Accelerated graphics and compute API for Machine Learning - DirectML",
-      “title_zh”: "机器学习的加速图形和计算API - DirectML",
+      "title_zh": "机器学习的加速图形和计算API - DirectML",
       "author": "Chai Chaoweeraprasit",
       "bio": "Chai leads development of machine learning platform at Microsoft",
       "bio_zh": "Chai领导了微软机器学习平台的开发",
@@ -159,7 +159,7 @@
     },
     "mw-androidnn": {
       "title": "Accelerate ML inference on mobile devices with Android NNAPI",
-      “title_zh”: "使用Android NNAPI加速移动设备上的机器学习推理",
+      "title_zh": "使用Android NNAPI加速移动设备上的机器学习推理",
       "author": "Miao Wang",
       "affiliation": "Google",
       "affiliation_zh": "谷歌",
@@ -173,7 +173,7 @@
     },
     "jh_parallel-programming": {
       "title": "Heterogeneous parallel programming with open standards using oneAPI and Data Parallel C++",
-      “title_zh”: "使用oneAPI和Data Parallel C ++以开放标准进行异构并行编程",
+      "title_zh": "使用oneAPI和Data Parallel C ++以开放标准进行异构并行编程",
       "author": "Jeff Hammond",
       "affiliation": "Intel",
       "affiliation_zh": "英特尔",
@@ -184,7 +184,7 @@
     },
     "yh-xq-dnn": {
       "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",
-      “title_zh”: "为基于云，边缘和终端设备的移动Web启用分布式DNN",
+      "title_zh": "为基于云，边缘和终端设备的移动Web启用分布式DNN",
       "author": "Yakun Huang & Xiuquan Qiao",
       "affiliation": "BPTU",
       "affiliation_zh": "北京邮电大学",
@@ -196,7 +196,7 @@
     },
     "wm_collaborative-learning": {
       "title": "Collaborative Learning",
-      “title_zh”: "协同学习",
+      "title_zh": "协同学习",
       "author": "Wolfgang Maß",
       "affiliation": "DFKI",
       "bio": "    Professor at Saarland University and scientific director at DFKI",
@@ -209,7 +209,7 @@
     },
     "ms_ab_wasinn": {
       "title": "Introducing WASI-NN",
-      “title_zh”: "WASI-NN 介绍",
+      "title_zh": "WASI-NN 介绍",
       "author": "Mingqiu Sun & Andrew Brown",
       "affiliation": "Intel",
       "affiliation_zh": "英特尔",
@@ -223,7 +223,7 @@
     }}, {
       "ay_tensorflow": {
         "title": "Fast client-side ML with TensorFlow.js",
-        “title_zh”: "使用TensorFlow.js的快速客户端机器学习",
+        "title_zh": "使用TensorFlow.js的快速客户端机器学习",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
         "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
         "author": "Ann Yuan",
@@ -237,7 +237,7 @@
       },
       "en_onnxjs": {
         "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js",
-        “title_zh”: "ONNX.js - 在浏览器和Node.js中运行ONNX模型的Javascript库",
+        "title_zh": "ONNX.js - 在浏览器和Node.js中运行ONNX模型的Javascript库",
         "author": "Emma Ning",
         "affiliation": "Microsoft",
         "affiliation_zh": "微软",
@@ -251,7 +251,7 @@
       },
       "pw_paddlejs": {
         "title": "Paddle.js - Machine Learning for the Web",
-        “title_zh”: "Paddle.js - Web 机器学习",
+        "title_zh": "Paddle.js - Web 机器学习",
         "author": "Ping Wu",
         "affiliation": "Baidu",
         "affiliation_zh": "百度",
@@ -265,7 +265,7 @@
       },
       "en_ml5js": {
         "title": "ML5.js",
-        “title_zh”: "ML5.js",
+        "title_zh": "ML5.js",
         "author": "Yining Shi",
         "affiliation": "New York University",
         "affiliation_zh": "纽约大学",
@@ -274,7 +274,7 @@
       },
       "op_content-filtering": {
         "title": "Machine Learning on the Web for content filtering applications",
-        “title_zh”: "Web上的机器学习，用于内容过滤应用程序",
+        "title_zh": "Web上的机器学习，用于内容过滤应用程序",
         "author": "Oleksandr Paraska",
         "affiliation": "eyeo",
         "bio": "    eyeo GmbH is the company behind Adblock plus",
@@ -287,7 +287,7 @@
       },
       "pm_visualization": {
         "title": "Exploring unsupervised image segmentation results",
-        “title_zh”: "探索无监督图像分割结果",
+        "title_zh": "探索无监督图像分割结果",
         "author": "Piotr Migdal & Bartłomiej Olechno",
         "affiliation": "",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
@@ -300,7 +300,7 @@
       },
       "jm_lr_mobile": {
         "title": "Mobile-first web-based Machine Learning",
-        “title_zh”: "移动端优先的基于Web的机器学习",
+        "title_zh": "移动端优先的基于Web的机器学习",
         "author": "Josh Meyer & Lindy Rauchenstein",
         "affiliation": "Artie",
         "bio": "    Lead Scientist at Artie, Inc. and Machine Learning Fellow at Mozilla, Lead Scientist at Artie",
@@ -314,7 +314,7 @@
     }, {
       "jt_ai-bias": {
         "title": "We Count: Fair Treatment, Disability and Machine Learning",
-        “title_zh”: "我们的期望：公平对待，残障人士和机器学习",
+        "title_zh": "我们的期望：公平对待，残障人士和机器学习",
         "author": "Jutta Treviranus",
         "bio": "    Director & Professor, Inclusive Design Research Centre, OCAD University",
         "bio_zh": "OCAD大学包容性设计研究中心主任兼教授",
@@ -327,7 +327,7 @@
       },
       "jr_fairness": {
         "title": "AI (Machine Learning): Bias & Garbage In, Bias & Garbage Out",
-        “title_zh”: "人工智能（机器学习）：偏见和无用输入，偏见和无用输出",
+        "title_zh": "人工智能（机器学习）：偏见和无用输入，偏见和无用输出",
         "author": "John Rochford",
         "affiliation": "University of Massachusetts Medical School",
         "bio": "Director, INDEX Program, Eunice Kennedy Shriver Center, University of Massachusetts Medical School",
@@ -340,7 +340,7 @@
       },
       "ls_joc_cognitive": {
         "title": "Cognitive Accessibility and Machine Learning",
-        “title_zh”: "认知无障碍和机器学习",
+        "title_zh": "认知无障碍和机器学习",
         "author": "Lisa Seeman, Joshue O’Connor",
         "affiliation": "",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8szrew1mu70731eppx3v5h/thumbs/thumb-001.jpeg",
@@ -350,7 +350,7 @@
       },
       "tp_interactive_music": {
         "title": "Interactive ML - Powered Music Applications on the Web",
-        “title_zh”: "交互式机器学习 - Web上支持音乐的应用程序",
+        "title_zh": "交互式机器学习 - Web上支持音乐的应用程序",
         "author": "Tero Parviainen",
         "affiliation": "Counterpoint",
         "bio": "    Tero Parviainen is a software developer in music, media, and the arts. As a co-founder of creative technology studio Counterpoint, he's recently built installations for The Barbican Centre, Somerset House, The Helsinki Festival, The Dallas Museum of Art, and various corners of the web. He also contributes at Wavepaths, building generative music systems for psychedelic therapy.",
@@ -363,7 +363,7 @@
       },
       "kd_speech": {
         "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
-        “title_zh”: "打破浏览器中的美好海滩:让浏览器识别语音",
+        "title_zh": "打破浏览器中的美好海滩:让浏览器识别语音",
         "author": "Kelly Davis",
         "affiliation": "Mozilla",
         "bio": "    Manager of the machine learning group at Mozilla. Kelly's work at Mozilla includes Deep Speech (an open speech recognition system), Common Voice (a crowdsourced tool for creating opens speech corpora), Mozilla's TTS (an open source speech synthesis system), Snakepit (an open source ML job scheduler), as well as ML research and many other projects.",
@@ -376,7 +376,7 @@
       },
       "rt_nlp": {
         "title": "Challenges to create great user experience using natural language processing model in B2B SaaS product on the web",
-        “title_zh”: "在web上的B2B SaaS产品中使用自然语言处理模型创建良好的用户体验的挑战",
+        "title_zh": "在web上的B2B SaaS产品中使用自然语言处理模型创建良好的用户体验的挑战",
         "author": "Ryuichi Tanimoto",
         "affiliation": "Stockmark",
         "bio": "    web developer/system architect at Stockmark Inc.",
@@ -386,7 +386,7 @@
       },
       "nb_privacy-translation": {
         "title": "Privacy focused machine translation in Firefox",
-        “title_zh”: "Firefox中强调隐私的机器翻译",
+        "title_zh": "Firefox中强调隐私的机器翻译",
         "author": "Nikolay Bogoychev",
         "affiliation": "University of Edinburgh",
         "affiliation_zh": "爱丁堡大学",
@@ -402,7 +402,7 @@
       },
       "zc_expression": {
         "title": "A virtual character web meeting with expression enhance power by machine learning",
-        “title_zh”: "通过机器学习增强具有表情的虚拟角色网络会议功能",
+        "title_zh": "通过机器学习增强具有表情的虚拟角色网络会议功能",
         "author": "Zelun Chen",
         "affiliation": "Netease",
         "affiliation_zh": "网易",
@@ -416,7 +416,7 @@
       },
       "jmv_rnnoise": {
         "title": "RNNoise, Neural Speech Enhancement, and the Browser",
-        “title_zh”: "RNNoise，神经语音增强和浏览器",
+        "title_zh": "RNNoise，神经语音增强和浏览器",
         "author": "Jean-Marc Valin",
         "affiliation": "",
         "bio": "    Jean-Marc Valin has previously contributed to the Opus and AV1 codecs. He is employed by Amazon, but is giving this talk as an individual.",
@@ -429,7 +429,7 @@
       },
       "lmc_musicians": {
         "title": "Empowering Musicians and Artists using Machine Learning to Build Their Own Tools in the Browser",
-        “title_zh”: "使音乐家和艺术家能够使用机器学习在浏览器中构建自己的工具",
+        "title_zh": "使音乐家和艺术家能够使用机器学习在浏览器中构建自己的工具",
         "author": "Louis McCallum",
         "bio": "Louis  is an experienced software developer, researcher, artist and musician. Currently, he holds a Post Doctoral position at the Embodied AudioVisual Interaction Group, Goldsmiths, University of London, where he is also an Associate Lecturer. He is also lead developer on the <a href='https://mimicproject.com'>MIMIC platform</a> and accompanying <a href='https://mimicproject.com/guides/learner'>Learner.js</a> and <a href='https://mimicproject.com/guides/maxi-instrument'>MaxiInstrument.js</a> libraries",
         "bio_zh": "Louis 是一位经验丰富的软件开发人员，研究员，艺术家和音乐家。目前，他在伦敦大学金史密斯学院的Embemoed AudioVisual Interaction Group担任博士后职位，同时还是副讲师。他还是<a href='https://mimicproject.com'>MIMIC 平台</a>及相关工具的首席开发人员。<a href='https://mimicproject.com/guides/learner'>Learner.js</a> 和 <a href='https://mimicproject.com/guides/maxi-instrument'>MaxiInstrument.js</a>库",
