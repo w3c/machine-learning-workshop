@@ -24,11 +24,13 @@ const toSlug = title => title.replace(/([A-Z])/g, s => s.toLowerCase())
 
     let htmlIssueList = relevantIssues.sort((a, b) => a.number - b.number)
         .map(i => `<li><a href='${i.html_url}'>#${i.number} ${i.title}</a></li>`).join('\n');
-    if (htmlIssueList !== "") {
       content = "<div class=related><p>Related conversations on <a href='https://github.com/w3c/machine-learning-workshop/issues'>GitHub</a>:</p><ul>";
-      content += htmlIssueList;
+      if (htmlIssueList !== "") {
+        content += htmlIssueList;
+      } else {
+        content += "<ul><li><a href='https://github.com/w3c/machine-learning-workshop/issues/new'>Open a new issue</a></li></ul>";
+      }
       content += "</ul></div>";
-    }
   fs.writeFileSync("_includes/related-issues/" + shortname + ".html", content, {encoding: "utf-8"});
   }
 })().catch(
