@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {{ page.title }} - W3C Web 和机器学习研讨会
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content=
+    "{{page.title}}">
+    <meta property="og:description" content=
+    "将专家聚集在一起，以更好的机器学习基础来丰富开放 Web 平台。">
+    <meta property="og:image" content=
+    "https://www.w3.org/2020/06/machine-learning-workshop/images/banner.png">
+  </head>
+  <body>
+    <header class="header">
+      <div id="logo">
+        <a href="https://www.w3.org/"><img alt="W3C" src=
+        "https://www.w3.org/Icons/w3c_home"></a> <span id=
+        "translations"><a href="index.html"><span lang="en">English</span></a> | <a href=
+        "index_ja.html"><span lang="ja">日本語</span></a></span>
+      </div>
+      <div id="top">
+        <h1>
+          W3C Web 和机器学习研讨会
+        </h1>
+        <h2>
+          🌱 由预录报告及一系列线上交流组成的在线技术研讨会
+        </h2>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          {% for item in site.data.pages.pages %}
+          {% assign absolute_url = "/" | append: item.url_zh %}
+        <li>
+          <a {% if absolute_url == page.url %}class="active-tab" {% else %}href="{{ item.url_zh }}"{% endif %}>{{ item.title_zh }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+      </nav>
+      <h2>{{title}}</h2>
+    </header>
+    {% include sponsors.html %}
+    {{ content }}
+    <footer class="footer" id="footer">
+      <p>
+        W3C 是一个开放包容的组织，专注于高效的讨论以及富有成效的行动。
+        我们的<a href=
+        "https://www.w3.org/Consortium/cepc/">职业道德与行为准则</a>确保我们积极听取来自各方的意见与声音。
+      </p>
+      <p>
+        有任何问题，请联系 Dominique Hazael-Massieux &lt;<a href=
+        "mailto:dom@w3.org">dom@w3.org</a>&gt;.
+      </p>
+      <p>
+        有关改进此研讨会页面的建议，例如修正错别字或
+        添加特定主题，请<a href=
+        "https://github.com/w3c/machine-learning-workshop/"> 通过 GitHub 提交请求</a>
+        或向
+        Dominique Hazael-Massieux &lt;<a href=
+        "mailto:dom@w3.org">dom@w3.org</a>&gt; 发送电子邮件。
+      </p>
+    </footer>
+    <script src="script.js">
+    </script>
+    <script src="submit.js">
+    </script>
+  </body>
+</html>
