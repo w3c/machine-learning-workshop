@@ -1,10 +1,13 @@
 pages:
 - title: Call for Participation
   url: index.html
-
+  url_zh: index_zh.html
+  title_zh: 会议征集
 - title: Presentations
+  title_zh: 会议演讲话题
   url: presentations.html
-
+  url_zh: presentations_zh.html
 - title: Apply as a speaker
   url: speakers.html
-
+  url_zh: speakers_zh.html
+  title_zh: 申请成为讲者
