@@ -36,8 +36,15 @@
         <ul>
           {% for item in site.data.pages.pages %}
           {% assign absolute_url = "/" | append: item.url %}
+          {% assign isThisPage = false %}
+          {% if absolute_url == page.url %}
+          {% assign isThisPage = true %}
+          {% endif %}
+          {% if absolute_url == "/index.html" and page.url == "/" %}
+          {% assign isThisPage = true %}
+          {% endif %}
         <li>
-          <a {% if absolute_url == page.url %}class="active-tab" {% else %}href="{{ item.url }}"{% endif %}>{{ item.title }}</a>
+          <a {% if isThisPage %}class="active-tab" {% else %}href="{{ item.url }}"{% endif %}>{{ item.title }}</a>
         </li>
         {% endfor %}
         </ul>
