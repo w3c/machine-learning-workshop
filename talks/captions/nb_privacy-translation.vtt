@@ -1,0 +1,499 @@
+﻿WEBVTT
+
+slide-1
+00:00:08.700 --> 00:00:11.070
+<v ->Hello everybody my name is Nikolai</v>
+
+3
+00:00:11.070 --> 00:00:13.570
+and I'm a postdoc at the University of Edinburgh.
+
+4
+00:00:13.570 --> 00:00:16.640
+Today, I'll be talking to you about our project Bergamot
+
+5
+00:00:16.640 --> 00:00:20.110
+which is privacy focused machine translation inside Firefox.
+
+6
+00:00:20.110 --> 00:00:22.970
+This is a collaboration between Charles University,
+
+7
+00:00:22.970 --> 00:00:25.900
+University of Edinburgh, University of Sheffield,
+
+8
+00:00:25.900 --> 00:00:28.930
+Tartu University and Mozilla.
+
+slide-2
+00:00:28.930 --> 00:00:31.400
+Let's start, so the web is huge.
+
+10
+00:00:31.400 --> 00:00:34.380
+If you look at the top 10 million webpages language,
+
+11
+00:00:34.380 --> 00:00:36.500
+about 60% of them are in English,
+
+12
+00:00:36.500 --> 00:00:39.950
+then you have Russian, Spanish, Turkish, Persian,
+
+13
+00:00:39.950 --> 00:00:43.470
+and a very long tail of every other language.
+
+14
+00:00:43.470 --> 00:00:46.490
+On top of that, we have social media every second,
+
+15
+00:00:46.490 --> 00:00:49.150
+there's thousands and thousands of social media posts
+
+16
+00:00:49.150 --> 00:00:51.200
+in the multitude of languages.
+
+17
+00:00:51.200 --> 00:00:53.830
+And people nowadays they're used to consuming any content,
+
+18
+00:00:53.830 --> 00:00:56.630
+regardless of the language that is been produced in.
+
+19
+00:00:56.630 --> 00:00:57.820
+How do they do that?
+
+slide-3
+00:00:57.820 --> 00:00:59.720
+They rely on machine translation services,
+
+21
+00:00:59.720 --> 00:01:02.160
+which are immensely popular everywhere.
+
+22
+00:01:02.160 --> 00:01:06.070
+There's Google translate, there's Microsoft Bing translate,
+
+23
+00:01:06.070 --> 00:01:09.650
+there's Facebook translate, there's Baidu translate,
+
+24
+00:01:09.650 --> 00:01:12.320
+there's many other translation services.
+
+25
+00:01:12.320 --> 00:01:15.000
+However, they do come with a few issues.
+
+slide-4
+00:01:15.000 --> 00:01:17.200
+If you use an online translation services,
+
+27
+00:01:17.200 --> 00:01:18.810
+you lose your privacy.
+
+28
+00:01:18.810 --> 00:01:21.830
+Your data goes on the cloud, even if you pay for it.
+
+29
+00:01:21.830 --> 00:01:24.280
+And when they have your data,
+
+30
+00:01:24.280 --> 00:01:25.940
+they might accidentally leak it,
+
+31
+00:01:25.940 --> 00:01:29.360
+like translate.com leaked Statoil's employment contracts.
+
+32
+00:01:29.360 --> 00:01:31.110
+That's quite embarrassing.
+
+33
+00:01:31.110 --> 00:01:34.960
+And also you don't know how good a translation is.
+
+34
+00:01:34.960 --> 00:01:36.610
+If you remember a few years ago,
+
+35
+00:01:36.610 --> 00:01:39.140
+there was a post in Arabic that said, hello,
+
+36
+00:01:39.140 --> 00:01:41.390
+and it was translated as kill them all.
+
+37
+00:01:41.390 --> 00:01:44.130
+That's not good, we shouldn't allow that to happen.
+
+38
+00:01:44.130 --> 00:01:45.940
+Can we do better than that?
+
+slide-5
+00:01:45.940 --> 00:01:46.870
+Yes, we can.
+
+40
+00:01:46.870 --> 00:01:50.070
+We can run the machine translation service locally.
+
+slide-6
+00:01:50.070 --> 00:01:52.840
+But how do we do that: as far as everybody knows,
+
+42
+00:01:52.840 --> 00:01:54.610
+machine translation is slow,
+
+43
+00:01:54.610 --> 00:01:56.330
+it requires heavy duty GPUs,
+
+44
+00:01:56.330 --> 00:01:58.900
+lots of power, lots of disk space,
+
+45
+00:01:58.900 --> 00:02:00.820
+but is that really the case?
+
+46
+00:02:00.820 --> 00:02:02.160
+Not anymore.
+
+slide-7
+00:02:02.160 --> 00:02:03.560
+A lot of it has changed.
+
+48
+00:02:03.560 --> 00:02:06.010
+And this is where our project comes in:
+
+49
+00:02:06.010 --> 00:02:09.510
+Bergamot about building a machine translation service
+
+50
+00:02:09.510 --> 00:02:11.290
+inside Firefox.
+
+slide-8
+00:02:11.290 --> 00:02:13.320
+Now for some live demo,
+
+52
+00:02:13.320 --> 00:02:17.083
+let's go to the nightly build of Firefox,
+
+53
+00:02:18.740 --> 00:02:23.740
+and we can go to any web page
+
+54
+00:02:23.930 --> 00:02:27.393
+let's go to the Spanish BBC.
+
+55
+00:02:28.950 --> 00:02:33.020
+We load the page and then we click translate
+
+56
+00:02:33.020 --> 00:02:36.470
+and we get a translation.
+
+57
+00:02:36.470 --> 00:02:40.283
+And then we can click on any webpage.
+
+58
+00:02:42.150 --> 00:02:45.370
+And then we click translate
+
+59
+00:02:46.910 --> 00:02:50.320
+and you have a translation in green,
+
+60
+00:02:50.320 --> 00:02:53.930
+which means that the system is confident
+
+61
+00:02:53.930 --> 00:02:55.210
+with the translation.
+
+62
+00:02:55.210 --> 00:02:57.790
+But sometimes when the system is not very confident,
+
+63
+00:02:57.790 --> 00:03:00.060
+it shows the original in black,
+
+64
+00:03:00.060 --> 00:03:01.170
+which means that
+
+65
+00:03:02.250 --> 00:03:05.850
+if the user sees that something is not very certain,
+
+66
+00:03:05.850 --> 00:03:09.060
+they can check it in a dictionary or something else.
+
+67
+00:03:09.060 --> 00:03:10.330
+They don't need to rely blinded
+
+68
+00:03:10.330 --> 00:03:12.610
+on the machine translation software.
+
+69
+00:03:12.610 --> 00:03:16.390
+We can go to another web page, such as Wikipedia.
+
+70
+00:03:16.390 --> 00:03:18.280
+We go there, we load it,
+
+71
+00:03:18.280 --> 00:03:22.110
+we click translate and there we have it.
+
+72
+00:03:22.110 --> 00:03:25.100
+And we have an article about Lovecraft
+
+73
+00:03:25.100 --> 00:03:26.920
+we can go on it.
+
+74
+00:03:26.920 --> 00:03:29.680
+We can click translate,
+
+75
+00:03:29.680 --> 00:03:32.320
+wait for a second or two, because as you can see,
+
+76
+00:03:32.320 --> 00:03:33.923
+the webpage is pretty huge,
+
+77
+00:03:35.250 --> 00:03:36.980
+but we do end up with a translation
+
+78
+00:03:36.980 --> 00:03:38.583
+in fairly reasonable time.
+
+79
+00:03:39.930 --> 00:03:43.200
+And yeah, that's it, simple demo.
+
+80
+00:03:43.200 --> 00:03:44.900
+Let's go back to our presentation.
+
+slide-9
+00:03:47.410 --> 00:03:50.340
+So, as you saw the translation is quite fast,
+
+82
+00:03:50.340 --> 00:03:52.040
+but how fast is it exactly?
+
+slide-10
+00:03:52.040 --> 00:03:54.740
+Well, we benchmark on various different hardware,
+
+84
+00:03:54.740 --> 00:03:58.000
+and we measured how many source words per second
+
+85
+00:03:58.000 --> 00:03:59.650
+we can translate.
+
+86
+00:03:59.650 --> 00:04:03.440
+And I'm running a 2019 desktop,
+
+87
+00:04:03.440 --> 00:04:07.090
+which can do about 9,000 source words per second,
+
+88
+00:04:07.090 --> 00:04:12.090
+and then older hardware tested various desktop, laptops
+
+89
+00:04:14.210 --> 00:04:16.420
+and the slowest one from 2012,
+
+90
+00:04:16.420 --> 00:04:18.140
+that's 8 years old laptop:
+
+91
+00:04:18.140 --> 00:04:20.120
+it's about a thousand words per second.
+
+92
+00:04:20.120 --> 00:04:22.100
+Now I tried very hard to find
+
+93
+00:04:22.940 --> 00:04:24.570
+what is the typical
+
+94
+00:04:26.550 --> 00:04:27.767
+number of words in the webpage,
+
+95
+00:04:27.767 --> 00:04:29.943
+but there were many conflicting sources.
+
+96
+00:04:31.110 --> 00:04:35.240
+A lot of them said between 600 and 800 words, it's probably
+
+97
+00:04:35.240 --> 00:04:37.960
+a reasonable estimate.
+
+98
+00:04:37.960 --> 00:04:41.520
+And that means that even on an 8 years old hardware,
+
+99
+00:04:41.520 --> 00:04:45.023
+we can still translate the webpage in about a second.
+
+100
+00:04:46.050 --> 00:04:47.200
+How we do that?
+
+101
+00:04:47.200 --> 00:04:49.800
+We did lots of complicated model
+
+102
+00:04:49.800 --> 00:04:53.060
+and software optimizations.
+
+103
+00:04:53.060 --> 00:04:56.963
+You can check them out in our WNGT 2020 submission.
+
+slide-11
+00:05:00.220 --> 00:05:02.300
+Another thing that I didn't demonstrate
+
+105
+00:05:02.300 --> 00:05:04.520
+is foreign language forms.
+
+106
+00:05:04.520 --> 00:05:06.427
+A lot of times when you go to a foreign country
+
+107
+00:05:06.427 --> 00:05:07.890
+and you want to do some service,
+
+108
+00:05:07.890 --> 00:05:11.090
+you're presented with a form that you need to fill in,
+
+109
+00:05:11.090 --> 00:05:12.590
+in the foreign language.
+
+110
+00:05:12.590 --> 00:05:15.600
+Now you can use any translation service to translate
+
+111
+00:05:15.600 --> 00:05:16.440
+the text on the form,
+
+112
+00:05:16.440 --> 00:05:17.890
+but you still need to include that language
+
+113
+00:05:17.890 --> 00:05:19.860
+in order to use it.
+
+114
+00:05:19.860 --> 00:05:23.070
+So we are going to provide an outbound translation service,
+
+115
+00:05:23.070 --> 00:05:26.380
+where you enter the text in English,
+
+116
+00:05:26.380 --> 00:05:28.270
+and then it is going to be translated
+
+117
+00:05:28.270 --> 00:05:30.420
+in the language that you need for the form.
+
+118
+00:05:31.830 --> 00:05:34.730
+We are also going to do the same quality estimates so that
+
+119
+00:05:35.630 --> 00:05:37.960
+when you see that the system is not very confident
+
+120
+00:05:37.960 --> 00:05:39.110
+with translating your input,
+
+121
+00:05:39.110 --> 00:05:42.620
+you can rephrase it and it can try again.
+
+slide-12
+00:05:42.620 --> 00:05:44.390
+And yeah, that's it.
+
+slide-13
+00:05:44.390 --> 00:05:47.180
+Machine translation is no longer just in the cloud
+
+124
+00:05:47.180 --> 00:05:51.180
+you can now use it locally and securely inside Firefox.
+
+
+00:05:51.180 --> 00:05:53.469
+And that's it, thank you for your time.
+
+

@@ -384,7 +384,7 @@ and design doesn't work
 00:04:11.693 --> 00:04:14.949
 if you were out at that outer edge of our human starburst.
 
-97
+slide-13
 00:04:16.436 --> 00:04:17.566
 In terms of data,
 
@@ -404,7 +404,7 @@ inaccurate as you move from the middle
 00:04:22.265 --> 00:04:24.839
 and wrong if your needs are at the edge.
 
-slide-13
+slide-14
 00:04:26.116 --> 00:04:28.656
 This pattern affects all of our systems,
 
@@ -452,7 +452,7 @@ to create replaceable workers,
 00:04:55.366 --> 00:04:58.679
 our democracy is driven by majority rules.
 
-114
+slide-15
 00:05:00.236 --> 00:05:02.706
 This not only hurts the 20%
 
@@ -488,7 +488,7 @@ and our flexibility, extensibility,
 00:05:19.986 --> 00:05:22.899
 resilience and responsiveness all suffer.
 
-slide-14
+slide-16
 00:05:24.966 --> 00:05:27.056
 AI ethics has received a great deal
 
@@ -572,7 +572,7 @@ is the inherent bias in our statistical methods
 00:06:22.446 --> 00:06:24.989
 and how we treat minorities and outliers.
 
-slide-15
+slide-17
 00:06:26.726 --> 00:06:29.836
 The measures we use to assess AI ethics
 
@@ -636,7 +636,7 @@ making it even more difficult
 00:07:00.487 --> 00:07:04.379
 to achieve fair treatment.
 
-slide-16
+slide-18
 00:07:06.316 --> 00:07:09.356
 These issues are compounded by other vulnerabilities.
 
@@ -688,7 +688,7 @@ and misuse from bad actors,
 00:07:40.626 --> 00:07:42.919
 surveillance capitalism and the state.
 
-slide-17
+slide-19
 00:07:45.886 --> 00:07:47.826
 The entire field of data science
 
@@ -736,11 +736,11 @@ And you're subject to systemic influence
 00:08:08.956 --> 00:08:11.239
 or vicious cycles of discrimination.
 
-slide-18
+slide-20
 00:08:13.336 --> 00:08:15.869
 How's this relevant beyond disability?
 
-slide-19
+slide-21
 00:08:18.496 --> 00:08:20.146
 Traditional means of deciding,
 
@@ -748,7 +748,7 @@ Traditional means of deciding,
 00:08:20.146 --> 00:08:22.949
 judging and planning no longer work.
 
-slide-20
+slide-22
 00:08:24.656 --> 00:08:29.426
 We live in increasingly complex adaptive systems of systems.
 
@@ -760,7 +760,7 @@ These are changing and unstable,
 00:08:31.326 --> 00:08:33.699
 they're unpredictable, they're entangled.
 
-slide-21
+slide-23
 00:08:35.316 --> 00:08:37.476
 And right now, during this pandemic,
 
@@ -776,7 +776,7 @@ But we are in a complex terrain
 00:08:42.496 --> 00:08:45.191
 with multiple hills and valleys.
 
-slide-22
+slide-24
 00:08:45.191 --> 00:08:47.546
 And because of the way we do things,
 
@@ -812,7 +812,7 @@ when we need diversity.
 00:09:06.464 --> 00:09:10.549
 And these vicious cycles are intensifying disparity.
 
-slide-23
+slide-25
 00:09:12.756 --> 00:09:16.596
 The only formula to get us out of that local optima
 
@@ -836,7 +836,7 @@ We need to stop doing the same thing over
 00:09:28.146 --> 00:09:31.279
 and over again and we need to work together.
 
-slide-24
+slide-26
 00:09:33.376 --> 00:09:36.003
 We are prone also to cobra effects
 
@@ -852,7 +852,7 @@ of over simplistic solutions to complex problems.
 00:09:41.736 --> 00:09:44.879
 We use linear thinking that only makes things worse.
 
-slide-25
+slide-27
 00:09:46.163 --> 00:09:49.316
 We may be seeing a cobra effect right now
 
@@ -860,7 +860,7 @@ We may be seeing a cobra effect right now
 00:09:49.316 --> 00:09:52.780
 and AI may only intensify this.
 
-slide-26
+slide-28
 00:09:52.780 --> 00:09:55.266
 There's a famous Thomas Friedman graph
 
@@ -884,7 +884,7 @@ at an exponential rate,
 00:10:03.546 --> 00:10:06.119
 while humans are adapting at a linear rate.
 
-slide-27
+slide-29
 00:10:07.996 --> 00:10:10.210
 I would say the situation is worse.
 
@@ -928,7 +928,7 @@ and we have evidence-based decisions
 00:10:34.976 --> 00:10:37.579
 that favor the majority and homogeneity.
 
-slide-28
+slide-30
 00:10:39.146 --> 00:10:43.266
 My recommendation is that we reconsider the 80/20 rule.
 
@@ -972,7 +972,7 @@ for quick wins, saying ignore the difficult 20%
 00:11:03.676 --> 00:11:05.919
 who take 80% of the effort.
 
-slide-29
+slide-31
 00:11:08.136 --> 00:11:11.596
 However, who are our current vital few?
 
@@ -1000,7 +1000,7 @@ that occupy 80% of the unexplored terrain
 00:11:26.510 --> 00:11:28.789
 are the real vital few.
 
-slide-30
+slide-32
 00:11:31.086 --> 00:11:33.746
 If we design with and consider the needs
 
@@ -1012,7 +1012,7 @@ of those 20%, we make sure that the 80%
 00:11:36.418 --> 00:11:39.269
 in the middle have room to change.
 
-slide-31
+slide-33
 00:11:39.269 --> 00:11:41.326
 It is out at that outer edge
 
@@ -1032,7 +1032,7 @@ It is also where we detect weak signals
 00:11:46.530 --> 00:11:48.439
 that disrupt our life.
 
-slide-32
+slide-34
 00:11:49.796 --> 00:11:52.378
 But how will we measure, decide and judge
 
@@ -1040,7 +1040,7 @@ But how will we measure, decide and judge
 00:11:52.378 --> 00:11:55.809
 if we are not using statistical average?
 
-slide-33
+slide-35
 00:11:58.186 --> 00:12:01.713
 One recommendation comes from Gandhi and others.
 
@@ -1060,7 +1060,7 @@ This is more than altruism.
 00:12:09.964 --> 00:12:13.039
 It actually has scientific rationale.
 
-slide-34
+slide-36
 00:12:14.666 --> 00:12:17.136
 What we need to do in our AI
 
@@ -1076,11 +1076,11 @@ is discover the diverse range,
 00:12:22.626 --> 00:12:24.469
 the edge or the periphery.
 
-slide-35
+slide-37
 00:12:26.446 --> 00:12:28.539
 You may ask what about cost?
 
-slide-36
+slide-38
 00:12:29.476 --> 00:12:31.750
 We've actually found that cost over time
 
@@ -1100,7 +1100,7 @@ rather than planning for only the center,
 00:12:39.696 --> 00:12:43.269
 which becomes brittle and soon reaches end of life.
 
-slide-37
+slide-39
 00:12:45.126 --> 00:12:46.712
 In one of the experiments we've made
 
@@ -1144,7 +1144,7 @@ such that the learning model needs
 00:13:07.046 --> 00:13:09.529
 to attend to all of the edges.
 
-slide-38
+slide-40
 00:13:10.456 --> 00:13:12.836
 And what we found is that systems
 
@@ -1172,7 +1172,7 @@ will reduce disparity
 00:13:25.720 --> 00:13:28.329
 and may hold the key to our survival.
 
-slide-39
+slide-41
 00:13:29.386 --> 00:13:31.749
 And I would love to continue the conversation.
 

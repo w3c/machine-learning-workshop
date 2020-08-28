@@ -13,7 +13,7 @@ body {
 
 html {
   /*font-size: 14px;*/
-  padding: 3em;
+  padding: .5em;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
   hyphens: none;
   margin: 0 auto;
   max-width: 65em;
-  padding: 3em;
+  padding: .5em;
 }
 
 .header :first-child {
@@ -518,24 +518,47 @@ span.title {
 div.talks > details {
     border: 1px solid #ccc;
     box-shadow: .3em .3em 0 rgba(0,0,0,.1);
+    margin-top: 20px;
+    padding: 1em;
 }
 div.talks details:nth-of-type(odd) {
     background: #F2FDFF;
 }
-div.talks > details > summary {
+div.talks > details > summary div.grid {
     position: relative;
     display: grid;
     grid-template-columns: 200px auto;
     grid-template-rows: auto auto;
-    list-style: none;
+}
+
+div.talks > details > summary {
+    position: relative;
+  list-style: none;
 }
 
 div.talks > details > summary::-webkit-details-marker {
   display: none;
 }
+
+div.talks > details > summary div.grid:after {
+    content: 'more ►';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    color: gray;
+}
+
+div.talks > details[open] > summary div.grid:after {
+    content: 'less ▼';
+    cursor: pointer;
+}
+
 summary span:first-child, summary a:first-child {
     grid-column: 1;
     grid-row: 1 / -1;
+    place-self: center;
+    color: gray;
 }
 summary a:nth-child(2) {
     grid-column:2;
@@ -544,6 +567,7 @@ summary a:nth-child(2) {
 summary .summary {
     grid-column: 2;
     grid-row: 2;
+    padding-bottom: 2em;
 }
 summary a:nth-child(4) {
     grid-row: 3;
@@ -551,7 +575,7 @@ summary a:nth-child(4) {
     text-align:right;
     font-size:0.8em;
 }
-summary .summary a {
+summary .summary span {
     position: absolute;
     bottom:0;
     right:0;
@@ -695,4 +719,30 @@ img.tn {
     display:inline;
     vertical-align:middle;
     padding-right:.5em;
+}
+
+div.related {
+	background-color: #C2CDCF;
+	border-radius: .6em;
+	padding: 0.5em;
+}
+div.related p {
+    margin-bottom: 0;
+}
+div.related ul {
+    margin-top: 0;
+    margin-left: 1em;
+}
+.simpletooltip a:link, .simpletooltip a:visited {
+    color: #acf;
+}
+details span.added {
+    top:-1em;
+    left: -1em;
+    padding: 0.2em;
+	position: absolute;
+	background-color: #ff0;
+	font-size: 0.8em;
+	transform: translate(-3em) rotate(-45deg);
+	transform-origin: top right;
 }

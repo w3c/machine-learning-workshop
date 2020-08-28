@@ -94,7 +94,11 @@ and connect to a remote game client via WebRTC.
 Then their sounds can be transmitted through WebRTC from their local microphones to the game's audio module
 
 01:44.100 --> 01:47.580
+<<<<<<< HEAD
 to allow lectures and Q&As.
+=======
+to allow lectures and Q&amp;As.
+>>>>>>> 5cee3741c4a6d593328f5ff81244ac3a60b52fbf
 
 01:47.580 --> 01:52.500
 After building the online meeting scene in this way,

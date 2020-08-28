@@ -1,0 +1,1122 @@
+﻿WEBVTT
+
+slide-1
+00:00:08.526 --> 00:00:11.386
+<v Josh>Hi, welcome to our cognitive accessibility</v>
+
+2
+00:00:11.386 --> 00:00:13.186
+and machine learning presentation
+
+3
+00:00:13.186 --> 00:00:16.246
+for the W3C machine-learning workshop.
+
+4
+00:00:16.246 --> 00:00:18.086
+I'm very, very happy to be here.
+
+5
+00:00:18.086 --> 00:00:19.886
+My name's is Josh O'Connor.
+
+6
+00:00:19.886 --> 00:00:21.896
+I'm emerging technology specialist
+
+7
+00:00:21.896 --> 00:00:25.256
+with W3C Web Accessibility Initiative.
+
+8
+00:00:25.256 --> 00:00:28.026
+I'm here with my colleague, Lisa Seeman also,
+
+9
+00:00:28.026 --> 00:00:31.676
+who is the task force facilitator from the COGA,
+
+10
+00:00:31.676 --> 00:00:34.036
+the Cognitive Accessibility Task Force.
+
+11
+00:00:34.036 --> 00:00:36.066
+And we are going to be talking about
+
+12
+00:00:36.066 --> 00:00:39.876
+cognitive accessibility and machine learning -
+
+13
+00:00:39.876 --> 00:00:43.126
+beyond rule-based testing environments.
+
+14
+00:00:43.126 --> 00:00:45.906
+So great, Lisa, over to you.
+
+15
+00:00:45.906 --> 00:00:47.116
+Let's hear a little bit
+
+16
+00:00:47.116 --> 00:00:48.599
+about what we're gonna be discussing.
+
+slide-2
+00:00:48.599 --> 00:00:51.666
+<v Lisa>And these are really research topics</v>
+
+18
+00:00:51.666 --> 00:00:55.806
+or early prototype stages for these kinds of things.
+
+19
+00:00:55.806 --> 00:00:59.686
+The first is that machine learning can offer
+
+20
+00:00:59.686 --> 00:01:02.326
+potential solutions for people with cognitive disability,
+
+21
+00:01:02.326 --> 00:01:04.246
+to bridge the gap in understanding
+
+22
+00:01:04.246 --> 00:01:07.616
+on what people can can comprehend
+
+23
+00:01:07.616 --> 00:01:09.836
+and putting things in a format
+
+24
+00:01:09.836 --> 00:01:11.706
+that they can understand better,
+
+25
+00:01:11.706 --> 00:01:15.296
+like simplified languages, as one example,
+
+26
+00:01:15.296 --> 00:01:19.286
+usability testing for people with cognitive disabilities
+
+27
+00:01:19.286 --> 00:01:21.426
+to be as software as a service
+
+28
+00:01:21.426 --> 00:01:24.636
+or some other compatible mechanism
+
+29
+00:01:24.636 --> 00:01:27.956
+that would enable automatic testing.
+
+30
+00:01:27.956 --> 00:01:30.996
+And also, there's some movement
+
+31
+00:01:30.996 --> 00:01:32.076
+in the other direction.
+
+32
+00:01:32.076 --> 00:01:35.056
+Because I think there's the potential
+
+33
+00:01:35.056 --> 00:01:36.646
+for what we're doing
+
+34
+00:01:36.646 --> 00:01:39.146
+for support for cognitive disabilities,
+
+35
+00:01:39.146 --> 00:01:44.146
+to actually help machine learning type algorithms
+
+36
+00:01:46.826 --> 00:01:50.816
+perform better, and have maybe an anchor or more information
+
+37
+00:01:50.816 --> 00:01:52.056
+on what's going on in the page
+
+38
+00:01:52.056 --> 00:01:55.556
+so that if it's adapting it for other applications,
+
+39
+00:01:55.556 --> 00:01:58.516
+it will perform a bit better.
+
+40
+00:01:58.516 --> 00:02:00.726
+<v Josh>So we're going to be talking about</v>
+
+41
+00:02:00.726 --> 00:02:02.489
+how machine learning can support people
+
+42
+00:02:02.489 --> 00:02:04.666
+with cognitive disabilities,
+
+43
+00:02:04.666 --> 00:02:06.586
+how this could potentially enable
+
+44
+00:02:06.586 --> 00:02:08.616
+the better testing of that support.
+
+45
+00:02:08.616 --> 00:02:09.746
+Just generally understand
+
+46
+00:02:09.746 --> 00:02:13.446
+how inclusive design can support even machine learning
+
+47
+00:02:13.446 --> 00:02:15.376
+by developing data sets,
+
+48
+00:02:15.376 --> 00:02:17.736
+which understand what works or what does not work
+
+49
+00:02:17.736 --> 00:02:20.536
+for particular diverse user groups. Is that right?
+
+50
+00:02:20.536 --> 00:02:23.736
+<v Lisa>Yeah. Some kind of going in the other direction.</v>
+
+51
+00:02:23.736 --> 00:02:27.236
+There's tons of things where machine learning can help us
+
+52
+00:02:27.236 --> 00:02:29.966
+as people trying to provide support
+
+53
+00:02:29.966 --> 00:02:32.196
+for people with Cognitive and Learning Disabilities,
+
+54
+00:02:32.196 --> 00:02:33.506
+and create new tools.
+
+55
+00:02:33.506 --> 00:02:38.506
+But actually, we could be helping other examples
+
+56
+00:02:38.866 --> 00:02:43.396
+of machine learning application by what we're doing.
+
+57
+00:02:43.396 --> 00:02:44.229
+<v Josh>Absolutely.</v>
+
+slide-3
+00:02:44.229 --> 00:02:47.356
+So going on to the next sections on slide two
+
+59
+00:02:47.356 --> 00:02:49.906
+user testing and cognitive and machine learning.
+
+60
+00:02:49.906 --> 00:02:52.846
+<v Lisa>Yeah, so right now,</v>
+
+61
+00:02:52.846 --> 00:02:55.336
+a lot of the conformance
+
+62
+00:02:55.336 --> 00:02:59.396
+for accessibility regulations and guidelines
+
+63
+00:02:59.396 --> 00:03:02.706
+are kind of pattern matching rules.
+
+64
+00:03:02.706 --> 00:03:05.046
+So does this image have an alt tag?
+
+65
+00:03:05.046 --> 00:03:07.686
+If not, it might not conform to something.
+
+66
+00:03:07.686 --> 00:03:10.346
+You know part level of pattern match.
+
+67
+00:03:10.346 --> 00:03:13.366
+And that really didn't work well for us,
+
+68
+00:03:13.366 --> 00:03:15.646
+trying to incorporate the user needs
+
+69
+00:03:15.646 --> 00:03:18.376
+for people with Cognitive and Learning Disabilities .
+
+slide-4
+00:03:18.376 --> 00:03:22.086
+For instance, move to slide two,
+
+71
+00:03:22.086 --> 00:03:24.956
+an example of a user need or pattern
+
+72
+00:03:24.956 --> 00:03:28.176
+that we would be introducing
+
+73
+00:03:28.176 --> 00:03:30.456
+Cognitive and Learning Disabilities is:
+
+74
+00:03:30.456 --> 00:03:32.846
+can we identify the controls on the page?
+
+75
+00:03:32.846 --> 00:03:34.476
+Does a button look like a button?
+
+76
+00:03:34.476 --> 00:03:36.586
+Or do they think it's a heading?
+
+77
+00:03:36.586 --> 00:03:39.556
+Or just text? Is it recognizable?
+
+78
+00:03:39.556 --> 00:03:42.776
+Well, this is something that's very hard to do
+
+79
+00:03:42.776 --> 00:03:44.656
+with straightforward rules.
+
+80
+00:03:44.656 --> 00:03:47.156
+You know, if this is missing,
+
+81
+00:03:47.156 --> 00:03:50.046
+if there's a button that doesn't have this,
+
+82
+00:03:50.046 --> 00:03:54.306
+then it's a fail. Those kind of unit test rules.
+
+83
+00:03:54.306 --> 00:03:55.139
+It's very hard.
+
+84
+00:03:55.139 --> 00:03:55.972
+It's a bit...
+
+85
+00:03:55.972 --> 00:03:57.626
+it's subjective, and it moves.
+
+86
+00:03:57.626 --> 00:04:01.116
+What's familiar depends on which group.
+
+87
+00:04:01.116 --> 00:04:04.566
+So we would recommend user testing
+
+88
+00:04:04.566 --> 00:04:07.056
+with a bunch of different groups,
+
+89
+00:04:07.056 --> 00:04:10.036
+and recording what people find usable.
+
+slide-5
+00:04:10.036 --> 00:04:14.056
+So if you're using a link, and it's blue and underlined,
+
+91
+00:04:14.056 --> 00:04:16.196
+let's assume that it's recognizable.
+
+92
+00:04:16.196 --> 00:04:18.556
+But if you've got other ways of doing a link,
+
+93
+00:04:18.556 --> 00:04:21.856
+well, it might be very different for an 18-year-old
+
+94
+00:04:21.856 --> 00:04:25.576
+with down syndrome to a 70-year-old
+
+95
+00:04:26.626 --> 00:04:29.086
+with age appropriate forgetfulness,
+
+96
+00:04:29.086 --> 00:04:33.186
+who's having trouble learning new design patterns.
+
+slide-6
+00:04:33.186 --> 00:04:35.976
+Putting that into a standard
+
+98
+00:04:35.976 --> 00:04:38.656
+has been really, really challenging.
+
+99
+00:04:38.656 --> 00:04:42.456
+People will often know if it's recognizable or not,
+
+100
+00:04:42.456 --> 00:04:46.046
+but how do you make that something that you could test?
+
+101
+00:04:46.046 --> 00:04:48.736
+<v Josh>So there are issues, Lisa, with mapping affordances</v>
+
+102
+00:04:48.736 --> 00:04:50.696
+in a way that's consistent,
+
+103
+00:04:50.696 --> 00:04:52.346
+depending on a user's preference,
+
+104
+00:04:52.346 --> 00:04:53.516
+or the user's requirements,
+
+105
+00:04:53.516 --> 00:04:56.406
+particularly if they've got diverse ability.
+
+106
+00:04:56.406 --> 00:04:58.186
+<v Lisa>Yes, that's one thing...</v>
+
+107
+00:04:58.186 --> 00:05:03.186
+that's one way we're trying to look at it.
+
+108
+00:05:03.586 --> 00:05:08.346
+So the advantages of machine learning here
+
+109
+00:05:08.346 --> 00:05:12.436
+is that the algorithm could be trained
+
+110
+00:05:12.436 --> 00:05:16.936
+on what people have found usable
+
+111
+00:05:16.936 --> 00:05:19.566
+and recognize straight away,
+
+112
+00:05:19.566 --> 00:05:22.256
+and learn what for this user base
+
+113
+00:05:22.256 --> 00:05:24.086
+is considered recognizable
+
+114
+00:05:24.086 --> 00:05:25.676
+and what's not recognizable.
+
+115
+00:05:25.676 --> 00:05:28.496
+And we could introduce a certainty components
+
+116
+00:05:28.496 --> 00:05:31.516
+such as if we say something should be likely
+
+117
+00:05:31.516 --> 00:05:36.516
+it's over 90% certainties, assume that it's accessible.
+
+slide-7
+00:05:36.616 --> 00:05:39.616
+And that could kind of bridge the gap.
+
+119
+00:05:39.616 --> 00:05:42.286
+As we've got on slide five,
+
+120
+00:05:42.286 --> 00:05:44.346
+between the need of saying,
+
+121
+00:05:44.346 --> 00:05:45.606
+perform user testing,
+
+122
+00:05:45.606 --> 00:05:47.176
+that's how you're gonna know
+
+123
+00:05:47.176 --> 00:05:50.176
+and having some kind of automated solution
+
+124
+00:05:50.176 --> 00:05:53.656
+that's less scary and  easier.
+
+125
+00:05:53.656 --> 00:05:56.946
+<v Josh>So, the machine learning patterns will have a way</v>
+
+126
+00:05:56.946 --> 00:05:59.616
+of giving us a certain statistical confidence
+
+127
+00:05:59.616 --> 00:06:01.946
+that something is likely to work or not
+
+128
+00:06:01.946 --> 00:06:05.316
+based on large pattern matching
+
+129
+00:06:05.316 --> 00:06:08.016
+of various different kinds of interactions.
+
+slide-8
+00:06:08.016 --> 00:06:11.926
+So how can inclusive design support machine learning?
+
+slide-9
+00:06:11.926 --> 00:06:14.366
+If we move on then to slide six?
+
+132
+00:06:14.366 --> 00:06:17.926
+<v Lisa>Well, we have some new technologies that we've made.</v>
+
+133
+00:06:17.926 --> 00:06:19.396
+We've got at wide review
+
+134
+00:06:19.396 --> 00:06:22.906
+going to CR of Personalization Semantics,
+
+135
+00:06:22.906 --> 00:06:27.186
+where we will put on a mapping to a concept notes
+
+136
+00:06:27.186 --> 00:06:31.816
+so that symbols can be added for different use cases
+
+137
+00:06:31.816 --> 00:06:33.316
+or symbols can be adapted
+
+138
+00:06:33.316 --> 00:06:35.766
+if people have learned a specific symbol set,
+
+139
+00:06:35.766 --> 00:06:38.516
+and that's what is familiar to them,
+
+140
+00:06:38.516 --> 00:06:40.836
+as well as other support can be integrated
+
+141
+00:06:40.836 --> 00:06:45.476
+into the page such as instructions or help scaffolding.
+
+142
+00:06:45.476 --> 00:06:50.106
+So this kind of information actually tells machine learning,
+
+143
+00:06:50.106 --> 00:06:55.036
+the right answer of what this button is, what does this do?
+
+144
+00:06:55.036 --> 00:06:58.236
+What concept did I mean when I said this?
+
+145
+00:06:58.236 --> 00:07:02.341
+So that would then have almost a 100% certainty
+
+146
+00:07:02.341 --> 00:07:04.666
+or close to it.
+
+147
+00:07:04.666 --> 00:07:08.766
+You can then use that for giving context,
+
+148
+00:07:08.766 --> 00:07:11.346
+and that could upgrade the performance
+
+149
+00:07:11.346 --> 00:07:15.916
+of things like automatic translation,
+
+150
+00:07:15.916 --> 00:07:20.916
+and other transformations or analysis of web content.
+
+151
+00:07:21.316 --> 00:07:22.816
+<v Josh>Great. That sounds great.</v>
+
+slide-10
+00:07:22.816 --> 00:07:24.596
+So we're talking about,
+
+153
+00:07:24.596 --> 00:07:26.836
+on slide seven semantic tokens,
+
+154
+00:07:26.836 --> 00:07:28.926
+allowing the association of these
+
+155
+00:07:28.926 --> 00:07:33.116
+various different preferred symbols with current elements.
+
+156
+00:07:33.116 --> 00:07:35.056
+How do you see machine learning even supporting
+
+157
+00:07:35.056 --> 00:07:36.486
+the creation of these symbols?
+
+158
+00:07:36.486 --> 00:07:40.686
+Do you think it's because if you have things described
+
+159
+00:07:40.686 --> 00:07:42.206
+in a way that's semantically accurate,
+
+160
+00:07:42.206 --> 00:07:44.356
+that allows levels of abstraction
+
+161
+00:07:44.356 --> 00:07:45.826
+that machine learning could support
+
+162
+00:07:45.826 --> 00:07:47.684
+in a large kind of aggregated manner?
+
+163
+00:07:47.684 --> 00:07:48.517
+Is that something that you think…?
+
+164
+00:07:48.517 --> 00:07:51.306
+<v Lisa>Yeah, it can go back and forth Josh.</v>
+
+165
+00:07:51.306 --> 00:07:54.396
+Because if you've got, say, an authoring tool
+
+166
+00:07:54.396 --> 00:07:59.279
+that adds the concept notes, if you like, into the code.
+
+167
+00:08:00.696 --> 00:08:04.716
+And if it does it 80% accurate,
+
+168
+00:08:04.716 --> 00:08:07.366
+which currently is about the rate.
+
+169
+00:08:07.366 --> 00:08:10.946
+It makes mistakes, but the author will understand the symbol
+
+170
+00:08:10.946 --> 00:08:12.726
+and will understand what they intended.
+
+171
+00:08:12.726 --> 00:08:16.806
+So if you said bank and you meant the financial institution,
+
+172
+00:08:16.806 --> 00:08:20.426
+it puts a bank of river, you'll know this is wrong
+
+173
+00:08:20.426 --> 00:08:22.836
+and you can switch it,
+
+174
+00:08:22.836 --> 00:08:26.606
+if you're using that as an anchor for machine translation
+
+175
+00:08:26.606 --> 00:08:28.026
+to other languages maybe,
+
+176
+00:08:28.026 --> 00:08:32.315
+and I leave this to the audience who knows more,
+
+177
+00:08:32.315 --> 00:08:35.266
+but maybe that could provide the context
+
+178
+00:08:35.266 --> 00:08:39.266
+to provide better machine translation,
+
+179
+00:08:39.266 --> 00:08:43.286
+you know, a bit of context can trigger more certainty
+
+180
+00:08:43.286 --> 00:08:47.756
+down the line, and we're all fighting the same ambiguities
+
+181
+00:08:48.706 --> 00:08:50.776
+when we make mistakes.
+
+182
+00:08:50.776 --> 00:08:54.096
+So if we're solving it to be able to translate
+
+183
+00:08:54.096 --> 00:08:57.746
+across different symbol languages, in one language,
+
+184
+00:08:57.746 --> 00:09:00.986
+then it could also potentially help
+
+185
+00:09:00.986 --> 00:09:04.176
+to map across different languages.
+
+slide-11
+00:09:04.176 --> 00:09:09.176
+<v Josh>Great stuff. So in terms of new solutions for inclusion</v>
+
+187
+00:09:10.166 --> 00:09:12.556
+why do you feel that machine learning can be more similar
+
+188
+00:09:12.556 --> 00:09:14.496
+to how humans actually think
+
+189
+00:09:14.496 --> 00:09:16.456
+that's a very interesting insight?
+
+slide-12
+00:09:16.456 --> 00:09:18.046
+<v Lisa>Yeah, well, machine learning</v>
+
+191
+00:09:18.046 --> 00:09:20.166
+and new on that, for instance,
+
+192
+00:09:20.166 --> 00:09:23.186
+is more similar to how most people think,
+
+193
+00:09:23.186 --> 00:09:25.546
+most of us don't think like,
+
+194
+00:09:25.546 --> 00:09:28.801
+not often so much in a sequential way
+
+195
+00:09:28.801 --> 00:09:32.176
+of these rule-based algorithms.
+
+196
+00:09:32.176 --> 00:09:37.176
+So in a way machine learning is based on how people think.
+
+197
+00:09:37.346 --> 00:09:41.306
+And so therefore, it could fill the gaps
+
+198
+00:09:41.306 --> 00:09:44.816
+on where there's some kind of problem.
+
+199
+00:09:44.816 --> 00:09:48.516
+So, for instance, people with dyscalculia,
+
+200
+00:09:48.516 --> 00:09:49.976
+the area of the brain,
+
+201
+00:09:49.976 --> 00:09:54.726
+which processes numerical concepts, is impaired.
+
+202
+00:09:54.726 --> 00:09:59.082
+So they struggle very much with money
+
+203
+00:09:59.082 --> 00:10:02.186
+and trying to figure out what's more, what's less,
+
+204
+00:10:02.186 --> 00:10:04.196
+let alone what's expensive.
+
+205
+00:10:04.196 --> 00:10:06.346
+So being able to make a judgment call
+
+206
+00:10:06.346 --> 00:10:08.936
+on whether this item is expensive or not,
+
+207
+00:10:08.936 --> 00:10:11.996
+that would be quite a long sequential algorithm
+
+208
+00:10:11.996 --> 00:10:13.546
+with traditional computing.
+
+209
+00:10:13.546 --> 00:10:17.846
+Something like machine learning might be...
+
+210
+00:10:17.846 --> 00:10:21.436
+I mean, I know some bots that are working on that,
+
+211
+00:10:21.436 --> 00:10:25.976
+so that kind of decision making, it could be supportive.
+
+212
+00:10:25.976 --> 00:10:27.673
+Another example is vision loss.
+
+213
+00:10:29.526 --> 00:10:30.806
+You have an image,
+
+214
+00:10:30.806 --> 00:10:34.276
+they haven't all had got alternative text.
+
+215
+00:10:34.276 --> 00:10:36.446
+What would be a good description of the image?
+
+216
+00:10:36.446 --> 00:10:38.946
+And what's the image trying to convey
+
+217
+00:10:38.946 --> 00:10:41.256
+with its red and yellow signage?
+
+218
+00:10:41.256 --> 00:10:46.256
+That might be a warning, which is more than OCR could do.
+
+219
+00:10:46.426 --> 00:10:50.496
+So that's more like that the instant recognition
+
+220
+00:10:50.496 --> 00:10:54.986
+of the mood of this image that's portraying something.
+
+221
+00:10:54.986 --> 00:10:57.486
+<v Josh>Right. So that's sophisticated image recognition,</v>
+
+222
+00:10:57.486 --> 00:11:00.766
+which can support different disability types.
+
+slide-13
+00:11:00.766 --> 00:11:05.156
+I know one of the things that you are quite concerned about
+
+224
+00:11:05.156 --> 00:11:08.766
+is the inclusion of people with cognitive disabilities
+
+225
+00:11:08.766 --> 00:11:11.656
+and their related data within the data sets,
+
+226
+00:11:11.656 --> 00:11:13.716
+they're used to power machine learning
+
+227
+00:11:13.716 --> 00:11:16.356
+or any kind of algorithmic based application,
+
+228
+00:11:16.356 --> 00:11:19.596
+such as smart cities or whatnot.
+
+229
+00:11:19.596 --> 00:11:20.625
+So could you speak a little bit
+
+230
+00:11:20.625 --> 00:11:24.296
+about just the importance of having diverse data sets?
+
+slide-14
+00:11:24.296 --> 00:11:28.676
+<v Lisa>Yeah. And this is one of the big fears, I think.</v>
+
+232
+00:11:28.676 --> 00:11:33.656
+And it happens already that people with disabilities,
+
+233
+00:11:33.656 --> 00:11:36.376
+or other groups, it might be people
+
+234
+00:11:36.376 --> 00:11:39.856
+who can't afford a smartphone. They're not using the apps
+
+235
+00:11:39.856 --> 00:11:42.656
+and they're not using the websites
+
+236
+00:11:42.656 --> 00:11:46.456
+and some of the tools that the phone calls
+
+237
+00:11:46.456 --> 00:11:50.866
+that you can't manage because of the phone menu systems
+
+238
+00:11:50.866 --> 00:11:54.446
+can be very difficult for people to manage.
+
+239
+00:11:54.446 --> 00:11:57.286
+And so then they don't call
+
+240
+00:11:57.286 --> 00:12:00.146
+because they know they can't reach a human
+
+241
+00:12:00.146 --> 00:12:04.116
+and then missed out of the data gathering process
+
+242
+00:12:04.116 --> 00:12:06.496
+and not in those data sets.
+
+243
+00:12:06.496 --> 00:12:09.326
+And therefore they're kind of invisible
+
+244
+00:12:11.046 --> 00:12:13.076
+in the whole decision making process
+
+245
+00:12:13.076 --> 00:12:14.876
+that's based on these data sets,
+
+246
+00:12:14.876 --> 00:12:16.306
+whether it's machine learning,
+
+247
+00:12:16.306 --> 00:12:18.706
+or other algorithms.
+
+248
+00:12:18.706 --> 00:12:23.106
+And that then will result in solutions
+
+249
+00:12:23.106 --> 00:12:26.376
+that don't consider them.
+
+250
+00:12:26.376 --> 00:12:29.316
+But as this becomes more pervasive with smart cities,
+
+251
+00:12:29.316 --> 00:12:32.156
+with managing all these critical services,
+
+252
+00:12:32.156 --> 00:12:34.886
+and people again think, “Oh yes, our services are good.”
+
+253
+00:12:34.886 --> 00:12:36.366
+Et cetera.
+
+254
+00:12:36.366 --> 00:12:40.576
+And it's just because the people who can't manage
+
+255
+00:12:40.576 --> 00:12:44.516
+this service, who aren't getting the critical help they need
+
+256
+00:12:44.516 --> 00:12:46.251
+are missing from the data sets.
+
+257
+00:12:46.251 --> 00:12:49.306
+And that's going to be a very big fear.
+
+258
+00:12:49.306 --> 00:12:53.246
+<v Josh>Well, I think that's a very prescient and a sobering</v>
+
+259
+00:12:53.246 --> 00:12:54.166
+kind of assessment
+
+260
+00:12:54.166 --> 00:12:57.586
+and shows that when we have generic data sets
+
+261
+00:12:57.586 --> 00:13:00.718
+that are being used to drive algorithmic type decisions,
+
+262
+00:13:00.718 --> 00:13:03.716
+it can have a very negative impact on people
+
+263
+00:13:03.716 --> 00:13:05.976
+in ways that we can't initially perceive.
+
+264
+00:13:05.976 --> 00:13:07.726
+So Lisa, just finally, thanks very much.
+
+265
+00:13:07.726 --> 00:13:08.966
+This is really, really great.
+
+slide-15
+00:13:08.966 --> 00:13:10.456
+We do focus in APA,
+
+267
+00:13:10.456 --> 00:13:12.556
+the Accessible Platforms Architecture group,
+
+268
+00:13:12.556 --> 00:13:14.096
+and the Research Questions Task Force
+
+269
+00:13:14.096 --> 00:13:16.286
+on where there are various nexuses
+
+270
+00:13:16.286 --> 00:13:18.546
+between different technologies,
+
+271
+00:13:18.546 --> 00:13:20.756
+different platforms and accessibility.
+
+272
+00:13:20.756 --> 00:13:22.756
+You know, we do invite everyone
+
+273
+00:13:22.756 --> 00:13:25.186
+who's at this workshop to contribute to this work
+
+274
+00:13:25.186 --> 00:13:29.236
+and we welcome feedback on the presentation
+
+275
+00:13:29.236 --> 00:13:31.466
+that we've given and the research that Lisa's is doing
+
+276
+00:13:31.466 --> 00:13:33.032
+in the Cognitive Accessibility Task Force.
+
+277
+00:13:33.032 --> 00:13:36.766
+And we hope that this discussion is useful and beneficial,
+
+278
+00:13:36.766 --> 00:13:40.449
+and everyone has enjoyed it, and found it useful.
+
+slide-16
+00:13:41.366 --> 00:13:43.506
+Lisa, thank you very much.
+
+280
+00:13:43.506 --> 00:13:44.659
+<v Lisa>Thank you, Josh.</v>
+

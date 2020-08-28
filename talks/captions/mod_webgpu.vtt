@@ -1,0 +1,327 @@
+WEBVTT
+
+slide-1
+0:00:08.160 --> 0:00:09.440
+Hey, i am Oguz,
+
+2
+0:00:09.440 --> 0:00:11.840
+and in this presentation, I will talk about
+
+3
+0:00:11.840 --> 0:00:16.400
+SIMD operations in WebGPU for machine learning.
+
+5
+0:00:16.400 --> 0:00:18.480
+Slide 2.
+
+slide-2
+0:00:18.480 --> 0:00:20.240
+This is a high level presentation
+
+7
+0:00:20.240 --> 0:00:24.400
+that doesn't go into too much technical detail.
+
+9
+0:00:24.400 --> 0:00:26.120
+slide 3.
+
+slide-3
+0:00:26.120 --> 0:00:28.960
+Subgroups are subdivision of threadgroups:
+
+11
+0:00:28.960 --> 0:00:33.120
+they're also named as SIMDgroups, warps, and waves
+
+12
+0:00:33.120 --> 0:00:35.320
+and their operations can make sharing
+
+13
+0:00:35.320 --> 0:00:37.560
+and reducing data across threads in a subgroup
+
+14
+0:00:37.560 --> 0:00:39.760
+measurably faster and
+
+15
+0:00:39.760 --> 0:00:46.480
+we can have these operations in WebGPU shading language.
+
+17
+0:00:46.520 --> 0:00:48.960
+slide 4.
+
+slide-4
+0:00:48.960 --> 0:00:52.440
+It is fast to share data between threads in a threadgroup
+
+19
+0:00:52.440 --> 0:00:53.880
+thanks to shared memory
+
+20
+0:00:53.880 --> 0:00:57.720
+but it is faster to share data between threads in a subgroup
+
+21
+0:00:57.720 --> 0:01:00.800
+because they don't even have to go to shared memory.
+
+23
+0:01:01.880 --> 0:01:03.600
+Slide 5.
+
+slide-5
+0:01:03.600 --> 0:01:08.160
+The desire is containing as much sharing and calculation
+
+25
+0:01:08.160 --> 0:01:11.840
+as possible in these SIMD32 blocks and
+
+26
+0:01:11.840 --> 0:01:17.640
+subgroup operations are a great way to do that.
+
+28
+0:01:17.640 --> 0:01:19.320
+Slide 6.
+
+slide-6
+0:01:19.320 --> 0:01:24.200
+Subgroup operations reduce runtime and power consumption
+
+30
+0:01:24.200 --> 0:01:29.240
+which can have critical impact on exploratory data analysis,
+
+31
+0:01:29.240 --> 0:01:32.800
+model fine tuning, and edge inference applications
+
+32
+0:01:32.800 --> 0:01:35.520
+but besides, subgroups also bring
+
+33
+0:01:35.520 --> 0:01:40.560
+an intuitive mapping to hardware for algorithms
+
+34
+0:01:40.560 --> 0:01:45.840
+because GPUs have no atomics or advisable locking mechanism
+
+35
+0:01:45.840 --> 0:01:47.560
+for floating point numbers,
+
+36
+0:01:47.560 --> 0:01:52.800
+at least one that will get exposed in WebGPU.
+
+38
+0:01:54.600 --> 0:01:56.760
+Slide 7.
+
+slide-7
+0:01:56.760 --> 0:02:01.000
+Subgroup operations in WebGPU shading language are
+
+40
+0:02:01.000 --> 0:02:05.400
+compute stage only, active threads only
+
+41
+0:02:05.400 --> 0:02:09.400
+and have a non-uniform execution model.
+
+43
+0:02:09.400 --> 0:02:10.640
+Slide 8.
+
+slide-8
+0:02:10.640 --> 0:02:15.960
+The meaning of active threads here is
+
+45
+0:02:15.960 --> 0:02:21.400
+in case of a divergence inside a subgroup,
+
+46
+0:02:21.400 --> 0:02:26.880
+the operations provided will only execute across threads
+
+47
+0:02:26.880 --> 0:02:33.480
+that can make to these operations together.
+
+49
+0:02:33.480 --> 0:02:36.120
+Slide 9.
+
+slide-9
+0:02:36.120 --> 0:02:39.800
+Let's get started with the basic operations:
+
+51
+0:02:39.800 --> 0:02:45.400
+subgroup_size gives us the number of threads in a subgroup,
+
+52
+0:02:45.400 --> 0:02:52.200
+invocation index gives us the index of our thread inside subgroup,
+
+53
+0:02:52.200 --> 0:02:56.600
+and subgroupIsFirst gives us whether
+
+54
+0:02:56.600 --> 0:03:01.120
+we are the first invocation among the active threads.
+
+56
+0:03:02.400 --> 0:03:04.360
+Slide 10.
+
+slide-10
+0:03:04.360 --> 0:03:07.520
+subgroupAll returns true to all invocations
+
+58
+0:03:07.520 --> 0:03:12.240
+in case all invocations provided with true and
+
+59
+0:03:12.240 --> 0:03:16.800
+-Any returns true in case at least one invocation provides true.
+
+61
+0:03:16.800 --> 0:03:20.320
+Slide 11.
+
+slide-11
+0:03:20.320 --> 0:03:26.400
+Arithmetic operations essentially provide you with reduction,
+
+63
+0:03:26.400 --> 0:03:31.160
+addition across invocations, multiplication, minimum, maximum,
+
+64
+0:03:31.160 --> 0:03:35.760
+“and”, “or”, “exclusive or”,
+
+65
+0:03:35.760 --> 0:03:37.440
+but it is important to note that
+
+66
+0:03:37.440 --> 0:03:42.640
+these operations will take place across active threads
+
+67
+0:03:42.640 --> 0:03:46.960
+and they can, besides scalar numerical values,
+
+68
+0:03:46.960 --> 0:03:49.000
+they can take vectors too.
+
+70
+0:03:49.000 --> 0:03:53.160
+Slide 12.
+
+slide-12
+0:03:53.160 --> 0:03:57.400
+Prefix operations provide us with
+
+72
+0:03:57.400 --> 0:04:00.440
+the summation or multiplication of invocations
+
+73
+0:04:00.440 --> 0:04:04.280
+with an index less than the one we are inspecting.
+
+75
+0:04:04.280 --> 0:04:09.000
+Slide 13.
+
+slide-13
+0:04:09.000 --> 0:04:13.560
+subgroupBallot returns a bitfield
+
+77
+0:04:13.560 --> 0:04:19.720
+where the bit is one in the corresponding invocation
+
+78
+0:04:19.720 --> 0:04:25.480
+in case the invocation provided true to the ballot operation
+
+79
+0:04:25.480 --> 0:04:30.000
+and subgroupBroadcastFirst broadcasts the value
+
+80
+0:04:30.000 --> 0:04:36.360
+in the first lane, the first active lane to rest of the invocations.
+
+82
+0:04:39.760 --> 0:04:43.160
+Slide 14.
+
+slide-14
+0:04:43.160 --> 0:04:48.400
+On desktop, subgroup operations are available everywhere
+
+84
+0:04:48.400 --> 0:04:52.800
+at least the target of WebGPU
+
+85
+0:04:52.800 --> 0:04:56.280
+and on the mobile, most of the next generation chips support them.
+
+87
+0:04:56.280 --> 0:05:00.360
+Slide 15.
+
+slide-15
+0:05:00.360 --> 0:05:04.880
+Technically subgroup operations can make it into MVP
+
+89
+0:05:04.880 --> 0:05:09.400
+as a good addition in the standard library of WebGPU shading language
+
+90
+0:05:09.400 --> 0:05:13.320
+because the raised concerns mostly fall out of scope
+
+91
+0:05:13.320 --> 0:05:18.800
+for this PR and not blockers for adoption as is.
+
+93
+0:05:20.480 --> 0:05:21.760
+Slide 16.
+
+slide-16
+0:05:21.760 --> 0:05:26.680
+Thanks and you can check the PR itself to see more
+
+95
+0:05:26.680 --> 0:05:31.120
+and reach out to me for anything related to subgroups.
+
+96
+0:05:31.120 --> 0:05:40.280
+Have a nice and healthy day!
+
+

@@ -10,7 +10,6 @@ const linkableTerms = Object.keys(lexicon);
 function annotateSentence(sentence) {
   sentence = sentence.replace(/^slide [a-z0-9]*\.?/i, '');
   sentence = sentence.replace(/^next slide\.?/i, '');
-  sentence = sentence.replace(/<v [^>]*>/, '').replace(/<\/v>/, '');
   for (let term of linkableTerms) {
     sentence = sentence.replace(new RegExp("(.)?(" + term + ")(.)?", "g"), (match,p1,p2,p3) => {
       if ((!p1 || !p1.match(/[a-zA-Z0-9>]/)) && (!p3 || !p3.match(/[<a-zA-Z0-9]/)))
@@ -31,6 +30,7 @@ for (let shortname of Object.keys(talks)) {
     continue;
   }
   cues.forEach(c => c.text = c.text.replace(/^slide [0-9]+$/i, '')
+                 .replace(/<v [^>]*>/, '').replace(/<\/v>/, '')
                .replace('"',''));
   const sentences = splitter.split(cues.map(c => c.text).join(' '))
         .map(s => s.raw.trim()).filter(s => s);
@@ -83,17 +83,16 @@ for (let shortname of Object.keys(talks)) {
         if (slide) {
           [...slide.querySelectorAll("img[src]")].forEach(n => {
             n.setAttribute("src", n.src);
-            slide.setAttribute("role", "region");
-            slide.setAttribute("aria-label", `Slide ${i} of ${divs.length - 1}`);
           });
+          slide.setAttribute("role", "region");
+          slide.setAttribute("aria-label", `Slide ${i} of ${divs.length - 1}`);
           content += slide.outerHTML ;
         }
       } else if (format === "pdf") {
-        content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript>`;
+        content += `<div class="slide" role='region' aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}" data-fmt="${format}" data-src="${slideurl}"><noscript><a href="${talks[shortname].url || 'https://www.w3.org/2020/Talks/mlws/' + shortname + '.pdf#page=' + i}">Slide ${i}</a></noscript></div>`;
       } else {
-        content += `<div class="slide iframe" role="region" aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}"><iframe src="${slideurl}#${i}"></iframe>`;
+        content += `<div class="slide iframe" role="region" aria-label="Slide ${i} of ${divs.length - 1}" id="slide-${i}"><iframe src="${slideurl}#${i}"></iframe></div>`;
       }
-      content += "</div>";
     }
     content += `<div role='region'>`;
     content += "<p>" + divs[i].join("</p>\n<p>") + "</p>";

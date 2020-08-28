@@ -9,6 +9,9 @@
     {% if page.format == "shower" %}
     <link rel="stylesheet" href="https://www.w3.org/2020/Talks/fd-media-processing/template/slides.css">
     {% endif %}
+    {% if page.format == "pdf" %}
+    <link rel="stylesheet" href="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.css">
+    {% endif %}
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../presentation-viewer.css">
     <link rel="stylesheet" href="../tooltip.css">
@@ -48,25 +51,21 @@
     {% assign shortname = page.shortname %}
     {% assign path = "../" %}
     <main>
-    <details>
-          <summary>Keyboard shortcuts in the video player</summary>
-          <ul>
-            <li>Play/pause: <kbd>space</kbd>
-            </li><li>Increase volume: <kbd>up arrow</kbd>
-            </li><li>Decrease volume: <kbd>down arrow</kbd>
-            </li><li>Seek forward: <kbd>right arrow</kbd>
-            </li><li>Seek backward: <kbd>left arrow</kbd>
-            </li><li>Captions on/off: <kbd>C</kbd>
-            </li><li>Fullscreen on/off: <kbd>F</kbd>
-            </li><li>Mute/unmute: <kbd>M</kbd>
-            </li><li>Seek percent: <kbd>0-9</kbd>
-          </li></ul>
-    </details>
-    <form id="form">
-        {% if page.slidesurl  %}
+      {% include related-issues/{{shortname}}.html %}
+      {% assign videoSync = false %}
+      {% if page.slidesurl %}
+      {% assign videoSync = true %}
+      {% endif %}
+      {% if page.nosync == true%}
+      {% assign videoSync = false %}
+      {% endif %}
+
+    <form id="form" {% if videoSync  %}{% else if page.slidesurl %}class="videonav"{% endif %}>
+        {% if videoSync  %}
         <input type="checkbox" name="sync" id="sync"><label for="sync" class="button">Sync video and hide transcript
         <a href="https://www.w3.org/2020/05/AC/talk-help.html"  rel=help title="Help" class="picto im-question"></a></label>&nbsp;
-
+        {% endif %}
+        {% if page.slidesurl %}
         <a class="picto im-angle-up button" id="align" href="#align" title="Align to top of window"></a>&nbsp;
         <span id="prevnext" aria-label="Slide navigation controls" role="navigation">
           <a id="firstslide" href="#firstslide" title="First slide" class="button" role="button">1st</a>
@@ -88,10 +87,16 @@
   "uploadDate": "2020-08-17T13:00:00+02:00",
   "duration": "{{page.duration_so}}",
   "embedUrl": "{{page.videourl}}"}
-</script>
-
-          <div {% if page.slidesurl %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
-          picture-in-picture" allowfullscreen="" {% if page.slidesurl %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
+      </script>
+          <div {% if videoSync %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
+                                                                                                                                                            picture-in-picture" allowfullscreen="" {% if videoSync %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
+          {% if page.nosync == true %}
+      <p id=caption>
+        <output id=cue aria-live=off>
+          <noscript>(Synchronization requires JavaScript)</noscript>
+        </output>
+      </p>
+      {% endif %}
         {% if page.slidesurl %}
           <output id="slidenr" aria-live="polite"><a href="#start">Slide 1 of 40</a></output>
           
@@ -108,6 +113,21 @@
       <h3>Transcript</h3>
       {% include transcripts/{{shortname}}.html %}
       {% endif  %}
+    <details>
+          <summary>Keyboard shortcuts in the video player</summary>
+          <ul>
+            <li>Play/pause: <kbd>space</kbd>
+            </li><li>Increase volume: <kbd>up arrow</kbd>
+            </li><li>Decrease volume: <kbd>down arrow</kbd>
+            </li><li>Seek forward: <kbd>right arrow</kbd>
+            </li><li>Seek backward: <kbd>left arrow</kbd>
+            </li><li>Captions on/off: <kbd>C</kbd>
+            </li><li>Fullscreen on/off: <kbd>F</kbd>
+            </li><li>Mute/unmute: <kbd>M</kbd>
+            </li><li>Seek percent: <kbd>0-9</kbd>
+          </li></ul>
+    </details>
+
         </div><!-- id=player -->
         {% include horizontal-nav.html %}
     </form>
@@ -145,7 +165,8 @@
     </script>
     <script src="../webvtt-parser.js"></script>
     {% if page.format == "pdf" %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.js"></script>
     {% endif %}
     <script src="../presentation-viewer.js"></script>
     {% if page.format == "pdf" %}

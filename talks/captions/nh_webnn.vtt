@@ -2,7 +2,6 @@ WEBVTT
 
 
 slide-1
-1
 0:00:09.300 --> 0:00:11.460
 <v ->Hello everyone, welcome.</v>
 
@@ -332,7 +331,7 @@ Slide six.
 
 slide-6
 0:04:08.650 --> 0:04:12.883
-The proposal is a Web Neural Network API, known as WebNN.
+The proposal is a Web Neural Network API, as known as WebNN.
 
 84
 0:04:14.107 --> 0:04:15.520
@@ -588,7 +587,7 @@ Contributions are welcome.
 
 147
 0:07:26.500 --> 0:07:30.210
-Execution start compute is a synchronous operation,
+Execution start compute is asynchronous operation,
 
 148
 0:07:30.210 --> 0:07:34.530
@@ -743,7 +742,6 @@ of WebNN prototype we collected on laptop and smartphone.
 Feel free to check them out.
 
 slide-11
-186
 0:09:39.570 --> 0:09:41.900
 As the number shows,
 

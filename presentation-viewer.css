@@ -28,6 +28,7 @@
       #player {margin-top: 1.2rem;
         border-top: 1px solid transparent /* Trick to stop margin collapsing */}
       .buttons button {font: inherit; font-weight: 700; cursor: pointer}
+      .buttons a:hover {color: white;}
       .slide:target {outline: none}
 
       iframe {width: 100%; height: 100%}
@@ -37,10 +38,10 @@
       label.button::before {content: none} /* Undo a rule in style.css */
 
       .comment, .progress {display: none}
-      .slide {width: 40.889em; max-width: 100%; height: 23em; /* Ratio 16:9 */
+      .slide {width: 40.889em; height: 23em; /* Ratio 16:9 */
 	/* Add a border, because the slides are white: */
 	overflow: hidden; box-sizing: border-box; border: 1px solid;
-	display: block; margin: 0 0 1rem 0; /*box-shadow: none*/}
+	display: block; margin: 0 0 1em 0; box-shadow: none}
       .slide canvas {vertical-align: bottom}
 
       summary::before {font-size: 1em; margin-left: 0}
@@ -51,14 +52,14 @@
       #slidenr, #caption {box-sizing: border-box; line-height: 1.3}
       #video1, #slidenr, #caption, #cue, .slide {border-radius: 0.5em}
       #video1, #audio {border: none}
-      #slidenr {display: block; background: hsla(204,69%,15%,0.8);
+      #slidenr {display: block; background: #eee; color: black;
                 text-align: center}
-      #slidenr a:link { color: white;}
+      #slidenr a:link {color: inherit}
       #caption, #prevnext {display: none}
       #caption {height: 3.2em /* Room for two lines and padding */}
-      #caption, #cue {background:hsl(204,69%,16%)}
+      #caption, #cue {background: #eee; color: black}
       #caption, #slidenr {text-align: center; padding: 0.3em;
-	margin: 0 0 1em 0; color: white}
+	margin: 0 0 1em 0}
       #cue {display: block; margin: -0.3em; padding: 0.3em; min-height: 3.2em}
       #cue[lang|=zh] {font-size: 110%; min-height: 1.6em}
       #cuelang {float: right}
@@ -67,7 +68,7 @@
       #player::after {content: " "; display: block; height: 0; clear: both}
       #slides, #caption {width: 40.889em; max-width: 100%}
       #slidenr, #video1 {margin: 0; display: block; position: fixed;
-	right: 1em; z-index: 2; width: 20em}
+	right: 1em; z-index: 2; width: 20em; max-width: 100%}
       #video1 {bottom: 3.6em; height: 11.25em /* 20em * 9/16 */;
         max-height: 100%}
       #slidenr {bottom: 1em}
@@ -97,9 +98,9 @@
         visibility: hidden}
       #sync:checked ~ #player .slide.active {position: relative;
         visibility: visible}
-      #sync:checked ~ #prevnext {display: inline}
+      .videonav #prevnext, #sync:checked ~ #prevnext {display: inline}
       #sync:checked ~ #player #slides > *:not(.slide) {display: none}
-      #sync:checked ~ #player #caption {display: block}
+      .videonav #player #caption, #sync:checked ~ #player #caption {display: block}
 
       /* ... and only the active elements of incremental display. */
       #sync:checked ~ #player .next {visibility: hidden}
@@ -118,16 +119,32 @@
       #sync:checked ~ #player .slide a {transition: none}
 
 
-      /* If the body is narrow, leave the video above the slides instead */
-      @media (max-width: 76em) {
+      /* If the body is narrow, leave the video above the slides
+         instead. Use 'relative' instead of 'static', so that
+         'z-index' continues to apply and the video is on top of the
+         negative margin of the following slides. */
+      @media (max-width: 68em) {
 	#sync:checked ~ #player #slidenr, #slidenr,
-	#sync:checked ~ #player #video1, #video1 {position: static;
-          margin: 1em auto}
-	#slides {margin-left: auto; margin-right: auto}
-	.slide {width: 100%; height: 46.9vw;
-	  width: calc(100vw - 15px - 6em); /* 15px = estimated scrollbar */
-	  height: calc((100vw - 15px - 6em) * 9/16)}
+	#sync:checked ~ #player #video1, #video1 {position: relative;
+          top: auto; left: auto;
+          margin: 1em 0}
       }
+
+      /* If the body is very narrow, scale the slides down. */
+      @media (max-width: 46.5em) {
+	.slide {transform-origin: 0 100%; transform: scale(0.8);
+	  margin-top: -4.6em}
+      }
+      @media (max-width: 38em) {
+	.slide {transform: scale(0.6); margin-top: -9.2em}
+      }
+      @media (max-width: 29em) {
+	.slide {transform: scale(0.4); margin-top: -13.8em}
+      }
+      @media (max-width: 19.5em) {
+	.slide {transform: scale(0.2); margin-top: -18.4em}
+      }
+
       iframe.fw { width: 100%; height: 400px;}
       .buttons > * {
 	background: #103852;
@@ -148,6 +165,7 @@
 	margin: 0 2rem 2rem 0;
 	text-align: center;
         min-height: 6.5em;
+	height: auto;
         }
       @media (min-width: 33em) {
       .buttons > *, .badges > * {
@@ -174,14 +192,20 @@
       .slide dl,
       .slide ul,
       .slide ol {
-          margin: inherit;
+          /*margin: inherit;*/
       }
       .slide iframe {
-	width: 133%;
-	height: 133%;
-	transform: scale(0.75);
-	transform-origin: 0 0;
+	/*width: 133%;*/
+	/*height: 133%;*/
+	/*transform: scale(0.75);*/
+	/*transform-origin: 0 0;*/
       }
       .slide.iframe {
-          height: 26em;
+          /*height: 26em;*/
       }
+
+/**
+ * Following rule is needed for PDF.js to position the text layer correctly
+ * relative to the canvas
+ */
+.slide .page { position: relative; }

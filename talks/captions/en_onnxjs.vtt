@@ -378,7 +378,7 @@ speech recognition and NLP
 
 95
 00:05:36.206 --> 00:05:39.439
-including brute and other transformers.
+including BERT and other transformers.
 
 96
 00:05:42.756 --> 00:05:43.969
@@ -598,7 +598,7 @@ ONNX.js leverages web worker to enable parallelization
 
 150
 00:09:40.026 --> 00:09:42.086
-with heavy operators,
+within heavy operators,
 
 151
 00:09:42.086 --> 00:09:45.216
@@ -750,7 +750,7 @@ majorly three steps,
 
 188
 00:12:03.961 --> 00:12:07.378
-create an ONNX session, a node ONNX model
+create an ONNX session, load ONNX model
 
 189
 00:12:08.396 --> 00:12:10.566
@@ -854,7 +854,7 @@ For example, WebNN, web neural network,
 
 214
 00:13:44.366 --> 00:13:48.469
-is one well promising tech ONNX can integrate.
+is one well promising tech ONNX.JS can integrate.
 
 215
 00:13:49.646 --> 00:13:51.546
