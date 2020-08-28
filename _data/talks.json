@@ -359,7 +359,8 @@
         "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
         "noslide": true,
         "abstract": "    This talk will present a few projects Counterpoint has built with TensorFlow.js and Magenta.js over the past couple of years. Ranging from experimental musical instruments to interactive artworks, they've really stretched what can be done in the browser context. It will focus on the special considerations needed in music & audio applications, the relationship between ML models and Web Audio, and the limitations encountered while combining the two.",
-        "abstract_zh": "该演讲将介绍Counterpoint在过去几年中使用TensorFlow.js和Magenta.js构建的一些项目。从实验性乐器到交互式艺术品，它们确实扩展了在浏览器上下文中可以完成的工作。它将着重于音乐和音频应用程序中需要考虑的特殊注意事项，ML模型与Web Audio之间的关系以及将两者结合时遇到的限制。",        "duration": "10:26"
+        "abstract_zh": "该演讲将介绍Counterpoint在过去几年中使用TensorFlow.js和Magenta.js构建的一些项目。从实验性乐器到交互式艺术品，它们确实扩展了在浏览器上下文中可以完成的工作。它将着重于音乐和音频应用程序中需要考虑的特殊注意事项，ML模型与Web Audio之间的关系以及将两者结合时遇到的限制。", 
+        "duration": "10:26" 
       },
       "kd_speech": {
         "title": "Wreck a Nice Beach in the Browser: Getting the Browser to Recognize Speech",
@@ -380,7 +381,7 @@
         "author": "Ryuichi Tanimoto",
         "affiliation": "Stockmark",
         "bio": "    web developer/system architect at Stockmark Inc.",
-        "bio_zh": "",
+        "bio_zh": "Stockmark 的开发者及系统架构师",
         "abstract": "    Stockmark develops a B2B SaaS product based on machine learning and natural language processing technology to provide search and analysis UX of business news on the web and support the market research or competitive analysis in the business scene. This talk will share Stockmark's experience with developing the machine learning processes with fastText or BERT model in browser that suggests certain news or phrases or quantitative information in the text of searched news, in response to user's action to the web page.",
         "abstract_zh": "Stockmark开发基于机器学习和自然语言处理技术的B2B SaaS产品，以在网络上提供商业新闻的搜索和分析UX，并支持商业场景中的市场研究或竞争分析。该演讲将分享Stockmark的经验，即在浏览器中使用fastText或BERT模型开发机器学习过程，以响应用户对网页的操作，在搜索到的新闻文本中建议某些新闻或短语或定量信息。"
       },
