@@ -1,0 +1,1239 @@
+﻿WEBVTT
+
+slide-1
+00:00:10.030 --> 00:00:12.570
+<v ->Hi, I'm Jeff Hammond from Intel, and I'll be talking</v>
+
+3
+00:00:12.570 --> 00:00:14.427
+about “Heterogeneous Parallel Programming
+
+4
+00:00:14.427 --> 00:00:18.597
+"With Open Standards Using oneAPI and Data Parallel C++”.
+
+slide-2
+00:00:21.720 --> 00:00:24.610
+The motivation for what we're doing here is
+
+6
+00:00:24.610 --> 00:00:28.460
+that we have an ever-increasing diversity and complexity
+
+7
+00:00:28.460 --> 00:00:30.030
+in computer architecture.
+
+8
+00:00:30.030 --> 00:00:33.070
+This has been going on for 20 years or so
+
+9
+00:00:33.070 --> 00:00:36.200
+with the introduction of multicore and SIMD units,
+
+10
+00:00:36.200 --> 00:00:39.740
+and obviously GPUs and other forms of accelerators.
+
+11
+00:00:39.740 --> 00:00:42.130
+And I think as this audience knows, you know,
+
+12
+00:00:42.130 --> 00:00:45.870
+AI accelerators, special purpose processors
+
+13
+00:00:45.870 --> 00:00:48.630
+have just exploded over the last few years,
+
+14
+00:00:48.630 --> 00:00:51.350
+and there's really no indication that
+
+15
+00:00:51.350 --> 00:00:53.970
+there's gonna be any convergence in architecture or,
+
+16
+00:00:53.970 --> 00:00:55.750
+or simplification.
+
+17
+00:00:55.750 --> 00:00:58.490
+We're gonna be dealing with this problem for a while now,
+
+18
+00:00:58.490 --> 00:01:01.050
+but, and furthermore, even within families
+
+19
+00:01:01.050 --> 00:01:04.490
+of architectures like GPUs, or, FPGAs,
+
+20
+00:01:04.490 --> 00:01:05.810
+obviously there are different vendors
+
+21
+00:01:05.810 --> 00:01:06.970
+and different programming models
+
+22
+00:01:06.970 --> 00:01:08.530
+and different execution models.
+
+23
+00:01:08.530 --> 00:01:11.560
+So there's still even within one architectural family,
+
+24
+00:01:11.560 --> 00:01:14.490
+there's still things that one needs to worry about.
+
+25
+00:01:14.490 --> 00:01:17.900
+So what we really like to do to solve
+
+26
+00:01:17.900 --> 00:01:20.100
+at least part of the problem here is come up
+
+27
+00:01:20.100 --> 00:01:23.970
+with a base software platform that is capable
+
+28
+00:01:23.970 --> 00:01:25.040
+of working everywhere.
+
+29
+00:01:25.040 --> 00:01:28.120
+It doesn't work perfectly optimally on every processor.
+
+30
+00:01:28.120 --> 00:01:30.820
+That's not really possible with a single source code,
+
+31
+00:01:30.820 --> 00:01:32.860
+but what we'd like to have is
+
+32
+00:01:32.860 --> 00:01:35.930
+a single software architecture that works
+
+33
+00:01:35.930 --> 00:01:36.800
+at a whole bunch of places.
+
+34
+00:01:36.800 --> 00:01:38.200
+And you can start with working code
+
+35
+00:01:38.200 --> 00:01:40.550
+and then you can go off and tune it
+
+36
+00:01:40.550 --> 00:01:42.410
+when you need to.
+
+37
+00:01:42.410 --> 00:01:45.610
+And hopefully you can get a lot of code reuse
+
+38
+00:01:45.610 --> 00:01:47.960
+and you can focus your effort on performance tuning
+
+39
+00:01:47.960 --> 00:01:49.360
+when that's important.
+
+slide-3
+00:01:51.570 --> 00:01:54.700
+So what Intel is doing with oneAPI is,
+
+41
+00:01:54.700 --> 00:01:56.770
+if you look at the left, is the core screen diagram.
+
+42
+00:01:56.770 --> 00:01:58.130
+Obviously we have applications.
+
+43
+00:01:58.130 --> 00:01:59.580
+There's millions of those.
+
+44
+00:01:59.580 --> 00:02:02.600
+And, and many of those applications share middleware
+
+45
+00:02:02.600 --> 00:02:04.570
+or frameworks; obviously things like TensorFlow
+
+46
+00:02:04.570 --> 00:02:06.350
+are really well known frameworks.
+
+47
+00:02:06.350 --> 00:02:09.480
+And then there's OpenMP as, as like middleware,
+
+48
+00:02:09.480 --> 00:02:12.220
+you know, that people use in high performance computing,
+
+49
+00:02:12.220 --> 00:02:14.360
+and then, you know, what oneAPI is,
+
+50
+00:02:14.360 --> 00:02:17.890
+is it's trying to be an industry initiative
+
+51
+00:02:17.890 --> 00:02:19.720
+that, that of course Intel will productize,
+
+52
+00:02:19.720 --> 00:02:21.950
+but it's an open standard specification
+
+53
+00:02:21.950 --> 00:02:24.590
+for a set of things that will live
+
+54
+00:02:24.590 --> 00:02:27.270
+in the area between the frameworks
+
+55
+00:02:27.270 --> 00:02:30.190
+and the middleware and a variety of different architectures.
+
+56
+00:02:30.190 --> 00:02:34.880
+So we, Intel, make CPUs, GPUs, FPGAs and AI processors,
+
+57
+00:02:34.880 --> 00:02:37.340
+and so there's a, there's a even within our company,
+
+58
+00:02:37.340 --> 00:02:38.820
+there's a big scope of architectures.
+
+59
+00:02:38.820 --> 00:02:41.880
+And obviously in the greater Silicon ecosystem,
+
+60
+00:02:41.880 --> 00:02:44.650
+there's just a tremendous amount of stuff
+
+61
+00:02:44.650 --> 00:02:48.010
+that could be, could be the bottom of this stack.
+
+62
+00:02:48.010 --> 00:02:50.230
+Now, if we look at the details,
+
+63
+00:02:50.230 --> 00:02:53.360
+what oneAPI industry specification is trying to do is,
+
+64
+00:02:53.360 --> 00:02:55.780
+is address at least two problems,
+
+65
+00:02:55.780 --> 00:02:57.220
+one of which is direct programming.
+
+66
+00:02:57.220 --> 00:03:00.370
+So for that, we have something called Data Parallel C++,
+
+67
+00:03:00.370 --> 00:03:02.020
+which I'll explain in just a second.
+
+68
+00:03:02.020 --> 00:03:04.360
+And then we have API based programming.
+
+69
+00:03:04.360 --> 00:03:05.840
+Of course, that's the sort of libraries
+
+70
+00:03:05.840 --> 00:03:07.290
+that people are used to.
+
+71
+00:03:07.290 --> 00:03:09.720
+So if you're used to AI programming,
+
+72
+00:03:09.720 --> 00:03:12.640
+you're probably not writing a great deal of direct code.
+
+73
+00:03:12.640 --> 00:03:15.180
+You're using a framework; you might be using Python.
+
+74
+00:03:15.180 --> 00:03:17.430
+You might be calling  a deep learning library
+
+75
+00:03:17.430 --> 00:03:19.270
+or a data analytics library.
+
+76
+00:03:19.270 --> 00:03:21.150
+There's a lot of middleware
+
+77
+00:03:21.150 --> 00:03:22.490
+that gets reused in this space.
+
+78
+00:03:22.490 --> 00:03:25.320
+And it's important to standardize,
+
+79
+00:03:25.320 --> 00:03:27.790
+have open standards for both of these things,
+
+80
+00:03:27.790 --> 00:03:29.250
+because we, you know, if you only have
+
+81
+00:03:29.250 --> 00:03:31.190
+direct programming standards, well,
+
+82
+00:03:31.190 --> 00:03:34.200
+then fine, you either have to write it all yourself,
+
+83
+00:03:34.200 --> 00:03:37.220
+or you have to write some code that might be standard,
+
+84
+00:03:37.220 --> 00:03:38.580
+and then couple it to a whole bunch
+
+85
+00:03:38.580 --> 00:03:39.750
+of nonstandard libraries.
+
+86
+00:03:39.750 --> 00:03:41.650
+And it doesn't really address the problem.
+
+87
+00:03:41.650 --> 00:03:43.040
+You're not gonna get, you know,
+
+88
+00:03:43.040 --> 00:03:45.920
+an out of the box working code on a new platform
+
+89
+00:03:45.920 --> 00:03:48.333
+if none of the library APIs are standard.
+
+slide-4
+00:03:50.620 --> 00:03:52.990
+So Khronos SYCL 2020
+
+91
+00:03:52.990 --> 00:03:56.920
+is the heterogeneous parallel programming standard
+
+92
+00:03:56.920 --> 00:03:59.940
+that Data Parallel C++  is building off of.
+
+93
+00:03:59.940 --> 00:04:03.300
+So the Data Parallel C++ compiler is, is Clang-based.
+
+94
+00:04:03.300 --> 00:04:04.670
+It's open source.
+
+95
+00:04:04.670 --> 00:04:06.090
+It's obviously implementing ISO C++
+
+96
+00:04:06.090 --> 00:04:07.690
+'cause that's what Clang does.
+
+97
+00:04:07.690 --> 00:04:11.080
+And then, you know, we're working on SYCL support.
+
+98
+00:04:11.080 --> 00:04:14.470
+So SYCL 2020 is a provisional specification
+
+99
+00:04:14.470 --> 00:04:16.590
+that, you know, is being worked on this year.
+
+100
+00:04:16.590 --> 00:04:18.060
+So hopefully it'll be, you know,
+
+101
+00:04:18.060 --> 00:04:19.550
+polished by the end of the year.
+
+102
+00:04:19.550 --> 00:04:21.310
+And it builds on SYCL 1.2.1,
+
+103
+00:04:21.310 --> 00:04:24.560
+which is the prior standard that's out there already.
+
+104
+00:04:24.560 --> 00:04:27.140
+And Intel worked with the SYCL community
+
+105
+00:04:27.140 --> 00:04:30.090
+to implement a number of new features
+
+106
+00:04:30.090 --> 00:04:31.700
+that are going into SYCL 2020
+
+107
+00:04:31.700 --> 00:04:33.150
+that are important for usability.
+
+108
+00:04:33.150 --> 00:04:35.140
+These things like unified shared memory,
+
+109
+00:04:35.140 --> 00:04:37.490
+which is a, you know, pointer base memory management,
+
+110
+00:04:37.490 --> 00:04:40.560
+which was requested by a lot of users.
+
+111
+00:04:40.560 --> 00:04:43.480
+Reductions are important for a lot of workloads.
+
+112
+00:04:43.480 --> 00:04:44.550
+Subgroups are something
+
+113
+00:04:44.550 --> 00:04:46.790
+that help you do more performance tuning.
+
+114
+00:04:46.790 --> 00:04:48.900
+And then in-order queues was a convenience feature
+
+115
+00:04:48.900 --> 00:04:52.070
+for people that had codes that just mapped naturally
+
+116
+00:04:52.070 --> 00:04:53.920
+onto those instead of out of order queues.
+
+117
+00:04:53.920 --> 00:04:56.730
+So Intel is gonna continue to work with the SYCL community
+
+118
+00:04:56.730 --> 00:04:58.350
+to bring additional features.
+
+119
+00:04:58.350 --> 00:05:01.310
+Obviously we want to see everybody else contribute as well,
+
+120
+00:05:01.310 --> 00:05:03.730
+but we're working with the SYCL community as a way
+
+121
+00:05:03.730 --> 00:05:07.120
+to develop a heterogeneous programming language
+
+122
+00:05:07.120 --> 00:05:10.780
+that's standard and not proprietary and not closed source.
+
+123
+00:05:10.780 --> 00:05:13.410
+So you can go to GitHub and you can see,
+
+124
+00:05:13.410 --> 00:05:14.980
+you know, this is the work in progress.
+
+125
+00:05:14.980 --> 00:05:16.400
+This the upstreaming part of this,
+
+126
+00:05:16.400 --> 00:05:18.890
+which we've, we've talked about with the LVM community,
+
+127
+00:05:18.890 --> 00:05:21.110
+but our compiler is on GitHub
+
+128
+00:05:21.110 --> 00:05:24.070
+and the extensions that we were building last year
+
+129
+00:05:24.070 --> 00:05:27.480
+prior to standardization for SYCL were documented there.
+
+130
+00:05:27.480 --> 00:05:30.010
+And, and of course, then we helped contribute them
+
+131
+00:05:30.010 --> 00:05:32.683
+to the Khronos SYCL provisional spec.
+
+slide-5
+00:05:34.010 --> 00:05:35.790
+So why SYCL?
+
+133
+00:05:35.790 --> 00:05:39.540
+So OpenCL, which is, you know, sort of an ancestor to SYCL,
+
+134
+00:05:39.540 --> 00:05:41.760
+it has a well-defined portable execution model,
+
+135
+00:05:41.760 --> 00:05:42.860
+which is really important.
+
+136
+00:05:42.860 --> 00:05:44.290
+Obviously you wanna start with something
+
+137
+00:05:44.290 --> 00:05:46.940
+that has a portable concept in it,
+
+138
+00:05:46.940 --> 00:05:49.940
+but a lot of application programmers find it too verbose.
+
+139
+00:05:49.940 --> 00:05:51.370
+And unfortunately, you know,
+
+140
+00:05:51.370 --> 00:05:53.940
+that verbosity might've been addressed by middleware,
+
+141
+00:05:53.940 --> 00:05:56.690
+you know, using OpenCL as a compiler target,
+
+142
+00:05:56.690 --> 00:05:59.720
+but the fact is that didn't really happen, unfortunately.
+
+143
+00:05:59.720 --> 00:06:03.000
+And even if there was an OpenCL ecosystem,
+
+144
+00:06:03.000 --> 00:06:05.160
+there's still people that wanna write sort of
+
+145
+00:06:05.160 --> 00:06:07.437
+to the direct language
+
+146
+00:06:07.437 --> 00:06:10.270
+and OpenCL just doesn't have the modern C++ support
+
+147
+00:06:10.270 --> 00:06:12.450
+that a lot of programmers are looking for.
+
+148
+00:06:12.450 --> 00:06:15.150
+And so SYCL is based on modern C++.
+
+149
+00:06:15.150 --> 00:06:17.030
+It starts, you know, clean
+
+150
+00:06:17.030 --> 00:06:19.510
+with a C++11 view of the world.
+
+151
+00:06:19.510 --> 00:06:23.340
+It uses things like Lambdas as, as a very, you know,
+
+152
+00:06:23.340 --> 00:06:25.300
+important central concept.
+
+153
+00:06:25.300 --> 00:06:28.270
+And it uses those features to have
+
+154
+00:06:28.270 --> 00:06:30.820
+a single source heterogeneous programming model.
+
+155
+00:06:30.820 --> 00:06:32.530
+So you can, you know, read top to bottom
+
+156
+00:06:32.530 --> 00:06:35.170
+even if your code might be going off an accelerator.
+
+157
+00:06:35.170 --> 00:06:36.450
+It's really nice to not have
+
+158
+00:06:36.450 --> 00:06:40.290
+that heterogeneous offloaded kernel be in a string
+
+159
+00:06:40.290 --> 00:06:42.380
+or some separate file or some separate function.
+
+160
+00:06:42.380 --> 00:06:44.990
+You can actually read top to bottom; it's kinda nice.
+
+161
+00:06:44.990 --> 00:06:48.460
+And SYCL parallelism, if you have never seen it before,
+
+162
+00:06:48.460 --> 00:06:50.610
+it looks like Intel's thread building blocks
+
+163
+00:06:50.610 --> 00:06:52.900
+or C++ Parallel STL.
+
+164
+00:06:52.900 --> 00:06:54.743
+It looks like some other things too,
+
+165
+00:06:56.150 --> 00:06:59.080
+but it, it's explicit in its control
+
+166
+00:06:59.080 --> 00:07:00.270
+over the hardware resources.
+
+167
+00:07:00.270 --> 00:07:01.990
+So you say, "Hey, I wanna run a CPU,"
+
+168
+00:07:01.990 --> 00:07:03.610
+or, "Hey, I wanna run a GPU."
+
+169
+00:07:03.610 --> 00:07:05.310
+You can obviously pick the default device,
+
+170
+00:07:05.310 --> 00:07:07.260
+and that's gonna work well, too,
+
+171
+00:07:07.260 --> 00:07:09.390
+but in some of these complex heterogeneous systems,
+
+172
+00:07:09.390 --> 00:07:11.010
+you really wanna have explicit control
+
+173
+00:07:11.010 --> 00:07:12.663
+over all your hardware resources.
+
+slide-6
+00:07:13.620 --> 00:07:16.740
+And SYCL is really the first standard programming model
+
+175
+00:07:16.740 --> 00:07:18.710
+designed to address this problem.
+
+176
+00:07:18.710 --> 00:07:21.970
+So there's things like Cocos and RAJA
+
+177
+00:07:21.970 --> 00:07:23.700
+from some of the Department of Energy labs,
+
+178
+00:07:23.700 --> 00:07:26.090
+which are trying to address heterogeneous programming
+
+179
+00:07:26.090 --> 00:07:27.560
+and they're open source and they're portable
+
+180
+00:07:27.560 --> 00:07:29.240
+and that's fantastic,
+
+181
+00:07:29.240 --> 00:07:31.360
+but there's also some value in having a standard
+
+182
+00:07:31.360 --> 00:07:33.550
+that can have a bunch of different implementations.
+
+183
+00:07:33.550 --> 00:07:35.240
+And so that's where SYCL is different.
+
+184
+00:07:35.240 --> 00:07:37.510
+It's an industry standard that is designed
+
+185
+00:07:37.510 --> 00:07:39.400
+to be implemented a bunch of different times
+
+186
+00:07:39.400 --> 00:07:43.040
+as opposed to a standard open source distribution,
+
+187
+00:07:43.040 --> 00:07:45.190
+which also works for other projects.
+
+slide-7
+00:07:47.070 --> 00:07:50.200
+So the SYCL ecosystem, as of, you know, 
+
+189
+00:07:50.200 --> 00:07:54.770
+a month or so ago: there are four well known compilers
+
+190
+00:07:54.770 --> 00:07:56.130
+that are relatively complete.
+
+191
+00:07:56.130 --> 00:07:59.757
+So the Intel Data Parallel C++ family is,
+
+192
+00:07:59.757 --> 00:08:01.560
+you know, the open source version.
+
+193
+00:08:01.560 --> 00:08:03.570
+Then we obviously productize that.
+
+194
+00:08:03.570 --> 00:08:06.270
+The open source version has contributions from Codeplay
+
+195
+00:08:06.270 --> 00:08:08.960
+to support Nvidia back-end.
+
+196
+00:08:08.960 --> 00:08:12.120
+And our compiler will support OpenCL SPIR-V back-end
+
+197
+00:08:12.120 --> 00:08:14.780
+so whether or not those are Intel devices.
+
+198
+00:08:14.780 --> 00:08:16.410
+I personally worked on a little bit of stuff
+
+199
+00:08:16.410 --> 00:08:18.720
+with our importing.
+
+200
+00:08:18.720 --> 00:08:20.610
+It's not done yet, but, but there's clearly
+
+201
+00:08:20.610 --> 00:08:23.510
+the opportunity to run this across a wide range of devices,
+
+202
+00:08:23.510 --> 00:08:25.430
+not just Intel's hardware.
+
+203
+00:08:25.430 --> 00:08:29.440
+So Codeplay has their own implementation called ComputeCpp.
+
+204
+00:08:29.440 --> 00:08:31.410
+They have a free community edition, which is great,
+
+205
+00:08:31.410 --> 00:08:32.820
+and I use all the time and then they have
+
+206
+00:08:32.820 --> 00:08:34.930
+a commercial product, if that's something you need.
+
+207
+00:08:34.930 --> 00:08:36.600
+And they support a wide range of hardware,
+
+208
+00:08:36.600 --> 00:08:38.770
+including OpenCL SPIR-V back-ends,
+
+209
+00:08:38.770 --> 00:08:41.990
+as well as they support Nvidia.
+
+210
+00:08:41.990 --> 00:08:44.970
+So Xilinx Research has something called triSYCL,
+
+211
+00:08:44.970 --> 00:08:46.160
+which is open source.
+
+212
+00:08:46.160 --> 00:08:47.770
+I use it on my laptop all the time.
+
+213
+00:08:47.770 --> 00:08:49.700
+It's not a compiler.
+
+214
+00:08:49.700 --> 00:08:52.210
+It's actually header based, uses Boost,
+
+215
+00:08:52.210 --> 00:08:55.560
+and, and a lot of modern C++,  and therefore,
+
+216
+00:08:55.560 --> 00:08:56.940
+it'll, you know, pretty much work anywhere
+
+217
+00:08:56.940 --> 00:08:59.310
+where you can get a modern C++ compiler and Boost.
+
+218
+00:08:59.310 --> 00:09:02.480
+And, and they, I don't own any Xilinx FPGAs,
+
+219
+00:09:02.480 --> 00:09:04.720
+but they have some interest in that.
+
+220
+00:09:04.720 --> 00:09:07.860
+And, I don't know how it works, so hopefully it does.
+
+221
+00:09:07.860 --> 00:09:10.710
+So hipSYCL is the last major implementation.
+
+222
+00:09:10.710 --> 00:09:12.760
+So this comes from the University of Heidelberg,
+
+223
+00:09:12.760 --> 00:09:14.440
+and sort of, it's in the name
+
+224
+00:09:14.440 --> 00:09:15.670
+that it supports HIP,
+
+225
+00:09:15.670 --> 00:09:18.270
+which is AMD GPU
+
+226
+00:09:18.270 --> 00:09:21.010
+compiler back-end, and it also supports CUDA,
+
+227
+00:09:21.010 --> 00:09:22.480
+and they have an OpenMP support.
+
+228
+00:09:22.480 --> 00:09:25.040
+So if you look across all of these
+
+229
+00:09:25.040 --> 00:09:27.160
+four different compiler implementations,
+
+230
+00:09:27.160 --> 00:09:30.640
+what you see is CPU support, GPU support,
+
+231
+00:09:30.640 --> 00:09:34.250
+and FPGA support across a lot of different vendors.
+
+232
+00:09:34.250 --> 00:09:37.030
+And so there's a really rich ecosystem out there
+
+233
+00:09:37.030 --> 00:09:38.330
+that people can use.
+
+slide-8
+00:09:39.770 --> 00:09:42.770
+So it's natural to ask, you know, how well does SYCL work?
+
+235
+00:09:42.770 --> 00:09:45.600
+Is it, is it actually fulfilling any of this promise
+
+236
+00:09:45.600 --> 00:09:47.860
+of working  well on multiple devices?
+
+237
+00:09:47.860 --> 00:09:50.100
+So Tom Deakin and Simon McIntosh-Smith
+
+238
+00:09:50.100 --> 00:09:52.440
+from the University of Bristol have written a paper.
+
+239
+00:09:52.440 --> 00:09:54.330
+There's a video of them on YouTube
+
+240
+00:09:54.330 --> 00:09:57.180
+and the code is on GitHub, so you can check it all out.
+
+241
+00:09:57.180 --> 00:09:59.610
+I'm not gonna go into any details other than for,
+
+242
+00:09:59.610 --> 00:10:01.290
+you know, bandwidth limited workload,
+
+243
+00:10:01.290 --> 00:10:03.300
+they showed that they can get performance portability
+
+244
+00:10:03.300 --> 00:10:08.000
+with SYCL across all three GPUs from Intel, Nvidia and AMD.
+
+245
+00:10:08.000 --> 00:10:09.110
+There's a little bit of a bug
+
+246
+00:10:09.110 --> 00:10:11.532
+in the Xeon OpenCL implementation
+
+247
+00:10:11.532 --> 00:10:13.580
+that'll be fixed.
+
+248
+00:10:13.580 --> 00:10:15.180
+So that's really an artifact
+
+249
+00:10:15.180 --> 00:10:18.370
+of a measurement, but this shows
+
+250
+00:10:18.370 --> 00:10:19.770
+that you can get performance portability
+
+251
+00:10:19.770 --> 00:10:23.083
+with SYCL relative to whether it's CUDA or HIP.
+
+slide-9
+00:10:24.910 --> 00:10:27.270
+So this is another measurement
+
+253
+00:10:27.270 --> 00:10:29.190
+of performance portability in SYCL by Argonne,
+
+254
+00:10:29.190 --> 00:10:31.100
+Brian Homerding and John Tramm.
+
+255
+00:10:31.100 --> 00:10:33.600
+And again, you can find all the details online.
+
+256
+00:10:33.600 --> 00:10:36.130
+This is, I think, really interesting, 'cause it shows,
+
+257
+00:10:36.130 --> 00:10:37.800
+if you look at the axis here,
+
+258
+00:10:37.800 --> 00:10:40.780
+you've got winners on both sides of the axis.
+
+259
+00:10:40.780 --> 00:10:44.170
+So obviously in some limit you can always make a
+
+260
+00:10:44.170 --> 00:10:47.980
+nonportable proprietary language
+
+261
+00:10:47.980 --> 00:10:50.470
+work better than a portable one, because you can always use,
+
+262
+00:10:50.470 --> 00:10:51.943
+you know, all the features plus some,
+
+263
+00:10:51.943 --> 00:10:53.630
+some nonportable ones,
+
+264
+00:10:53.630 --> 00:10:55.230
+but at least in the code that is in
+
+265
+00:10:55.230 --> 00:10:56.700
+the RAJAPerf test suite,
+
+266
+00:10:56.700 --> 00:10:58.620
+there are examples of code that works better
+
+267
+00:10:58.620 --> 00:10:59.940
+with SYCL and better with CUDA.
+
+268
+00:10:59.940 --> 00:11:01.960
+So this shows that, you know,
+
+269
+00:11:01.960 --> 00:11:03.970
+depending on how you write the code and how much effort,
+
+270
+00:11:03.970 --> 00:11:05.440
+how much you tune it, et cetera,
+
+271
+00:11:05.440 --> 00:11:07.680
+you might find that you can get
+
+272
+00:11:08.600 --> 00:11:10.040
+better performance with a standard,
+
+273
+00:11:10.040 --> 00:11:11.840
+you're not necessarily compromising.
+
+slide-10
+00:11:15.290 --> 00:11:17.070
+The other thing about oneAPI that's important is
+
+275
+00:11:17.070 --> 00:11:18.760
+it's not just about the code that you're writing.
+
+276
+00:11:18.760 --> 00:11:22.070
+You also wanna have libraries and frameworks supported.
+
+277
+00:11:22.070 --> 00:11:24.370
+So, you know, the left is an actual news story
+
+278
+00:11:24.370 --> 00:11:25.840
+that I found amusing.
+
+279
+00:11:25.840 --> 00:11:28.130
+And the thing on the right is, of course, I made up,
+
+280
+00:11:28.130 --> 00:11:30.250
+but just to make the point that
+
+281
+00:11:30.250 --> 00:11:34.040
+it's really fantastic  to outsource your programming
+
+282
+00:11:34.040 --> 00:11:36.520
+of high performance code to libraries
+
+283
+00:11:36.520 --> 00:11:38.130
+and focus on what you actually wanna do,
+
+284
+00:11:38.130 --> 00:11:40.580
+whether it's AI or science or who knows what.
+
+slide-11
+00:11:43.690 --> 00:11:45.830
+So the oneAPI libraries that exist,
+
+286
+00:11:45.830 --> 00:11:49.380
+there's one for, you know, C++ data parallelism
+
+287
+00:11:49.380 --> 00:11:51.800
+through SYCL, which is really the standard library support.
+
+288
+00:11:51.800 --> 00:11:54.390
+Math library, deep learning library, some other stuff
+
+289
+00:11:54.390 --> 00:11:56.290
+for AI data analytics, video.
+
+290
+00:11:56.290 --> 00:11:58.860
+You can find all the details online
+
+291
+00:11:58.860 --> 00:12:00.910
+at the link you'll see on the next slide.
+
+slide-12
+00:12:03.810 --> 00:12:07.010
+So if you wanna learn more about oneAPI, there's oneapi.com.
+
+293
+00:12:07.010 --> 00:12:09.190
+It has the specifications.
+
+294
+00:12:09.190 --> 00:12:10.860
+Then there's the product implementation.
+
+295
+00:12:10.860 --> 00:12:12.740
+If you're using Linux, you can get it a whole bunch
+
+296
+00:12:12.740 --> 00:12:15.090
+of different ways: package managers, Docker,
+
+297
+00:12:15.090 --> 00:12:16.210
+binaries, installers.
+
+298
+00:12:16.210 --> 00:12:17.800
+That also supports Windows.
+
+299
+00:12:17.800 --> 00:12:19.940
+If you don't wanna do anything to your computer,
+
+300
+00:12:19.940 --> 00:12:22.150
+you can sign up for a DevCloud account,
+
+301
+00:12:22.150 --> 00:12:25.130
+account that tries CPU, GPU, and FPGA hardware there.
+
+302
+00:12:25.130 --> 00:12:27.320
+So you don't even have to buy or set up an FPGA,
+
+303
+00:12:27.320 --> 00:12:30.180
+if you've always wanted to try high level synthesis
+
+304
+00:12:30.180 --> 00:12:31.600
+on that with SYCL.
+
+305
+00:12:31.600 --> 00:12:33.090
+So there's some links down below.
+
+306
+00:12:33.090 --> 00:12:35.250
+The first one is a super simple tutorial I wrote
+
+307
+00:12:35.250 --> 00:12:38.260
+all the way working up to a complex,
+
+308
+00:12:38.260 --> 00:12:40.940
+reverse time migration application.
+
+309
+00:12:40.940 --> 00:12:42.930
+And you can check that stuff out,
+
+310
+00:12:42.930 --> 00:12:44.077
+'cause it's all in GitHub.
+
+

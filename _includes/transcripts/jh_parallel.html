@@ -1,0 +1,103 @@
+<div class="slide" role='region' aria-label="Slide 1 of 12" id="slide-1" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=1"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=1">Slide 1</a></noscript></div><div role='region'><p>Hi, I'm Jeff Hammond from Intel, and I'll be talking about “Heterogeneous Parallel Programming With Open Standards Using oneAPI and Data Parallel C++”.</p></div><div class="slide" role='region' aria-label="Slide 2 of 12" id="slide-2" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=2"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=2">Slide 2</a></noscript></div><div role='region'><p>The motivation for what we're doing here is that we have an ever-increasing diversity and complexity in computer architecture.</p>
+<p>This has been going on for 20 years or so with the introduction of multicore and <a class=dfn>SIMD</a> units, and obviously GPUs and other forms of accelerators.</p>
+<p>And I think as this audience knows AI accelerators, special purpose processors have just exploded over the last few years, and there's really no indication that there's gonna be any convergence in architecture or, or simplification.</p>
+<p>We're gonna be dealing with this problem for a while now, but, and furthermore, even within families of architectures like GPUs, or, FPGAs, obviously there are different vendors and different programming models and different execution models.</p>
+<p>So there's still even within one architectural family, there's still things that one needs to worry about.</p>
+<p>So what we really like to do to solve at least part of the problem here is come up with a base software platform that is capable of working everywhere.</p>
+<p>It doesn't work perfectly optimally on every processor.</p>
+<p>That's not really possible with a single source code, but what we'd like to have is a single software architecture that works at a whole bunch of places.</p>
+<p>And you can start with working code and then you can go off and tune it when you need to.</p>
+<p>And hopefully you can get a lot of code reuse and you can focus your effort on performance tuning when that's important.</p></div><div class="slide" role='region' aria-label="Slide 3 of 12" id="slide-3" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=3"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=3">Slide 3</a></noscript></div><div role='region'><p>So what Intel is doing with oneAPI is, if you look at the left, is the core screen diagram.</p>
+<p>Obviously we have applications.</p>
+<p>There's millions of those.</p>
+<p>And, and many of those applications share middleware or frameworks; obviously things like <a class=dfn>TensorFlow</a> are really well known frameworks.</p>
+<p>And then there's <a class=dfn>OpenMP</a> as, as like middleware that people use in high performance computing, and then what oneAPI is, is it's trying to be an industry initiative that, that of course Intel will productize, but it's an open standard specification for a set of things that will live in the area between the frameworks and the middleware and a variety of different architectures.</p>
+<p>So we, Intel, make CPUs, GPUs, FPGAs and AI processors, and so there's a, there's a even within our company, there's a big scope of architectures.</p>
+<p>And obviously in the greater Silicon ecosystem, there's just a tremendous amount of stuff that could be, could be the bottom of this stack.</p>
+<p>Now, if we look at the details, what oneAPI industry specification is trying to do is, is address at least two problems, one of which is direct programming.</p>
+<p>So for that, we have something called Data Parallel C++, which I'll explain in just a second.</p>
+<p>And then we have API based programming.</p>
+<p>Of course, that's the sort of libraries that people are used to.</p>
+<p>So if you're used to AI programming, you're probably not writing a great deal of direct code.</p>
+<p>You're using a framework; you might be using Python.</p>
+<p>You might be calling  a deep learning library or a data analytics library.</p>
+<p>There's a lot of middleware that gets reused in this space.</p>
+<p>And it's important to standardize, have open standards for both of these things, because we if you only have direct programming standards, well, then fine, you either have to write it all yourself, or you have to write some code that might be standard, and then couple it to a whole bunch of nonstandard libraries.</p>
+<p>And it doesn't really address the problem.</p>
+<p>You're not gonna get an out of the box working code on a new platform if none of the library APIs are standard.</p></div><div class="slide" role='region' aria-label="Slide 4 of 12" id="slide-4" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=4"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=4">Slide 4</a></noscript></div><div role='region'><p>So Khronos <a class=dfn>SYCL</a> 2020 is the heterogeneous parallel programming standard that Data Parallel C++  is building off of.</p>
+<p>So the Data Parallel C++ compiler is, is Clang-based.</p>
+<p>It's open source.</p>
+<p>It's obviously implementing ISO C++ 'cause that's what Clang does.</p>
+<p>And then we're working on <a class=dfn>SYCL</a> support.</p>
+<p>So <a class=dfn>SYCL</a> 2020 is a provisional specification that is being worked on this year.</p>
+<p>So hopefully it'll be polished by the end of the year.</p>
+<p>And it builds on <a class=dfn>SYCL</a> 1.2.1, which is the prior standard that's out there already.</p>
+<p>And Intel worked with the <a class=dfn>SYCL</a> community to implement a number of new features that are going into <a class=dfn>SYCL</a> 2020 that are important for usability.</p>
+<p>These things like unified shared memory, which is a pointer base memory management, which was requested by a lot of users.</p>
+<p>Reductions are important for a lot of workloads.</p>
+<p>Subgroups are something that help you do more performance tuning.</p>
+<p>And then in-order queues was a convenience feature for people that had codes that just mapped naturally onto those instead of out of order queues.</p>
+<p>So Intel is gonna continue to work with the <a class=dfn>SYCL</a> community to bring additional features.</p>
+<p>Obviously we want to see everybody else contribute as well, but we're working with the <a class=dfn>SYCL</a> community as a way to develop a heterogeneous programming language that's standard and not proprietary and not closed source.</p>
+<p>So you can go to GitHub and you can see this is the work in progress.</p>
+<p>This the upstreaming part of this, which we've, we've talked about with the LVM community, but our compiler is on GitHub and the extensions that we were building last year prior to standardization for <a class=dfn>SYCL</a> were documented there.</p>
+<p>And, and of course, then we helped contribute them to the Khronos <a class=dfn>SYCL</a> provisional spec.</p></div><div class="slide" role='region' aria-label="Slide 5 of 12" id="slide-5" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=5"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=5">Slide 5</a></noscript></div><div role='region'><p>So why <a class=dfn>SYCL</a>?</p>
+<p>So OpenCL, which is sort of an ancestor to <a class=dfn>SYCL</a>, it has a well-defined portable execution model, which is really important.</p>
+<p>Obviously you wanna start with something that has a portable concept in it, but a lot of application programmers find it too verbose.</p>
+<p>And unfortunately that verbosity might've been addressed by middleware using OpenCL as a compiler target, but the fact is that didn't really happen, unfortunately.</p>
+<p>And even if there was an OpenCL ecosystem, there's still people that wanna write sort of to the direct language and OpenCL just doesn't have the modern C++ support that a lot of programmers are looking for.</p>
+<p>And so <a class=dfn>SYCL</a> is based on modern C++.</p>
+<p>It starts clean with a C++11 view of the world.</p>
+<p>It uses things like Lambdas as, as a very important central concept.</p>
+<p>And it uses those features to have a single source heterogeneous programming model.</p>
+<p>So you can read top to bottom even if your code might be going off an accelerator.</p>
+<p>It's really nice to not have that heterogeneous offloaded kernel be in a string or some separate file or some separate function.</p>
+<p>You can actually read top to bottom; it's kinda nice.</p>
+<p>And <a class=dfn>SYCL</a> parallelism, if you have never seen it before, it looks like Intel's thread building blocks or C++ Parallel STL. It looks like some other things too, but it, it's explicit in its control over the hardware resources.</p>
+<p>So you say, Hey, I wanna run a CPU," or, Hey, I wanna run a GPU." You can obviously pick the default device, and that's gonna work well, too, but in some of these complex heterogeneous systems, you really wanna have explicit control over all your hardware resources.</p></div><div class="slide" role='region' aria-label="Slide 6 of 12" id="slide-6" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=6"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=6">Slide 6</a></noscript></div><div role='region'><p>And <a class=dfn>SYCL</a> is really the first standard programming model designed to address this problem.</p>
+<p>So there's things like Cocos and RAJA from some of the Department of Energy labs, which are trying to address heterogeneous programming and they're open source and they're portable and that's fantastic, but there's also some value in having a standard that can have a bunch of different implementations.</p>
+<p>And so that's where <a class=dfn>SYCL</a> is different.</p>
+<p>It's an industry standard that is designed to be implemented a bunch of different times as opposed to a standard open source distribution, which also works for other projects.</p></div><div class="slide" role='region' aria-label="Slide 7 of 12" id="slide-7" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=7"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=7">Slide 7</a></noscript></div><div role='region'><p>So the <a class=dfn>SYCL</a> ecosystem, as of  a month or so ago: there are four well known compilers that are relatively complete.</p>
+<p>So the Intel Data Parallel C++ family is the open source version.</p>
+<p>Then we obviously productize that.</p>
+<p>The open source version has contributions from Codeplay to support Nvidia back-end.</p>
+<p>And our compiler will support OpenCL SPIR-V back-end so whether or not those are Intel devices.</p>
+<p>I personally worked on a little bit of stuff with our importing.</p>
+<p>It's not done yet, but, but there's clearly the opportunity to run this across a wide range of devices, not just Intel's hardware.</p>
+<p>So Codeplay has their own implementation called ComputeCpp.</p>
+<p>They have a free community edition, which is great, and I use all the time and then they have a commercial product, if that's something you need.</p>
+<p>And they support a wide range of hardware, including OpenCL SPIR-V back-ends, as well as they support Nvidia.</p>
+<p>So Xilinx Research has something called triSYCL, which is open source.</p>
+<p>I use it on my laptop all the time.</p>
+<p>It's not a compiler.</p>
+<p>It's actually header based, uses Boost, and, and a lot of modern C++,  and therefore, it'll pretty much work anywhere where you can get a modern C++ compiler and Boost.</p>
+<p>And, and they, I don't own any Xilinx FPGAs, but they have some interest in that.</p>
+<p>And, I don't know how it works, so hopefully it does.</p>
+<p>So hipSYCL is the last major implementation.</p>
+<p>So this comes from the University of Heidelberg, and sort of, it's in the name that it supports HIP, which is AMD GPU compiler back-end, and it also supports CUDA, and they have an <a class=dfn>OpenMP</a> support.</p>
+<p>So if you look across all of these four different compiler implementations, what you see is CPU support, GPU support, and FPGA support across a lot of different vendors.</p>
+<p>And so there's a really rich ecosystem out there that people can use.</p></div><div class="slide" role='region' aria-label="Slide 8 of 12" id="slide-8" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=8"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=8">Slide 8</a></noscript></div><div role='region'><p>So it's natural to ask how well does <a class=dfn>SYCL</a> work?</p>
+<p>Is it, is it actually fulfilling any of this promise of working  well on multiple devices?</p>
+<p>So Tom Deakin and Simon McIntosh-Smith from the University of Bristol have written a paper.</p>
+<p>There's a video of them on YouTube and the code is on GitHub, so you can check it all out.</p>
+<p>I'm not gonna go into any details other than for bandwidth limited workload, they showed that they can get performance portability with <a class=dfn>SYCL</a> across all three GPUs from Intel, Nvidia and AMD.</p>
+<p>There's a little bit of a bug in the Xeon OpenCL implementation that'll be fixed.</p>
+<p>So that's really an artifact of a measurement, but this shows that you can get performance portability with <a class=dfn>SYCL</a> relative to whether it's CUDA or HIP.</p></div><div class="slide" role='region' aria-label="Slide 9 of 12" id="slide-9" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=9"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=9">Slide 9</a></noscript></div><div role='region'><p>So this is another measurement of performance portability in <a class=dfn>SYCL</a> by Argonne, Brian Homerding and John Tramm.</p>
+<p>And again, you can find all the details online.</p>
+<p>This is, I think, really interesting, 'cause it shows, if you look at the axis here, you've got winners on both sides of the axis.</p>
+<p>So obviously in some limit you can always make a nonportable proprietary language work better than a portable one, because you can always use all the features plus some, some nonportable ones, but at least in the code that is in the RAJAPerf test suite, there are examples of code that works better with <a class=dfn>SYCL</a> and better with CUDA.</p>
+<p>So this shows that depending on how you write the code and how much effort, how much you tune it, et cetera, you might find that you can get better performance with a standard, you're not necessarily compromising.</p></div><div class="slide" role='region' aria-label="Slide 10 of 12" id="slide-10" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=10"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=10">Slide 10</a></noscript></div><div role='region'><p>The other thing about oneAPI that's important is it's not just about the code that you're writing.</p>
+<p>You also wanna have libraries and frameworks supported.</p>
+<p>So the left is an actual news story that I found amusing.</p>
+<p>And the thing on the right is, of course, I made up, but just to make the point that it's really fantastic  to outsource your programming of high performance code to libraries and focus on what you actually wanna do, whether it's AI or science or who knows what.</p></div><div class="slide" role='region' aria-label="Slide 11 of 12" id="slide-11" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=11"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=11">Slide 11</a></noscript></div><div role='region'><p>So the oneAPI libraries that exist, there's one for C++ data parallelism through <a class=dfn>SYCL</a>, which is really the standard library support.</p>
+<p>Math library, deep learning library, some other stuff for AI data analytics, video.</p>
+<p>You can find all the details online at the link you'll see on the next slide.</p></div><div class="slide" role='region' aria-label="Slide 12 of 12" id="slide-12" data-fmt="pdf" data-src="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=12"><noscript><a href="https://www.w3.org/2020/Talks/mlws/jh_parallel.pdf#page=12">Slide 12</a></noscript></div><div role='region'><p>So if you wanna learn more about oneAPI, there's oneapi.com.</p>
+<p>It has the specifications.</p>
+<p>Then there's the product implementation.</p>
+<p>If you're using Linux, you can get it a whole bunch of different ways: package managers, Docker, binaries, installers.</p>
+<p>That also supports Windows.</p>
+<p>If you don't wanna do anything to your computer, you can sign up for a DevCloud account, account that tries CPU, GPU, and FPGA hardware there.</p>
+<p>So you don't even have to buy or set up an FPGA, if you've always wanted to try high level synthesis on that with <a class=dfn>SYCL</a>.</p>
+<p>So there's some links down below.</p>
+<p>The first one is a super simple tutorial I wrote all the way working up to a complex, reverse time migration application.</p>
+<p>And you can check that stuff out, 'cause it's all in GitHub.</p></div>

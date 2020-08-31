@@ -63,5 +63,8 @@
   "Accessible Platform Architectures (APA) Working Group": "The <a href='https://www.w3.org/WAI/APA/'>Accessible Platform Architectures Working Group</a> (APA) is a W3C Working Group with the mission to ensure W3C specifications provide support for accessibility to people with disabilities",
   "Research Questions Task Force": {"href": "https://www.w3.org/WAI/APA/task-forces/research-questions/"},
   "Cognitive Accessibility Task Force": {"href": "https://www.w3.org/WAI/GL/task-forces/coga/"},
-  "our WNGT 2020 submission": {"href": "https://kheafield.com/papers/edinburgh/wngt20.pdf"}
+  "our WNGT 2020 submission": {"href": "https://kheafield.com/papers/edinburgh/wngt20.pdf"},
+  "SYCL": {"href": "https://www.khronos.org/sycl/"},
+  "FGPA": "FGPA stands for Field-Programmable Gate Array and is an integrated circuit that can be customized and reconfigured, well suited to run deep neural network",
+  "OpenMP": {"href": "https://www.openmp.org/"}
 }

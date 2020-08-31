@@ -171,7 +171,7 @@
       "abstract_zh": "Android神经​​网络API（NNAPI）是一个Android C API，旨在在Android设备上运行用于计算机学习的计算密集型操作。 NNAPI旨在为构建和训练神经网络的高级机器学习框架（例如TensorFlow Lite和Caffe2）提供功能的基础层。该API在运行Android 8.1（API级别27）或更高版本的所有Android设备上均可用。基于应用程序的需求和Android设备上的硬件功能，NNAPI可以在可用的设备上处理器（包括专用的神经网络硬件（NPU和TPU），图形处理单元（GPU）和数字信号处理器）上有效地分配计算工作负载（DSP）。",
       "duration": "07:50"
     },
-    "jh_parallel-programming": {
+    "jh_parallel": {
       "title": "Heterogeneous parallel programming with open standards using oneAPI and Data Parallel C++",
       "title_zh": "使用oneAPI和Data Parallel C ++以开放标准进行异构并行编程",
       "author": "Jeff Hammond",
@@ -180,7 +180,11 @@
       "bio": "Jeff Hammond is a Principal Engineer at Intel where he works on a wide range of high-performance computing topics, including parallel programming models, system architecture and open-source software. He has published more than 60 journal and conference papers on parallel computing, computational chemistry, and linear algebra software. Jeff received his PhD in Physical Chemistry from the University of Chicago.",
       "bio_zh": "Jeff Hammond是英特尔公司的首席工程师，在那里他研究广泛的高性能计算主题，包括并行编程模型、系统架构和开源软件。他在并行计算、计算化学和线性代数软件方面发表了60多篇期刊和会议论文。并在芝加哥大学获得物理化学博士学位。",
       "abstract": "Diversity in computer architecture and the unceasing demand for application performance in data-intensive workloads are never-ending challenges for programmers. This talk will describe Intel’s oneAPI initiative, which is an open ecosystem for heterogeneous computing that supports high-performance data analytics, machine learning and other workloads. A key component of this is Data Parallel C++, which is based on C++17 and Khronos SYCL and supports direct programming of CPU, GPU and FPGA platforms. We will describe how oneAPI and Data Parallel C++ can be used to build high-performance applications for a range of devices.",
-      "abstract_zh": "计算机体系结构的多样性和数据密集型工作负载中对应用程序性能的不断需求，对程序员来说是永无止境的挑战。这次演讲将描述英特尔的oneAPI计划，这是一个开放的、支持高性能数据分析、机器学习和其他工作负载的异构计算生态系统。其中一个关键组件是数据并行c++，它基于c++ 17和Khronos SYCL，支持CPU、GPU和FPGA平台的直接编程。我们将描述如何使用oneAPI和Data Parallel c++为一系列设备构建高性能应用程序。"
+      "abstract_zh": "计算机体系结构的多样性和数据密集型工作负载中对应用程序性能的不断需求，对程序员来说是永无止境的挑战。这次演讲将描述英特尔的oneAPI计划，这是一个开放的、支持高性能数据分析、机器学习和其他工作负载的异构计算生态系统。其中一个关键组件是数据并行c++，它基于c++ 17和Khronos SYCL，支持CPU、GPU和FPGA平台的直接编程。我们将描述如何使用oneAPI和Data Parallel c++为一系列设备构建高性能应用程序。",
+      "duration": "12:52",
+      "video": "https://app.streamfizz.live/embed/ckeijprvxa4pq07313u8gw5kd",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckeijprvxa4pq07313u8gw5kd/thumbs/thumb-001.jpeg",
+      "added": "2020-09-01"
     },
     "yh-xq-dnn": {
       "title": "Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and End Devices",

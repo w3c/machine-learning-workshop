@@ -10,6 +10,7 @@ const linkableTerms = Object.keys(lexicon);
 function annotateSentence(sentence) {
   sentence = sentence.replace(/^slide [a-z0-9]*\.?/i, '');
   sentence = sentence.replace(/^next slide\.?/i, '');
+  sentence = sentence.replace(/, you know, ?/g, ' ');
   for (let term of linkableTerms) {
     sentence = sentence.replace(new RegExp("(.)?(" + term + ")(.)?", "g"), (match,p1,p2,p3) => {
       if ((!p1 || !p1.match(/[a-zA-Z0-9>]/)) && (!p3 || !p3.match(/[<a-zA-Z0-9]/)))
