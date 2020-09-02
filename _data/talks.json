@@ -58,15 +58,6 @@
       "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
       "noslide": true,
       "duration": "04:29"
-    },
-    "ym_how-far": {
-      "title": "Moving Deep Learning into Web Browser: How Far Can We Go?",
-      "title_zh": "将深度学习引入浏览器：我们能走多远?",
-      "author": "Yun Ma",
-      "bio": "Yun Ma is a postdoc researcher in School of Software, Tsinghua University, China. He got his Ph.D. degree in Jun. 2017 from Peking University. His research interests lie in mobile computing, Web systems, and services computing. He has published several papers on WWW and ACM Trans on the Web. Recently he focuses on how to enable browsers to support deep learning tasks better.",
-      "bio_zh": "马郓，清华大学软件学院博士后研究员。他于2017年6月在北京大学获得博士学位。他的研究兴趣在于移动计算、网络系统和服务计算。他在万维网的WWW和ACM Trans上发表了几篇论文。最近，他专注于如何让浏览器更好地支持深度学习任务。",
-      "abstract": "Recently, several JavaScript-based deep learning frameworks have emerged, making it possible to perform deep learning tasks directly in browsers. However, little is known on what and how well we can do with these frameworks for deep learning in browsers. In this talk, I’ll present our recent empirical study of deep learning in browsers. We survey 7 most popular JavaScript-based deep learning frameworks, investigating to what extent deep learning tasks have been supported in browsers so far. Then we measure the performance of different frameworks when running different deep learning tasks. Finally, we dig out the performance gap between deep learning in browsers and on native platforms by comparing the performance of TensorFlow.js and TensorFlow in Python. Our findings could help application developers, deep-learning framework vendors and browser vendors to improve the efficiency of deep learning in browsers. The content of this talk was published in WWW 2019.",
-      "abstract_zh": "最近，出现了几个基于javascript的深度学习框架，使直接在浏览器中执行深度学习任务成为可能。然而，对于我们在浏览器中使用这些框架进行深度学习能做些什么以及做得如何，我们知之甚少。在这次演讲中，我将展示我们最近在浏览器中进行的深度学习的实证研究。我们调查了7个最流行的基于javascript的深度学习框架，调查了到目前为止，浏览器对深度学习任务的支持程度。然后我们测量不同框架在运行不同深度学习任务时的性能。最后，通过比较TensorFlow.js和TensorFlow在Python中的性能，找出了浏览器和本地平台上深度学习的性能差距。我们的发现可以帮助应用程序开发人员、深度学习框架供应商和浏览器供应商提高浏览器深度学习的效率。本次演讲的内容发表于2019年的WWW。"
     }
   }    ,
   {
