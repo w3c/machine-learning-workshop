@@ -10,7 +10,7 @@
 >
 >✅ **Goal:** Determine what are the unique opportunities of browser-based ML, what are the obstacles hindering adoption
 
-- 👋 Introductions
+- 👋 Introduction to the workshop
 - [💡 "Opportunities and Challenges" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22Opportunities+and+Challenges%22+sort%3Acomments-desc)
 
 
@@ -18,7 +18,7 @@
 
 >🔎 **Scope:** Web Platform Foundations for Machine Learning
 >
->✅ **Goal:** Goal: Understand how machine learning fits into the Web technology stack
+>✅ **Goal:** Understand how machine learning fits into the Web technology stack
 
 - [💡 "Web Platform Foundations" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22Web+Platform+Foundations%22+sort%3Acomments-desc) 
 
@@ -34,7 +34,7 @@
 
 >🔎 **Scope:** Machine Learning Experiences on the Web: A **User’s** Perspective
 >
->✅ **Goal:** Goal: Web & ML for all: education, learning, accessibility, cross-industry experiences, cross-disciplinary ML: music, art, and media meet ML; Share learnings and best practices across industries
+>✅ **Goal:** Web & ML for all: education, learning, accessibility, cross-industry experiences, cross-disciplinary ML: music, art, and media meet ML; Share learnings and best practices across industries
 
 - [💡 "User's Perspective" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22User%27s+Perspective%22+sort%3Acomments-desc)
 - 👍 Conclusions & Next Steps
