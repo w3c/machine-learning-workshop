@@ -34,6 +34,10 @@
 - ❓ The current in-browser efforts are focused on inference rather than training.
 - ✔️ Proposal: Understand successful real-world usages (e.g. Teachable Machine) and target transfer learning as the initial training use case for related browser API work.
 
+ℹ️ [Memory copies #93](https://github.com/w3c/machine-learning-workshop/issues/93) - @aboba @wchao1115
+- ❓ Machine learning apps within the browser using the media pipeline trigger many more memory copies compared with native applications hindering performance.
+- ✔️ Proposal: Introduce a more direct way to feed a video frame, possibly captured from a camera, to a ML model.
+
 ℹ️ [Permission model for Machine Learning APIs #72](https://github.com/w3c/machine-learning-workshop/issues/72) - @cynthia @dontcallmedom @anssiko
 - ❓ How to design a forward-looking permission model for ML APIs?
 - ✔️ Proposal: TBD
