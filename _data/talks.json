@@ -58,6 +58,13 @@
       "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
       "noslide": true,
       "duration": "04:29"
+    },
+    "ph_embedded": {
+      "title": "Extending W3C ML Work to Embedded Systems?",
+      "author": "Peter Hoddie",
+      "affiliation": "Moddable Tech",
+      "bio": "<p>Peter is the chair of Ecma TC53, ECMAScript Module for Embedded Systems, working to bring standard JavaScript APIs to IoT.</p><p>He is a delegate to Ecma TC39, the JavaScript language standards committee, where his focus is ensuring JavaScript remains a viable language on resource constrained devices.</p><p>He is a co-founder and CEO of Moddable Tech, building XS, the only modern JavaScript engine for embedded systems, and the Moddable SDK, a JavaScript framework for delivering consumer and industrial IoT products.</p><p>Peter is the co-author of “IoT Development for ESP32 and ESP8266 with JavaScript”, published in 2020 by Apress, the professional books imprint of Springer Nature.</p><p>He contributed to the ISO MPEG-4 file format standard.</p><p><a href='https://www.moddable.com/peter-hoddie'>Additional bio information</a></p>",
+      "abstract": "<p>JavaScript's dominance on the web often obscures its many successes beyond the web, such as in embedded systems. New silicon for embedded systems is beginning to include hardware to accelerate ML, bringing ML to edge devices. These embedded systems are capable of running the same modern JavaScript used on the web. Would it be possible for the embedded systems to be coded in JavaScript in a way that is compatible with the ML APIs of the web?</p><p>This talk will briefly present two examples of JavaScript APIs developed for the web to support hardware features -- the W3C Sensor API and the Chrome Serial API. It will describe how each has been bridged to the embedded world in a different way -- perhaps suggesting a model for how W3C ML JavaScript APIs can bridge the embedded and browser worlds as well.</p>"
     }
   }    ,
   {
