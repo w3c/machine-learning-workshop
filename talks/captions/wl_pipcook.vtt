@@ -1,0 +1,807 @@
+WEBVTT
+
+slide-1
+0:00:08.640 --> 0:00:09.473
+<v Eric>Hey guys, this is Wenhe,</v>
+
+2
+0:00:09.473 --> 0:00:11.527
+and you can also call me Eric.
+
+3
+0:00:11.527 --> 0:00:15.300
+I'm from Alibaba F2E team,
+
+4
+0:00:15.300 --> 0:00:17.140
+and today I'm going to present Pipcook,
+
+5
+0:00:17.140 --> 0:00:19.280
+a artificial intelligence,
+
+6
+0:00:19.280 --> 0:00:21.335
+deep learning / machine learning
+
+7
+0:00:21.335 --> 0:00:23.523
+with JavaScript library.
+
+slide-2
+0:00:25.287 --> 0:00:27.760
+So, let's first look at the agenda.
+
+9
+0:00:27.760 --> 0:00:30.120
+So, we will basically introduce the background,
+
+10
+0:00:30.120 --> 0:00:31.330
+and what is Pipcook,
+
+11
+0:00:31.330 --> 0:00:32.810
+the design philosophy of Pipcook,
+
+12
+0:00:32.810 --> 0:00:34.580
+some use case and capability of it.
+
+13
+0:00:34.580 --> 0:00:37.300
+And finally we will look into the future
+
+14
+0:00:37.300 --> 0:00:39.110
+to see some future plans of Pipcook
+
+15
+0:00:39.110 --> 0:00:43.000
+and what we can combine with web standards.
+
+slide-3
+0:00:43.000 --> 0:00:44.832
+Let's look at the background first.
+
+slide-4
+0:00:44.832 --> 0:00:47.600
+We know that,
+
+18
+0:00:47.600 --> 0:00:48.120
+when we talk about software engineer,
+
+19
+0:00:48.120 --> 0:00:50.360
+we are talking about maybe graphics software engineering,
+
+20
+0:00:50.360 --> 0:00:52.550
+interaction, compiler, virtual machine,
+
+21
+0:00:52.550 --> 0:00:53.720
+something, something
+
+22
+0:00:53.720 --> 0:00:55.890
+and machine learning, software engineering.
+
+23
+0:00:55.890 --> 0:00:58.530
+And we know that software engineer
+
+24
+0:00:58.530 --> 0:01:01.530
+can transfer from one to another.
+
+slide-5
+0:01:01.530 --> 0:01:05.930
+Let's say front-end engineering for a specific example.
+
+26
+0:01:06.930 --> 0:01:08.470
+With the help of Node.js,
+
+27
+0:01:08.470 --> 0:01:12.493
+a front-end engineer can also act as a back-end engineer.
+
+28
+0:01:12.493 --> 0:01:15.960
+So, we have this kind of question.
+
+29
+0:01:15.960 --> 0:01:17.200
+Is there a library of frameworks
+
+30
+0:01:17.200 --> 0:01:19.825
+that help us make such a transformation
+
+31
+0:01:19.825 --> 0:01:23.563
+for a front engineer to become a machine learning engineer?
+
+slide-6
+0:01:24.820 --> 0:01:29.130
+And with this configuration and paradigm, we made Pipcook,
+
+33
+0:01:29.940 --> 0:01:33.310
+a framework that helps a front engineer, like us,
+
+34
+0:01:33.310 --> 0:01:35.510
+become a machine learning engineer.
+
+35
+0:01:35.510 --> 0:01:37.770
+As soon as this kind of transformation process,
+
+36
+0:01:37.770 --> 0:01:40.580
+a front engineer will know how to define model,
+
+37
+0:01:40.580 --> 0:01:42.750
+how to train and evaluate a model
+
+38
+0:01:42.750 --> 0:01:45.530
+and finally how to deploy a model.
+
+slide-7
+0:01:45.530 --> 0:01:49.883
+So, let's look closely about what is Pipcook.
+
+slide-8
+0:01:51.520 --> 0:01:53.380
+So, Pipcook is a front-end orientated
+
+41
+0:01:53.380 --> 0:01:55.500
+machine learning framework.
+
+42
+0:01:55.500 --> 0:01:57.472
+We designed a concept called pipline,
+
+43
+0:01:57.472 --> 0:01:59.370
+and it helps developers to define
+
+44
+0:01:59.370 --> 0:02:01.910
+yield deep learning model quickly.
+
+45
+0:02:01.910 --> 0:02:05.560
+And Pipcook provides two kinds of user interface.
+
+46
+0:02:05.560 --> 0:02:07.120
+One is Pipcook tools,
+
+47
+0:02:07.120 --> 0:02:10.710
+and these are CLI based interactions.
+
+48
+0:02:10.710 --> 0:02:12.420
+And another is Pipboard.
+
+49
+0:02:12.420 --> 0:02:16.290
+It's a built in G-U-I, GUI management tool
+
+50
+0:02:16.290 --> 0:02:20.123
+and allows user to perform pipeline operations conveniently.
+
+slide-9
+0:02:21.260 --> 0:02:23.790
+So, let's think about the design philosophy
+
+52
+0:02:23.790 --> 0:02:27.860
+in terms of the architecture and how we design it.
+
+slide-10
+0:02:27.860 --> 0:02:28.693
+So, first of all,
+
+54
+0:02:28.693 --> 0:02:31.290
+we define pipeline as a function
+
+55
+0:02:31.290 --> 0:02:35.957
+and pipeline can take a set of plugins as the parameters.
+
+56
+0:02:35.957 --> 0:02:39.690
+And the output of pipeline is essentially a model.
+
+slide-11
+0:02:40.260 --> 0:02:42.530
+And let's look at the big picture
+
+58
+0:02:42.530 --> 0:02:47.490
+of how we process the data and get the model.
+
+59
+0:02:47.490 --> 0:02:48.650
+So, at the very beginning,
+
+60
+0:02:48.650 --> 0:02:51.840
+we get data collect node,
+
+61
+0:02:51.840 --> 0:02:55.270
+and right now we support two kinds of data source.
+
+62
+0:02:55.270 --> 0:02:59.127
+One's visual in the Pascal VOC format,
+
+63
+0:02:59.127 --> 0:03:02.470
+another type in the CSV format.
+
+64
+0:03:02.470 --> 0:03:07.400
+And we put the collected data to our data access node,
+
+65
+0:03:07.400 --> 0:03:08.500
+and basically data access
+
+66
+0:03:08.500 --> 0:03:13.500
+is trying to converge different data into a union instance.
+
+67
+0:03:17.950 --> 0:03:20.460
+And then we put the data access output
+
+68
+0:03:20.460 --> 0:03:22.260
+into the dataset process.
+
+69
+0:03:22.260 --> 0:03:25.671
+And dataset process will run the process
+
+70
+0:03:25.671 --> 0:03:28.130
+in terms of the whole dataset.
+
+71
+0:03:29.140 --> 0:03:30.492
+And after that,
+
+72
+0:03:30.492 --> 0:03:35.492
+for each specific data sample,
+
+73
+0:03:35.850 --> 0:03:38.900
+we will run the data process.
+
+74
+0:03:38.900 --> 0:03:41.723
+And after the kind of long data processing stage,
+
+75
+0:03:43.979 --> 0:03:46.940
+we all get a UniDataset.
+
+76
+0:03:46.940 --> 0:03:49.567
+And after we get to UniDataset,
+
+77
+0:03:49.567 --> 0:03:53.800
+we can also define a model in the model different plugins
+
+78
+0:03:53.800 --> 0:03:57.560
+and with a UniDataset and the model defined,
+
+79
+0:03:57.560 --> 0:04:01.400
+we can just train model and evaluate model.
+
+80
+0:04:01.400 --> 0:04:04.923
+And if we got a really satisfied result,
+
+81
+0:04:06.280 --> 0:04:07.823
+we can just deploy the model.
+
+slide-12
+0:04:08.940 --> 0:04:13.310
+So, this screenshot is just about a simple pipeline.
+
+83
+0:04:13.310 --> 0:04:16.560
+It's about collecting mnist data
+
+84
+0:04:16.560 --> 0:04:21.560
+and process it and do a mnist classification
+
+85
+0:04:21.360 --> 0:04:22.553
+in the TensorFlow.
+
+86
+0:04:23.390 --> 0:04:27.710
+As you can see, just within like no more than 40 lines,
+
+87
+0:04:27.710 --> 0:04:31.580
+you can define a whole process of collecting your data
+
+88
+0:04:31.580 --> 0:04:32.940
+and training your model.
+
+slide-13
+0:04:34.930 --> 0:04:36.480
+And, after you get the pipeline,
+
+90
+0:04:36.480 --> 0:04:39.750
+you can just run it within a single command.
+
+91
+0:04:39.750 --> 0:04:42.000
+Pipcook will run on whatever
+
+92
+0:04:42.000 --> 0:04:45.330
+the JSON file is located at.
+
+slide-14
+0:04:46.105 --> 0:04:49.200
+And after that, you will get the output,
+
+94
+0:04:49.200 --> 0:04:52.580
+so, output contains basically four parts.
+
+95
+0:04:52.580 --> 0:04:54.600
+So, first there's the logs.
+
+96
+0:04:54.600 --> 0:04:56.840
+Logs contains everything that comes out
+
+97
+0:04:56.840 --> 0:04:59.960
+during the training and evaluating process.
+
+98
+0:04:59.960 --> 0:05:00.793
+And the model,
+
+99
+0:05:00.793 --> 0:05:04.860
+model is just as the name suggests, is a training model.
+
+100
+0:05:04.860 --> 0:05:05.103
+And index.js,
+
+101
+0:05:06.430 --> 0:05:10.630
+and if you run the index.js, you will start a service
+
+102
+0:05:10.630 --> 0:05:13.130
+and this service have your hosted the model
+
+103
+0:05:13.130 --> 0:05:16.900
+and you can just pipe whatever the input is
+
+104
+0:05:16.900 --> 0:05:18.670
+and get to predict result.
+
+105
+0:05:18.670 --> 0:05:20.340
+And metadata and packages.json
+
+106
+0:05:20.340 --> 0:05:21.880
+is kind of,
+
+107
+0:05:21.880 --> 0:05:23.360
+as their name suggests,
+
+108
+0:05:23.360 --> 0:05:27.473
+well, it's just about the metadata and some package things.
+
+slide-15
+0:05:28.510 --> 0:05:30.260
+And in terms of how to write,
+
+110
+0:05:30.260 --> 0:05:33.395
+just send it to the directory
+
+111
+0:05:33.395 --> 0:05:37.280
+and run npm install to install the essential packages
+
+112
+0:05:37.280 --> 0:05:38.883
+and run the node command.
+
+113
+0:05:39.914 --> 0:05:43.100
+You can just start service and pipe the data in,
+
+114
+0:05:43.100 --> 0:05:44.230
+and get the result.
+
+slide-16
+0:05:45.602 --> 0:05:48.600
+So, we also introduced PipBoard,
+
+116
+0:05:48.600 --> 0:05:51.560
+as you can see PipBoard is a GUI tool.
+
+117
+0:05:51.560 --> 0:05:55.930
+It helps you to manage and change the jobs
+
+118
+0:05:55.930 --> 0:05:57.333
+and pipelines easily.
+
+slide-17
+0:05:58.970 --> 0:06:02.543
+And, yeah, let's talk about use case and capabilities here.
+
+slide-18
+0:06:03.702 --> 0:06:07.701
+And one use case in our internal community
+
+121
+0:06:07.701 --> 0:06:12.390
+it combines HTML components detection and segmentation,
+
+122
+0:06:12.390 --> 0:06:15.370
+icon classification, layout generation.
+
+123
+0:06:15.370 --> 0:06:18.100
+And we make a product called imgcook.
+
+124
+0:06:18.100 --> 0:06:20.880
+And the essential feature of the product
+
+125
+0:06:20.880 --> 0:06:25.880
+is we can feed a screenshot and get a code output directly.
+
+126
+0:06:28.890 --> 0:06:31.820
+And here in the DEMO, we feed a screenshot
+
+127
+0:06:31.820 --> 0:06:34.970
+of a form table.
+
+128
+0:06:34.970 --> 0:06:38.880
+And after a few seconds of process,
+
+129
+0:06:38.880 --> 0:06:40.411
+you can see from the screenshot
+
+130
+0:06:40.411 --> 0:06:44.990
+that we get the code directly from the screenshot.
+
+131
+0:06:45.983 --> 0:06:47.720
+Yeah.
+
+slide-19
+0:06:47.720 --> 0:06:52.160
+So, what Pipcook can do right now.
+
+133
+0:06:52.160 --> 0:06:56.110
+So Pipcook allows you to train models
+
+134
+0:06:56.110 --> 0:06:59.300
+in the following tasks,
+
+135
+0:06:59.300 --> 0:07:02.290
+basically text classification, text generation,
+
+136
+0:07:02.290 --> 0:07:05.120
+image classification, object detection, segmentation,
+
+137
+0:07:05.120 --> 0:07:10.120
+and style transfer with different kind of, like sub models.
+
+138
+0:07:10.760 --> 0:07:13.550
+And you know, that Pipcook is a open source project.
+
+139
+0:07:13.550 --> 0:07:16.845
+So, this list will get longer and longer
+
+140
+0:07:16.845 --> 0:07:20.333
+as the community keep contributing to it.
+
+slide-20
+0:07:21.960 --> 0:07:25.130
+And finally, we want to point another thing that,
+
+142
+0:07:25.900 --> 0:07:28.720
+we make our library call the BOA, B-O-A
+
+144
+0:07:34.260 --> 0:07:37.980
+and machine learning system in Python
+
+145
+0:07:37.980 --> 0:07:39.790
+to JavaScript directly.
+
+146
+0:07:39.790 --> 0:07:42.390
+That means, as a JavaScript developer,
+
+147
+0:07:42.390 --> 0:07:45.300
+you don't need to learn about Python syntax,
+
+148
+0:07:45.300 --> 0:07:47.500
+or don't need to worry about Python syntax.
+
+149
+0:07:47.500 --> 0:07:49.720
+You can just use the Python library
+
+150
+0:07:49.720 --> 0:07:51.520
+in the JavaScript format,
+
+151
+0:07:51.520 --> 0:07:53.963
+and that is amazing too.
+
+slide-21
+0:07:55.700 --> 0:07:56.200
+And finally,
+
+153
+0:07:56.200 --> 0:07:58.460
+we are introduced to the future plan
+
+154
+0:07:58.460 --> 0:08:01.410
+and some kind of web standards that we are concerned about.
+
+slide-22
+0:08:03.340 --> 0:08:05.654
+So, as you can see that,
+
+156
+0:08:05.654 --> 0:08:10.400
+Pipcook is a training orientated library of the frameworks.
+
+157
+0:08:10.400 --> 0:08:13.900
+So, we're also concerning about browser training,
+
+158
+0:08:13.900 --> 0:08:15.330
+because we want to move some kind of training job
+
+159
+0:08:15.330 --> 0:08:16.881
+to the browser.
+
+160
+0:08:16.881 --> 0:08:20.800
+So, the first thing comes in our mind is a WebbNN API.
+
+161
+0:08:20.800 --> 0:08:24.720
+And if we can have a more generic WebbNN API,
+
+162
+0:08:24.720 --> 0:08:25.860
+that means that,
+
+163
+0:08:25.860 --> 0:08:29.680
+the possibility of shifting some training
+
+164
+0:08:29.680 --> 0:08:33.500
+to the browser get larger.
+
+165
+0:08:33.500 --> 0:08:35.910
+Another thing is that about the training
+
+166
+0:08:35.910 --> 0:08:37.690
+and inferences performance:
+
+167
+0:08:37.690 --> 0:08:40.730
+and this kind of thing determines whether
+
+168
+0:08:40.730 --> 0:08:43.460
+we can do with this kind of like browser training
+
+169
+0:08:43.460 --> 0:08:47.283
+or browser inference on the browser,
+
+170
+0:08:47.283 --> 0:08:49.650
+at a like business-level.
+
+171
+0:08:49.650 --> 0:08:51.150
+And another thing about the model format,
+
+172
+0:08:51.150 --> 0:08:53.990
+we are thinking about that,
+
+173
+0:08:53.990 --> 0:08:58.470
+is there, like Web-Friendly, like model format?
+
+174
+0:08:58.470 --> 0:09:00.400
+Is that like tensorFlow.js format?
+
+175
+0:09:00.400 --> 0:09:03.530
+Is that like h5/pb format?
+
+176
+0:09:03.530 --> 0:09:04.772
+Or we can combine them together
+
+177
+0:09:04.772 --> 0:09:07.341
+to get their pros and cons.
+
+178
+0:09:07.341 --> 0:09:11.520
+And finally, we are thinking about model storage.
+
+179
+0:09:11.520 --> 0:09:14.760
+As you know that, a deep learning  model
+
+180
+0:09:14.760 --> 0:09:17.840
+essentially is a graph with some weights.
+
+181
+0:09:17.840 --> 0:09:19.143
+And if we can come up with,
+
+182
+0:09:19.143 --> 0:09:21.790
+it's kind of like,
+
+183
+0:09:21.790 --> 0:09:24.790
+we call it neural network orientated database.
+
+184
+0:09:25.560 --> 0:09:27.717
+Basically, it's a graph orientated database
+
+185
+0:09:27.717 --> 0:09:32.717
+that stores the information in a graph format.
+
+186
+0:09:33.100 --> 0:09:34.830
+And in this way, we can definitely reduce
+
+187
+0:09:34.830 --> 0:09:37.770
+the serialization overhead.
+
+188
+0:09:37.770 --> 0:09:41.600
+We are just trying to put some,
+
+189
+0:09:41.600 --> 0:09:44.737
+like deep learning models into the indexedDB
+
+190
+0:09:44.737 --> 0:09:48.400
+or some other regular database.
+
+191
+0:09:48.400 --> 0:09:49.543
+And, that's it.
+
+slide-23
+0:09:50.470 --> 0:09:52.832
+And this is our presentation,
+
+193
+0:09:52.832 --> 0:09:53.820
+thanks for listening,
+
+194
+0:09:53.820 --> 0:09:55.800
+and if you still have any question
+
+195
+0:09:55.800 --> 0:09:57.300
+in terms of the Pipcook,
+
+196
+0:09:57.300 --> 0:09:58.701
+if you are interested in Pipcook,
+
+197
+0:09:58.701 --> 0:10:00.560
+just don't hesitate,
+
+198
+0:10:00.560 --> 0:10:02.291
+come with us, hit us up,
+
+199
+0:10:02.291 --> 0:10:05.640
+and come into our community.
+
+200
+0:10:05.640 --> 0:10:08.300
+You are really welcome for any suggestions,
+
+201
+0:10:08.300 --> 0:10:10.430
+discussions and collaborations.
+
+202
+0:10:10.430 --> 0:10:11.263
+Thank you.
+
+

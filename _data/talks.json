@@ -274,6 +274,17 @@
         "bio": "ml5.js contributor and adjunct professor at Interactive Telecommunications Program (ITP)",
         "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授"
       },
+      "wl_pipcook": {
+        "title": "Pipcook, a front-end oriented DL framework",
+        "author": "Wenhe Eric Li",
+        "affiliation": "Alibaba",
+        "bio": "ML/DL on web, contributor of ML5 & tfjs, memebr of pipcook, SDE @ Alibaba",
+        "abstract": "We are going to present a front-end oriented platform based on TensorFlow.js. We will cover what is pipcook, the design philosophy, as well as some examples & use cases in our internal community. Apart from that, we will show a brandy new solution to bridge the flourish python DL/ML environment and javascript runtime in both browsers and nodejs.",
+        "duration": "10:17",
+        "video": "https://app.streamfizz.live/embed/ckev83mzuaq7g073183lhuwje",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckev83mzuaq7g073183lhuwje/thumbs/thumb-001.jpeg",
+        "added": "2020-09-09"
+      },
       "op_content-filtering": {
         "title": "Machine Learning on the Web for content filtering applications",
         "title_zh": "Web上的机器学习，用于内容过滤应用程序",
