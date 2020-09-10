@@ -16,7 +16,7 @@
 
 ## Improving existing web platform capabilities
 
-ℹ️ [WebGPU fitness for ML frameworks #66](https://github.com/w3c/machine-learning-workshop/issues/66) - @jasonmayes @Kangz @grorg
+ℹ️ [WebGPU fitness for ML frameworks #66](https://github.com/w3c/machine-learning-workshop/issues/66) - @jasonmayes @Kangz @mehmetoguzderin @grorg
 - ❓ Does WebGPU expose the right API surface to support ML frameworks interactions with GPUs?
 - ✔️ Proposal: New WebGPU extensions for subgroups, cooperative matrix multiply.
 
