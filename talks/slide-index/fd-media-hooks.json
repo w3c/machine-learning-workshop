@@ -1,0 +1,66 @@
+[
+  {
+    "start": "00:08",
+    "title": "Media processing hooks for the Web"
+  },
+  {
+    "start": "00:33",
+    "title": "Main media scenarios"
+  },
+  {
+    "start": "02:03",
+    "title": "Media content"
+  },
+  {
+    "start": "02:19",
+    "title": "Media encoding/decoding pipeline"
+  },
+  {
+    "start": "03:10",
+    "title": "Media processing scenarios"
+  },
+  {
+    "start": "03:34",
+    "title": "Processing hooks needed!"
+  },
+  {
+    "start": "03:58",
+    "title": "Existing hooks for…① progressive media playback"
+  },
+  {
+    "start": "04:38",
+    "title": "Existing hooks for…② adaptive media playback"
+  },
+  {
+    "start": "04:56",
+    "title": "Existing hooks for…③ real-time conversations"
+  },
+  {
+    "start": "05:29",
+    "title": "Existing hooks for…④ synthesized audio playback"
+  },
+  {
+    "start": "05:51",
+    "title": "Summary of Existing Hooks"
+  },
+  {
+    "start": "06:07",
+    "title": "Media pipeline in JavaScript / WebAssembly"
+  },
+  {
+    "start": "06:31",
+    "title": "Main requirements for efficient media processing"
+  },
+  {
+    "start": "07:26",
+    "title": "WebCodecs"
+  },
+  {
+    "start": "09:10",
+    "title": "Other media features and specs that may impact processing"
+  },
+  {
+    "start": "11:22",
+    "title": "Conclusion"
+  }
+]

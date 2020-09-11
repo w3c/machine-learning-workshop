@@ -1,0 +1,66 @@
+[
+  {
+    "start": "00:08",
+    "title": "A proposed web standard to load and run ML models on the web"
+  },
+  {
+    "start": "00:18",
+    "title": "Model Loader API"
+  },
+  {
+    "start": "01:16",
+    "title": "Why use machine learning in a web pageas opposed to on the server?"
+  },
+  {
+    "start": "02:08",
+    "title": "Why create a new web standard?"
+  },
+  {
+    "start": "02:31",
+    "title": "Speed matters for ML"
+  },
+  {
+    "start": "03:16",
+    "title": "The web provides APIs for acceleration today. They help!"
+  },
+  {
+    "start": "04:04",
+    "title": "Running on native hardware can be even faster"
+  },
+  {
+    "start": "04:41",
+    "title": "How could the web platform accelerate ML?"
+  },
+  {
+    "start": "05:08",
+    "title": "Operation-level APIs for ML"
+  },
+  {
+    "start": "05:58",
+    "title": "Graph APIs open up more performance gains"
+  },
+  {
+    "start": "07:04",
+    "title": "WebNN API"
+  },
+  {
+    "start": "07:15",
+    "title": "Application-specific ML APIs are easiest for developers"
+  },
+  {
+    "start": "08:21",
+    "title": "The model loader API balances flexibility and performance"
+  },
+  {
+    "start": "09:09",
+    "title": "Summarizing the options for ML APIs on the web"
+  },
+  {
+    "start": "09:52",
+    "title": "Caveat: it’s early days and there are big challenges"
+  },
+  {
+    "start": "11:47",
+    "title": "The current plan"
+  }
+]
