@@ -522,11 +522,11 @@ I would caution against the anti-pattern of
 
 143
 0:05:36.720 --> 0:05:40.440
-creating a "light" version of any web API to use on embedded.
+creating a “light” version of any web API to use on embedded.
 
 144
 0:05:40.440 --> 0:05:43.800
-"Light" versions are subsets of a full API.
+“Light” versions are subsets of a full API.
 
 145
 0:05:43.800 --> 0:05:47.240
@@ -542,7 +542,7 @@ and are annoyed as they discover the differences.
 
 148
 0:05:52.520 --> 0:05:55.840
-Second, because the "Light" API looks about the same,
+Second, because the “Light” API looks about the same,
 
 149
 0:05:55.840 --> 0:05:57.920
