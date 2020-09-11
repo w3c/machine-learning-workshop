@@ -1,0 +1,635 @@
+WEBVTT
+
+slide-1
+0:00:11.000 --> 0:00:13.440
+Hello, my name is Peter Hoddie.
+
+slide-2
+0:00:13.440 --> 0:00:15.000
+I'm not here to talk about Machine Learning.
+
+4
+0:00:15.000 --> 0:00:16.400
+I don't know much about it.
+
+5
+0:00:16.400 --> 0:00:18.160
+I'm certainly not an expert.
+
+7
+0:00:18.160 --> 0:00:19.880
+I am here to talk about JavaScript,
+
+8
+0:00:19.880 --> 0:00:22.760
+specifically JavaScript beyond the web platform.
+
+9
+0:00:22.760 --> 0:00:24.160
+I have some experience there,
+
+10
+0:00:24.160 --> 0:00:26.680
+having delivered my first embedded consumer product
+
+11
+0:00:26.680 --> 0:00:29.800
+powered by JavaScript over a dozen years ago.
+
+12
+0:00:29.800 --> 0:00:32.480
+I am co-founder of Moddable Tech, creators of XS,
+
+13
+0:00:32.480 --> 0:00:34.280
+the only modern JavaScript engine
+
+14
+0:00:34.280 --> 0:00:36.440
+for resource constrained devices.
+
+15
+0:00:36.440 --> 0:00:39.800
+I am also chair of Ecma TC53,
+
+16
+0:00:39.800 --> 0:00:42.240
+the ECMAScript Modules for Embedded Systems standards committee.
+
+17
+0:00:42.240 --> 0:00:44.800
+TC53 is defining standard JavaScript APIs
+
+18
+0:00:44.800 --> 0:00:46.840
+for low level device operations --
+
+19
+0:00:46.840 --> 0:00:49.200
+digital, serial, network sockets.
+
+20
+0:00:49.200 --> 0:00:52.680
+From there, we are building up to sensors, displays, and more.
+
+21
+0:00:52.680 --> 0:00:55.720
+Our work allows devices to boot to JavaScript,
+
+22
+0:00:55.720 --> 0:00:58.120
+putting scripts in complete control of the device.
+
+slide-3
+0:00:58.800 --> 0:01:01.320
+This workshop is about Machine Learning APIs
+
+25
+0:01:01.320 --> 0:01:03.400
+in JavaScript in the browser.
+
+26
+0:01:03.400 --> 0:01:05.800
+I'm here to explore how it might be extended
+
+27
+0:01:05.800 --> 0:01:09.800
+to low cost, resource constrained embedded devices.
+
+28
+0:01:09.800 --> 0:01:10.600
+That would be a big win
+
+29
+0:01:10.600 --> 0:01:14.200
+because the web is just part of the world of digital devices.
+
+30
+0:01:14.200 --> 0:01:15.480
+If developers could share
+
+31
+0:01:15.480 --> 0:01:18.400
+their Machine Learning knowledge, experience, and even code
+
+32
+0:01:18.400 --> 0:01:19.480
+across more devices,
+
+33
+0:01:19.480 --> 0:01:22.160
+that can only accelerate availability of products
+
+34
+0:01:22.160 --> 0:01:24.200
+that benefit users.
+
+slide-4
+0:01:24.200 --> 0:01:26.320
+Before going further I should explain
+
+37
+0:01:26.320 --> 0:01:29.840
+what I mean by a low cost, resource constrained embedded device.
+
+38
+0:01:29.840 --> 0:01:31.920
+You might have in mind a Raspberry Pi,
+
+39
+0:01:31.920 --> 0:01:35.160
+an inexpensive Linux computer used in some embedded systems.
+
+40
+0:01:35.160 --> 0:01:37.960
+I have something much more constrained in mind,
+
+41
+0:01:37.960 --> 0:01:40.560
+something that can't run Linux or Node.
+
+43
+0:01:40.560 --> 0:01:44.120
+My favorite example is the ESP8266 from Espressif,
+
+44
+0:01:44.120 --> 0:01:49.400
+a $1 module that includes a CPU, some RAM, Wi-Fi, and flash storage.
+
+45
+0:01:49.400 --> 0:01:50.840
+Moddable runs modern JavaScript --
+
+46
+0:01:50.840 --> 0:01:53.400
+the ECMAScript 2020 standard -- on these.
+
+47
+0:01:53.400 --> 0:01:54.480
+For about another dollar,
+
+48
+0:01:54.480 --> 0:01:55.840
+you can get the ESP32 with
+
+49
+0:01:55.840 --> 0:01:57.200
+4 times more memory,
+
+50
+0:01:57.200 --> 0:01:59.800
+two CPU cores that run three times as fast,
+
+51
+0:01:59.800 --> 0:02:02.120
+and Bluetooth LE.
+
+53
+0:02:02.120 --> 0:02:04.200
+While these devices may not be capable
+
+54
+0:02:04.200 --> 0:02:05.280
+of much Machine Learning,
+
+55
+0:02:05.280 --> 0:02:07.160
+take a look at their big brother.
+
+56
+0:02:07.160 --> 0:02:09.800
+The i.MX 8M Plus from NXP
+
+57
+0:02:09.800 --> 0:02:12.120
+has a hardware Neural Processing Unit (NPU)
+
+58
+0:02:12.120 --> 0:02:14.680
+that runs up to 2.25 TOPS.
+
+59
+0:02:14.680 --> 0:02:18.120
+The goal is to move more Machine Learning processing to the edge.
+
+60
+0:02:18.120 --> 0:02:20.200
+While the i.MX 8M Plus is
+
+61
+0:02:20.200 --> 0:02:22.560
+a relatively high-end embedded processor,
+
+62
+0:02:22.560 --> 0:02:24.240
+NXP has stated their intention
+
+63
+0:02:24.240 --> 0:02:27.520
+to bring similar capabilities to lower cost components.
+
+64
+0:02:27.520 --> 0:02:29.200
+Other silicon manufacturers are adding
+
+65
+0:02:29.200 --> 0:02:31.400
+hardware acceleration for Machine Learning
+
+66
+0:02:31.400 --> 0:02:32.240
+to their product lines.
+
+68
+0:02:32.240 --> 0:02:33.800
+We can safely assume
+
+69
+0:02:33.800 --> 0:02:36.280
+there will be Machine Learning hardware accelerators
+
+70
+0:02:36.280 --> 0:02:39.000
+in the embedded silicon that powers IoT products.
+
+slide-5
+0:02:39.000 --> 0:02:42.240
+But, what APIs will developers use to access it?
+
+72
+0:02:42.240 --> 0:02:43.600
+If history is any guide,
+
+73
+0:02:43.600 --> 0:02:46.560
+each silicon manufacturer will have their own API.
+
+74
+0:02:46.560 --> 0:02:48.000
+Determined developers will use
+
+75
+0:02:48.000 --> 0:02:50.440
+these vendor-specific native APIs directly,
+
+76
+0:02:50.440 --> 0:02:51.840
+sacrificing portability.
+
+77
+0:02:51.840 --> 0:02:54.720
+Some de-facto APIs may emerge,
+
+78
+0:02:54.720 --> 0:02:57.000
+perhaps commercially or through open source,
+
+79
+0:02:57.000 --> 0:02:59.800
+that some silicon manufacturers will grudgingly support.
+
+81
+0:03:00.440 --> 0:03:02.600
+What about JavaScript?
+
+82
+0:03:02.600 --> 0:03:04.680
+While these devices can run JavaScript,
+
+83
+0:03:04.680 --> 0:03:07.920
+they often cannot run the JavaScript APIs used on the web
+
+84
+0:03:07.920 --> 0:03:10.240
+because these devices typically have around
+
+85
+0:03:10.240 --> 0:03:14.400
+1% of the memory and CPU power of a web host.
+
+86
+0:03:14.400 --> 0:03:15.760
+Web APIs are designed to be
+
+87
+0:03:15.760 --> 0:03:18.320
+powerful, complete, and convenient.
+
+88
+0:03:18.320 --> 0:03:20.160
+That's great for computer and mobile,
+
+89
+0:03:20.160 --> 0:03:21.760
+but doesn't migrate to embedded.
+
+slide-6
+0:03:21.760 --> 0:03:24.760
+Two patterns and one anti-pattern have emerged
+
+92
+0:03:24.760 --> 0:03:27.280
+from my work with JavaScript on embedded systems
+
+93
+0:03:27.280 --> 0:03:29.120
+that may be relevant for bridging
+
+94
+0:03:29.120 --> 0:03:33.400
+Machine Learning JavaScript APIs between the web and embedded systems.
+
+slide-7
+0:03:33.400 --> 0:03:37.680
+In some cases, it is practical to use the same JavaScript API
+
+97
+0:03:37.680 --> 0:03:39.520
+on both web and embedded devices.
+
+98
+0:03:39.520 --> 0:03:41.960
+The W3C Sensor APIs are a good example.
+
+99
+0:03:41.960 --> 0:03:44.480
+They give access to sensors in a phone
+
+100
+0:03:44.480 --> 0:03:46.320
+such as the accelerometer and light meter.
+
+101
+0:03:46.320 --> 0:03:48.440
+The APIs are very simple,
+
+102
+0:03:48.440 --> 0:03:50.800
+making it practical to implement them
+
+103
+0:03:50.800 --> 0:03:52.800
+on resource constrained embedded systems.
+
+104
+0:03:52.800 --> 0:03:54.320
+In fact, for embedded system uses
+
+105
+0:03:54.320 --> 0:03:57.240
+it turns out the W3C Sensor APIs are too simple.
+
+106
+0:03:57.240 --> 0:04:00.480
+They do not provide the ability to configure the sensors,
+
+107
+0:04:00.480 --> 0:04:04.800
+manage energy use, or access manufacturer specific capabilities
+
+108
+0:04:04.800 --> 0:04:05.920
+that many embedded products require.
+
+109
+0:04:05.920 --> 0:04:09.800
+So, TC53 designed a lower level sensor driver
+
+110
+0:04:09.800 --> 0:04:11.960
+that provides all the needed features.
+
+111
+0:04:11.960 --> 0:04:15.200
+We intentionally designed the TC53 sensor driver
+
+112
+0:04:15.200 --> 0:04:17.120
+so it would be straightforward
+
+113
+0:04:17.120 --> 0:04:19.320
+to implement the W3C Sensor API
+
+114
+0:04:19.320 --> 0:04:22.240
+using TC53 sensor drivers.
+
+115
+0:04:22.240 --> 0:04:26.800
+For example, no mapping of sensor data value is required --
+
+116
+0:04:26.800 --> 0:04:31.840
+the TC53 sensor drivers normatively adopt the W3C Sensor values.
+
+slide-8
+0:04:31.840 --> 0:04:35.760
+In other cases, the JavaScript API from the web
+
+119
+0:04:35.760 --> 0:04:37.720
+is impractical on an embedded device.
+
+120
+0:04:37.720 --> 0:04:40.400
+The Serial API in Chrome is a good example.
+
+121
+0:04:40.400 --> 0:04:43.320
+Nearly every embedded device has a serial connection
+
+122
+0:04:43.320 --> 0:04:44.920
+and there's nothing fundamentally different
+
+123
+0:04:44.920 --> 0:04:47.840
+about a serial between a computer and an embedded device.
+
+124
+0:04:47.840 --> 0:04:51.800
+Unfortunately, because Chrome's Serial API is designed
+
+125
+0:04:51.800 --> 0:04:53.520
+to be convenient to use on the web platform,
+
+126
+0:04:53.520 --> 0:04:56.600
+it makes extensive use of asynchronous promises
+
+127
+0:04:56.600 --> 0:04:58.600
+and powerful (but heavy) streams.
+
+128
+0:04:58.600 --> 0:05:02.960
+TC53's Serial API provides similar capabilities
+
+129
+0:05:02.960 --> 0:05:04.680
+through a much smaller and lighter API.
+
+130
+0:05:04.680 --> 0:05:07.440
+To avoid unnecessary differences,
+
+131
+0:05:07.440 --> 0:05:10.680
+TC53 adopted the naming conventions of Chrome where practical.
+
+132
+0:05:10.680 --> 0:05:12.720
+What's particularly interesting is
+
+133
+0:05:12.720 --> 0:05:14.440
+that we found it found was possible
+
+134
+0:05:14.440 --> 0:05:19.560
+to implement the TC53 Serial API using the Chrome Serial API --
+
+135
+0:05:19.560 --> 0:05:23.160
+effectively emulating the embedded JavaScript API in the browser.
+
+136
+0:05:23.160 --> 0:05:25.720
+This might feel a bit upside-down,
+
+137
+0:05:25.720 --> 0:05:28.320
+but it provides a single Serial API
+
+138
+0:05:28.320 --> 0:05:30.560
+for both the web and embedded devices,
+
+139
+0:05:30.560 --> 0:05:32.400
+allowing increased code sharing.
+
+slide-9
+0:05:32.400 --> 0:05:34.400
+One word of warning.
+
+142
+0:05:34.400 --> 0:05:36.720
+I would caution against the anti-pattern of
+
+143
+0:05:36.720 --> 0:05:40.440
+creating a "light" version of any web API to use on embedded.
+
+144
+0:05:40.440 --> 0:05:43.800
+"Light" versions are subsets of a full API.
+
+145
+0:05:43.800 --> 0:05:47.240
+They are almost always painful to use for a couple reasons.
+
+146
+0:05:47.240 --> 0:05:50.400
+First, developers expect the full API,
+
+147
+0:05:50.400 --> 0:05:52.520
+and are annoyed as they discover the differences.
+
+148
+0:05:52.520 --> 0:05:55.840
+Second, because the "Light" API looks about the same,
+
+149
+0:05:55.840 --> 0:05:57.920
+developers try to use it to perform
+
+150
+0:05:57.920 --> 0:06:00.160
+the same operations as the full API,
+
+151
+0:06:00.160 --> 0:06:02.800
+but on less powerful devices.
+
+152
+0:06:02.800 --> 0:06:04.800
+The results are always disappointing.
+
+153
+0:06:04.800 --> 0:06:07.720
+It is better to have a dedicated embedded API
+
+154
+0:06:07.720 --> 0:06:09.320
+and a dedicated web API
+
+155
+0:06:09.320 --> 0:06:12.960
+that share concepts and operations to the extent practical.
+
+156
+0:06:12.960 --> 0:06:15.240
+That gives authors of libraries and framework
+
+157
+0:06:15.240 --> 0:06:16.880
+a foundation to build APIs
+
+158
+0:06:16.880 --> 0:06:19.120
+that support both for specific domains
+
+159
+0:06:19.120 --> 0:06:22.320
+or to emulate the embedded API on the web,
+
+160
+0:06:22.320 --> 0:06:23.440
+as we've done with Serial.
+
+slide-10
+0:06:23.440 --> 0:06:28.840
+To close, I hope this W3C initiative will consider
+
+163
+0:06:28.840 --> 0:06:31.360
+including low-cost, resource constrained devices
+
+164
+0:06:31.360 --> 0:06:32.840
+in its scope of work in some way.
+
+165
+0:06:32.840 --> 0:06:35.280
+My impression is that it may be feasible.
+
+166
+0:06:35.280 --> 0:06:38.560
+If achieved, I have no doubt that it would be valuable
+
+167
+0:06:38.560 --> 0:06:41.800
+to the overall eco-system by expanding the availability
+
+168
+0:06:41.800 --> 0:06:43.720
+of well designed APIs for working
+
+169
+0:06:43.720 --> 0:06:45.560
+with Machine Learning computing resources.
+
+slide-11
+0:06:45.560 --> 0:06:48.440
+Thank you to the W3C for this opportunity
+
+171
+0:06:48.440 --> 0:06:57.480
+to share my experience and perspective.
+
+
