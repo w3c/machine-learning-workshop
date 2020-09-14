@@ -52,7 +52,7 @@
 - ❓ There is no standard format for packaging and shipping ML models, model formats evolve rapidly.
 - ✔️ Proposal: Initially focus on defining a Web API for accelerating established reusable ML operations instead of standardizing a model format.
 
-ℹ️ [In-browser training #82](https://github.com/w3c/machine-learning-workshop/issues/82) and [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @irealva @cynthia
+ℹ️ [In-browser training #82](https://github.com/w3c/machine-learning-workshop/issues/82) and [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @irealva @hapticdata @cynthia
 - ❓ The current in-browser efforts are focused on inference rather than training.
 - ✔️ Proposal: Understand successful real-world usages (e.g. Teachable Machine) and target transfer learning as the initial training use case for related browser API work.
 
