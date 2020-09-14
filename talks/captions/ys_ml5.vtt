@@ -1,686 +1,687 @@
-﻿WEBVTT
+WEBVTT
 
 slide-1
-00:00:00.510 --> 00:00:01.780
+0:00:08.670 --> 0:00:09.940
 <v ->Hello, everyone.</v>
 
 2
-00:00:01.780 --> 00:00:03.020
+0:00:09.940 --> 0:00:11.180
 My name is Yining.
 
 3
-00:00:03.020 --> 00:00:05.997
+0:00:11.180 --> 0:00:14.157
 I am an adjunct professor at New York University.
 
 4
-00:00:05.997 --> 00:00:08.940
+0:00:14.157 --> 0:00:17.100
 I work on ml5.js,
 
 5
-00:00:08.940 --> 00:00:11.910
+0:00:17.100 --> 0:00:20.700
 a friendly machine learning JavaScript library.
 
 6
-00:00:11.910 --> 00:00:14.720
+0:00:20.700 --> 0:00:22.880
 In this talk, I will make a brief introduction
 
 7
-00:00:14.720 --> 00:00:17.440
+0:00:22.880 --> 0:00:25.600
 to ml5.js, how it's built
 
 8
-00:00:17.440 --> 00:00:21.143
+0:00:25.600 --> 0:00:29.303
 and discuss some challenges in the development process.
 
 9
-00:00:22.660 --> 00:00:24.360
+0:00:30.820 --> 0:00:32.520
 Slide two.
 
 slide-2
-00:00:24.360 --> 00:00:28.250
+0:00:32.520 --> 0:00:36.410
 Ml5.js aims to make machine learning more approachable
 
 11
-00:00:28.250 --> 00:00:31.510
+0:00:36.410 --> 0:00:39.670
 to a broad audience of artists, designers,
 
 12
-00:00:31.510 --> 00:00:34.130
+0:00:39.670 --> 0:00:42.290
 creative coders and students.
 
 13
-00:00:34.130 --> 00:00:35.930
+0:00:42.290 --> 0:00:44.900
 The library provides access
 
 14
-00:00:35.930 --> 00:00:37.340
+0:00:44.900 --> 0:00:45.500
 to machine learning algorithms
 
 15
-00:00:37.340 --> 00:00:40.110
+0:00:45.500 --> 0:00:48.270
 and models in the browser,
 
 16
-00:00:40.110 --> 00:00:42.170
+0:00:48.270 --> 0:00:50.330
 building on top of TensorFlow.js
 
 17
-00:00:42.170 --> 00:00:45.023
+0:00:50.330 --> 0:00:53.183
 with no other external dependencies.
 
 18
-00:00:46.170 --> 00:00:50.750
+0:00:54.330 --> 0:00:58.910
 Ml5.js is inspired by Processing and P5.js,
 
 19
-00:00:50.750 --> 00:00:52.950
+0:00:58.910 --> 0:01:01.110
 whose goal is to empower people
 
 20
-00:00:52.950 --> 00:00:55.359
+0:01:01.110 --> 0:01:03.519
 of all interests and backgrounds
 
 21
-00:00:55.359 --> 00:00:57.220
+0:01:03.519 --> 0:01:05.380
 to learn how to program
 
 22
-00:00:57.220 --> 00:01:00.430
+0:01:05.380 --> 0:01:08.590
 and make creative work with code.
 
 23
-00:01:00.430 --> 00:01:03.447
+0:01:08.590 --> 0:01:11.607
 However, to get started with machine learning,
 
 24
-00:01:03.447 --> 00:01:05.890
+0:01:11.607 --> 0:01:14.500
 one needs advanced understanding
 
 25
-00:01:05.890 --> 00:01:08.320
+0:01:14.500 --> 0:01:16.480
 of math and programming.
 
 26
-00:01:08.320 --> 00:01:10.773
+0:01:16.480 --> 0:01:18.933
 And we'd like to make this process easier
 
 27
-00:01:10.773 --> 00:01:13.420
+0:01:18.933 --> 0:01:21.580
 so that machine learning can be something
 
 28
-00:01:13.420 --> 00:01:15.220
+0:01:21.580 --> 0:01:23.380
 that everyone can learn,
 
 29
-00:01:15.220 --> 00:01:18.083
+0:01:23.380 --> 0:01:26.243
 understand and explore freely.
 
 30
-00:01:20.190 --> 00:01:21.610
+0:01:28.350 --> 0:01:29.770
 Slide three.
 
 slide-3
-00:01:21.610 --> 00:01:23.790
+0:01:29.770 --> 0:01:31.950
 What does ml5.js do?
 
 32
-00:01:23.790 --> 00:01:25.455
+0:01:31.950 --> 0:01:33.615
 It provides immediate access
 
 33
-00:01:25.455 --> 00:01:28.460
+0:01:33.615 --> 0:01:36.620
 to pre-trained models in the browser
 
 34
-00:01:28.460 --> 00:01:32.370
+0:01:36.620 --> 0:01:40.530
 and we can also build and train our own neural networks
 
 35
-00:01:32.370 --> 00:01:34.283
+0:01:40.530 --> 0:01:42.443
 in the browser from scratch.
 
 36
-00:01:35.950 --> 00:01:37.460
+0:01:44.110 --> 0:01:45.620
 Slide four.
 
 slide-4
-00:01:37.460 --> 00:01:39.740
+0:01:45.620 --> 0:01:47.900
 Here is an example of MobileNet,
 
 38
-00:01:39.740 --> 00:01:42.560
+0:01:47.900 --> 0:01:50.720
 object detection model running in the browser
 
 39
-00:01:42.560 --> 00:01:44.853
+0:01:50.720 --> 0:01:53.130
 with just a few lines of code.
 
 40
-00:01:46.630 --> 00:01:48.200
+0:01:54.790 --> 0:01:56.360
 Slide five.
 
 slide-5
-00:01:48.200 --> 00:01:50.440
+0:01:56.360 --> 0:01:58.600
 Here is an example of running PoseNet
 
 42
-00:01:50.440 --> 00:01:52.890
+0:01:58.600 --> 0:02:01.500
 to detect human poses.
 
 43
-00:01:52.890 --> 00:01:55.600
+0:02:01.500 --> 0:02:03.760
 Ml5.js also provides friendly API
 
 44
-00:01:55.600 --> 00:01:59.350
+0:02:03.760 --> 0:02:07.510
 to get access to more human-readable results
 
 45
-00:01:59.350 --> 00:02:02.248
+0:02:07.510 --> 0:02:10.408
 and draw those results on the canvas with,
 
 46
-00:02:02.248 --> 00:02:03.831
+0:02:10.408 --> 0:02:11.991
 for example, p5.js.
 
 47
-00:02:06.180 --> 00:02:07.690
+0:02:14.340 --> 0:02:15.850
 Slide six.
 
 slide-6
-00:02:07.690 --> 00:02:10.890
+0:02:15.850 --> 0:02:19.500
 This is an example of running Style Transfer model
 
 49
-00:02:10.890 --> 00:02:13.283
+0:02:19.500 --> 0:02:21.443
 with your webcam in real time.
 
 50
-00:02:15.790 --> 00:02:17.329
+0:02:23.950 --> 0:02:25.489
 Slide seven.
 
 slide-7
-00:02:17.329 --> 00:02:19.691
+0:02:25.489 --> 0:02:27.851
 Besides running pre-trained models,
 
 52
-00:02:19.691 --> 00:02:24.590
+0:02:27.851 --> 0:02:32.750
 we can also create our own neutral networks with ml5.js.
 
 53
-00:02:24.590 --> 00:02:28.230
+0:02:32.750 --> 0:02:36.390
 This is a demo of how we can create a neural network
 
 54
-00:02:28.230 --> 00:02:33.230
+0:02:36.390 --> 0:02:41.390
 that classifies RGB values into common color names.
 
 55
-00:02:34.170 --> 00:02:36.562
+0:02:42.330 --> 0:02:44.722
 With ml5.js, we can load the data,
 
 56
-00:02:36.562 --> 00:02:40.240
+0:02:44.722 --> 0:02:48.400
 create model, train it and run the model.
 
 57
-00:02:40.240 --> 00:02:42.150
+0:02:48.400 --> 0:02:50.310
 With the debug mode enabled,
 
 58
-00:02:42.150 --> 00:02:45.964
+0:02:50.310 --> 0:02:54.124
 ml5.js can also visualize the training progress
 
 59
-00:02:45.964 --> 00:02:47.920
+0:02:54.124 --> 0:02:56.800
 on the right-hand side.
 
 60
-00:02:47.920 --> 00:02:51.773
+0:02:56.800 --> 0:02:59.933
 It helps us to debug and improve our neural network.
 
 61
-00:02:54.600 --> 00:02:56.120
+0:03:02.760 --> 0:03:04.280
 Slide eight.
 
 slide-8
-00:02:56.120 --> 00:02:58.830
+0:03:04.280 --> 0:03:06.990
 Here is a collection of other models
 
 63
-00:02:58.830 --> 00:03:02.120
+0:03:06.990 --> 0:03:10.280
 and methods that ml5.js provides.
 
 64
-00:03:02.120 --> 00:03:05.823
+0:03:10.280 --> 0:03:13.983
 You can learn more about them on the ml5 website.
 
 65
-00:03:06.870 --> 00:03:10.130
+0:03:15.300 --> 0:03:18.290
 Ml5 has a wide collection of image,
 
 66
-00:03:10.130 --> 00:03:13.100
+0:03:18.290 --> 0:03:21.260
 sound and text-based models
 
 67
-00:03:13.100 --> 00:03:15.320
+0:03:21.260 --> 0:03:23.480
 with a variety of applications,
 
 68
-00:03:15.320 --> 00:03:17.680
+0:03:23.480 --> 0:03:25.840
 such as detecting objects,
 
 69
-00:03:17.680 --> 00:03:21.760
+0:03:25.840 --> 0:03:29.920
 human bodies, hand poses and faces,
 
 70
-00:03:21.760 --> 00:03:25.290
+0:03:29.920 --> 0:03:33.450
 generating text, images and joins,
 
 71
-00:03:25.290 --> 00:03:28.340
+0:03:33.450 --> 0:03:36.500
 implementing image translations,
 
 72
-00:03:28.340 --> 00:03:31.210
+0:03:36.500 --> 0:03:39.370
 classifying audios, detecting pitch
 
 73
-00:03:31.210 --> 00:03:35.220
+0:03:39.370 --> 0:03:43.380
 and analyzing words and sentences.
 
 74
-00:03:35.220 --> 00:03:40.220
+0:03:43.380 --> 0:03:48.380
 Ml5.js also provides neural network feature extractor
 
 75
-00:03:40.990 --> 00:03:45.487
+0:03:49.150 --> 0:03:53.647
 and classifier and k-means as helper functions.
 
 76
-00:03:47.800 --> 00:03:48.940
+0:03:55.960 --> 0:03:57.100
 Slide nine.
 
 slide-9
-00:03:48.940 --> 00:03:51.033
+0:03:57.100 --> 0:03:59.193
 How do I use ml5.js?
 
 78
-00:03:51.960 --> 00:03:53.220
+0:04:00.120 --> 0:04:01.380
 Slide 10.
 
 slide-10
-00:03:53.220 --> 00:03:55.230
+0:04:01.380 --> 0:04:03.390
 We can run a model in the browser
 
 80
-00:03:55.230 --> 00:03:58.100
+0:04:03.390 --> 0:04:06.260
 with ml5.js in three simple steps.
 
 81
-00:03:58.100 --> 00:04:00.200
+0:04:06.260 --> 0:04:08.360
 First, create a model.
 
 82
-00:04:00.200 --> 00:04:03.020
+0:04:08.360 --> 0:04:11.180
 Secondly, ask the model to classify
 
 83
-00:04:03.020 --> 00:04:05.900
+0:04:11.180 --> 0:04:14.600
 or critique something based on a input,
 
 84
-00:04:05.900 --> 00:04:08.110
+0:04:14.600 --> 0:04:16.270
 like an image or a text.
 
 85
-00:04:08.110 --> 00:04:11.430
+0:04:16.270 --> 0:04:19.590
 And step three, getting the results.
 
 86
-00:04:11.430 --> 00:04:15.090
+0:04:19.590 --> 0:04:23.250
 It also has great integration with p5.js,
 
 87
-00:04:15.090 --> 00:04:17.720
+0:04:23.250 --> 0:04:25.880
 a JavaScript library for creating graphics
 
 88
-00:04:17.720 --> 00:04:19.760
+0:04:25.880 --> 0:04:27.920
 and animations in the browser,
 
 89
-00:04:19.760 --> 00:04:22.270
+0:04:27.920 --> 0:04:30.430
 which makes it easier to get inputs
 
 90
-00:04:22.270 --> 00:04:25.340
+0:04:30.430 --> 0:04:33.500
 from webcam or microphones
 
 91
-00:04:25.340 --> 00:04:27.250
+0:04:33.500 --> 0:04:35.410
 and also to show the outputs
 
 92
-00:04:27.250 --> 00:04:30.143
+0:04:35.410 --> 0:04:38.303
 with canvas, image or audio.
 
 93
-00:04:32.190 --> 00:04:33.470
+0:04:40.350 --> 0:04:41.630
 Slide 11.
 
 slide-11
-00:04:33.470 --> 00:04:36.070
+0:04:41.630 --> 0:04:44.230
 How is ml5.js built?
 
 95
-00:04:36.070 --> 00:04:37.780
+0:04:44.230 --> 0:04:45.940
 Slide 12.
 
 slide-12
-00:04:37.780 --> 00:04:39.370
+0:04:45.940 --> 0:04:47.530
 Besides the core library,
 
 97
-00:04:39.370 --> 00:04:44.210
+0:04:47.530 --> 0:04:52.370
 the ml5.js project also includes examples,
 
 98
-00:04:44.210 --> 00:04:47.320
+0:04:52.370 --> 0:04:55.480
 documentations, guides for training
 
 99
-00:04:47.320 --> 00:04:48.659
+0:04:55.480 --> 0:04:56.819
 and data collection,
 
 100
-00:04:48.659 --> 00:04:52.333
+0:04:56.819 --> 0:05:00.493
 learning materials for workshops and courses.
 
 101
-00:04:54.430 --> 00:04:56.350
+0:05:02.590 --> 0:05:04.510
 Slide 13.
 
 slide-13
-00:04:56.350 --> 00:05:01.170
+0:05:04.510 --> 0:05:09.330
 Ml5.js extends the functionality of tf.js.
 
 103
-00:05:01.170 --> 00:05:04.600
+0:05:09.330 --> 0:05:12.760
 It uses tf.js models, data API,
 
 104
-00:05:04.600 --> 00:05:07.390
+0:05:12.760 --> 0:05:15.550
 layer API and the face API.
 
 105
-00:05:07.390 --> 00:05:12.170
+0:05:15.550 --> 0:05:20.330
 Under the hood, it utilizes the CPU, WebGL,
 
 106
-00:05:12.170 --> 00:05:15.040
+0:05:20.330 --> 0:05:23.200
 or WebAssembly in the browser.
 
 107
-00:05:15.040 --> 00:05:17.170
+0:05:23.200 --> 0:05:25.330
 Ml5.js provides a high-level
 
 108
-00:05:17.170 --> 00:05:20.263
+0:05:25.330 --> 0:05:28.423
 and beginner-friendly API to users.
 
 109
-00:05:23.190 --> 00:05:25.090
+0:05:31.350 --> 0:05:33.250
 Slide 14.
 
 slide-14
-00:05:25.090 --> 00:05:27.950
+0:05:33.250 --> 0:05:36.110
 Web applications are very accessible.
 
 111
-00:05:27.950 --> 00:05:30.440
+0:05:36.110 --> 0:05:38.600
 There are a lot of web applications made
 
 112
-00:05:30.440 --> 00:05:33.450
+0:05:38.600 --> 0:05:41.610
 by the ml5.js community.
 
 113
-00:05:33.450 --> 00:05:35.990
+0:05:41.610 --> 0:05:44.150
 Here are a few examples.
 
 114
-00:05:35.990 --> 00:05:38.050
+0:05:44.150 --> 0:05:46.210
 A Whac-A-Mole game that you can play
 
 115
-00:05:38.050 --> 00:05:40.640
+0:05:46.210 --> 0:05:48.800
 with your webcam, a flying game
 
 116
-00:05:40.640 --> 00:05:44.420
+0:05:48.800 --> 0:05:52.580
 where you can control your characters with your voice,
 
 117
-00:05:44.420 --> 00:05:47.169
+0:05:52.580 --> 0:05:55.329
 an interactive story reading experiments
 
 118
-00:05:47.169 --> 00:05:49.880
+0:05:55.329 --> 0:05:58.400
 that uses your voice as input
 
 119
-00:05:49.880 --> 00:05:52.681
+0:05:58.400 --> 0:06:00.841
 to generate stories and joins.
 
 120
-00:05:52.681 --> 00:05:56.580
+0:06:00.841 --> 0:06:04.740
 There are many more applications built with ml5.js
 
 121
-00:05:56.580 --> 00:06:00.910
+0:06:04.740 --> 0:06:09.700
 that you can find at its community page.
 
 122
-00:06:00.910 --> 00:06:03.040
+0:06:09.700 --> 0:06:11.200
 People find the low effort
 
 123
-00:06:03.040 --> 00:06:07.040
+0:06:11.200 --> 0:06:15.200
 in using existing browser API desirable.
 
 124
-00:06:07.040 --> 00:06:10.840
+0:06:15.200 --> 0:06:19.000
 For example, using webcam and microphones
 
 125
-00:06:10.840 --> 00:06:13.870
+0:06:19.000 --> 0:06:22.300
 with the ability of rendering output easily
 
 126
-00:06:13.870 --> 00:06:18.600
+0:06:22.300 --> 0:06:26.760
 to image, canvas, audio or text elements on the DOM.
 
 127
-00:06:18.600 --> 00:06:22.113
+0:06:26.760 --> 0:06:30.273
 So they're perfect for creative projects.
 
 128
-00:06:24.260 --> 00:06:25.623
+0:06:32.420 --> 0:06:33.783
 Slide 15.
 
 slide-15
-00:06:26.838 --> 00:06:31.000
+0:06:34.998 --> 0:06:39.160
 Webcam video, audio and mouse interactions
 
 130
-00:06:31.000 --> 00:06:33.860
+0:06:39.160 --> 0:06:42.200
 are often used as input to models
 
 131
-00:06:33.860 --> 00:06:36.369
+0:06:42.200 --> 0:06:44.529
 and the conversion between those formats
 
 132
-00:06:36.369 --> 00:06:39.580
+0:06:44.529 --> 0:06:47.740
 is often a multi-step process.
 
 133
-00:06:39.580 --> 00:06:42.010
+0:06:47.740 --> 0:06:50.170
 Therefore, having native support
 
 134
-00:06:42.010 --> 00:06:45.760
+0:06:50.170 --> 0:06:53.920
 for converting browser I/O streams
 
 135
-00:06:45.760 --> 00:06:48.830
+0:06:53.920 --> 0:06:56.990
 to model inputs and vice versa
 
 136
-00:06:48.830 --> 00:06:50.380
+0:06:56.990 --> 0:06:58.540
 would be very helpful.
 
 137
-00:06:50.380 --> 00:06:55.310
+0:06:58.540 --> 0:07:03.470
 For example, TensorFlow.js models support HTML video
 
 138
-00:06:55.310 --> 00:06:58.133
+0:07:03.470 --> 0:07:06.293
 or image elements as model inputs.
 
 139
-00:07:00.130 --> 00:07:02.090
+0:07:08.290 --> 0:07:10.250
 Slide 16.
 
 slide-16
-00:07:02.090 --> 00:07:06.260
+0:07:10.250 --> 0:07:14.420
 In the progress of porting models into ml5.js,
 
 141
-00:07:06.260 --> 00:07:09.460
+0:07:14.420 --> 0:07:17.620
 the first thing to consider is the model size.
 
 142
-00:07:09.460 --> 00:07:11.000
+0:07:17.620 --> 0:07:19.160
 It needs to be small enough
 
 143
-00:07:11.000 --> 00:07:13.520
+0:07:19.160 --> 0:07:21.680
 so we can load it into the browser.
 
 144
-00:07:13.520 --> 00:07:16.250
+0:07:21.680 --> 0:07:24.410
 Secondly, to support real-time interaction
 
 145
-00:07:16.250 --> 00:07:19.895
+0:07:24.410 --> 0:07:28.550
 in the browser, the model needs to have low latency.
 
 146
-00:07:19.895 --> 00:07:24.600
+0:07:28.550 --> 0:07:32.760
 The last thing is the model format.
 
 147
-00:07:24.600 --> 00:07:27.090
+0:07:32.760 --> 0:07:35.250
 It should be portable to the web.
 
 148
-00:07:27.090 --> 00:07:29.040
+0:07:35.250 --> 0:07:37.200
 Here is a common workflow
 
 149
-00:07:29.040 --> 00:07:32.850
+0:07:37.200 --> 0:07:41.100
 of porting a pre-trained model into ml5.js.
 
 150
-00:07:32.850 --> 00:07:36.640
+0:07:41.100 --> 0:07:44.800
 A model from a machine learning research paper
 
 151
-00:07:36.640 --> 00:07:40.320
+0:07:44.800 --> 0:07:48.480
 might be implemented in other frameworks, like PyTorch.
 
 152
-00:07:40.320 --> 00:07:44.190
+0:07:48.480 --> 0:07:52.350
 So first, we need to implement the model in TensorFlow
 
 153
-00:07:44.190 --> 00:07:45.870
+0:07:52.350 --> 0:07:54.300
 and train the model.
 
 154
-00:07:45.870 --> 00:07:49.500
+0:07:54.300 --> 0:07:57.660
 Then we convert the model into tf.js format
 
 155
-00:07:49.500 --> 00:07:51.970
+0:07:57.660 --> 0:08:00.130
 with tf.js converter.
 
 156
-00:07:51.970 --> 00:07:54.990
+0:08:00.130 --> 0:08:03.150
 And lastly, port it into ml5.js
 
 157
-00:07:54.990 --> 00:07:58.080
+0:08:03.150 --> 0:08:06.240
 to provide high-level API to users.
 
 158
-00:07:58.080 --> 00:08:02.040
+0:08:06.240 --> 0:08:10.200
 Here, the first step, which is implementing the model
 
 159
-00:08:02.040 --> 00:08:03.592
+0:08:10.200 --> 0:08:11.752
 in TensorFlow and train it
 
 160
-00:08:03.592 --> 00:08:06.440
+0:08:11.752 --> 0:08:14.600
 is the most time-consuming step
 
 161
-00:08:06.440 --> 00:08:10.250
+0:08:14.600 --> 0:08:18.410
 and not all the operations are supported
 
 162
-00:08:10.250 --> 00:08:13.970
+0:08:18.410 --> 0:08:22.130
 between different machine learning frameworks.
 
 163
-00:08:13.970 --> 00:08:16.660
+0:08:22.130 --> 0:08:24.820
 Therefore, it will be very helpful
 
 164
-00:08:16.660 --> 00:08:21.160
+0:08:24.820 --> 0:08:29.320
 to have a standard model format for the web
 
 165
-00:08:21.160 --> 00:08:24.173
+0:08:29.320 --> 0:08:32.333
 or have a tool that can make this step easier.
 
 166
-00:08:25.390 --> 00:08:27.678
+0:08:33.550 --> 0:08:35.838
 Our next project is making the conversion
 
 167
-00:08:27.678 --> 00:08:30.803
+0:08:35.838 --> 0:08:38.963
 between different machine learning frameworks easier.
 
 168
-00:08:32.950 --> 00:08:34.540
+0:08:41.110 --> 0:08:42.700
 Slide 17.
 
 slide-17
-00:08:34.540 --> 00:08:37.790
+0:08:42.700 --> 0:08:45.950
 Here are some more links about ml5.js.
 
 170
-00:08:37.790 --> 00:08:39.044
+0:08:45.950 --> 0:08:47.204
 That's all from me.
 
 171
-00:08:39.044 --> 00:08:41.013
+0:08:47.204 --> 0:08:49.173
 Thank you so much for watching.
+
 
