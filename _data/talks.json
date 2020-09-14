@@ -269,14 +269,17 @@
         "abstract_zh": "Paddle.js是适用于各种Web运行时的高性能JavaScript DL框架，它有助于通过Web社区构建PaddlePaddle生态系统。本演讲将介绍Paddle.js的设计原理，实现，使用场景以及该项目想要探索的未来工作。",
         "duration": "05:51"
       },
-      "en_ml5js": {
-        "title": "ML5.js",
-        "title_zh": "ML5.js",
+      "ys_ml5": {
+        "title": "ml5.js: Friendly Machine Learning for the Web",
         "author": "Yining Shi",
-        "affiliation": "New York University",
+        "affiliation": "New York University, RunwayML",
         "affiliation_zh": "纽约大学",
         "bio": "ml5.js contributor and adjunct professor at Interactive Telecommunications Program (ITP)",
-        "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授"
+        "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授",
+        "added": "2020-09-14",
+        "video": "https://app.streamfizz.live/embed/ckf25pb70u0xk07316xa68ovz",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf25pb70u0xk07316xa68ovz/thumbs/thumb-005.jpeg",
+        "duration": "08:41"
       },
       "wl_pipcook": {
         "title": "Pipcook, a front-end oriented DL framework",
