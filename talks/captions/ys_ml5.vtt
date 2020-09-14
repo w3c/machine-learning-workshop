@@ -278,7 +278,7 @@ human bodies, hand poses and faces,
 
 70
 0:03:29.920 --> 0:03:33.450
-generating text, images and joins,
+generating text, images and drawings,
 
 71
 0:03:33.450 --> 0:03:36.500
@@ -294,11 +294,11 @@ and analyzing words and sentences.
 
 74
 0:03:43.380 --> 0:03:48.380
-Ml5.js also provides neural network feature extractor
+Ml5.js also provides NeuralNetwork, FeatureExtractor,
 
 75
 0:03:49.150 --> 0:03:53.647
-and classifier and k-means as helper functions.
+KNNClassifier and KMeans as helper functions.
 
 76
 0:03:55.960 --> 0:03:57.100
@@ -330,7 +330,7 @@ Secondly, ask the model to classify
 
 83
 0:04:11.180 --> 0:04:14.600
-or critique something based on a input,
+or predict something based on a input,
 
 84
 0:04:14.600 --> 0:04:16.270
@@ -474,7 +474,7 @@ that uses your voice as input
 
 119
 0:05:58.400 --> 0:06:00.841
-to generate stories and joins.
+to generate stories and drawings.
 
 120
 0:06:00.841 --> 0:06:04.740
@@ -662,7 +662,7 @@ or have a tool that can make this step easier.
 
 166
 0:08:33.550 --> 0:08:35.838
-Our next project is making the conversion
+ONNX project is making the conversion
 
 167
 0:08:35.838 --> 0:08:38.963
