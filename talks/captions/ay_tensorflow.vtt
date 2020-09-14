@@ -238,7 +238,7 @@ on many factors,
 
 60
 0:02:53.850 --> 0:02:57.260
-including the model architecture and the advice.
+including the model architecture and the device.
 
 61
 0:02:57.260 --> 0:02:59.860
@@ -642,11 +642,11 @@ Slide 10.
 
 slide-10
 0:07:31.650 --> 0:07:35.200
-This table shows inference speeds for the PO's net model,
+This table shows inference speeds for the Posenet model,
 
 162
 0:07:35.200 --> 0:07:38.180
-built on top of the resonant 50 architecture,
+built on top of the resnet-50 architecture,
 
 163
 0:07:38.180 --> 0:07:43.500
