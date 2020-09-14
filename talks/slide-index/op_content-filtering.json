@@ -1,0 +1,34 @@
+[
+  {
+    "start": "00:09",
+    "title": "Machine Learning on the Web for content filtering applications"
+  },
+  {
+    "start": "00:42",
+    "title": "Content filtering"
+  },
+  {
+    "start": "02:22",
+    "title": "Element hiding"
+  },
+  {
+    "start": "03:54",
+    "title": "Perceptual features"
+  },
+  {
+    "start": "06:34",
+    "title": "The hard cases"
+  },
+  {
+    "start": "07:36",
+    "title": "Structural features"
+  },
+  {
+    "start": "09:04",
+    "title": "Graph-based blocking: AdGraph"
+  },
+  {
+    "start": "09:39",
+    "title": "DOM as a (dynamic) Graph"
+  }
+]

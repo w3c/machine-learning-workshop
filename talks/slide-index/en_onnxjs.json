@@ -1,0 +1,50 @@
+[
+  {
+    "start": "00:09",
+    "title": "ONNX.js - A Javascript library to run ONNX models in browsers and Node.js"
+  },
+  {
+    "start": "00:29",
+    "title": "JS-based Client-side applications"
+  },
+  {
+    "start": "01:45",
+    "title": "JS-based Clientside Machine Learning"
+  },
+  {
+    "start": "03:48",
+    "title": "ONNX.JS Background -ONNX"
+  },
+  {
+    "start": "04:44",
+    "title": "ONNX converters for popular frameworks"
+  },
+  {
+    "start": "05:44",
+    "title": "ONNX Community"
+  },
+  {
+    "start": "06:26",
+    "title": "ONNX.js"
+  },
+  {
+    "start": "11:31",
+    "title": "Model inference with ONNX.JS"
+  },
+  {
+    "start": "11:56",
+    "title": "HTML example to use ONNX.js"
+  },
+  {
+    "start": "12:17",
+    "title": "Using NPM and bundling tools to use ONNX.js"
+  },
+  {
+    "start": "12:27",
+    "title": "ONNX.js Demo"
+  },
+  {
+    "start": "13:13",
+    "title": "We’d love to embrace your contribution"
+  }
+]

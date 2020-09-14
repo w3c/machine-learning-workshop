@@ -1,0 +1,58 @@
+[
+  {
+    "start": "00:09",
+    "title": "Opportunities and Challenges for TensorFlow.js and beyond"
+  },
+  {
+    "start": "00:28",
+    "title": "TensorFlow.js"
+  },
+  {
+    "start": "00:48",
+    "title": "TensorFlow.js Environments"
+  },
+  {
+    "start": "01:27",
+    "title": "Architecture"
+  },
+  {
+    "start": "02:51",
+    "title": "3 key user journeys"
+  },
+  {
+    "start": "03:20",
+    "title": "Use Cases"
+  },
+  {
+    "start": "03:37",
+    "title": "Limitations / Roadblocks"
+  },
+  {
+    "start": "03:57",
+    "title": "Float 32"
+  },
+  {
+    "start": "04:43",
+    "title": "Float 16"
+  },
+  {
+    "start": "05:05",
+    "title": "Garbage Collection - WebGL"
+  },
+  {
+    "start": "06:12",
+    "title": "Graphics card acceleration"
+  },
+  {
+    "start": "06:45",
+    "title": "Model Security"
+  },
+  {
+    "start": "08:16",
+    "title": "Model Warmup"
+  },
+  {
+    "start": "09:29",
+    "title": "#MadeWithTFJS"
+  }
+]

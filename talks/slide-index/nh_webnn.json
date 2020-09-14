@@ -1,0 +1,46 @@
+[
+  {
+    "start": "00:09",
+    "title": "Access purpose-built ML hardware with Web Neural Network API"
+  },
+  {
+    "start": "00:39",
+    "title": "The JS ML frameworks and AI Web apps"
+  },
+  {
+    "start": "01:21",
+    "title": "Purpose-built ML hardware"
+  },
+  {
+    "start": "02:03",
+    "title": "The performance gap: Web and native"
+  },
+  {
+    "start": "03:34",
+    "title": "The Web is disconnected from ML hardware"
+  },
+  {
+    "start": "04:08",
+    "title": "WebNN: the architecture view"
+  },
+  {
+    "start": "06:08",
+    "title": "WebNN: the programming model"
+  },
+  {
+    "start": "07:42",
+    "title": "WebNN: the proof-of-concept implementation"
+  },
+  {
+    "start": "08:25",
+    "title": "WebNN: the demos"
+  },
+  {
+    "start": "09:29",
+    "title": "WebNN: the PoCperformance"
+  },
+  {
+    "start": "09:57",
+    "title": "Call for Participation"
+  }
+]

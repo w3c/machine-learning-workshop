@@ -1,0 +1,38 @@
+[
+  {
+    "start": "00:00",
+    "title": "Paddle.js - Machine Learning for the Web"
+  },
+  {
+    "start": "00:32",
+    "title": "What is Paddle.js"
+  },
+  {
+    "start": "01:12",
+    "title": "Opportunities and Challenges for WebAI"
+  },
+  {
+    "start": "02:00",
+    "title": "Design Principle"
+  },
+  {
+    "start": "02:59",
+    "title": "Overall Architecture and APIs"
+  },
+  {
+    "start": "03:30",
+    "title": "Performance"
+  },
+  {
+    "start": "04:11",
+    "title": "Compatibility"
+  },
+  {
+    "start": "04:44",
+    "title": "Use Case - Real-time Interactive Application"
+  },
+  {
+    "start": "05:07",
+    "title": "Conclusion & Future Work"
+  }
+]

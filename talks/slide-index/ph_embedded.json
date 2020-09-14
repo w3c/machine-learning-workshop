@@ -1,0 +1,42 @@
+[
+  {
+    "start": "00:11",
+    "title": "Extending W3C ML Work to Embedded Systems"
+  },
+  {
+    "start": "00:13",
+    "title": "About me"
+  },
+  {
+    "start": "00:58",
+    "title": "Beyond the Web"
+  },
+  {
+    "start": "01:24",
+    "title": "Resource constrained embedded device"
+  },
+  {
+    "start": "02:39",
+    "title": "What APIs for Machine Learning?"
+  },
+  {
+    "start": "03:21",
+    "title": "JavaScript ML API Considerations"
+  },
+  {
+    "start": "03:33",
+    "title": "Pattern #1: Same API on Web & Embedded"
+  },
+  {
+    "start": "04:31",
+    "title": "Pattern #2: Different APIs with a Bridge"
+  },
+  {
+    "start": "05:32",
+    "title": "Anti-Pattern: “Light” version of Web API"
+  },
+  {
+    "start": "06:23",
+    "title": "Closing"
+  }
+]
