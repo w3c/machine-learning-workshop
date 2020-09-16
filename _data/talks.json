@@ -421,12 +421,16 @@
         "duration": "06:00",
       "added": "2020-08-26"
       },
-      "ac_live-encoding": {
+      "ac_encoding": {
         "title": "AI-Powered Per-Scene Live Encoding ",
         "author": "Anita Chen",
         "affiliation": "Fraunhofer FOKUS",
         "bio": "Project Manager at Fraunhofer FOKUS",
-        "abstract": "This presentation will provide an overview of utilizing machine learning methods in automating per-title encoding for Video on Demand (VoD) and live streaming in order to improve the viewing experience. It will also address the behaviors of various regression models that can predict encoding ladders in a browser in real-time, including a future outlook in terms of optimization."
+        "abstract": "This presentation will provide an overview of utilizing machine learning methods in automating per-title encoding for Video on Demand (VoD) and live streaming in order to improve the viewing experience. It will also address the behaviors of various regression models that can predict encoding ladders in a browser in real-time, including a future outlook in terms of optimization.",
+        "duration": "9:13",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf5026qg98gu0731ugc6eaqb/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckf5026qg98gu0731ugc6eaqb",
+        "added": "2020-09-16"
       },
       "zc_expression": {
         "title": "A virtual character web meeting with expression enhance power by machine learning",

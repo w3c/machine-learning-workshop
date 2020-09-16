@@ -1,0 +1,675 @@
+WEBVTT
+
+slide-1
+0:00:00.000 --> 0:00:02.840
+Hello everybody, my name is Anita Chen
+
+2
+0:00:02.840 --> 0:00:07.120
+and I work as a project manager at Fraunhofer Fokus in Berlin.
+
+3
+0:00:07.120 --> 0:00:09.400
+My lightning talk for this workshop will be about
+
+4
+0:00:09.400 --> 0:00:11.640
+using AI methodologies to predict
+
+5
+0:00:11.640 --> 0:00:15.000
+optimal video encoding ladders on the web.
+
+slide-2
+0:00:15.000 --> 0:00:18.880
+For this talk, I will first cover the basics of per-title encoding.
+
+8
+0:00:18.880 --> 0:00:21.760
+Next, I will introduce our web-based AI solution
+
+9
+0:00:21.760 --> 0:00:24.160
+for per-title/per-scene encoding.
+
+10
+0:00:24.160 --> 0:00:26.360
+Lastly, I will recap this presentation
+
+11
+0:00:26.360 --> 0:00:30.800
+as well as discuss next steps in this project.
+
+slide-3
+0:00:30.800 --> 0:00:32.120
+For the per-title encoding section,
+
+14
+0:00:32.120 --> 0:00:35.760
+I will provide a brief overview of per-title encoding,
+
+15
+0:00:35.760 --> 0:00:37.840
+its differences from other encoding methods,
+
+16
+0:00:37.840 --> 0:00:41.600
+as well as its advantages and disadvantages.
+
+slide-4
+0:00:41.600 --> 0:00:43.120
+In a standard encoding ladder,
+
+19
+0:00:43.120 --> 0:00:45.440
+bitrate/resolution pairs are fixed
+
+20
+0:00:45.440 --> 0:00:49.960
+and the same encoding settings are applied across all types of videos.
+
+21
+0:00:49.960 --> 0:00:53.800
+For example, with the Apple h264 encoding ladder,
+
+22
+0:00:53.800 --> 0:00:57.160
+a 1080p video would be encoded with 7800 kbit/s.
+
+23
+0:00:57.160 --> 0:01:01.000
+However, there are various types of content:
+
+24
+0:01:01.000 --> 0:01:05.280
+animation, nature documentaries, action/sports -
+
+25
+0:01:05.280 --> 0:01:07.480
+which either have low/high complexity,
+
+26
+0:01:07.480 --> 0:01:09.760
+as well as high/low redundancy,
+
+27
+0:01:09.760 --> 0:01:13.800
+and the same encoding ladder is applied to all videos.
+
+29
+0:01:13.800 --> 0:01:16.880
+As a result, bitrates are either under or overused,
+
+30
+0:01:16.880 --> 0:01:20.440
+which can result in increasing storage costs.
+
+31
+0:01:20.440 --> 0:01:22.680
+With per-title encoding, however,
+
+32
+0:01:22.680 --> 0:01:25.680
+encoding settings are based on the content itself.
+
+33
+0:01:25.680 --> 0:01:28.480
+With per-scene encoding, encoding settings are adjusted
+
+34
+0:01:28.480 --> 0:01:31.280
+based on different scenes within the content.
+
+slide-5
+0:01:31.960 --> 0:01:35.640
+So, how does per-title encoding work?
+
+37
+0:01:35.640 --> 0:01:39.640
+First, the source video file is analyzed for its complexity.
+
+38
+0:01:39.640 --> 0:01:42.120
+With the analysis, several test encodes are produced
+
+39
+0:01:42.120 --> 0:01:45.280
+to calculate its corresponding VMAF values.
+
+40
+0:01:45.280 --> 0:01:49.720
+These test encodes consist of different encoding settings.
+
+41
+0:01:49.720 --> 0:01:51.760
+Then, a convex hull is estimated,
+
+42
+0:01:51.760 --> 0:01:54.720
+so that the resulting encoding ladder consists of
+
+43
+0:01:54.720 --> 0:01:57.760
+bitrate/resolution pairs that lie close to the convex hull.
+
+44
+0:01:57.760 --> 0:02:01.160
+Finally, production encoding is performed,
+
+45
+0:02:01.160 --> 0:02:05.240
+where a video is encoded based on the resulting ladder.
+
+46
+0:02:05.240 --> 0:02:09.840
+For purposes of comparison, we used a 1080p sports video
+
+47
+0:02:09.840 --> 0:02:12.720
+and encoded it with 3 different methods.
+
+48
+0:02:12.720 --> 0:02:15.720
+In this context, the benchmark for quality comparisons are
+
+49
+0:02:15.720 --> 0:02:21.240
+VMAF and PSNR, both of which are quality metrics for video files.
+
+50
+0:02:21.240 --> 0:02:23.920
+VMAF was developed by Netflix a few years ago
+
+51
+0:02:23.920 --> 0:02:26.760
+in order to capture the perception of video quality
+
+52
+0:02:26.760 --> 0:02:28.680
+in a more accurate fashion.
+
+53
+0:02:28.680 --> 0:02:34.680
+It is measured on a scale of 0-100, with 100 being perfect quality.
+
+54
+0:02:34.680 --> 0:02:39.200
+On slide 10, you can see a comparison of bitrates and quality scores
+
+55
+0:02:39.200 --> 0:02:41.520
+between each type of encoding.
+
+56
+0:02:41.520 --> 0:02:43.400
+With per-title and per-scene encoding,
+
+57
+0:02:43.400 --> 0:02:46.400
+bitrates and bandwidth are reduced by at least 50%,
+
+58
+0:02:46.400 --> 0:02:50.560
+while maintaining the same quality without any perceptual loss.
+
+59
+0:02:50.560 --> 0:02:53.600
+Additionally, through comparing file sizes,
+
+60
+0:02:53.600 --> 0:02:59.440
+we found that storage and delivery also decreased by at least 50%.
+
+61
+0:02:59.440 --> 0:03:02.640
+However, a major disadvantage in this method is that
+
+62
+0:03:02.640 --> 0:03:04.800
+a large number of test encodes is required
+
+63
+0:03:04.800 --> 0:03:08.400
+in order to derive a proper/accurate encoding ladder.
+
+slide-6
+0:03:08.400 --> 0:03:12.160
+To overcome the challenges of per-title and per-scene encoding,
+
+66
+0:03:12.160 --> 0:03:14.920
+we developed a few models that can predict video quality
+
+67
+0:03:14.920 --> 0:03:17.600
+based on certain encoding settings.
+
+68
+0:03:17.600 --> 0:03:22.600
+With this technology, large sets of test encodings are not needed.
+
+slide-7
+0:03:22.600 --> 0:03:26.520
+As you can see on slides 7-8, we've developed a workflow
+
+71
+0:03:26.520 --> 0:03:28.520
+with integrated machine learning models
+
+72
+0:03:28.520 --> 0:03:31.720
+that can be adapted for per-title, per-scene and live encoding.
+
+73
+0:03:31.720 --> 0:03:36.120
+First, a source video is fed into the distribution workflow.
+
+74
+0:03:36.120 --> 0:03:39.800
+The source video's complexity is analyzed
+
+75
+0:03:39.800 --> 0:03:43.000
+(such as resolution size, frame rate, etc.).
+
+76
+0:03:43.000 --> 0:03:44.920
+A regression algorithm is used to predict
+
+77
+0:03:44.920 --> 0:03:47.560
+the optimized encoding profile, which is then applied
+
+78
+0:03:47.560 --> 0:03:50.400
+to the video for production encoding.
+
+79
+0:03:50.400 --> 0:03:55.360
+The encoded video can then be made available for playback streaming.
+
+80
+0:03:55.360 --> 0:03:56.880
+In a live streaming scenario,
+
+81
+0:03:56.880 --> 0:04:00.360
+5-second clips are cut and analyzed in parallel.
+
+slide-8
+0:04:00.360 --> 0:04:04.880
+Slide 8 presents the current and upcoming components
+
+84
+0:04:04.880 --> 0:04:06.480
+for our end-to-end solution.
+
+85
+0:04:06.480 --> 0:04:09.480
+The main goal in integrating web API’s is
+
+86
+0:04:09.480 --> 0:04:13.680
+to improve the performance and speed of our end-to-end solution
+
+87
+0:04:13.680 --> 0:04:16.560
+for several use case scenarios.
+
+88
+0:04:16.560 --> 0:04:20.800
+Our current web solution includes basic browser functionalities
+
+89
+0:04:20.800 --> 0:04:23.280
+and a video upload via the browser.
+
+90
+0:04:23.280 --> 0:04:26.840
+However, a more 'web-friendly' solution
+
+91
+0:04:26.840 --> 0:04:28.760
+for this step in the workflow
+
+92
+0:04:28.760 --> 0:04:33.480
+involves an automatic video upload via an URL.
+
+93
+0:04:33.480 --> 0:04:36.600
+Our current complexity analysis is conducted server-side.
+
+94
+0:04:36.600 --> 0:04:38.480
+All extracted video data is sent
+
+95
+0:04:38.480 --> 0:04:41.200
+to our machine learning models via an endpoint.
+
+96
+0:04:41.200 --> 0:04:45.400
+Like Francois' stated in his presentation,
+
+97
+0:04:45.400 --> 0:04:47.200
+“Media Processing Hooks Through the Web”,
+
+98
+0:04:47.200 --> 0:04:50.640
+videos are processed and analyzed through frame extraction,
+
+99
+0:04:50.640 --> 0:04:55.400
+which is also implemented for our video analysis component.
+
+100
+0:04:55.400 --> 0:04:59.840
+However, in our solution, the overall end-to-end solution becomes slower,
+
+101
+0:04:59.840 --> 0:05:02.360
+as well as increase costs on the server-side
+
+102
+0:05:02.360 --> 0:05:04.920
+when it comes to video analysis.
+
+103
+0:05:04.920 --> 0:05:07.520
+With that, a client-side analysis would improve
+
+104
+0:05:07.520 --> 0:05:09.760
+the overall time of our solution.
+
+105
+0:05:09.760 --> 0:05:13.000
+For our machine learning component,
+
+106
+0:05:13.000 --> 0:05:15.120
+the models are pre-trained and loaded in the browser
+
+107
+0:05:15.120 --> 0:05:17.640
+to produce client-side predictions.
+
+108
+0:05:17.640 --> 0:05:20.200
+However, with each model, comes several predictions
+
+109
+0:05:20.200 --> 0:05:22.480
+that must be filtered down in order to form
+
+110
+0:05:22.480 --> 0:05:24.800
+a proper optimal encoding ladder.
+
+111
+0:05:24.800 --> 0:05:28.240
+To overcome this issue, we've developed an encoding ladder API
+
+112
+0:05:28.240 --> 0:05:29.680
+in order to filter through the results,
+
+113
+0:05:29.680 --> 0:05:35.160
+and select the bitrate/resolution pairs that lie close to the convex hull.
+
+114
+0:05:35.160 --> 0:05:36.560
+We are currently looking into
+
+115
+0:05:36.560 --> 0:05:38.840
+the Web Neural Network and Model Loader API’s
+
+116
+0:05:38.840 --> 0:05:42.120
+to increase the performance of our models for use case scenarios
+
+117
+0:05:42.120 --> 0:05:46.360
+such as super resolution for larger company-wide conference calls,
+
+118
+0:05:46.360 --> 0:05:49.120
+our live streaming solution, and ultimately,
+
+119
+0:05:49.120 --> 0:05:52.360
+a faster andmore automated process for our models
+
+120
+0:05:52.360 --> 0:05:55.400
+in terms of generating predictions.
+
+121
+0:05:55.400 --> 0:05:57.560
+In the encoding/packaging component,
+
+122
+0:05:57.560 --> 0:06:01.840
+while our production encoding is done server-side,
+
+123
+0:06:01.840 --> 0:06:03.600
+integrating the WebCodecs API
+
+124
+0:06:03.600 --> 0:06:05.320
+for our live streaming townhall meetings
+
+125
+0:06:05.320 --> 0:06:07.880
+can also optimize the overall end-to-end solution.
+
+slide-9
+0:06:07.880 --> 0:06:13.000
+On slide 9, you’ll find screenshots of our web interface,
+
+128
+0:06:13.000 --> 0:06:15.720
+which follows our previously discussed workflow.
+
+129
+0:06:15.720 --> 0:06:18.360
+In the middle screenshot, you can see
+
+130
+0:06:18.360 --> 0:06:20.760
+our server-side video analysis taking place.
+
+131
+0:06:20.760 --> 0:06:24.920
+So, features such as the video metadata, characteristics,
+
+132
+0:06:24.920 --> 0:06:28.880
+classification, scene changes, and spatial/temporal information
+
+133
+0:06:28.880 --> 0:06:33.000
+are extracted and fed as requests for the machine learning endpoint.
+
+134
+0:06:33.000 --> 0:06:38.120
+Once analyzed, any of our pre-trained models can be selected
+
+135
+0:06:38.120 --> 0:06:40.760
+to determine its optimal encoding ladder,
+
+136
+0:06:40.760 --> 0:06:44.760
+which consists of the resolution, bitrate, and predicted VMAF score.
+
+137
+0:06:44.760 --> 0:06:48.320
+With this browser-based solution,
+
+138
+0:06:48.320 --> 0:06:50.200
+users can filter down the predictions
+
+139
+0:06:50.200 --> 0:06:53.160
+to certain encoding ladder representations,
+
+140
+0:06:53.160 --> 0:06:56.600
+and perform a production encoding on the selected representations.
+
+slide-10
+0:06:56.600 --> 0:07:03.400
+Slide 10 provides a brief overview of the models we’ve developed.
+
+143
+0:07:03.400 --> 0:07:07.520
+These models have been extensively trained on over 20 video attributes
+
+144
+0:07:07.520 --> 0:07:14.640
+and thousands of test encodes derived from videos ranging from 360p - 1080p.
+
+145
+0:07:14.640 --> 0:07:17.760
+As a result, we’ve developed 4 working models,
+
+146
+0:07:17.760 --> 0:07:22.240
+of which, XGBoost has been our best performing model in terms of accuracy.
+
+147
+0:07:22.240 --> 0:07:25.200
+We also have a convolutional neural network,
+
+148
+0:07:25.200 --> 0:07:28.400
+which is geared towards image &amp; video processing,
+
+149
+0:07:28.400 --> 0:07:31.160
+as well as the feed forward and stacked model.
+
+150
+0:07:31.160 --> 0:07:36.360
+As mentioned in the GitHub issue of 'ML model formats',
+
+151
+0:07:36.360 --> 0:07:39.400
+it would be necessary to have standardized frameworks.
+
+152
+0:07:39.400 --> 0:07:42.520
+What we are currently looking into developing is
+
+153
+0:07:42.520 --> 0:07:45.200
+a serving pipeline that supports all of our models
+
+154
+0:07:45.200 --> 0:07:49.720
+so that separate instances do not have to be built for each framework.
+
+155
+0:07:49.720 --> 0:07:53.240
+While we tried to build all models under one framework,
+
+156
+0:07:53.240 --> 0:07:58.160
+certain models such as the XGBoost was not possible with Keras/Tensorflow.
+
+slide-11
+0:07:58.160 --> 0:08:04.240
+In this talk, we've covered the concept of per-title encoding
+
+159
+0:08:04.240 --> 0:08:07.240
+and a web/AI-based solution to automate the process
+
+160
+0:08:07.240 --> 0:08:09.120
+as well as save the time and storage
+
+161
+0:08:09.120 --> 0:08:11.720
+that usually follows the process of per-title encoding.
+
+162
+0:08:11.720 --> 0:08:15.280
+We've described a conventional static encoding ladder,
+
+163
+0:08:15.280 --> 0:08:19.400
+where the same encoding settings are applied across all videos.
+
+164
+0:08:19.400 --> 0:08:23.440
+Then, the per-title encoding method, where bitrates and storage are saved.
+
+slide-12
+0:08:23.440 --> 0:08:28.920
+With our AI-based solution, the large number of test encodes are avoided,
+
+167
+0:08:28.920 --> 0:08:32.320
+and bandwidth and storage costs are saved even more.
+
+slide-13
+0:08:32.320 --> 0:08:35.600
+We are currently optimizing the overall workflow
+
+169
+0:08:35.600 --> 0:08:38.800
+in order to have a faster performance time.
+
+170
+0:08:38.800 --> 0:08:41.320
+For example, enhancing our current architecture
+
+171
+0:08:41.320 --> 0:08:45.920
+with using the model loader API that can load a custom pre-trained model.
+
+172
+0:08:45.920 --> 0:08:49.280
+We’d also like to contribute to this API
+
+173
+0:08:49.280 --> 0:08:51.000
+and the model standardization issue
+
+174
+0:08:51.000 --> 0:08:53.400
+in order to further support our use cases.
+
+175
+0:08:53.400 --> 0:08:57.440
+We are also optimizing our machine learning models
+
+176
+0:08:57.440 --> 0:08:59.120
+in order to minimize the difference
+
+177
+0:08:59.120 --> 0:09:01.880
+between our predicted and production encodes
+
+178
+0:09:01.880 --> 0:09:05.840
+and exploring other types of metrics
+
+179
+0:09:05.840 --> 0:09:07.480
+that can further enhance our models.
+
+slide-14
+0:09:07.480 --> 0:09:13.120
+Thank you for watching my presentation and have a nice day!
+
+
