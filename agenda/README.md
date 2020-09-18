@@ -16,7 +16,7 @@
 
 ## Improving existing web platform capabilities
 
-ℹ️ [WebGPU fitness for ML frameworks #66](https://github.com/w3c/machine-learning-workshop/issues/66) - @jasonmayes @Kangz @mehmetoguzderin @wchao1115 @grorg
+ℹ️ [WebGPU fitness for ML frameworks #66](https://github.com/w3c/machine-learning-workshop/issues/66) - @jasonmayes @Kangz @grorg
 - ❓ Does WebGPU expose the right API surface to support ML frameworks interactions with GPUs?
 - ✔️ Proposal: New WebGPU extensions for subgroups, cooperative matrix multiply.
 
@@ -38,24 +38,6 @@
 - ❓ Pay attention to the applicability of the browser-targeted work to non-browser JS environments, in particular Node.js.
 - ✔️ Proposal: Extend W3C coordination to TC53 and non-browser projects.
 
-ℹ️ [Targeting WASI-NN and WebNN together #96](https://github.com/w3c/machine-learning-workshop/issues/96) - @mehmetoguzderin @mingqiusun @abrown
-- ❓ Should libraries for browsers and/or Wasm execution environments be able to target WebNN and WASI-NN together?
-- ✔️ Proposal: TBD
-
-## Considerations for creating and deploying models
-
-ℹ️ [Protecting ML models #67](https://github.com/w3c/machine-learning-workshop/issues/67) - @jasonmayes @tidoust @pyu10055 @jbingham
-- ❓ Some ML providers need to ensure their ML models cannot be extracted from a browser app.
-- ✔️ Proposal: Investigate existing access control mechanisms for video, learnings from 3D assets.
-
-ℹ️ [ML model format #74](https://github.com/w3c/machine-learning-workshop/issues/74) - @cynthia @jbingham @wchao1115
-- ❓ There is no standard format for packaging and shipping ML models, model formats evolve rapidly.
-- ✔️ Proposal: Initially focus on defining a Web API for accelerating established reusable ML operations instead of standardizing a model format.
-
-ℹ️ [In-browser training #82](https://github.com/w3c/machine-learning-workshop/issues/82) and [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @irealva @hapticdata @cynthia
-- ❓ The current in-browser efforts are focused on inference rather than training.
-- ✔️ Proposal: Understand successful real-world usages (e.g. Teachable Machine) and target transfer learning as the initial training use case for related browser API work.
-
 ## September 22, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200922T14)
 
 >🔎 **Scope:** Web Platform Foundations for Machine Learning
@@ -64,6 +46,34 @@
 
 - [💡 "Web Platform Foundations" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22Web+Platform+Foundations%22+sort%3Acomments-desc) 
 
+## Considerations for creating and deploying models
+
+ℹ️ [ML model format #74](https://github.com/w3c/machine-learning-workshop/issues/74) - @cynthia @jbingham @wchao1115
+- ❓ There is no standard format for packaging and shipping ML models, model formats evolve rapidly.
+- ✔️ Proposal: Initially focus on defining a Web API for accelerating established reusable ML operations instead of standardizing a model format.
+
+ℹ️ [Protecting ML models #67](https://github.com/w3c/machine-learning-workshop/issues/67) - @jasonmayes @tidoust @pyu10055 @jbingham
+- ❓ Some ML providers need to ensure their ML models cannot be extracted from a browser app.
+- ✔️ Proposal: Investigate existing access control mechanisms for video, learnings from 3D assets.
+
+ℹ️ [In-browser training #82](https://github.com/w3c/machine-learning-workshop/issues/82) - @irealva @hapticdata @cynthia
+- ❓ The current in-browser efforts are focused on inference rather than training.
+- ✔️ Proposal: Understand successful real-world usages (e.g. Teachable Machine) and target transfer learning as the initial training use case for related browser API work.
+
+ [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @wmaass @Nov1102 @EmmaNingMS @zolkis @jaykishigami
+- ❓ Understand the role of edge computing in training and interactions with the web platform.
+- ✔️ Proposal: Work with Web & Networks IG to understand edge computing use cases and ensure input from ML usages is considered.
+
+## Extending the web foundations for ML
+
+ℹ️ [Targeting WASI-NN and WebNN together #96](https://github.com/w3c/machine-learning-workshop/issues/96) - @mehmetoguzderin @mingqiusun @abrown
+- ❓ Should libraries for browsers and/or Wasm execution environments be able to target WebNN and WASI-NN together?
+- ✔️ Proposal: TBD
+
+ℹ️ [Heterogeneous parallel computing for the web #92](https://github.com/w3c/machine-learning-workshop/issues/92) - @jeffhammond @Kangz
+- ❓ How do the heterogeneous parallel computing abstractions fit in with the web platform?
+- ✔️ Proposal: TBD
+
 ## September 23, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200923T14)
 
 >🔎 **Scope:** Machine Learning Experiences on the Web: A **Developer’s** Perspective
@@ -71,6 +81,40 @@
 >✅ **Goal:** Authoring ML experiences on the Web; challenges and opportunities of reusing existing ML models on the Web; on-device training, known technical solutions, gaps
 
 - [💡 "Developer's Perspective" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22Developer%27s+Perspective%22+sort%3Acomments-desc)
+
+## Applying web design principles to ML
+
+ℹ️ [Progressive Enhancement / Graceful degradation #68](https://github.com/w3c/machine-learning-workshop/issues/68) - @dontcallmedom  @jbingham @wchao1115 @huningxin
+- ❓ How to bring more ML features as optional improvements on more powerful devices and browsers without breaking web compatibility?
+- ✔️ Proposal: TBD
+
+ℹ️ [Conformance testing of ML APIs for the Web #80](https://github.com/w3c/machine-learning-workshop/issues/80) - @wchao1115  @Kangz
+- ❓ Robust conformance testing is a cornerstone of the interoperable web platform, how to scale that to the ML APIs and formats?
+- ✔️ Proposal: TBD
+
+## Improving web developer ergonomics
+
+ℹ️ [JS Operator overloading for Machine Learning #73](https://github.com/w3c/machine-learning-workshop/issues/73) - @cynthia @huningxin
+- ❓ Limitations in ECMAScript expressiveness impose ergonomics limitations for JS APIs on the web platform e.g. in vector matrix or tensor operations.
+- ✔️ Proposal: TBD
+
+ℹ️ [WebGL garbage collection #63](https://github.com/w3c/machine-learning-workshop/issues/63) - @jasonmayes @Kangz @wchao1115 @huningxin
+- ❓ Garbage collection in the WebGL API affects multiple ML libraries through side effects.
+- ✔️ Proposal: Identify any improvements in graphics APIs to alleviate the GC issue, ensure purpose-built APIs designed around computational graph abstraction (e.g. WebNN) optimize GC from library usage perspective.
+
+ℹ️ [Neural network-oriented graph database #102](https://github.com/w3c/machine-learning-workshop/issues/102) - @WenheLI
+- ❓ Understand model storage issues on the client, research the feasibility of a neural network-oriented graph database for the web.
+- ✔️ Proposal: TBD
+
+## Developing interactive web experiences with ML
+
+ℹ️ [Action-Response Cycle bottlenecks in interactive music apps #97](https://github.com/w3c/machine-learning-workshop/issues/97) - @teropa
+- ❓ Action-Response Cycle in interactive (music) apps must execute within 20 ms. Today, web developers need to do some API gymnastics to meet the requirement.
+- ✔️ Proposal: Investigate inference in AudioWorklet context and media integration e.g. fast streaming inputs from MediaStream.
+
+ℹ️ [Noise suppression with DSP+DNN, WebNN and Web Audio API feature gaps #100](https://github.com/w3c/machine-learning-workshop/issues/100) - @jmvalin @teropa @huningxin
+- ❓ What areas needs work on the web platform to ensure noise suppression models perform? The need for primitives like Basic Linear Algebra Subprograms, Web Audio API enhancements to allow better analysis of waveforms?
+- ✔️ Proposal: TBD
 
 ## September 29, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200929T14)
 
