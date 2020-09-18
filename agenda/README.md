@@ -48,13 +48,13 @@
 
 ## Considerations for creating and deploying models
 
-ℹ️ [Protecting ML models #67](https://github.com/w3c/machine-learning-workshop/issues/67) - @jasonmayes @tidoust @pyu10055 @jbingham
-- ❓ Some ML providers need to ensure their ML models cannot be extracted from a browser app.
-- ✔️ Proposal: Investigate existing access control mechanisms for video, learnings from 3D assets.
-
 ℹ️ [ML model format #74](https://github.com/w3c/machine-learning-workshop/issues/74) - @cynthia @jbingham @wchao1115
 - ❓ There is no standard format for packaging and shipping ML models, model formats evolve rapidly.
 - ✔️ Proposal: Initially focus on defining a Web API for accelerating established reusable ML operations instead of standardizing a model format.
+
+ℹ️ [Protecting ML models #67](https://github.com/w3c/machine-learning-workshop/issues/67) - @jasonmayes @tidoust @pyu10055 @jbingham
+- ❓ Some ML providers need to ensure their ML models cannot be extracted from a browser app.
+- ✔️ Proposal: Investigate existing access control mechanisms for video, learnings from 3D assets.
 
 ℹ️ [In-browser training #82](https://github.com/w3c/machine-learning-workshop/issues/82) - @irealva @hapticdata @cynthia
 - ❓ The current in-browser efforts are focused on inference rather than training.
@@ -70,7 +70,7 @@
 - ❓ Should libraries for browsers and/or Wasm execution environments be able to target WebNN and WASI-NN together?
 - ✔️ Proposal: TBD
 
-ℹ️ [Heterogeneous parallel computing for the web #92](https://github.com/w3c/machine-learning-workshop/issues/92) - @jeffhammond @Kangz @abrown
+ℹ️ [Heterogeneous parallel computing for the web #92](https://github.com/w3c/machine-learning-workshop/issues/92) - @jeffhammond @Kangz
 - ❓ How do the heterogeneous parallel computing abstractions fit in with the web platform?
 - ✔️ Proposal: TBD
 
@@ -94,12 +94,12 @@
 
 ## Improving web developer ergonomics
 
-ℹ️ [JS Operator overloading for Machine Learning #73](https://github.com/w3c/machine-learning-workshop/issues/73) - @TBD
+ℹ️ [JS Operator overloading for Machine Learning #73](https://github.com/w3c/machine-learning-workshop/issues/73) - @cynthia @huningxin
 - ❓ Limitations in ECMAScript expressiveness impose ergonomics limitations for JS APIs on the web platform e.g. in vector matrix or tensor operations.
 - ✔️ Proposal: TBD
 
 ℹ️ [WebGL garbage collection #63](https://github.com/w3c/machine-learning-workshop/issues/63) - @jasonmayes @Kangz @wchao1115 @huningxin
-- ❓ Garbage collection in the WebGL API affects multiple ML libraries. 
+- ❓ Garbage collection in the WebGL API affects multiple ML libraries through side effects.
 - ✔️ Proposal: Identify any improvements in graphics APIs to alleviate the GC issue, ensure purpose-built APIs designed around computational graph abstraction (e.g. WebNN) optimize GC from library usage perspective.
 
 ℹ️ [Neural network-oriented graph database #102](https://github.com/w3c/machine-learning-workshop/issues/102) - @WenheLI
@@ -109,11 +109,11 @@
 ## Developing interactive web experiences with ML
 
 ℹ️ [Action-Response Cycle bottlenecks in interactive music apps #97](https://github.com/w3c/machine-learning-workshop/issues/97) - @teropa
-- ❓ Action-Response Cycle in interactive (music) apps must execute within 20 ms.
+- ❓ Action-Response Cycle in interactive (music) apps must execute within 20 ms. Today, web developers need to do some API gymnastics to meet the requirement.
 - ✔️ Proposal: Investigate inference in AudioWorklet context and media integration e.g. fast streaming inputs from MediaStream.
 
-ℹ️ Noise suppression with DSP+DNN, WebNN and Web Audio API feature gaps - @TBD
-- ❓ TBD
+ℹ️ [Noise suppression with DSP+DNN, WebNN and Web Audio API feature gaps #100](https://github.com/w3c/machine-learning-workshop/issues/100) - @jmvalin @teropa @huningxin
+- ❓ What areas needs work on the web platform to ensure noise suppression models perform? The need for primitives like Basic Linear Algebra Subprograms, Web Audio API enhancements to allow better analysis of waveforms?
 - ✔️ Proposal: TBD
 
 ## September 29, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200929T14)
