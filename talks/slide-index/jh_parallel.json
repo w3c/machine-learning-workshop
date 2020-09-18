@@ -1,0 +1,42 @@
+[
+  {
+    "start": "00:10",
+    "title": "Heterogeneous parallel programming with open standards using oneAPI and Data Parallel C++"
+  },
+  {
+    "start": "00:21",
+    "title": "Problem Statement"
+  },
+  {
+    "start": "01:51",
+    "title": "Intel OneAPI"
+  },
+  {
+    "start": "03:50",
+    "title": "Khronos SYCL 2020 and Data Parallel C++"
+  },
+  {
+    "start": "05:34",
+    "title": "Why SYCL?"
+  },
+  {
+    "start": "07:13",
+    "title": "SYCL Ecosystem as of June 2020"
+  },
+  {
+    "start": "09:39",
+    "title": "SYCL Platform Portability Measurements"
+  },
+  {
+    "start": "10:24",
+    "title": "Programming is also about the code you don’T write!"
+  },
+  {
+    "start": "11:43",
+    "title": "oneAPI Libraries"
+  },
+  {
+    "start": "12:03",
+    "title": "Learn more about oneAPI"
+  }
+]

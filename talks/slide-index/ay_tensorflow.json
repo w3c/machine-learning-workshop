@@ -1,0 +1,42 @@
+[
+  {
+    "start": "00:09",
+    "title": "Fast client-side ML with TensorFlow.js"
+  },
+  {
+    "start": "01:00",
+    "title": "What is TensorFlow.js"
+  },
+  {
+    "start": "01:31",
+    "title": "Performance Overview"
+  },
+  {
+    "start": "03:12",
+    "title": "The WebAssembly backend"
+  },
+  {
+    "start": "04:22",
+    "title": "WebAssembly: our wishlist"
+  },
+  {
+    "start": "04:56",
+    "title": "The WebGL backend"
+  },
+  {
+    "start": "05:29",
+    "title": "WebGL: our wishlist"
+  },
+  {
+    "start": "06:49",
+    "title": "The WebGPU backend"
+  },
+  {
+    "start": "07:31",
+    "title": "WebGPU: Performance"
+  },
+  {
+    "start": "07:59",
+    "title": "Future web standards wishlist"
+  }
+]

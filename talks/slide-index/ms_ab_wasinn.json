@@ -1,0 +1,34 @@
+[
+  {
+    "start": "00:09",
+    "title": "Introducing WASI-NN"
+  },
+  {
+    "start": "00:23",
+    "title": "What is WASI?"
+  },
+  {
+    "start": "00:57",
+    "title": "What is Bytecode Alliance"
+  },
+  {
+    "start": "02:01",
+    "title": "Why WASI-NN?"
+  },
+  {
+    "start": "03:31",
+    "title": "Design Considerations"
+  },
+  {
+    "start": "04:51",
+    "title": "API Walkthrough"
+  },
+  {
+    "start": "05:49",
+    "title": "POC in Wasmtime"
+  },
+  {
+    "start": "06:51",
+    "title": "Call for action"
+  }
+]

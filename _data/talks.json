@@ -58,6 +58,17 @@
       "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
       "noslide": true,
       "duration": "04:29"
+    },
+    "ph_embedded": {
+      "title": "Extending W3C ML Work to Embedded Systems",
+      "author": "Peter Hoddie",
+      "affiliation": "Moddable Tech",
+      "bio": "<p>Peter is the chair of Ecma TC53, ECMAScript Module for Embedded Systems, working to bring standard JavaScript APIs to IoT.</p><p>He is a delegate to Ecma TC39, the JavaScript language standards committee, where his focus is ensuring JavaScript remains a viable language on resource constrained devices.</p><p>He is a co-founder and CEO of Moddable Tech, building XS, the only modern JavaScript engine for embedded systems, and the Moddable SDK, a JavaScript framework for delivering consumer and industrial IoT products.</p><p>Peter is the co-author of “IoT Development for ESP32 and ESP8266 with JavaScript”, published in 2020 by Apress, the professional books imprint of Springer Nature.</p><p>He contributed to the ISO MPEG-4 file format standard.</p><p><a href='https://www.moddable.com/peter-hoddie'>Additional bio information</a></p>",
+      "abstract": "<p>JavaScript's dominance on the web often obscures its many successes beyond the web, such as in embedded systems. New silicon for embedded systems is beginning to include hardware to accelerate ML, bringing ML to edge devices. These embedded systems are capable of running the same modern JavaScript used on the web. Would it be possible for the embedded systems to be coded in JavaScript in a way that is compatible with the ML APIs of the web?</p><p>This talk will briefly present two examples of JavaScript APIs developed for the web to support hardware features -- the W3C Sensor API and the Chrome Serial API. It will describe how each has been bridged to the embedded world in a different way -- perhaps suggesting a model for how W3C ML JavaScript APIs can bridge the embedded and browser worlds as well.</p>",
+      "video": "https://app.streamfizz.live/embed/ckey25zw0qdx70731i0vzodxh",
+      "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckey25zw0qdx70731i0vzodxh/thumbs/thumb-001.jpeg",
+      "duration": "06:57",
+      "added": "2020-09-11"
     }
   }    ,
   {
@@ -258,14 +269,28 @@
         "abstract_zh": "Paddle.js是适用于各种Web运行时的高性能JavaScript DL框架，它有助于通过Web社区构建PaddlePaddle生态系统。本演讲将介绍Paddle.js的设计原理，实现，使用场景以及该项目想要探索的未来工作。",
         "duration": "05:51"
       },
-      "en_ml5js": {
-        "title": "ML5.js",
-        "title_zh": "ML5.js",
+      "ys_ml5": {
+        "title": "ml5.js: Friendly Machine Learning for the Web",
         "author": "Yining Shi",
-        "affiliation": "New York University",
+        "affiliation": "New York University, RunwayML",
         "affiliation_zh": "纽约大学",
         "bio": "ml5.js contributor and adjunct professor at Interactive Telecommunications Program (ITP)",
-        "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授"
+        "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授",
+        "added": "2020-09-14",
+        "video": "https://app.streamfizz.live/embed/ckf25pb70u0xk07316xa68ovz",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf25pb70u0xk07316xa68ovz/thumbs/thumb-001.jpeg",
+        "duration": "08:56"
+      },
+      "wl_pipcook": {
+        "title": "Pipcook, a front-end oriented DL framework",
+        "author": "Wenhe Eric Li",
+        "affiliation": "Alibaba",
+        "bio": "ML/DL on web, contributor of ML5 & tfjs, memebr of pipcook, SDE @ Alibaba",
+        "abstract": "We are going to present a front-end oriented platform based on TensorFlow.js. We will cover what is pipcook, the design philosophy, as well as some examples & use cases in our internal community. Apart from that, we will show a brandy new solution to bridge the flourish python DL/ML environment and javascript runtime in both browsers and nodejs.",
+        "duration": "10:17",
+        "video": "https://app.streamfizz.live/embed/ckev83mzuaq7g073183lhuwje",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckev83mzuaq7g073183lhuwje/thumbs/thumb-001.jpeg",
+        "added": "2020-09-09"
       },
       "op_content-filtering": {
         "title": "Machine Learning on the Web for content filtering applications",
@@ -396,12 +421,16 @@
         "duration": "06:00",
       "added": "2020-08-26"
       },
-      "ac_live-encoding": {
+      "ac_encoding": {
         "title": "AI-Powered Per-Scene Live Encoding ",
         "author": "Anita Chen",
         "affiliation": "Fraunhofer FOKUS",
         "bio": "Project Manager at Fraunhofer FOKUS",
-        "abstract": "This presentation will provide an overview of utilizing machine learning methods in automating per-title encoding for Video on Demand (VoD) and live streaming in order to improve the viewing experience. It will also address the behaviors of various regression models that can predict encoding ladders in a browser in real-time, including a future outlook in terms of optimization."
+        "abstract": "This presentation will provide an overview of utilizing machine learning methods in automating per-title encoding for Video on Demand (VoD) and live streaming in order to improve the viewing experience. It will also address the behaviors of various regression models that can predict encoding ladders in a browser in real-time, including a future outlook in terms of optimization.",
+        "duration": "9:13",
+        "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf5026qg98gu0731ugc6eaqb/thumbs/thumb-001.jpeg",
+        "video": "https://app.streamfizz.live/embed/ckf5026qg98gu0731ugc6eaqb",
+        "added": "2020-09-16"
       },
       "zc_expression": {
         "title": "A virtual character web meeting with expression enhance power by machine learning",

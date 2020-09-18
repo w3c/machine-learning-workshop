@@ -1,0 +1,62 @@
+[
+  {
+    "start": "00:08",
+    "title": "Web Platform: a 30,000 feet view / Web Platform and JS environment constraints"
+  },
+  {
+    "start": "00:33",
+    "title": "Goal"
+  },
+  {
+    "start": "01:05",
+    "title": "Web Platform"
+  },
+  {
+    "start": "02:14",
+    "title": "Web Platform Specificities"
+  },
+  {
+    "start": "02:25",
+    "title": "Anchored in the Network"
+  },
+  {
+    "start": "02:49",
+    "title": "User Agent"
+  },
+  {
+    "start": "03:23",
+    "title": "Standards-based"
+  },
+  {
+    "start": "03:46",
+    "title": "Cross-Platform"
+  },
+  {
+    "start": "04:16",
+    "title": "Impact?"
+  },
+  {
+    "start": "04:26",
+    "title": "Constraint: concurrency"
+  },
+  {
+    "start": "05:43",
+    "title": "Constraint: same-origin policy"
+  },
+  {
+    "start": "06:32",
+    "title": "Constraint: tracking protection"
+  },
+  {
+    "start": "07:22",
+    "title": "Constraint: platform neutrality"
+  },
+  {
+    "start": "08:34",
+    "title": "Web Platform Pillars"
+  },
+  {
+    "start": "09:37",
+    "title": "Machine Learning ♥ Web Platform"
+  }
+]

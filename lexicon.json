@@ -66,5 +66,7 @@
   "our WNGT 2020 submission": {"href": "https://kheafield.com/papers/edinburgh/wngt20.pdf"},
   "SYCL": {"href": "https://www.khronos.org/sycl/"},
   "FGPA": "FGPA stands for Field-Programmable Gate Array and is an integrated circuit that can be customized and reconfigured, well suited to run deep neural network",
-  "OpenMP": {"href": "https://www.openmp.org/"}
+  "OpenMP": {"href": "https://www.openmp.org/"},
+  "W3C Sensor API": {"href": "https://w3c.github.io/sensors/"},
+  "TC53": "<a href='https://www.ecma-international.org/memento/tc53.htm'>ecma TC53</a> standardizes JavaScript modules for embedded systems</a>"
 }

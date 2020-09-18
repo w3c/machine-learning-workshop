@@ -1,0 +1,26 @@
+[
+  {
+    "start": "00:08",
+    "title": "SIMD operations in WebGPU for ML"
+  },
+  {
+    "start": "00:26",
+    "title": "Subgroups"
+  },
+  {
+    "start": "01:19",
+    "title": "Impact on ML"
+  },
+  {
+    "start": "01:56",
+    "title": "Web Interface"
+  },
+  {
+    "start": "04:43",
+    "title": "Hardware Support"
+  },
+  {
+    "start": "05:00",
+    "title": "Roadmap"
+  }
+]
