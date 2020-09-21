@@ -1,0 +1,460 @@
+---
+title: Minutes of 1st Live Session (September 16 2020)
+layout: subpage
+base: ../
+---
+<address>Scribe: François Daoust</address>
+<p><cite>Present:</cite> Dominique Hazael-Massieux, Anssi
+Kostiainen, Bernard Aboba, Deng Yuguang, Gabriel Vigliensoni, Jason
+Mayes, Jeff Hammond, Jun Weifu, Qiang Chen, Sangwhan Moon, Wendy
+Seltzer, Wenhe Eric Li, Xiuquan Qiao, Yakun Huang, Jay Kishigami,
+Zoltan Kis, P Laskowicz, Kelly Davis, Ningxin Hu, Dzmitry Malyshau,
+Seongwon Lee, Bartolo, Nikolay Bogoychev, Takio Yamaoka, , François
+Daoust, Amy Siu, Ken Kahn, Mingqiu Sun, Peter Hoddie, Chai, Gerrit
+Wessendor, Chun Gao (Agora.io), Anita Chen, Xuyuan, Josh Meyer,
+Benjamin Bogdanovic, Ann Yuan, Kenneth Heafield, Louay Bassbouss,
+Xiaoqian Wu, Andrew Brown, Jonathan Bingham, Richard Lea, Oleksandr
+Paraska, Mirco Pyrtek, Miao Wang, Mehmet Oguz Derin, Jnenifer
+Woodward Greene, James Powell, Bart Hanssens, Christine Runnegar,
+Corentin Wallez, Dan Druta, Deng Yuguang, Giuseppe Pascale, Irene
+Alvarado, Alan Bird, Josue Gutierrez, Kyle Philips, Mirza, Ping Yu,
+Rachel Aharon, Theoharis Charitidis, Tsahi Levent-Lehi, Wolfgang
+Maass, Chris Needham, Sheela, Stephan Steglich, Rafael, Josh
+O'Connor, Dennis, Anoop, Mina Ameli, Puson Gyang, Jens Hampe,
+Rachel Yager, Mark Crawford, Piotr Migdal, Chenzelun, Marie-Claire
+Forgue, John Rochford, Virginie Galindo,</p>
+<h2>Introduction to the workshop</h2>
+<p><cite>Anssi:</cite> Welcome. I work with Intel, chair of the
+workshop. Background in Web standards and Web technologies. The
+purpose of this workshop, in a nutshell, is to bring together
+machine learning and web people to make sure that the Web platform
+has better foundations for machine learning. We want to understand
+how in-browser machine learning fits into the machine learning
+ecosystem, and explore things both ways. Many pieces of the
+platform could be improved.</p>
+<p><cite>Anssi:</cite> Why are we here? The reality is that people
+from diverse backgrounds need to gather together to complement each
+other, and better evolve the Web platform.</p>
+<p><cite>Anssi:</cite> On behalf of the program committee, I would
+like to thank the speakers for the incredible work you've produced.
+Special thanks to our sponsor Futurice for making this workshop
+possible.</p>
+<p><cite>Anssi:</cite> Today's session is on opportunities and
+challenges of browser based ML. We have divided the rest in 3 other
+slots. 4 sessions in total. Sep 22, 23, 29, same time as today for
+remaining sessions.</p>
+<p><cite>Dom:</cite> What is W3C? I'm Dominique Hazaël-Massieux,
+part of the technical staff at W3C. You may have received emails
+from me… W3C stands for the World Wide Web Consortium. We are
+developing standards based on a voluntary basis. People who want to
+participate can participate, and those who want to adopt them can
+adopt them. W3C develops the Web platform by convening
+organizations, companies, people, around shared goals for the
+platform, and a common set of values that we would like the Web
+platform to express. We want to make sure that the Open Web
+Platform remains Royalty-Free, meaning that anyone can implement
+the specs without having to pay licensing fees, as much as we can
+guarantee that, that is.</p>
+<p><cite>Dom:</cite> We get inputs from W3C members, but also from
+the broader W3C community, and since you're here today, well,
+you're part of it! We use workshops when we consider topics that
+are new for our scope. A big motivation for this workshop is that,
+as we see communities working with ML, we understand opportunities
+that ML creates for the Web, as well as opportunities that the Web
+creates for ML. Welcome all to this W3C event!</p>
+<p><cite>Anssi:</cite> Here is an illustration of how we work
+together. Coming here, we received an array of talks. We have had
+very productive discussions on GitHub on some of the issues raised
+by the talk. As an outcome of this workshop, we will have a list of
+proposals, some of which may be ready for standardization
+(agreement and scope). We'll probably identify areas that are good
+target for incubation. We may also identify areas that would be
+better served in other organizations, not W3C.</p>
+<p><cite>Anssi:</cite> Please do not hesitate to comment using
+whatever mechanism you are comfortable with. Practically speaking,
+you are muted by default in Zoom to avoid background noise. Please
+use the raise hand feature hidden in the participants list. Briefly
+introduce yourself when you speak for the first time! In addition
+to Zoom, we have a Slack channel, you may want to follow that as
+well. We take live notes through a scribe (Francois does it today).
+Lastly, we are operating under the Code of Ethics and Professional
+Conduct (CEPC).</p>
+<p><cite>Anssi:</cite> Let's get to the meat of the meeting and
+look at the opportunities and challenges. Plenty of discussion
+topics for today in 3 buckets.</p>
+<h2>Improving existing web platform capabilities</h2>
+<h3>WebGPU fitness for ML frameworks</h3>
+<p><a href="https://github.com/w3c/machine-learning-workshop/issues/66">Related Discussions on Github</a></p>
+<p><cite>Anssi:</cite> First topic is WebGPU fitness for ML
+frameworks. Extensively discussed on GitHub. Does the WebGPU API
+expose the right interfaces for Machine Learning frameworks? In the
+discussion we had on GitHub, there were suggestions that some work
+was needed on the WebGPU API. I invited several participants, Jason
+Mayes from Tensorflow and Corentin, who co-chairs the WebGPU
+group.</p>
+<p><cite>Jason:</cite> Currently, we're using WebGL to execute
+operations for ML models. What lower level APIs do we need for
+efficient execution on graphic cards? Having to do the mathematics
+behind the scenes, using shaders and the like, seems more like a
+hack than a proper way to do it. It would be better to expose
+subgroup maths operations directly.</p>
+<p><cite>Corentin:</cite> The concern with subgroups is that a
+feature that is very close to the hardware. Very few studies on
+uniformity control. For instance, NVidia changed things recently
+that impacted the way they were being used. It's easy to expose
+subgroups behind a flag, but it's hard to standardize them in an
+interoperable way.</p>
+<p><cite>Anssi:</cite> It would be beneficial for the WebNN group
+to coordinate with the GPU for the Web group. There are shared
+participants.</p>
+<p><cite>Dom:</cite> One question for Corentin. You say that the
+semantics of subgroups are still in flux. Is there something where
+there is coordination going on somewhere?</p>
+<p><cite>Corentin:</cite> There have been recent research that may
+lead to standardization. The GPU for the Web group does not seem to
+be the right group for that. It would be unfortunate to expose
+something that is not portable, e.g. that may loop infinitely on
+some hardware and not on others.</p>
+<p><cite>Oguz:</cite> I made the proposal for subgroups in WebGPU.
+Proposal may include shuffles and relative shuffles, but that
+wouldn't be included at the WebGPU level. All of the hardware have
+support for the features that we could enable. Differences between
+hardware should not be a blocker, because the operations that are
+common already provide a lot of benefits, which can halve the
+duration of execution in some cases.</p>
+<p><cite>Anssi:</cite> It would probably help create more
+excitement if we document the key use cases for the subgroups
+proposal. We could continue the dialog in that regard. Chai, any
+perspective?</p>
+<p><cite>Oguz:</cite> WebML constructs are already very flexible
+but some graphs can't be as optimized as desired. SIMD operations
+can provide a game changing contribution there especially for
+exploratory data analysis</p>
+<p><cite>Chai:</cite> I lead development of DirectML, GPU
+acceleration platform on Windows. We actually use some of the
+low-level capabilities on the hardware. Subgroup map to wave
+operations in DirectX, I believe. Although system libraries expose
+this functionality across platforms, it's a bit uneven. We work
+closely with hardware vendors, we also noticed that the terminology
+evolves very fast. DirectML being the ML API that builds on top of
+hardware is able to encapsulate most of the complexity for
+developers. We need to look both at not only performance but also
+at guaranteeing the results. I see the API being more based on
+abstractions exposed by libraries such as DirectML. I see the
+benefit of having frameworks sit on top of that stack. We have just
+open sourced our extensions to TensorFlow, to build a runtime on
+top of DirectML. Although I'm sure that exposing subgroup
+operations would be useful if we can find a common way to do
+that.</p>
+<p>Jeff_Hammond: Is it important to solve the interoperability at
+the hardware level, or&nbsp;is it possible that users' needs get
+met with higher level constructs?&nbsp;Are the programmers who want
+portability the ones that are going to use that?&nbsp;Lower level could become a vendor
+problem.</p>
+<p><cite>Anssi:</cite> MLIR has been discussed in this context.
+Anyone from Google who could talk to that point is on the call.
+Jonathan?</p>
+<p><cite>Jonathan:</cite> Google is definitely exploring MLIR. We
+see that as very promising. There could be an MLIR dialect that
+could be the portable layer. Even there, there are multiple layers.
+We do see value in MLIR as a potential way to avoid the explosion
+of operations that we're currently seeing in Tensorflow.</p>
+<p><cite>Anssi:</cite> OK, I would say that this is work in
+progress. "Try different things and see what sticks". I would like
+to move to next topic now. Thank you for the great discussion.</p>
+<h3>Support for Float16 in JS & WebAssembly environments</h3>
+<p><a href="https://github.com/w3c/machine-learning-workshop/issues/64">Related Discussions on Github</a></p>
+<p><cite>Anssi:</cite> Lack of support in these environments is an
+issue for quantized models. There has been discussion a couple of
+years ago in ECMAScript to add support for Float16Array data type.
+Still a proposal. Not getting in the respective specs as fast as
+they could perhaps.</p>
+<p><cite>Sangwhan:</cite> I don't think that this is a hard
+problem. If you don't have hardware support, you can just use
+float32. There are no technical blockers that I see.
+Standardization takes time.</p>
+<p><cite>Anssi:</cite> Do we know more about the WebAssembly side?
+I see that it is flagged as post-mvp.</p>
+<p><cite>Kenneth:</cite> What about 8 bit integer support? The
+Google people are concerned that WebAssembly doesn't expose the
+number of registers, which makes it difficult to write an efficient
+GEMM, regardless of type, because GEMM typically uses all the
+registers.- cf
+https://github.com/webmachinelearning/webnn/issues/84</p>
+<p><cite>Anssi:</cite> We will record the feedback. Feel free to
+raise issues on GitHub too. Jason, I think you raised this as well
+in the context of Tensorflow.</p>
+<p><cite>Jason:</cite> Exactly what has been discussed. As soon as
+you run in JS, you can eat up all the available memory pretty fast.
+It would be great to be able to use less memory on the client
+devices. Also it may be acceptable to drop the accuracy by, say,
+10%, on mobile devices using more quantized values, to save
+memory.</p>
+<p><cite>Andrew:</cite> I work at Intel on WASI-NN proposal for
+WebAssembly. One of the things that we have considered was f18 and
+integer 8 support. We thought that we could use memory buffers in
+WebAssembly to emulate that, even when you don't have hardware
+support. Is that not going to work for the use cases that previous
+speakers mentioned?</p>
+<p><cite>Anssi:</cite> For further context, Andrew prepared a talk
+on WASI-NN for the workshop. OK, I think the proposal is to follow
+up on GitHub.</p>
+<div class="chat">
+<h3>Comments on chat</h3>
+<p><cite>Kenneth:</cite> What about int8?</p>
+<p><cite>Ping:</cite> int8 support in wasm will be useful</p>
+<p><cite>Sangwhan:</cite>
+https://github.com/WebAssembly/simd/tree/master/proposals/simd&nbsp;is
+on-going work, I recall seeing i8 types in there.</p>
+<p><cite>Kenneth:</cite>
+https://github.com/webmachinelearning/webnn/issues/84</p>
+<p><cite>Andrew:</cite> While it is true that Wasm doesn't have f16
+and i8 types, it is possible to create buffers in memory and pack
+them (through shifting, etc.) so they would "look like" f16/i8
+buffers--is this not enough?</p>
+<p><cite>Kenneth:</cite> While we're talking about size, speed
+matters. The relevant WebAssembly issue
+is&nbsp;https://github.com/WebAssembly/simd/issues/328&nbsp;.</p>
+<p>So WasiNN would do GEMM for me on the 8-bit buffers?</p>
+<p><cite>Andrew:</cite> I believe it could; right now we are
+working on a POC that exposes what OpenVINO can do through the
+wasi-nn API</p>
+<p><cite>Kenneth:</cite> Can it call _mm512_permutexvar_epi16 to
+implement lookup tables for operators? And if all I have is an
+Intel CPU, will WebAssembly allow it to call pmaddubsw or
+vpmaddubsw depsite the Intel-specific saturation behavior that
+  doesn't exist on ARM / GPU?</p>
+</div>
+<h3>Memory Copies</h3>
+<p><a href="https://github.com/w3c/machine-learning-workshop/issues/93">Related Discussions on Github</a></p>
+<p><cite>Anssi:</cite> The issue is that ML apps within the browser
+may trigger too many memory copies compared to native apps. This
+got raised by different speakers, e.g. by people working on the
+media pipeline. My proposal would be to introduce a more direct way
+to feed a video frame to an ML model. Bernard, your talk was
+touching this topic.</p>
+<p><cite>Bernard:</cite> I looked at some of the new media APIs
+such as WebTransport and WebCodecs to identify places where copies
+are being made that could be avoided in native apps. [Bernard
+mentions examples]. Additional copies in WHATWG Streams when using
+TransferableStream. Bringing your own buffer does not avoid the
+copy. If you look at every stage, you see an additional copy. It
+turns out that there may be up to a dozen copies of a single packet
+if you want to process video frames with modern technologies. Lots
+of these things are done for security reasons, so I don't know if
+we can prevent them, but it seems interesting to point them out in
+any case.</p>
+<p><cite>Anssi:</cite> Are there some low-hanging fruits?</p>
+<p><cite>Bernard:</cite> The ones that seem worst to me are the
+WebAssembly ones. I'll leave it to others to explain whether you
+can get rid of these copies. There has been some discussions on
+some of the other copies. The copies on receive probably cannot be
+avoided because different processes are being used.
+TransferableStreams and WebAssembly seem to be the ones where there
+would be more benefit.</p>
+<p><cite>Anssi:</cite> So, proposal to avoid memory copies should
+also include WebAssembly.</p>
+<p><cite>Anssi:</cite> This has been a recurring issue, e.g. having
+to copy pixels onto a canvas before you can do anything.</p>
+<p><cite>Wenhe:</cite> You can just call me Eric. From Alibaba.
+Doing training using JS. Memory copies occur during training and
+inference. SharedArrayBuffer can sometimes become a workaround to
+solve some of these copies.[d]</p>
+<p><cite>Bernard:</cite> In the media pipeline, we're using
+something called TransferableStreams, but that does not solve the
+issue. You would hope that SharedArrayBuffer would also avoid
+copies. But that's what surprised me, that's not always the case
+with these artefacts, you still have copies in some cases.</p>
+<p><cite>Anssi:</cite> We understand and acknowledge this issue.
+Let's try to split this into pieces and understand which ones are
+the most actionable.</p>
+<p><cite>Chai:</cite> The copies problem is very old in computer
+graphics. Fighting this for ages. You can never reduce things to 0
+in the context of 0. The result is going to be a range of floats,
+it has to be tensorized. The issue is more around cheap vs.
+expensive copies. The expensive copy is when you have to download
+and upload the data back and forth between the GPU and the CPU. One
+way to address this is to be very clear on the scenarios. You want
+to make sure that, end to end, your processing is going to follow
+the path that you actually want to take. My two cents are that it's
+more useful to look at scenarios and make sure that they avoid
+copies, than to necessarily fix the APIs to avoid copies.</p>
+<p><cite>Dom:</cite> Thank you Chai for that remark. Can we map all
+the scenarios? Or is the best we can do to optimize some well-known
+or well-used scenarios?</p>
+<p><cite>Chai:</cite> Normally, you would identify the key
+scenarios. Once you solve the common scenarios, e.g. video feed,
+you will likely solve others as well.</p>
+<p><cite>Bernard:</cite> The one we're talking about specifically
+here is indeed video feed, from capture to render. That's the key
+one.</p>
+<p><cite>Anssi:</cite> So the key use cases involves video&nbsp;and
+audio as input. Looking at this scenario first sounds like a good
+approach.</p>
+<p><cite>Dom:</cite> I've been discussing with Francois about
+organizing during the W3C breakout week (26-30 Oct) during TPAC a
+session to do a deep dive on these memory copies. Of course, we'll
+reach out to those who took part in the discussion today, but if
+others are willing to participate, please get in touch with
+Francois or I!</p>
+<div class=chat>
+  <h3>Comments on chat</h3>
+<p><cite>Wenhe:</cite> Can we use SharedArrayBuffer to reduce the
+over use of memory copies under the context of
+CPU/WASM/WebWorker?</p>
+<p><cite>Kenneth:</cite> WebAssembly copies are inefficient because
+WebAssembly isn't allowed to know cache sizes, no?</p>
+<p><cite>Andrew:</cite> I created an issue related to wasi-nn,
+int8/f16, GEMM, etc.
+here:&nbsp;https://github.com/WebAssembly/wasi-nn/issues/4</p>
+<p><cite>Sangwhan:</cite> It is worth noting that the copy problem
+isn't a solved problem in "native" ML for most of the part
+either.</p>
+<p><cite>Dom:</cite> Bernard was noting that there is still a
+pretty big gap between native and Web on this (even if native
+  doesn't solve it all)</p>
+</div>
+<h3>Permission model for Machine Learning APIs</h3>
+<p><a href="https://github.com/w3c/machine-learning-workshop/issues/72">Related Discussions on Github</a></p>
+<p><cite>Anssi:</cite> How to design a forward-looking permission
+model for ML APIs? This is a large problem, and not restricted to
+ML APIs obviously. I'd like to invite Sangwhan from the TAG.</p>
+<p><cite>Sangwhan:</cite> I brought this up in my talk, because
+this is a powerful capability coming to the web, both in terms of
+privacy and in terms of battery consumption. I'm particularly
+concerned about the latter, this can really drain your battery. But
+of course, face detection has real privacy implications. This isn't
+something that we have been discussing in the TAG thoroughly.</p>
+<p><cite>Anssi:</cite> With WebAssembly, WebGPU, you're not asking
+for permission.</p>
+<p><cite>Dom:</cite> I brought some of these aspects in the GitHub
+issue discussion. There is the notion of user consent, which
+currently does not apply to WebAssembly, WebGL, WebGPU. But we're
+also hearing reports that WebAssembly is being abused for mining
+bitcoins. Whether a tab is running in the foreground or in the
+background might help tell things apart. Are you looking at a
+broader set of solutions? This might be something where the TAG
+might have a very useful role to play. Not limited to WebAssembly
+or Machine Learning, it applies to any compute-heavy proposal.
+Would it be better to look at it as a whole as opposed to as in a
+piecemeal fashion?</p>
+<p><cite>Sangwhan:</cite> We have discussed in the TAG some of
+this, but more on the side for now. The bitcoin mining problem is
+an example we hadn't thought about. Did we miss things that should
+have been gated by permissions? WebGL is a possible example. Maybe
+we might want to revisit some of these APIs and gate them in the
+future.</p>
+<p><cite>Dom:</cite> More specific question, this sounds like a
+topic where we have potentially many different groups and APIs that
+need to be taken into consideration, so it's unlikely that a single
+group will go very far on its own. I don't know if it's part of the
+TAG scope to progress these cross-group architectural
+discussions.</p>
+<p><cite>Sangwhan:</cite> I believe it is. We've been pushing for
+more privacy.</p>
+<p><cite>Dom:</cite> So this might be the proposal here, to
+coordinate with the TAG on the larger question of permission model
+for compute heavy APIs.</p>
+<p><cite>Francois:</cite> one thing which may be related I heard
+from people working at SquareEnix, in Games, ML is not going to be
+used in practical 3D games because the computing power is already
+being used for 3D, so you have competition between ML & game
+rendering. We have a bunch of these powerful APIs - how do separate
+the competing needs of the different parts of an application? Is
+this something that needs to be looked at as well? This may be
+worth keeping in mind in the same context.</p>
+<p><cite>Anssi:</cite> Sounds like a separate issue that we may
+want to discuss in a future session.</p>
+<p><cite>Nick:</cite> Post-doc university of Edinburgh. We have ML
+running in the browser, with translation tools. We experience that
+when our ML model starts doing inference, then we get to 100% GPU
+usage, and the rest becomes unresponsive, so user experience is
+bad. We definitely need some mechanism to limit the amount of time
+that a model inference can take.</p>
+<p><cite>Ningxin:</cite> Working at Intel. WebML CG participant. We
+are incubating the WebNN API, a path to expose ML hardware
+capabilities present on the client device, different from CPU and
+GPU capabilities. So not just CPU and GPU in practice, there are
+also other bits of the hardware that may consume the battery.</p>
+<div class="chat">
+<h3>Comments on chat</h3>
+<p><cite>Kenneth:</cite> Fingeprinting via
+matmul&nbsp;https://github.com/webmachinelearning/webnn/issues/85</p>
+<p>So I can use as much inefficient javascript as I want but need
+permission to use an efficient API? Seems the issue is more the
+total resource consumed not the particular API? (Might change if
+the fingerprinting surface is bigger.)</p>
+<p><cite>Dom:</cite> Kenneth, the approach might be to slow down /
+throttle any CPU usage without having gone through some specific
+gating</p>
+<p><cite>Corentin:</cite> Shouldn't that be the user agent's
+decision, for example based on user engagement or a tab being
+foreground etc?</p>
+<p><cite>Dom:</cite> right - it may be a UA decision, but there
+needs to be consistency across UAs, across compute APIs</p>
+<p>… Ningxin, is there a way to give hints to the WebNN engine how
+to spread the resource usage?</p>
+<p>(across different type of accelerators)</p>
+<p><cite>Sangwhan:</cite> User engagement might be an option, but
+we've only seen that as a pattern used by media (autoplay) which
+does come with a way for the users to interact with. Would that
+pattern apply to ML models (which are effectively shader kernels)
+work is something that I don't have an answer for.</p>
+<p>Active tab only (or de-prioritize background tabs) might be
+something that would be useful for the second topic of the
+  discussion</p>
+</div>
+<h2>Extending beyond the browser</h2>
+<h3>Applicability to non-browser JS environments</h3>
+<p><cite>Anssi:</cite> Pay attention to the application of the
+browser-targeted work to non-browser JS runtimes, such as
+Node.js.</p>
+<p><cite>Jason:</cite> Obviously, Node.js is for server-side
+applications. We also support React Native, and other runtimes. Any
+decision we make today would trickle down to these other
+environments too. We should be mindful of that.</p>
+<p><cite>Anssi:</cite> TC53 call is happening at the same time
+(regrets from Peter who’s chairing a TC53 call and thus cannot
+attend this discussion today). If I replay Peter's thoughts, for
+constrained devices, the APIs shouldn't be exact copies of the APIs
+for more capable devices, but they should reuse the same overall
+concepts. This applies to constrained micro-controllers that are
+different from devices using the Node.js runtime. For instance,
+Tensorflow Lite is for lighter more constrained devices.</p>
+<p><cite>Jason:</cite> Yes, for instance, it doesn't have
+WebGL-based acceleration.</p>
+<p><cite>Anssi:</cite> Peter mentions TC53 which looks at these
+very constrained systems.</p>
+<p><cite>Dom:</cite> Are there ML primitives being defined for
+Node.js?</p>
+<p><cite>Anssi:</cite> I'd like to ask Wenhe. You're working on
+Pipcook..</p>
+<p><cite>Wenhe:</cite> Work is to introduce a pipeline for ML.
+During the promotion of our library, we found that we need a
+standard for frontend oriented data structures. How do we define a
+model training pipeline, and how it runs across different
+processes. If we can find a standard, it would be perfect for
+non-JS environments.</p>
+<p><cite>Anssi:</cite> Issue #62 is open for further comments.</p>
+<p><cite>Dom:</cite> TC53 coordination is probably a good starting
+point to understand what other needs may arise. One of the key gaps
+that I'm hearing is around the model exchange. Maybe that's really
+where the integration with other JS environments might need to
+happen.</p>
+<p><cite>Anssi:</cite> I believe we have a separate topic for this
+discussion. So get in touch with TC53.</p>
+<p>[Time check, oh no, too late!]</p>
+<p><cite>Anssi:</cite> This was the first time we tried this,
+thanks for the discussion. We'll reschedule pending topics to the
+other 3 sessions. Virtual applause to everyone! I hope to see you
+all on September 22. Thank you all for joining!</p>
+<p><cite>Dom:</cite> And please continue providing feedback on
+GitHub, Slack, including feedback on how this call went and how it
+  could be improved.</p>
+<div class="chat">
+<h3>Comments on chat</h3>
+
+<p><cite>Andrew:</cite> Not JS-related, but wasi-nn is targeted
+  toward non-browser Wasm runtimes</p>
+</div>
+</div>

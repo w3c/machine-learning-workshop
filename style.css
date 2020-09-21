@@ -746,3 +746,6 @@ details span.added {
 	transform: translate(-3em) rotate(-45deg);
 	transform-origin: top right;
 }
+.chat p {
+    font-family: monospace;
+}
