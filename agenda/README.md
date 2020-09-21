@@ -60,7 +60,7 @@
 - ❓ The current in-browser efforts are focused on inference rather than training.
 - ✔️ Proposal: Understand successful real-world usages (e.g. Teachable Machine) and target transfer learning as the initial training use case for related browser API work.
 
- [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @wmaass @Nov1102 @EmmaNingMS @zolkis @jaykishigami
+ℹ️ [Training across devices #83](https://github.com/w3c/machine-learning-workshop/issues/83) - @wmaass @Nov1102 @EmmaNingMS @zolkis @jaykishigami
 - ❓ Understand the role of edge computing in training and interactions with the web platform.
 - ✔️ Proposal: Work with Web & Networks IG to understand edge computing use cases and ensure input from ML usages is considered.
 
