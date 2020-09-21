@@ -108,7 +108,7 @@
 
 ## Developing interactive web experiences with ML
 
-ℹ️ [Action-Response Cycle bottlenecks in interactive music apps #97](https://github.com/w3c/machine-learning-workshop/issues/97) - @teropa
+ℹ️ [Action-Response Cycle bottlenecks in interactive music apps #97](https://github.com/w3c/machine-learning-workshop/issues/97) - @teropa @Louismac
 - ❓ Action-Response Cycle in interactive (music) apps must execute within 20 ms. Today, web developers need to do some API gymnastics to meet the requirement.
 - ✔️ Proposal: Investigate inference in AudioWorklet context and media integration e.g. fast streaming inputs from MediaStream.
 
