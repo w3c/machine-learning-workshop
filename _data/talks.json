@@ -24,17 +24,6 @@
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke43ihp10fub0731lohsnpmo/thumbs/thumb-001.jpeg",
       "added": "2020-08-26"
     },
-    "cb_hardware": {
-      "title": "ML hardware advancements: leveraging for performance while retaining portability",
-      "title_zh": "机器学习硬件的改进：在保持可移植性的同时利用性能",
-      "author": "Cormac Brick",
-      "affiliation": "Intel",
-      "affiliation_zh": "英特尔",
-      "bio": "Cormac leads Edge Inference IP architecture at Intel with a focus on both silicon and software. Cormac joined Intel as part of Movidius Acquisition in 2016 where he lead Machine Intelligence.",
-      "bio_zh": "Cormac在英特尔领导Edge推理IP架构。2016年英特尔收购Movidius，Cormac加入英特尔，他曾在那里领导机器智能的研发。",
-      "abstract": "There are a lot of interesting innovations coming in hardware technology, including hardware acceleration, weight compression, weight sparsity, low precision.",
-      "abstract_zh": "硬件技术中有很多有趣的创新，包括硬件加速，重量压缩，重量稀疏性，低精度。"
-    },
     "jm_tensorflowjs": {
       "title": "Opportunities and Challenges for TensorFlow.js and beyond",
       "title_zh": "TensorFlow.js 及以后的机遇与挑战",
@@ -394,16 +383,6 @@
         "abtract": "    In narrow domains ML based speech recognition systems have recently begun to approach human-like levels of performance. However, browser based support for such systems is spotty or lacking. This talk will be concerned with the industry's ongoing work to bring ML based speech recognition into the browser. It will cover a wide spectrum of topics: the struggle to standardize a browser based API, the privacy questions such an API exposes, the technical details of embedding (or not) an ML based system into the browser, along with many other topics.",
         "abstract_zh": "在狭窄域中，基于ML的语音识别系统具有最近开始接近人类的表现水平。然而，基于浏览器的此类系统支持不完善或缺乏。该演讲将与业界正在进行的将基于ML的语音识别引入浏览器的工作有关。它将涵盖广泛的主题：努力使基于浏览器的API标准化，此类API暴露出的隐私问题，将基于ML的系统嵌入（或不嵌入）到浏览器中的技术细节以及许多其他主题。",
         "duration": "06:57"
-      },
-      "rt_nlp": {
-        "title": "Challenges to create great user experience using natural language processing model in B2B SaaS product on the web",
-        "title_zh": "在web上的B2B SaaS产品中使用自然语言处理模型创建良好的用户体验的挑战",
-        "author": "Ryuichi Tanimoto",
-        "affiliation": "Stockmark",
-        "bio": "    web developer/system architect at Stockmark Inc.",
-        "bio_zh": "Stockmark 的开发者及系统架构师",
-        "abstract": "    Stockmark develops a B2B SaaS product based on machine learning and natural language processing technology to provide search and analysis UX of business news on the web and support the market research or competitive analysis in the business scene. This talk will share Stockmark's experience with developing the machine learning processes with fastText or BERT model in browser that suggests certain news or phrases or quantitative information in the text of searched news, in response to user's action to the web page.",
-        "abstract_zh": "Stockmark开发基于机器学习和自然语言处理技术的B2B SaaS产品，以在网络上提供商业新闻的搜索和分析UX，并支持商业场景中的市场研究或竞争分析。该演讲将分享Stockmark的经验，即在浏览器中使用fastText或BERT模型开发机器学习过程，以响应用户对网页的操作，在搜索到的新闻文本中建议某些新闻或短语或定量信息。"
       },
       "nb_privacy-translation": {
         "title": "Privacy focused machine translation in Firefox",
