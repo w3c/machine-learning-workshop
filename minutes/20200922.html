@@ -1,0 +1,379 @@
+---
+title: Minutes of 2nd Live Session (September 22 2020)
+layout: subpage
+base: ../
+---
+<h2>Minutes of 2nd Live Session (September 22 2020)</h2>
+<address><strong>Scribe:</strong> Dominique Hazael-Massieux</address>
+<p><strong>Present:</strong> Dominique Hazael-Massieux, Roy Ran, Jason
+Mayes, Zoltan Kis, Liu Yaoming, Kelly Davis, Anssi Kostiainen,
+Takio Yamaoka, Chai Chaoweeraprasit, Yakun Haung, Mina Ameli,
+&nbsp;Jay Kishigami, OnePlus 5T?, P Laszkowicz, Rowan, Christine
+Runnegar, Wenhe Li, Dengyu Guang, Mehmet Oguz Derin, Ningxin Hu,
+Anita Chen, Seongwon Lee, Rolf Fricke, Andrew Brown, Chun Gao,
+Fuqiao Xue, Sheela Kurupathi, James Powell, Qaing Chen, Jonathan
+Bingham, &nbsp;Wolfgang Maass, Dan Druta, Irene Alvarado, Alberto
+Perez, Joshua Meyer, Kyle Philips, Marie-Claire Forgue, Wendy
+Seltzer, Theoharis Charitidis, Rachel Aharon, Bernard Aboba, Rafael
+Cintron, Benjamin Bogdanovic, Jun Weifu, Mirza, Ping Yu, Chris
+Needham, Mark Crawford, Zhenjie</p>
+<p><strong>Regrets:</strong> Sangwhan Moon, François Daoust,</p>
+<p><strong>Agenda:</strong>
+<a href="https://github.com/w3c/machine-learning-workshop/tree/master/agenda#september-22-2020-2pm-utc-%EF%B8%8F">https://github.com/w3c/machine-learning-workshop/tree/master/agenda#september-22-2020-2pm-utc-%EF%B8%8F</a></p>
+<p><cite>Anssi:</cite> Introducing live session #2. What will we
+cover today? Last Tuesday, we discussed opportunities and
+challenges, today focuses on Web Platform foundations, broken into
+two parts: creating and deploying models, and extended foundations
+for ML. We'll be looking at what ML practitioners do on a regular
+basis, but have been missing with on the Web. Web Platform
+Foundations: the missing parts.</p>
+<p>A quick recap on practicalities: please raise your hand if you
+want to speak; introduce yourself if talking for the first time.
+Please help correct the minutes as needed. We're operating under
+the Code of Ethics and Professional Conduct.</p>
+<p><cite>Dom:</cite> please make sure to speak slowly to help the
+interpreter</p>
+<p><cite>Anssi:</cite> the goal of oru session today is to
+understand how machine learning fits in the Web technology stack;
+we have identified a number of discussion topics for today - we've
+picked "only" 6 topics today to leave enough time based on our
+experience last week.</p>
+<p>The first half of the meeting will touch on ML model formats,
+protecting ML models, in browser training, and training across
+devices.</p>
+<p>The second half will look at extending Web foundations for ML:
+in particularly how WASI-NN and WebNN related one with another, and
+will finish with heterogeneous parallel computing.</p>
+<h2>Considerations for creating and deploying models</h2>
+<h3><a href=
+"https://www.google.com/url?q=https://github.com/w3c/machine-learning-workshop/issues/74&amp;sa=D&amp;ust=1600849995523000&amp;usg=AOvVaw2rgc2BFQgbSyLfgOkKsP4r">
+ML model format #74</a></h3>
+<p><cite>Anssi:</cite> Many talks touched on this topic. The high
+level issue is that there is no standard format for packaging &
+shipping ML models, and ML model formats evolve rapidly. A proposal
+that has emerged is to focus on an API that enables loading models
+rather than pick a particular format, which is what the community
+has already taken up. Sangwhan Moon (who is unable to join us
+today) mentioned in his talk that there is no consensus on a format
+at the moment. I'm inviting Jonathan to comment on this, as the
+author of ML model API explainer, based on the perspective of the
+TensorFlow team. What are the abstractions we should be considering
+on a long and short term basis?</p>
+<p>Jonathan Bingham: First, in the ML space, there are multiple
+model formats that are in wide use today. TF is one of them (the
+one I'm most familiar with) - in addition to the TF models, there
+are ONNX models, CoreML models, many ML practitioners use PyTorch.
+What we've seen with all these formats is that they're evolving
+rapidly. TF has over a 1000 compute operations that have been
+defined, growing by 20%+ per year. The other formats have been
+growing rapidly. PyTorch has hundreds, all formats are growing
+around 20%+ per year. This growth and lack of stability makes us
+think it's not stable enough for standardization. We in TF think we
+have have an approach to deal with this, by defining compute at a
+lower level than operations, using e.g. MLIR, or compute primitives
+- these lower level compute elements can be composed to form
+operations, providing a smaller set that would need to be
+standardized.Our Recommendation would be to avoid premature
+standardization and hope that the&nbsp;field provides good
+solutions to this problem. I know that folks at other companies
+(incl Microsoft) have worked on ONNX which is meant as an
+interoperable format, which could be a great format for the Web. It
+too has been growing rapidly but with attention to backwards
+compatibility. It could be ONNX is a good long term solution, or
+MLIR as a good long term solution, &nbsp;or support multiple
+formats as a long term approach. It feels a bit early to pick
+one.</p>
+<p><cite>Anssi:</cite> Inviting Chai, lead of DirectML and informed
+of ONNX to share his perspective based on his work on the WebNN
+which he co-edits with Ningxin</p>
+<p><cite>Chai:</cite> the ML space is still evolving; we have ONNX,
+TF, PyTorch and all the JS frameworks. Presenting a single API is a
+future prospect given these rapid evolutions. The way we look at
+these systems is that fortunately, every single framework or ML API
+turns out to be implemented using the front-end/back-end
+architecture - there is already the architecture that allows the FE
+to operate unchanged, while the backend could change. My direct
+experience with DirectML is that we built DirectML in the OS (in
+Windows) and it's used by multiplied FE frameworks, namely ONNX
+runtime, WindowsML, and recently TF. When you implement the BE you
+get to see the difference and the commonalities across these FE
+that you're serving. What's encouraging is that in the BE, it's not
+much different. That's how we're approaching the WebNN API design
+as well. We've looked across all these frameworks to find the
+commonalities across them to make sure that the spec can support
+the needs of all these frameworks. Some APIs / frameworks move
+faster than others</p>
+<p>, but there is a lot of overlap across them and that works in
+our favor. We can keep making progress on what would be a Web
+backend API for ML, while we wait and see how developers eventually
+converge into some framework or APis in the future. TF.js is widely
+adopted, and ONNX is used a lot on desktop settings, so there may
+be convergence in the future, but we don't have to wait or to force
+that unification too early. That's the current line of thinking in
+the ML CG. The second thing about MLIR: it could become that
+binding between BE & FE in the most flexible way - as becomes
+evident in TFRT (?). It's quite promising - that development would
+help glue this in a better way moving forward.</p>
+<p><cite>Ningxin:</cite> I'd like to add one aspect that was
+mentioned in Jonathan's talk - we've found that there is actually
+the model execution time spent on compute-intensive operators -
+there aren't so many of them (e.g. Convolution, matmul). E.g. for
+computer vision, over 90% of time is spent on these operators. In
+the CG, we have started with a very small core set of operators
+focused on the most compute-intensive ones, which is enough to
+provide good hardware acceleration.</p>
+<p><cite>Dom:</cite> looking at this from a different perspective -
+would this work across platforms (desktop vs mobile) or OSes? How
+would a developer deal with&nbsp;this?</p>
+<p><cite>Chai:</cite> I believe the way to achieve OS portability
+is to have the framework sit on top of the Web API that can be
+implemented in the browser across different OS. e.g. if TF.js,
+currently sitting on WebGL could sit on top of WebNN (which brings
+it on par to native performance). WebNN can then build on top of
+the OS APIs which would help achieve OS portability, the OS then
+takes care of hardware portability.</p>
+<p><cite>Dom:</cite> how would that extend to the ML loader
+API?</p>
+<p><cite>Chai:</cite> I think that will become clearer in the
+future once we have a standardized backend.</p>
+<p><cite>Anssi:</cite> what about the role of converters - can
+anyone speak on this? TF and ONNX have converter projects - is that
+part of an interim solution?</p>
+<p>Otherwise, it sounds like the proposed approach is our best bet
+for the time being</p>
+<p><cite>Dom:</cite> are we connected well enough with ONNX and
+MLIR to make sure we have stable alignments of interest? Are other
+long term candidates in this space we should establish connections
+with?</p>
+<p><cite>Anssi:</cite> we have good connection with ONNX; Jonathan
+has served as a contact point with MLIR, so there is a shared
+understanding of what everyone is doing.</p>
+<h3><a href=
+"https://www.google.com/url?q=https://github.com/w3c/machine-learning-workshop/issues/67&amp;sa=D&amp;ust=1600849995526000&amp;usg=AOvVaw2sf2BpT01kOnH90QpjCXwJ">
+Protecting ML models #67</a></h3>
+<p><cite>Anssi:</cite> Protecting ML models; some ML providers need
+to ensure their models cannot be extracted from a browser app. E.g.
+the model is built and tuned to solve their business specific
+issues, and are not willing to share it with the world. The
+proposal is to investigate existing access control mechanisms for
+videos, learnings from 3D assets.</p>
+<p>In the discussion in the GH issue, it became evident
+that&nbsp;the problem of content protection has emerged in many
+places: for videos in particular, for 3D assets in the game of Web
+based games. What we've learned from these efforts is that it's not
+an easy problem to solve. I would like to invite Jason Mayes to
+share his views from TF - his talk mentioned the requirements
+they've heard from ML providers.</p>
+<p><cite>Jason:</cite> Model security has been a big issue for us,
+which we can't solve without browser support. By default, ML can be
+explored or exported in a browser. There are use cases where this
+isn't a concern, but there are many use cases e.g. in the corporate
+ecosystem where ML models are the&nbsp;results of significant
+investments, large IPR assets. The only way to get these ML run in
+a way that keeps them protected is to do it server-side - with all
+the known issues (latency, privacy). Comparing it to video - videos
+are single files to be protected - in ML, we need to protect also
+pre- and post-processing operations. An approach might be to flag
+JS code as needing to run in a secure environment (e.g. protected
+memory) from the server, which would prevent the developer to pick
+into it.</p>
+<p><cite>Dom:</cite> browsers are expected to act as agents of the
+user - anything that puts them as odd to that is going to be a
+challenge - as W3C has experience in EME. @@@ comparison&nbsp;to
+native … Assuming we could do as Jason describes, this would become
+abused by spammers and other creative people when it comes to use
+other people's resources. Security protection. Understand that ML
+providers are putting efforts in shaping their models.</p>
+<p>Users expect to use their devices, so i'm surprised they don't
+want to lose&nbsp;control. Native platforms.</p>
+<p><cite>Wendy:</cite> W3C Strategy lead and legal counsel . EME
+was controversial, faced formal objections and contested appeal
+over the presence of DRM in the platform. One of the issues raised
+there which would be a challenge here would be security
+considerations. How can we guarantee the security of a system where
+pieces of it are blocked from view? With ML, I could anticipate the
+questions being even greater on the security and privacy front -
+how do we guarantee to the &nbsp;that the piece of code they're
+asked to run is safe, not privacy invasive, is not exfiltrating
+information, etc. I would expect that to be a challenging
+discussion - even if I understand the desire to to protect the
+asset.</p>
+<p><cite>Anssi:</cite> it was indeed controversial in the context
+video - possibly one of the most controversial technical issues in
+W3C's history. What would be a sensible next step in this space?
+Are requirements similar? How much would it help if we were just to
+"hide" these assets - making them more tedious to extract them? Or
+allow some level of obfuscate them? How hard do we need to make it
+to prevent access to them? We should understand&nbsp;the use cases,
+derive requirements and see what our options are.</p>
+<p><cite>Zoltan:</cite> would the model loader API that would take
+a URL and metadata on privacy/security considerations - the model
+would then not be exposed. Is that a feasible path forward?</p>
+<p><cite>Jason:</cite> in terms of obfuscation - that's a big no,
+there will be tools to un-obfuscate, so not a real issue, and the
+said providers will stick to server-side or native. Another point
+is that this may be linked to the ML model format - once we have a
+well-defined format, there could be guarantees that the format
+can't e.g. phone home, only for mathematical operations - that
+might help removing some of the security/privacy concerns.</p>
+<p>Ping Yu: I'm from Google in the TFJS project; we've discussed
+this with a lot of clients and JS platform vendors - how they could
+create such a secure execution. There are 2 needs: IPR protection
+and user security. From the vendor point of view, the encryption
+layer usually implemented in native with negotiation with the
+server side for the keys. When the model is executed, it's executed
+in a separate context which isolates the memory from other JS. This
+gives some security to the model provider - it depends on how much
+the adversary is ready to invest in breaking the encryption. If
+everything is done on the client side, there will always be ways to
+reverse-engineer. To make sure users aren't exposed to malicious
+models, various browsers are applying heuristics to determine what
+makes a "safe" browser. Definitely a hard problem.</p>
+<p><cite>Dom:</cite> could we use a distributed approach where the
+latency-sensitive&nbsp;bits would be kept on the client stuff, and
+the IPR sensitive stuff would be left on the server-side,
+connecting the two with a low latency channel (e.g.
+WebTransport)</p>
+<p><cite>Ping:</cite> there have been explorations in this space
+indeed</p>
+<p><cite>Anssi:</cite> Let's look into this</p>
+<div class="chat"><h3>Comments on Chat</h3>
+<p><cite>Christine&nbsp;Runnegar: +1</cite> to Wendy re security considerations,
+  and ditto for privacy</p>
+</div>
+<h3><a href=
+"https://www.google.com/url?q=https://github.com/w3c/machine-learning-workshop/issues/82&amp;sa=D&amp;ust=1600849995528000&amp;usg=AOvVaw1DXKgs-ZfGrHWd5i58lgVM">
+In-browser training #82</a></h3>
+<p><cite>Anssi:</cite> our current efforts are focused on inference
+rather than training. The proposal under consideration is to
+understand real-world usages (e.g. Teachable Machine) and target
+transfer learning as the initial training use case for browser
+related work. Inviting Irene and Kyle to share their experience
+with Teachable Machine.</p>
+<p><cite>Irene:</cite> I'm here with my colleague Kyle working with
+the creative lab at Google; we've worked with engineers to make ML
+technologies more accessible and easy for people to use. We've
+developed a project called Teachable Machine, a Web tool that
+allows training a classification model in the browser .
+(<a href="https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries">ML training code</a>) You don't need to know anything about ML to
+use the tool - children as young as 8 years old have been using it
+successfully. You can create an image, audio or pose classification
+model (the latter based on PoseNet). It has been used to create
+games, engineers and designers have used it for prototypes,
+teachers have been using it. It's based on TF.js which is a key
+piece of our capabilities. In terms of in-browser training - we're
+using transfer learning: the training in the app is relatively
+quick because of that. In all cases, we're having the user
+re-training a 2-dense layers. &nbsp;The tool makes it very easy to
+collect the samples, and the training happens in the browser. We
+lazy-load the base model in the browser - the size of the base
+models range from 1.6 MB to 6MB (for the audio one). We haven't
+focused on mobile too much, not so much because of hardware
+limitations, but more because of the UI which would have to be
+rethought quite a bit on mobile. Also, the WASM backend didn't
+exist for TFJs when we developed this last year - we would use it
+today. Another big motivation of using TFjs was privacy: none of
+the collected samples are sent to the server. The data can be
+optionally saved to a Google drive, but that's not a requirement,
+and it means people can train their models without ever sharing
+data with the server. One challenge we've hit is that it's really
+hard to show how long a training would take - if there was an API
+to help with that, it would have been really useful. This means it
+was also hard to give an estimate in the limits of the app -
+depending on the underlying hardware, you could use many different
+sample set sizes. We also wanted to make it possible to convert
+between models (e.g. TF to TF lite) - still lots of challenges in
+this conversion, which required a lot of custom code. We found that
+a lot of users didn't mind to wait a long time for the training to
+finish (e.g. up to 1/2h) - there are not so many tools that help
+achieve this with an easy tool, and then people were fine with the
+wait.</p>
+<p><cite>Anssi:</cite> very engaging tool - my 8 years old kid has
+used it successfully. It also drives the point that transfer
+learning is possible in the browser today. I heard your need for
+training time estimation - not sure we have any API for that; you
+also mentioned the problem with running training in a background
+tab - this could work with the System Lock API, I'll make sure this
+gets considered in the said work.</p>
+<p><cite>Irene:</cite> that's indeed was a challenge</p>
+<p><cite>Kyle:</cite> indeed, relying on requestAnimationFrame
+meant people were puzzled as to why their training was not
+proceeding. Another issue is memory usage: if loading a lot of
+images in a given tab, you might hit the limit. Also, different
+browsers have very different speeds, which can be hard to
+communicate to the end-user.</p>
+<p><cite>Anssi:</cite> there is ongoing work around memory
+usage</p>
+<p><cite>Dom:</cite> WebPerf has work on this
+https://github.com/w3c/device-memory/</p>
+<p><cite>Kyle:</cite> when starting a training, it can create an
+initial UI lock due to heavy compute usage - we didn't find a way
+to prevent that</p>
+<p><cite>Anssi:</cite> WebNN isn't focused on training in the
+current phase of our work; transfer learning sounds like the 1st
+initial use case we should look at for the future work in this
+space - Chai, what do you think?</p>
+<p><cite>Chai:</cite> WebNN is a graph API - that's good for
+transfer learning. That's one of the advantages of focusing on
+graph APIs. The model is able to implement transfer learning, but
+the exact API shape to make that happen is still to be
+discussed.</p>
+<p><cite>Oguz:</cite> I want to mention a possible use case of
+WebGPU in this aspect. Since WebGPU will make it easier to play
+around with synthetic data, people like authors of next generation
+textbooks might make use of it on topics like differentiable
+rendering by creating widgets that might demonstrate training of
+faster-to-converge networks, or maybe just some latents.</p>
+<p><cite>Irene:</cite> all of the ML code is open-sourced, so it
+could be reworked into different teachable machines!</p>
+<p><cite>Anssi:</cite> hopefully we can help make the platform even
+better in the future for this kind of project.</p>
+<h3><a href=
+"https://www.google.com/url?q=https://github.com/w3c/machine-learning-workshop/issues/83&amp;sa=D&amp;ust=1600849995531000&amp;usg=AOvVaw3HHRP_PRahq6aNp07a9lt1">
+Training across devices #83</a></h3>
+<p><cite>Anssi:</cite> this one is looking a bit further in the
+future - training across devices. The summary of this issue: we
+want to understand the role of edge computing in the platform. We
+would need to define edge computing among other things. Multiple
+talks touched this area, with federated learning, distributed
+learning, reinforcement learning. I would like to invite Wolfgang
+Maass to introduce thoughts on this.</p>
+<p><cite>Wolfgang:</cite> let me first introduce our research
+goals: consider any device belonging to a user as their agent,
+trusted with data and models allowed to operate on these data. As a
+user, I want to work with models in a very natural way: train it,
+merge it with other models that others have shared with me. Some
+models can be shared, some can't. There are also&nbsp;privacy
+issues - e.g. GDPR allows to stop sharing, which would apply here.
+We're working based on that perspective. All the tools that have
+been mentioned&nbsp;(TF, PyTorch, …) don't really provide that kind
+of flexibility to operate in multi-agent kind of systems. With
+federated learning, you always have different control formats.
+We're looking at enabling models for flow back and forth</p>
+<p><cite>Anssi:</cite> Thank you, your talk provides more details
+on this - go check his talk if you want to learn more. Inviting
+Yakun Huang to present his thoughts.</p>
+<p><cite>Yakung:</cite> from BPUT - edge computing can provide
+high-bandwidth&nbsp;/ low latency with 5G. Edge computing would
+allow to provide high-computing from mobile Web to edge. To do
+that, you need dynamic offloading decisions based on dynamic
+network conditions and the status of mobile devices.</p>
+<p><cite>Anssi:</cite> I would like to invite Zoltan to share
+what's happening in the Web & Networks IG in this space.</p>
+<p><cite>Zoltan:</cite> Edge computing is a very broad topic -
+right now, the focus is computing offloading, with edge a
+particular focus due to lower latency. With regard to ML, the
+question is whether a generic computing is enough, or does it need
+to be specific to ML? If the latter, any hints as to what kind of
+accelerators would be preferred? What metadata about the compute
+loads would need to be shared to identify the right edge nodes? The
+IG has looked into various solutions using e.g. worker-based
+architectures, with links from the github issue. We're particularly
+interested in understanding what's needed to qualify a ML computing
+offloaded task.</p>
+<p><cite>Dom:</cite> +1 to Zoltan description - would want to hear
+from the ML crowd what role they see Edge Computing play in this
+space</p>
+<p><cite>Anssi:</cite> we're at the end of our scheduled time, with
+2 issues left that will be rescheduled. Next live session tomorrow
+at the same time.</p>
