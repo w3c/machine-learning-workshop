@@ -3,6 +3,8 @@ pages:
   url: index.html
   url_zh: index_zh.html
   title_zh: 会议征集
+- title: Proceedings
+  url: proceeding.html
 - title: Presentations
   title_zh: 会议演讲话题
   url: presentations.html
