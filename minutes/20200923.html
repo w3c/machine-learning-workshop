@@ -1,0 +1,403 @@
+---
+title: Minutes of 3rd Live Session (September 23 2020)
+layout: subpage
+base: ../
+---
+<h2>Minutes of 2nd Live Session (September 22 2020)</h2>
+
+<address><strong>Scribe:</strong> Dominique Hazael-Massieux</address>
+<p><strong>Present:</strong> Dominique Hazael-Massieux, Xueyuan Jia,
+Jay Kishigami, Mehmet Oguz Derin, Bernard Aboba, Kelly Davis, Mina
+Ameli, Andrew Brown, Anssi Kostiainen, Takio Yamaoka, Luis
+Ibhiabor, Joshua Meyer ,Chai Chaoweeraprasit, Anita Chen, Ningxin
+Hu, Jonathan Bingham, Christine Runnegar, Amy Siu, James Powell,
+François Daoust, Zoltan Kis, Sheela Kurupathi, P Laszkowicz,
+Sangwhan Moon, Mingqui Sun, Louis Busby, Qiang Chen, Rafael
+Cintron, Theoharis Charitidis, Louay Bassbouss, Seongwon Lee,
+Xiaoqian Wu, Dan Druta, Corentin Wallez, Chris Needham, Barbara
+Hochgesang, Dengyu Guang, Jun Weifu, Marie-Claire Forgue, Rachel
+Yager, Mirza, Mark Crawford, Rachel Aharon, Wendy Seltzer, Max
+Solodovnikov, Josh, 高文灵, &nbsp;Wolfgang Maass, Stephan Steglich,
+Oleksandr Paraska, [Ceweb.br], Jesh</p>
+<p><strong>Regrets:</strong> Ruoy Ran</p>
+<p><strong>Agenda:</strong>
+<a href="https://github.com/w3c/machine-learning-workshop/tree/master/agenda#september-23-2020-2pm-utc-%EF%B8%8F">https://github.com/w3c/machine-learning-workshop/tree/master/agenda#september-23-2020-2pm-utc-%EF%B8%8F</a></p>
+<p><cite>Anssi:</cite> this 3rd live session is focused on
+developer's perspective - including authoring ML experiences,
+reusing ML models, technical solutions and gaps. The topics on
+discussion today map to our issues on github, split in 3 buckets:
+applying web design principles to ML, incl progressive enhancement,
+conformance testing of ML APIs for the Web; 2nd bucket on improving
+ergonomics: JS operators overload, garbage collection, and neural
+network-oriented graph database; and last bucket, interactive Web
+experiences: action-response cycles, feature gaps for noise
+suppression</p>
+<h2>Applying web design principles to ML</h2>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/68">
+Progressive Enhancement / Graceful degradation #68</a></h3>
+<p><cite>Anssi:</cite> The question is how to bring ML features as
+optional improvements without breaking Web Compat? Dom provided
+some historical context - how the Web platform has evolved to cater
+for different type of devices (compute capabilities, form factors)
+with huge diversity to which Web content has historically
+adapted.</p>
+<p><cite>Dom:</cite> One of the aspects of the web to bring to the
+discussion is that the web is universal and can be run on many
+devices. When it comes to ML, running on the latest desktop with
+multiple GPUs and many CPU cores, it’s different to a mobile device
+with limited power.</p>
+<p>Of course, we can’t do the impossible, but we should ensure that
+as we bring these technologies to the platform, consider the base
+path and enhancement paths, i.e., progressive enhancement. When a
+capability isn’t available, build to the lowest common denominator.
+The reverse principle is graceful degradation, where you build for
+the most capable, then add fallbacks.</p>
+<p>We should design APIs to enable these patterns to be used, so
+giving developers visibility on how well a given experience will
+work on a particular device. Will a model work at all, are the
+operations possible on a given architecture? We want to give
+developers tools for this approach to deploying ML operations.</p>
+<p><cite>Anssi:</cite> This is important in order to build
+capabilities that can scale to the billions of users of the Web.
+Jonathan, you mentioned a possible approach involving model
+introspection - can you speak to this a bit?</p>
+<p><cite>Jonathan:</cite> For ideas around model introspection and
+what can be determined about expected performance at runtime,
+Ningxin can probably speak to more of the details of what might be
+possible. For ML on the Web, we would expect there is going to be a
+full spectrum of scenarios of what developers will want to give in
+terms of progressive enhancement or graceful degradation. There are
+going to be cases where Models provide optional features with a
+reduced version providing still acceptable performance; there will
+also be cases where developers will want to target only
+hardware-accelerated devices and won't support lower end devices.
+For instance, some of the rich media applications - imagine an AR
+or VR experience where if you can't do live video feed processing,
+the app is just not compelling. Introspection capabilities are
+definitely needed to help developers decide; but there will be
+cases where developers will make the decision not to provide a
+fallback (that might be cases where a native app wouldn't be able
+to provide an experience). Hopefully the quality of hardware
+evolves overtime to make the problem moot.</p>
+<p><cite>Anssi:</cite> The lowest common denominator would evolve
+to the level that anyone would be able to benefit from our ML
+offerings. I also heard you mentioning the wide variety of use
+cases, with some experiences requiring high-end hardware - we need
+to give the right knobs in our APIs to let developers determine
+whether their app will run correctly. This may also include
+hot-swapping models to enable progressive enhancements, where you
+would start with a low-compute model and upgrade in place when you
+detect a more capable client. I would like to invite Chai to talk
+about some of the lessons from ONNX, type detection and performance
+evaluation.</p>
+<p><cite>Chai:</cite> Just like what Jonathan said - the difficulty
+for ML is that there are certain things you can introspect/detect,
+and some things you cannot. The easiest detection we can do, in my
+view, is at the semantic level, which is whether the user agent
+running on the user machine supports what operator set. ONNX
+defines the compatibility around the "opset", which picks the
+highest versioned operator in a given model. It has some
+trade-offs, between difficulty of detection and effectiveness. So
+far, that has been the way to find out if a given version of the op
+is supported. That's the semantic level. The harder ones involve
+hardware: int8, float16 are being used - easy for CPUs, but on
+different kind of ML processors or GPUs, to detect these
+capabilities, you actually have to have the OS APIs that can report
+this kind of capabilities. It can be uneven in terms of what
+hardware gives what info. There are also quality aspects: you can
+run it, but how well can you run it? Eg. for computer vision
+applied to vision feeds, there are some framerates that you need to
+keep up with to give a usable experience, and in some cases, you
+can only know by running it. It's similar to video playback - you
+can have glitch detection to know whether you're running behind.
+For ML this would be hard given the interactivity with the user. At
+the user level, fallback can sometimes be fine-grained, sometimes
+at the entire model level, and sometimes you might have to just
+give up. Scaling up a model requires a lot of introspect
+capabilities.</p>
+<p><cite>Anssi:</cite> This is a good bridge to WebNN / WebGPU
+interoperability, where experimentation has happened to offload
+some custom operations to WebGPU. Chai, you mentioned that such a
+mechanism was rarely used in practice in ONNX, and instead operator
+composition proved the be a more robust approach.</p>
+<p><cite>Chai:</cite> Indeed, when we started providing custom
+operators in DirectML - providing customization is not simple. It's
+most effective when we built it very early in the lifecycle,
+allowing applications to bring their own custom operations, using
+either CPU or shaders to run the GPU (we published samples to show
+how it is done). I don't recall any major deployment that have used
+customized operators. There may be some that we don't know about,
+but for the major customers and key scenarios that are used a lot,
+we haven't seen one. It might be that for simple gaps, there are
+mathematical workarounds; if it's hard, you would then just use a
+completely different solution. We have found that people tend to
+use composition: if a given operator is not supported, it gets
+broken down in existing pieces, composing simple operators in
+bigger ones. When we started building the new backend for TF on
+DirectML, we used similar techniques to much greater success. TF is
+very extensive (1000+ kernels) - we can't map them 1:1; the first
+idea was to compose them based on foundational operators - and most
+of the kernels have been composed that way. There are certain cases
+where you need a special implementation, but only very few.</p>
+<p><cite>Ningxin:</cite> My perspective is from the existing JS ML
+frameworks (TF.js, ONNX.js); these frameworks use some kind of Web
+APIs to compose their kernels (WebGL or WASM). They are improving
+the performance of these backends by adopting new tech (like
+WebGPU, WASM SIMD). So I would suggest we look at how the WebNN
+operators can be integrated in these frameworks: we have an issue
+in the CG about custom operators. Custom operators can be used to
+integrate with existing WebGL/WebGPU/WebAssembly kernels. WebNN is
+a graph-based operations API - so It turns out that WebNN needs to
+allow execution of subgraph, and that WebNN needs to allow sharing
+data as tensors with other kernels, as input and output. When the
+WebNN subgraph is on the CPU and interacts with a WebASM kernel, we
+need to make sure there are as few memory copies between WebNN and
+WASM executions - Jonathan shared some of the results in his talk.
+We see that performance can be improved progressively by offloading
+key kernels to WebNN. We did a similar investigation on the GPU
+side - with WebGPU kernels, we allowed the WebNN execution API to
+accept WebGPU buffers as input and can generate WebGPU buffers.
+This allows to combine the execution of these different kernels
+together to enable the complete execution of the model. This gives
+similar results to the CPU experimentations. The key point is that
+to avoid copying buffers - ensuring the GPU backend of WebNN and
+WebGPU kernels run on the same devices without going through the
+CPU.</p>
+<p><cite>Anssi:</cite> So we need efficient exchange of tensor data
+between WebNN and e.g. WebGPU. You had to extend the WebNN API to
+accept WebGPU buffers, that's not part of the spec yet right?</p>
+<p><cite>Ningxin:</cite> The group is focusing on CPU buffers for
+now, which allows to incorporate with WebAssembly (which now has
+threads and SIMD) which already leads to great improvements (e.g.
+10x). This probably is a good first target. We'll look at GPU
+buffer support in the next stage.</p>
+<p><cite>Anssi:</cite> I'm hearing operator composition is a design
+approach for WebNN we should follow, with low-level operators. We
+heard custom ops aren't used all that much.</p>
+<p><cite>Bernard:</cite> I agree with the points to utilize WebGPU
+buffers - this has implications for other APIs to place content
+into these buffers; e.g. capture into these buffers, send out of
+these buffers. We should look at this across APIs to avoid zillions
+of memory copies.</p>
+<p><cite>Dom:</cite> I wanted to go back to the higher level
+discussion. I heard we need to provide some level of introspection,
+so developers know well how their model will run. Is this already
+part of the WebNN API or model loader? What patterns have been used
+in WebRTC (for camera capabilities) or WebXR, that could be used in
+the context of ML?</p>
+<p><cite>Anssi:</cite> In the WebNN API, there is a powerPreference
+setting - which can say whether you need low latency vs low power -
+this is the kind of knob we have at the moment. This is similar to
+what WebGL exposes.</p>
+<p><cite>Ningxin:</cite> currently we have the compilation options;
+within that we have defined powerPreference (default is high
+performance, with optional low performance); that's one of the ways
+the developer can tell the UA what kind of hardware to use. These
+compilation options are extendable, but we need to pay attention to
+the complexity of the implementations, with possibly conflicting
+constraints.</p>
+<p><cite>Chai:</cite> these are policies, "hints" of what the
+developer would like to see; it's not introspection - e.g. what
+kind of hardware would this be running on, and different models can
+be selected to run based on that information.</p>
+<p><cite>Anssi:</cite> we would need to get data from real world
+usage to refine these</p>
+<p><cite>Dom:</cite> ok, so I'm hearing there isn't really support
+for that yet :)</p>
+<p><cite>Christine:</cite> PING co-chair - I just want to point out
+that if you look into these design spaces, please think of the
+privacy impact of capability queries. This is a recurring theme
+that comes up in lots of APIs, with lots of experience in W3C in
+how to handle this.</p>
+<p><cite>Anssi:</cite> we will definitely run our work through PING
+reviews - privacy is definitely on our radar, with an important
+horizontal review of our work. We will continue the exploration on
+our github issue</p>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/80">
+Conformance testing of ML APIs for the Web #80</a></h3>
+<p><cite>Anssi:</cite> robust conformance testing has been the
+cornerstone of an interoperable Web platform; how to scale that
+practice to the ML APIs? Chai brought the challenges of numerical
+integrity, an issue shared with graphic APIs.</p>
+<p><cite>Chai:</cite> there is the so-called responsible AI that we
+take very seriously around the integrity/reliability of results -
+it is very important given how pervasive ML is, used in scenarios
+including mission critical ones (e.g. finding cancer cells). Being
+able to get the same results and trust the results if very
+important. In our line of work, we make ML runs on different GPUs.
+The ecosystem around what kind of GPU you can have is built on many
+hardware vendors. How to make sure that when you run the same
+models on different GPUs you get the same results. When we started
+building DirectML, there is this a model called QuizNet - in our
+first early tests, we had a bug that sometimes a picture of a
+banana didn't get identified as a banana - &nbsp;a banana should be
+a banana independently of the GPU you run the model on. This led to
+a lot of work on good conformance testing, not just at the level of
+the output of the model (e.g. ranking in QuizNet), but also
+accuracy of numeric results, precision of data types. Some hardware
+exposes floating point that are in fact implemented as fixed point
+registers which ends up as rounding errors - in ML, these errors
+cumulate and can lead to a different result at the very end. For
+those kinds of hardware, we have to be able to flag that and say
+that the precision of the data processing is not conformant. There
+is no easy way but to work with the vendors and to understand the
+nature of the pipeline being constructed. Even with hardware that
+is faithful to the spec, we need very robust unit testing to ensure
+that the deviation from the norm is not beyond a given threshold
+for each operation (the complexity of which varies across different
+operations). We have two different kinds of testing as a result: at
+the operation level and at the model level; there are deviations
+that you can't determine at the operation level that only emerges
+when composing them into a model. This means a robust set of
+testing and an understanding of what kind of platforms we're
+dealing with; when we build a ML API in the OS, the advantage for
+the developer is that it has been tested vigorously at the OS
+level, with drivers, etc. So if the Web stack can leverage the
+appropriate OS APIs, the same kind of integrity will be reflected
+to the Web app.</p>
+<p><cite>Anssi:</cite> the fact that you can trust the OS is
+similar to what Corentin brought up on the testing of WebGPU where
+the same approach has been taken to test only the minute aspect of
+the API, not the numerical aspects.</p>
+<p><cite>Corentin:</cite> work for Google, chairs WebGPU CG/WG. In
+WebGPU we build on top of native APIs - we cannot improve the
+numerical accuracy of these APIs we're building on. At the moment,
+the testing of WebGPU in Web Platform Tests, we're focusing on
+discrete aspects of the APIs. There can't be a lot of bugs
+appearing at that level. Later we will need to add numerical
+accuracy testing once our specs start touching in it; it will be
+difficult to gather the relevant information, and it will be
+difficult to test since you need to test at the boundaries of each
+operation.</p>
+<p><cite>Anssi:</cite> you also shared your WebGPU guidelines for
+testing WebGPU ("CTS"); I wonder if that would be repurposable for
+WebNN</p>
+<p><cite>Corentin:</cite> ML has a lot more self-contained
+operations, whereas graphics has a lot more discrete states that
+interact together: e.g. each image has a format which interacts
+with the sampling parameters which interacts with a lot of their
+stuff. You probably don't have that kind of complexity in ML.</p>
+<p><cite>Anssi:</cite> conformance test suite on multiple levels
+(operators / models)</p>
+<p><cite>Chai:</cite> testing at 2 levels at the ML scenario is
+something that has to be done</p>
+<p><cite>Ningxin:</cite> IIRC, for APIs like WebGL which is a JS
+binding to a subset of OpenGL-ES, there is a conformance test suite
+built on top of the native OpenGL-ES testing via emscripten. I
+wonder if there is something similar for WebGPU to leverage
+available test cases in native. This may be a good way to approach
+this in ML as well?</p>
+<p><cite>Corentin:</cite> For WebGL there is an existing test
+suite; for WebGL 2, the majority of the test suite is a
+manual-porting to JS of the OpenGL ES conformance test suite. For
+WebGPU, we don't have such an option - there is no equivalent
+native WebGPU API that we could port over. What we've done is
+reverse-engineering the test plans of other APIs (e.g. Vulkan) and
+port that to WebGPU. If there is an opportunity for ML to start
+from an existing test suite, that would be a great option. I
+wouldn't take it as a design constraint for WebML, but leveraging
+existing work in this space would be great.</p>
+<h2>Improving web developer ergonomics</h2>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/73">
+JS Operator overloading for Machine Learning #73</a></h3>
+<p><cite>Sangwhan:</cite> I'm on the W3C TAG; I brought this up in
+my talk as something needed for an ML API to make sense on the Web.
+Using function call chaining deviates from how equations are
+written and will make it hard to debug. JS operator overloading has
+been sitting for a long time in TC39 - if this is important, we
+could look at liaising with TC39 to heighten the priority. If
+inference is more the focus than custom operations, this may not be
+as important though.</p>
+<p><cite>Ningxin:</cite> I commented on the issue - I agree with
+Sangwhan's point; currently WebNN is focusing on inference. In the
+future, if we look at training, at that stage operator overloading
+will be more important.</p>
+<p><cite>Anssi:</cite> Stage 1 in TC39, what does it cover?</p>
+<p><cite>Sangwhan:</cite> rough equivalent to WICG, i.e. incubation
+stage that may not progress to the next stage.</p>
+<p><cite>Anssi:</cite> how many years to get it into
+implementations?</p>
+<p><cite>Sangwhan:</cite> I've seen more than 5 years</p>
+<p><cite>Anssi:</cite> still long road ahead then</p>
+<p><cite>Sangwhan:</cite> if it's worth triaging, I can ping the
+relevant people (incl the proposal champion) to see if it can be
+expedited (to the extent TC39 permits)</p>
+<p><cite>Anssi:</cite> is it Daniel Ehrenberg who is championing
+this? Kenneth Christiansen from Intel works with him on many
+topics; I think it would be useful to indicate we're potential
+customers for that proposal. Are there other customers? How do
+priorities get set? What kind of implementation commitment is
+needed to advance?</p>
+<p><cite>Sangwhan:</cite> TC39 needs agreement from everyone for
+moving forward</p>
+<p><cite>Anssi:</cite> it seems like an essential feature for
+training; not an immediate concern, but something we'll need in the
+future</p>
+<p><cite>Sangwhan:</cite> it would also be useful for custom
+operations if they're in scope.</p>
+<p><cite>Anssi:</cite> Sangwhan, can you share with TC39 our
+interest on this?</p>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/63">
+WebGL garbage collection #63</a></h3>
+<p><cite>Anssi:</cite> we heard in the GH issue is that WebGL GC
+affects multiple ML libraries through side-effects. The proposal is
+to identify improvements to alleviate GC issues, ensure
+purpose-built APIs for ML / computational graph optimize garbage
+collection. Jason and Ann touched on this in their talks based on
+their TF experience.</p>
+<p><cite>Rafael:</cite> I work on the edge browser team, in
+particular WebGL, WebGPU, XR and Web ML CG. The WebGL and WebGPUs
+have explicit ways to destroy the backing memory like textures; a
+tiny innocent JS object might hold on lots of GPU memory (which can
+be a lot more limited than CPU memory). In JS engines, there is no
+way to tell if a small object is bound to big GPU memory. The same
+might apply to WebNN until we can get better heuristics from JS
+engines.</p>
+<p><cite>Dom:</cite> You say JS engines don’t have a way to bind
+objects to the bigger objects. Is this an engine limitation?</p>
+<p><cite>Rafael:</cite> this is a limitation of the engine
+foremost; Chakra, the previous edge JS engine, did a better job at
+tracking this.</p>
+<p><cite>Ningxin:</cite> In today's WebNN api, we have the
+compileModel which can have GPU backend resources allocated -
+similar to what you described in WebGL/WebGPU. Do you think we need
+something to WebGL/WebGPU buffer management, with a method to
+developers to control the resources allocation?</p>
+<p><cite>Rafael:</cite> yes, I think it's worth considering adding
+that, to allow resources to be freed eagerly. You can argue that
+images on the Web have a similar issue which some engines already
+do (e.g. when a tab is in the background or a buffer hasn't been
+used in a while); definitely worth considering at the minimum.</p>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/102">
+Neural network-oriented graph database #102</a></h3>
+<p><cite>Anssi:</cite> Wenhe Li in his talk on Pipcook made a point
+on storing ML in Web contexts; DL models are essentially weighted
+graphs, which would be better stored in a NN oriented database,
+which would reduce the serialization overhead. Have other folks
+seen this as an issue when it comes to storing models in the client
+side?</p>
+<p><cite>Oleksandr:</cite> we are storing models in the client to
+be used from a browser extension; IndexedDb is not a great option
+due to cache clearing; but we haven't had an issue so far, although
+we use mostly smallish models for now.</p>
+<p><cite>Anssi:</cite> Ningxin, any issue around storing locally
+cached models? E.g. in the polyfill</p>
+<p><cite>Ningxin:</cite> the polyfill doesn't deal with
+caching/storing; but I do remember that TF.js are using the
+technique to split their models in smaller pieces for storage
+purposes</p>
+<p><cite>Anssi:</cite> we're missing key people, so let's move the
+discussion to github</p>
+<p><cite>Dom:</cite> I feel there is an issue with storage, but
+maybe we don’t have the right people here now. I’m interested to
+know if we have the right primitives in the platform, for dedicated
+storage for ML</p>
+<p><cite>Sangwhan:</cite> there is a filesystem API that is being
+developed - that might help here.</p>
+<h3>Adjourning Session 3</h3>
+<p>Next session next Tuesday, with conclusions.</p>
