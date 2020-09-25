@@ -111,7 +111,7 @@
 - ✔️ Proposal: TBD
 
 ℹ️ [Speech recognition privacy issues and solutions #99](https://github.com/w3c/machine-learning-workshop/issues/99) - @kdavis-mozilla
-- ❓ Standardization of the Web Speech API and its speech recognition part has been challenging due to privacy issues. What obstracles could be lifted to help make speech resognition an ubiquitous interoperable web capability?
+- ❓ Standardization of the Web Speech API and its speech recognition part has been challenging due to privacy issues. What obstracles could be lifted to help make speech recognition an ubiquitous interoperable web capability?
 - ✔️ Proposal: TBD
 
 ℹ️ [Designing privacy-preserving ML APIs #90](https://github.com/w3c/machine-learning-workshop/issues/90) - @HelloFillip @XapaJIaMnu @kpu Jutta
