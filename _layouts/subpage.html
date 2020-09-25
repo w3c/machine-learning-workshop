@@ -44,7 +44,7 @@
           {% assign isThisPage = true %}
           {% endif %}
         <li>
-          <a {% if isThisPage %}class="active-tab" {% else %}href="{{page.base }}{{ item.url }}"{% endif %}>{{ item.title }}</a>
+          <a {% if isThisPage or page.parent == item.url %}class="active-tab" {% endif %}{% if isThisPage == false %}href="{{page.base }}{{ item.url }}"{% endif %}>{{ item.title }}</a>
         </li>
         {% endfor %}
         </ul>
