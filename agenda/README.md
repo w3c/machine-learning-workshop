@@ -106,7 +106,7 @@
 
 ## Web & ML for all
 
-ℹ️ [Bias and model transparency #108](https://github.com/w3c/machine-learning-workshop/issues/108) - @dontcallmedom @JohnRochfordUMMS Jutta
+ℹ️ [Bias and model transparency #108](https://github.com/w3c/machine-learning-workshop/issues/108) - @dontcallmedom @JohnRochfordUMMS @mmitchellai Jutta
 - ❓ Model bias and lack of ML model transparency impact minorities and underrepresented groups, could the Web help mitigate this issue by providing a browser-assisted mechanism to detail an ML model's limitations and performance characteristics?
 - ✔️ Proposal: TBD
 
