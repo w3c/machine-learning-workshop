@@ -64,16 +64,6 @@
 - ❓ Understand the role of edge computing in training and interactions with the web platform.
 - ✔️ Proposal: Work with Web & Networks IG to understand edge computing use cases and ensure input from ML usages is considered.
 
-## Extending the web foundations for ML
-
-ℹ️ [Targeting WASI-NN and WebNN together #96](https://github.com/w3c/machine-learning-workshop/issues/96) - @mehmetoguzderin @mingqiusun @abrown
-- ❓ Should libraries for browsers and/or Wasm execution environments be able to target WebNN and WASI-NN together?
-- ✔️ Proposal: TBD
-
-ℹ️ [Heterogeneous parallel computing for the web #92](https://github.com/w3c/machine-learning-workshop/issues/92) - @jeffhammond @Kangz
-- ❓ How do the heterogeneous parallel computing abstractions fit in with the web platform?
-- ✔️ Proposal: TBD
-
 ## September 23, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200923T14)
 
 >🔎 **Scope:** Machine Learning Experiences on the Web: A **Developer’s** Perspective
@@ -106,6 +96,40 @@
 - ❓ Understand model storage issues on the client, research the feasibility of a neural network-oriented graph database for the web.
 - ✔️ Proposal: TBD
 
+## September 29, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200929T14)
+
+>🔎 **Scope:** Machine Learning Experiences on the Web: A **User’s** Perspective
+>
+>✅ **Goal:** Web & ML for all: education, learning, accessibility, cross-industry experiences, cross-disciplinary ML: music, art, and media meet ML; Share learnings and best practices across industries
+
+- [💡 "User's Perspective" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22User%27s+Perspective%22+sort%3Acomments-desc)
+
+## Web & ML for all
+
+ℹ️ [Bias and model transparency #108](https://github.com/w3c/machine-learning-workshop/issues/108) - @dontcallmedom @JohnRochfordUMMS Jutta
+- ❓ Model bias and lack of ML model transparency impact minorities and underrepresented groups, could the Web help mitigate this issue by providing a browser-assisted mechanism to detail an ML model's limitations and performance characteristics?
+- ✔️ Proposal: TBD
+
+ℹ️ [Speech recognition privacy issues and solutions #99](https://github.com/w3c/machine-learning-workshop/issues/99) - @kdavis-mozilla
+- ❓ Standardization of the Web Speech API and its speech recognition part has been challenging due to privacy issues. What obstracles could be lifted to help make speech resognition an ubiquitous interoperable web capability?
+- ✔️ Proposal: TBD
+
+ℹ️ [Designing privacy-preserving ML APIs #90](https://github.com/w3c/machine-learning-workshop/issues/90) - @HelloFillip @XapaJIaMnu @kpu Jutta
+- ❓ We build the web platform with responsibility to our global user base, how to ensure the tight feedback loop and productive joint effort between ML ecosystem and privacy experts?
+- ✔️ Proposal: TBD
+
+ℹ️ [Building an extensible web platform for ML, one abstraction at a time #109](https://github.com/w3c/machine-learning-workshop/issues/109) - @jasonmayes @annxingyuan @yining1023 @kdavis-mozilla
+- ❓ Are we in agreement that advancing with standardization of low-level capabilities e.g. WebNN API is the pragmatic first step?
+- ✔️ Proposal: TBD
+
+## Conclusions & Next Steps
+
+ℹ️  👍 Present a shared view of the proposed future directions - @anssiko @dontcallmedom
+
+## MM DD, 2020, 2pm UTC
+
+Discussion topics that were scheduled but we did not have time to cover in the four scheduled sessions are priority candidates for a possible additional live session:
+
 ## Developing interactive web experiences with ML
 
 ℹ️ [Action-Response Cycle bottlenecks in interactive music apps #97](https://github.com/w3c/machine-learning-workshop/issues/97) - @teropa @Louismac
@@ -116,14 +140,15 @@
 - ❓ What areas needs work on the web platform to ensure noise suppression models perform? The need for primitives like Basic Linear Algebra Subprograms, Web Audio API enhancements to allow better analysis of waveforms?
 - ✔️ Proposal: TBD
 
-## September 29, 2020, 2pm UTC [🗓️](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200929T14)
+## Extending the web foundations for ML
 
->🔎 **Scope:** Machine Learning Experiences on the Web: A **User’s** Perspective
->
->✅ **Goal:** Web & ML for all: education, learning, accessibility, cross-industry experiences, cross-disciplinary ML: music, art, and media meet ML; Share learnings and best practices across industries
+ℹ️ [Targeting WASI-NN and WebNN together #96](https://github.com/w3c/machine-learning-workshop/issues/96) - @mehmetoguzderin @mingqiusun @abrown
+- ❓ Should libraries for browsers and/or Wasm execution environments be able to target WebNN and WASI-NN together?
+- ✔️ Proposal: TBD
 
-- [💡 "User's Perspective" discussion topics](https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+is%3Aopen+label%3A%22User%27s+Perspective%22+sort%3Acomments-desc)
-- 👍 Conclusions & Next Steps
+ℹ️ [Heterogeneous parallel computing for the web #92](https://github.com/w3c/machine-learning-workshop/issues/92) - @jeffhammond @Kangz
+- ❓ How do the heterogeneous parallel computing abstractions fit in with the web platform?
+- ✔️ Proposal: TBD
 
 
 [header]: https://www.w3.org/comm/assets/graphics/web-ML/workshop-bg.png "W3C Workshop on Web and Machine Learning header"
