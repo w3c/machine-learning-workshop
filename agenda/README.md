@@ -108,19 +108,19 @@
 
 ℹ️ [Bias and model transparency #108](https://github.com/w3c/machine-learning-workshop/issues/108) - @dontcallmedom @JohnRochfordUMMS @mmitchellai Jutta
 - ❓ Model bias and lack of ML model transparency impact minorities and underrepresented groups, could the Web help mitigate this issue by providing a browser-assisted mechanism to detail an ML model's limitations and performance characteristics?
-- ✔️ Proposal: TBD
+- ✔️ Proposal: Explore role of machine-readable [https://arxiv.org/pdf/1810.03993.pdf Model Cards] to bring more transparency
 
 ℹ️ [Speech recognition privacy issues and solutions #99](https://github.com/w3c/machine-learning-workshop/issues/99) - @kdavis-mozilla
 - ❓ Standardization of the Web Speech API and its speech recognition part has been challenging due to privacy issues. What obstracles could be lifted to help make speech recognition an ubiquitous interoperable web capability?
-- ✔️ Proposal: TBD
+- ✔️ Proposal: Find champion to bring Web Speech API to standardization
 
 ℹ️ [Designing privacy-preserving ML APIs #90](https://github.com/w3c/machine-learning-workshop/issues/90) - @HelloFillip @XapaJIaMnu @kpu Jutta
 - ❓ We build the web platform with responsibility to our global user base, how to ensure the tight feedback loop and productive joint effort between ML ecosystem and privacy experts?
-- ✔️ Proposal: TBD
+- ✔️ Proposal: Organize early review of WebNN API by Privacy Interest Group
 
 ℹ️ [Building an extensible web platform for ML, one abstraction at a time #109](https://github.com/w3c/machine-learning-workshop/issues/109) - @jasonmayes @annxingyuan @yining1023 @kdavis-mozilla
 - ❓ Are we in agreement that advancing with standardization of low-level capabilities e.g. WebNN API is the pragmatic first step?
-- ✔️ Proposal: TBD
+- ✔️ Proposal: Propose a charter for standardizing WebNN API
 
 ## Conclusions & Next Steps
 
