@@ -15,6 +15,9 @@
     "Bringing together experts to enrich the Open Web Platform with better foundations for machine learning.">
     <meta property="og:image" content=
     "https://www.w3.org/2020/06/machine-learning-workshop/images/banner.png">
+    {% if page.hasPDF %}
+    <link rel="stylesheet" href="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.css">
+    {% endif %}
   </head>
   <body>
     <header class="header">
@@ -50,6 +53,9 @@
         </ul>
       </nav>
       <h2>{{title}}</h2>
+      {% if page.uplink %}
+{% include horizontal-nav.html %}
+      {% endif %}
     </header>
     {% include sponsors.html %}
     {{ content }}
@@ -72,6 +78,11 @@
         "mailto:dom@w3.org">dom@w3.org</a>&gt;.
       </p>
     </footer>
+    {% if page.hasPDF %}
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.5.207/web/pdf_viewer.js"></script>
+    <script src="{{page.base}}pdf-loader.js"></script>
+    {% endif %}
     <script src="{{page.base }}script.js">
     </script>
     <script src="{{page.base }}submit.js">

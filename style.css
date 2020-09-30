@@ -1,3 +1,5 @@
+      @import "https://www.w3.org/2019/09/TPAC-template/fonts/iconmonstr-iconic-font.css";
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -749,3 +751,52 @@ details span.added {
 .chat p {
     font-family: monospace;
 }
+
+      /* Miscellaneous icons. Add something like class="picto im-info" to an
+	 element to prefix the element with the im-info icon from the
+	 iconmonstr-iconic font. */
+      .picto::before {font-family: iconmonstr-iconic-font;
+	font-size-adjust: 1.0; line-height: 0.6; font-style: normal;
+	display: inline-block; margin-right: 0.33em;
+	vertical-align: middle; text-indent: 0;
+	text-rendering: auto; -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale}
+      li.picto {list-style: none; padding-left: 0; margin-left: 0}
+      .button.picto, button.picto {padding-right: 4px}
+      .buttons button {font: inherit; font-weight: 700; cursor: pointer}
+      .buttons a:hover {color: white;}
+      .buttons > * {
+	background: #103852;
+	color: white;
+	font-weight: 700;
+	min-height: 2.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+      }
+      .buttons > * {
+	box-sizing: border-box;
+	float: left;
+	width: 48%;
+	border: none;
+	padding: 0.6rem;
+	width: calc(49.9% - 2rem);
+	margin: 0 2rem 2rem 0;
+	text-align: center;
+        min-height: 6.5em;
+	height: auto;
+        }
+      @media (min-width: 33em) {
+      .buttons > *, .badges > * {
+	width: 29.5;
+	width: calc(33.3% - 2rem);
+      }
+      }
+
+            div[data-fmt="pdf"] {width: 40.889em; height: 23em; /* Ratio 16:9 */
+	/* Add a border, because the slides are white: */
+	overflow: hidden; box-sizing: border-box; border: 1px solid;
+	display: block; margin: 0 0 1em 0; box-shadow: none}
+       div[data-fmt="pdf"] canvas {vertical-align: bottom}
+
+div[data-fmt="pdf"] .page { position: relative; }

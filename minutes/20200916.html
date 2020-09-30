@@ -3,9 +3,15 @@ title: Minutes of 1st Live Session (September 16 2020)
 layout: subpage
 base: ../
 parent: proceeding.html
+hasPDF: true
+nextlink: 20200922.html
+nexttitle: "Minutes of 2nd Live Session (September 22, 2020)"
+uplink: ../proceeding.html
+uptitle: List of minutes
 ---
 <h2>Minutes of 1st Live Session (September 16 2020)</h2>
 <address>Scribe: François Daoust</address>
+<p><strong><a href="https://github.com/w3c/machine-learning-workshop/tree/master/agenda">Agenda</a></strong>  - <strong><a href="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf#page=1">Slides</a></strong><p>
 <p><cite>Present:</cite> Dominique Hazael-Massieux, Anssi
 Kostiainen, Bernard Aboba, Deng Yuguang, Gabriel Vigliensoni, Jason
 Mayes, Jeff Hammond, Jun Weifu, Qiang Chen, Sangwhan Moon, Wendy
@@ -26,6 +32,7 @@ O'Connor, Dennis, Anoop, Mina Ameli, Puson Gyang, Jens Hampe,
 Rachel Yager, Mark Crawford, Piotr Migdal, Chenzelun, Marie-Claire
 Forgue, John Rochford, Virginie Galindo,</p>
 <h2>Introduction to the workshop</h2>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-2"></div>
 <p><cite>Anssi:</cite> Welcome. I work with Intel, chair of the
 workshop. Background in Web standards and Web technologies. The
 purpose of this workshop, in a nutshell, is to bring together
@@ -33,18 +40,22 @@ machine learning and web people to make sure that the Web platform
 has better foundations for machine learning. We want to understand
 how in-browser machine learning fits into the machine learning
 ecosystem, and explore things both ways. Many pieces of the
-platform could be improved.</p>
+  platform could be improved.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-3"></div>
 <p><cite>Anssi:</cite> Why are we here? The reality is that people
 from diverse backgrounds need to gather together to complement each
-other, and better evolve the Web platform.</p>
+  other, and better evolve the Web platform.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-4"></div>
 <p><cite>Anssi:</cite> On behalf of the program committee, I would
 like to thank the speakers for the incredible work you've produced.
 Special thanks to our sponsor Futurice for making this workshop
-possible.</p>
+  possible.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-5"></div>
 <p><cite>Anssi:</cite> Today's session is on opportunities and
 challenges of browser based ML. We have divided the rest in 3 other
 slots. 4 sessions in total. Sep 22, 23, 29, same time as today for
-remaining sessions.</p>
+  remaining sessions.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-7"></div>
 <p><cite>Dom:</cite> What is W3C? I'm Dominique Hazaël-Massieux,
 part of the technical staff at W3C. You may have received emails
 from me… W3C stands for the World Wide Web Consortium. We are
@@ -63,7 +74,8 @@ you're part of it! We use workshops when we consider topics that
 are new for our scope. A big motivation for this workshop is that,
 as we see communities working with ML, we understand opportunities
 that ML creates for the Web, as well as opportunities that the Web
-creates for ML. Welcome all to this W3C event!</p>
+  creates for ML. Welcome all to this W3C event!</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-8"></div>
 <p><cite>Anssi:</cite> Here is an illustration of how we work
 together. Coming here, we received an array of talks. We have had
 very productive discussions on GitHub on some of the issues raised
@@ -71,7 +83,8 @@ by the talk. As an outcome of this workshop, we will have a list of
 proposals, some of which may be ready for standardization
 (agreement and scope). We'll probably identify areas that are good
 target for incubation. We may also identify areas that would be
-better served in other organizations, not W3C.</p>
+  better served in other organizations, not W3C.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-9"></div>
 <p><cite>Anssi:</cite> Please do not hesitate to comment using
 whatever mechanism you are comfortable with. Practically speaking,
 you are muted by default in Zoom to avoid background noise. Please
@@ -80,12 +93,14 @@ introduce yourself when you speak for the first time! In addition
 to Zoom, we have a Slack channel, you may want to follow that as
 well. We take live notes through a scribe (Francois does it today).
 Lastly, we are operating under the Code of Ethics and Professional
-Conduct (CEPC).</p>
+  Conduct (CEPC).</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-10"></div>
 <p><cite>Anssi:</cite> Let's get to the meat of the meeting and
 look at the opportunities and challenges. Plenty of discussion
 topics for today in 3 buckets.</p>
 <h2>Improving existing web platform capabilities</h2>
 <h3>WebGPU fitness for ML frameworks</h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-13"></div>
 <p><a href="https://github.com/w3c/machine-learning-workshop/issues/66">Related Discussions on Github</a></p>
 <p><cite>Anssi:</cite> First topic is WebGPU fitness for ML
 frameworks. Extensively discussed on GitHub. Does the WebGPU API
@@ -165,6 +180,7 @@ of operations that we're currently seeing in Tensorflow.</p>
 progress. "Try different things and see what sticks". I would like
 to move to next topic now. Thank you for the great discussion.</p>
 <h3>Support for Float16 in JS & WebAssembly environments</h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-14"></div>
 <p><a href="https://github.com/w3c/machine-learning-workshop/issues/64">Related Discussions on Github</a></p>
 <p><cite>Anssi:</cite> Lack of support in these environments is an
 issue for quantized models. There has been discussion a couple of
@@ -228,6 +244,7 @@ vpmaddubsw depsite the Intel-specific saturation behavior that
   doesn't exist on ARM / GPU?</p>
 </div>
 <h3>Memory Copies</h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-15"></div>
 <p><a href="https://github.com/w3c/machine-learning-workshop/issues/93">Related Discussions on Github</a></p>
 <p><cite>Anssi:</cite> The issue is that ML apps within the browser
 may trigger too many memory copies compared to native apps. This
@@ -317,6 +334,7 @@ pretty big gap between native and Web on this (even if native
   doesn't solve it all)</p>
 </div>
 <h3>Permission model for Machine Learning APIs</h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-16"></div>
 <p><a href="https://github.com/w3c/machine-learning-workshop/issues/72">Related Discussions on Github</a></p>
 <p><cite>Anssi:</cite> How to design a forward-looking permission
 model for ML APIs? This is a large problem, and not restricted to
@@ -408,6 +426,7 @@ something that would be useful for the second topic of the
 </div>
 <h2>Extending beyond the browser</h2>
 <h3>Applicability to non-browser JS environments</h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-18"></div>
 <p><cite>Anssi:</cite> Pay attention to the application of the
 browser-targeted work to non-browser JS runtimes, such as
 Node.js.</p>
@@ -446,6 +465,7 @@ happen.</p>
 <p><cite>Anssi:</cite> I believe we have a separate topic for this
 discussion. So get in touch with TC53.</p>
 <p>[Time check, oh no, too late!]</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-19"></div>
 <p><cite>Anssi:</cite> This was the first time we tried this,
 thanks for the discussion. We'll reschedule pending topics to the
 other 3 sessions. Virtual applause to everyone! I hope to see you

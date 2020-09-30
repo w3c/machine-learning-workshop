@@ -1,13 +1,13 @@
         <p class=buttons>
           {% if page.prevlink %}
-          <button type=submit form=form formaction="{{page.prevlink}}"
-          class="nav picto im-arrow-left">Previous: {{page.prevtitle}}</button>
+          <a href="{{page.prevlink}}"
+          class="nav picto im-arrow-left">Previous: {{page.prevtitle}}</a>
           {% endif %}
-          <a href="../presentations.html" class="picto im-data nav"
-          >All talks</a>
+          <a href="{% if page.uplink %}{{page.uplink}}{% else %}../presentations.html{% endif %}" class="picto im-data nav"
+          >{% if page.uplink %}{{page.uptitle}}{% else %}All talks{% endif %}</a>
           {% if page.nextlink %}
-          <button class=nav type=submit form=form formaction="{{page.nextlink}}">Next:
+          <a class=nav href="{{page.nextlink}}">Next:
           {{page.nexttitle}}<span
-                         class="picto im-arrow-right"></span></button>
+                         class="picto im-arrow-right"></span></a>
           {% endif %}
         </p>

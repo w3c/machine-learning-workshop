@@ -1,0 +1,402 @@
+---
+title: Minutes of 4th Live Session (September 28, 2020)
+layout: subpage
+base: ../
+parent: proceeding.html
+hasPDF: true
+prevlink: 20200923.html
+prevtitle: "Minutes of 3rd Live Session (September 23, 2020)"
+uplink: ../proceeding.html
+uptitle: List of minutes
+---
+<h2>Minutes of 4th Live Session (September 29, 2020)</h2>
+<address><cite>Scribe:</cite> François Daoust</address>
+<p><strong><a href="https://github.com/w3c/machine-learning-workshop/tree/master/agenda#september-29-2020-2pm-utc-%EF%B8%8F">Agenda</a></strong> - <strong><a href="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf#page=50">Slides</a></strong></p>
+
+<p><strong>Present:</strong> Dominique Hazael-Massieux, John Rochford,
+Roy Ran, Amy Siu, Jutta Treviranus, Takio Yamakoa, PJ Laszkowicz,
+Mehmet Oguz Derin, Bernard Aboba, Wenhe Li, Ningxin Hu, Ken Kahn,
+Kenneth Heafield, Nikolay Bogoychev, Zoltan Kis, Louis Busby,
+Françoist Daoust, Anita Chen, Kelly Davis, Chai Chaoweeraprasit,
+Dan Druta, Ann Yuan, Louay Bassbouss, Christine Runnegar,
+Marie-Claire Forgue, Minal Ameli, Jean-Marc Valin, Stephan
+Steglich, Chris Needham, Mark Crawford, Barbara Hochgesang, Patri
+(?), Rafael Cintron, Mirza Baig, Wendy Seltzer, Jeff Jaffe, Mirco
+(?), Rachel Aharon, Chenzelun, Sheela, Oleksandr Paraska, Qiang
+Chen</p>
+<p><cite>Anssi:</cite> Last live session of this series of sessions
+on Web and Machine Learning. [Anssi going through logistics slides:
+use the "raise hand" feature on Zoom to queue, there's a Slack
+channel, minute notes on Google Docs, CEPC!].</p>
+<p><cite>Anssi:</cite> Today's topics are: user's perspective, and
+conclusions and next steps. I will need to timebox discussions
+actively! Web & ML for all includes bias and model transparency,
+speech recognition, etc. Next steps topic is to discuss what we
+have learned, what we still need to explore, and what we think next
+steps should be from a standardization perspective: incubations or
+standardization opportunities.</p>
+<h2>Web & ML for all</h2>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/108">Bias
+and model transparency #108</a></h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-55"></div>
+<p><cite>Anssi:</cite> Model bias impacts minorities and
+underrepresented groups. We had a good discussion on GitHub around
+this. A proposal emerged that we should explore the role of
+machine-readable Model Cards to bring more transparency. Inviting
+Jutta to present.</p>
+<p><cite>Jutta:</cite> Revealing where the data gaps are. Potential
+to reveal even more things that are expressed in the Model Cards,
+including what proxies have been used, what was the original
+context of the ML model. I see that it could definitely help
+assessing what bias may exist in the model, where it would be
+inappropriate to apply this model. As I expressed in GitHub, my
+concerns about AI and population-based decisions is that the issue
+goes even further. We're using AI/ML to optimize our current
+practices. That means that we are amplifying biases that already
+exist, even before AI existed. The underlying assumption about
+quantified models is that we are basing decisions based on the
+majority. In essence, we're reducing diversity, meaning that we
+cannot enforce diversity in an ethical way. My comment within
+GitHub was about it being an issue about personalized systems.
+These systems tend to be very difficult to train if you are very
+unique. The further you are from the average of a particular
+dataset, the harder it is.</p>
+<p><cite>Anssi:</cite> Your lightning talk was very inspirational.
+A lot to unpack there. I would like to invite John Rochford. How
+does that resonate with you?</p>
+<p><cite>John:</cite> Jutta is, as always, eloquent in describing
+the problem. In my mind, unless we are inclusive in the creation of
+our datasets and the development of our technologies, we are going
+to produce ML models that are not trusted by people, and not useful
+to people, because they don't include all people. I think that when
+we are talking about who these people are, it's been my long
+experience as a developer&nbsp;that we don't even think, say, about
+people who are not like us. Very common not to consider people with
+disabilities. Disability is the only minority group that is
+represented everywhere (rich/poor, regardless of location,
+majority/minority). What I'm saying is: if we can solve problems
+for people with disabilities, then we can solve them for
+everyone.</p>
+<p><cite>Anssi:</cite> It actually benefits all, I like this
+perspective. Let's look at proposals. It looks very pragmatic.
+Maybe the browser could surface that info to the user. That seemed
+to resonate with people. What do you think?</p>
+<p><cite>Dom:</cite> Both Jutta and John have been talking about
+problems beyond transparency. I don't have a good short-term
+solution for that. Starting with transparency seems like a good
+first step.</p>
+<p><cite>Jutta:</cite> I think this is a great step forward (or
+beginning). Some form of impact assessment would be useful as well.
+It would be a living document where insights about the model could
+be added.</p>
+<p><cite>Oguz:</cite> Making more APIs available with data URLs
+helps minorities too. Because it is easier to deliver apps using
+data URLs to environments where delivering apps can be a subject of
+censorship.</p>
+<div class="chat"><h3>Comments on Chat</h3>
+<p>Christine Runnegar: +1 to what Dom says, transparency is only
+  the first step</p>
+</div>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/99">Speech
+    recognition privacy issues and solutions #99</a></h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-56"></div>
+<p><cite>Anssi:</cite> Standardization of speech recognition has
+been challenging because of privacy issues. Let's discuss how to
+address obstacles.</p>
+<p><cite>Kelly:</cite> In terms of the current specification,
+issues are around fingerprinting, starting with synthesis.
+Different OSes have different speech synthesis engines, and you can
+derive fine-grained fingerprinting information from that. Other
+issues involved in terms of speech recognition too. Partial
+implementations of the speech API use some server-based speech
+recognition. When is that done? How long do they retain the data?
+Question of privacy, your data may be sitting in a server
+somewhere. You don't really have any control about how long your
+audio data is retained, no way to delete it either. Someone in the
+background may also be saying something private that gets recorded
+too and stored on the server. Client-side speech recognition is
+getting popular. It does have some advantages, but makes it harder
+to improve your engine without data to train it on.</p>
+<p><cite>Anssi:</cite> Should we, in the specification, allow the
+user to indicate that they agree to use the feature provided that
+data does not leave the browser? Would that help with interop? Is
+it a reasonable approach to this problem?</p>
+<p><cite>Kelly:</cite> It would be a welcomed change. My gut
+feeling is that, if we have a flag, then implementers will just
+disable the feature entirely if server-side is not allowed.</p>
+<p><cite>Christine:</cite> Thank you, Kelly, for the introduction
+on privacy considerations you've identified. Would there be any
+appetite for the Web Speech API to be specified solely as a
+client-side API? I'm worried about "cheating"</p>
+<p><cite>Kelly:</cite> At least from Mozilla perspective, there
+would be appetite for that. That means that we don't have to
+maintain servers, worry about server uptimes and the like.</p>
+<p><cite>Jutta:</cite> I was wondering whether we could take a
+broader approach. We see what has happened with GDPR. One of the
+things that we've been exploring is user preference to rollback
+this all-or-nothing where you get the service or not. We've been
+looking at the possibility to negotiate the use of data where you,
+as a user, get to say what uses of the data you agree with. Service
+providers would need to state what uses it will use the data
+for.</p>
+<p><cite>John:</cite> That information has to be written simply for
+everyone to be able to understand it.</p>
+<p><cite>Jutta:</cite> Right. It would mean greater education for
+users to understand what risks and opportunities</p>
+<p><cite>Dom:</cite> There have been attempts in the past to do
+that. None of these attempts have been a real success, partly
+because of the difficulty to reduce the dimensions to something
+that people may understand and relate to, and that would still
+match what service providers may be doing. Might still be worth
+looking at again. One of the problems you highlighted is that the
+API has been developed, shipped, and it hasn't received the sort of
+horizontal reviews that specs usually get on their way to
+standardization. Client-side vs. Server-side would have arised.</p>
+<p><cite>Anssi:</cite> I'm hearing that no-one is opposing this
+proposal. We need a champion. The spec has been lingering for about
+10 years already.</p>
+<p><cite>Dom:</cite> For anyone passionate about fixing that API,
+please get in touch! The more, the merrier, and the better the
+API!</p>
+<p><cite>Anssi:</cite> Clear need for the API, great
+conclusion!</p>
+<div class="chat"><h3>Comments on Chat</h3>
+<p>Ken Kahn: Another advantage of client-side speech recognition is
+for people with poor quality network connections (common in some
+parts of the world)</p>
+<p>Zoltan Kis: Certainly all the general AI related privacy
+concerns apply to Web ML. But could we name a few web-specific
+threats and mitigations to ML? (can't speak, just take the question
+if there is time).</p>
+<p>Wendy Seltzer: &nbsp;There's also a challenge of getting the
+incentives aligned right in policy negotiations.</p>
+<p>Jutta Treviranus: Another approach is cooperative data trusts —
+  data governed and kept by a cooperative of the users</p>
+</div>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/90">Designing
+privacy-preserving ML APIs #90</a></h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-57"></div>
+<p><cite>Anssi:</cite> How to ensure the tight feedback loop and
+productive joint effort between ML ecosystem and privacy experts?
+Proposal is to organize an early review of WebNN API by the Privacy
+Interest Group. WebNN is a concrete proposal, hence the reason why
+we propose to start with it.</p>
+<p><cite>Phil:</cite> My perspective has been from a developer
+point of view. Doing mass aggregation of data. Privacy-preserving
+solutions won't work if developers need to put additional efforts
+into it. That ties directly with tools that developers use such as
+Tensorflow.js. I'd like to make sure that defaults are good, as
+opposed to developers having to do extra work. Reach out to those
+working on cloud-based architectures.</p>
+<p><cite>Kenneth:</cite> We're trying to do client-side machine
+translation because most of the Web is not in your language. This
+can be a browser extension, or it would run natively, but you'd
+have to download an Exe. To run on the Web, we have a performance
+issue. When we sit on top of WebAssembly, we lose 8bit integers,
+SIMD, etc. I don't really care what multiply leaks in terms of
+privacy because I already do it as part of the extension. Another
+angle is that there are lots of languages, possibly specialized,
+for which we don't have enough data. We take data wherever we can
+find it. Speaking a rare language is not a disability, but it is a
+community enablement that we should allow.</p>
+<p><cite>Anssi:</cite> If the extension is a use case for the spec,
+we could design the API for that use case. No special treatment for
+Web APIs for the extensions case, right?</p>
+<p><cite>Dom:</cite> Right. The context of special privileged
+runtimes is something that comes back very often in standardization
+discussions.</p>
+<p><cite>Jutta:</cite> I really appreciate the discussion of a
+tool-centric approach. That matches the way we would approach it
+from an accessibility perspective. There is an issue with all of
+the privacy strategies that exist. If you have very specific needs,
+then the noise that gets added to anonymize things may also remove
+the specific needs that you had. There is a tension here. I'm not
+sure that we have as yet found an approach to that. Anonymous
+stream systems tend not to survive.</p>
+<h3><a href=
+"https://github.com/w3c/machine-learning-workshop/issues/109">Building
+an extensible web platform for ML, one abstraction at a time
+#109</a></h3>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-58"></div>
+<p><cite>Anssi:</cite> Simply put, the proposal is to work on a
+charter for standardizing the WebNN API, as a first pragmatic step
+focused on low-level capabilities. Use of WebGL, WebNN, etc.
+require domain-specific knowledge. Libraries have emerged, such as
+Tensorflow.js, to provide higher-level abstractions. There are
+other high-level APIs: Web Speech API, Shape detection API. These
+proposals have been stuck in the incubation phase, in part because
+of lack of interoperability and privacy issues. I would like to
+invite Chai to give us a more complete picture.</p>
+<p><cite>Chai:</cite> I'm speaking from the OS point of view. We
+have seen tons of innovation in the hardware space, surfacing to
+system APIs. I think that this is the right level to work on the
+Web. WebNN would be the&nbsp;conduit of ML on the Web now and in
+the future. I'm supportive of progressing WebNN. There may be
+worries about lack of standards on ML model formats. My perspective
+is that developers will progressively explore and settle down on
+formats over time. As far as I can tell, no scenario is blocked by
+the fact that the model only works in one format. The benefit of
+connecting at the ML level instead of going below that is the
+possibility to address issues raised during this workshop,
+including privacy ones. How to connect the front-end and back-end
+technologies together, that's the first step.</p>
+<p><cite>Anssi:</cite> Queue is open for discussion. Silence is
+consent.</p>
+<p><cite>Dom:</cite> I was part of formulating that proposal
+because what we heard through presentations is that WebNN is at the
+sweet spot of granularity to make ML efficient today. There are
+many things that are beyond WebNN that also need further work, but
+the clear message is that WebNN is a critical piece, a tiny piece,
+and in a good enough shape to transition to standardization.</p>
+<p><cite>Anssi:</cite> I hear agreement!</p>
+<div class="chat"><h3>Comments on Chat</h3>
+  <p>Phil Laskowicz: +1</p>
+</div>
+<h2>Conclusions & Next Steps</h2>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-60"></div>
+<p><cite>Anssi:</cite> [showing architectural diagram]. Top layer,
+specific ML scenarios, connecting to JS frameworks, connected to
+low-level Web APIs such as WebGL/WebGPU, WebNN, WebAssembly. Below
+that, there is the system level. At the lowest level, there are
+hardware considerations. What we explored is that there is rapid
+innovation in model architecture and format. We also learned that
+there is good per-platform interoperability, e.g. on Windows. At
+the lowest level, we learned that there is growing diversity of
+  hardware architecture.</p>
+
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-61"></div>
+<p><cite>Anssi:</cite>We learned that browser-learned ML inference
+has a key role to play. We learned that a graph-based API layered
+over OS APIs is a key primitive for efficient ML inference. ML
+model formats are evolving fast, as Chai just raised a couple of
+minutes ago. There may be room for a format-agnostic model loader
+API, and there is already incubation in that space. We learned that
+efficient ML processing of media requires improvements of the
+processing pipeline. Last, we learned about layering conformance
+  testing.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-62"></div>
+<p><cite>Anssi:</cite> We also learned that JS and WASM need some
+upgrades to cater optimally for ML in browsers. We need to keep an
+eye on ML training. Scaling up ML via browsers creates risks of
+scaling up bias issues. That's an overall summary of key learnings
+from this workshop. The floor is open for discussions.</p>
+<p><cite>Kenneth:</cite> I don't really understand the conflation
+of OS with toolkit. Arguably, that's a weakness rather than a
+strength, right?</p>
+<p><cite>Anssi:</cite> Right, this is an oversimplification. The
+message is "any Web API that we develop needs to work on any system
+and hardware".</p>
+<p><cite>Olek:</cite> Small note about this architecture slide.
+There are things that go beyond use cases, such as Safari doing ML
+for tracking protection. It's important when we design APIs that
+inputs may be different to all of the use cases that appear
+here.</p>
+<p><cite>Anssi:</cite> Yes, I encourage people to watch your
+  talk!</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-63"></div>
+<p><cite>Anssi:</cite> Let's move to what we still need to figure
+out. [reading out slide]. E.g. there were concerns raised about the
+power consumption of ML inference. How can the APIs be used in non
+browser environments, such as Node.js. Integration between
+high-level APIs (Web Speech API) and low-level WebNN API. Could
+developers propose their own models instead of using the one
+proposed by the browser or the OS? Awareness of bias is what we
+discussed today. Finally, how important is it for ML that WebGPU
+provides ML-useful optimizations? See e.g. talk from Oguz.</p>
+<p><cite>Dom:</cite> My sense from the overall discussions at the
+workshop is that we started some really useful, and in some cases
+some deep, discussions. The workshop is by no means the end of it.
+For those that we've identified as having open questions, my hope
+is that we continue the conversations well beyond the workshop. We
+will be presenting some of the mechanisms that we can offer. In any
+case, we would like to make sure that you can continue to be part
+of the discussions in the future.</p>
+<p><cite>Jutta:</cite> One addition: How to address the inherent
+biases that the current ML systems have. It's not only an issue to
+be addressed, but an opportunity to be able to enlarge usefulness
+  of models.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-64"></div>
+<p><cite>Anssi:</cite> Last 3 things to figure out. What
+introspection data on models is needed to cater for progressive
+enhancement approaches? What architecture do we need to distribute
+ML across multiple devices, including edge computing? Last, does ML
+model storage require any specific browser adaptation or would the
+File System Access API cover all needs? Any feedback? Please raise
+your hand!</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-65"></div>
+<p><cite>Anssi:</cite> Moving on to incubation steps. Incubation is
+pre-standardization, for short. Validate that Model Loader API can
+support interoperable deployment of ML. Explore gating access to
+compute intensive APIS, which the TAG may be able to drive. Explore
+optimizing memory copy across the media pipeline, the Media &
+Entertainment IG may be interested in exploring that. Last, explore
+machine-readable Model Cards.</p>
+<p><cite>Dom:</cite> To give some context, for those not involved
+in W3C standardization, the way we build them is, before we cast
+them in stones, we welcome various ideas, proposals that get
+incubated, typically in Community Groups.&nbsp;Anyone can join a
+CG. I note that I have suggested that the Media & Entertainment IG
+could host the coordination discussion on memory copies, but I
+don't think they have committed to it. Anssi started a repository
+where technical discussions can be raised. We'll include links in
+  the report.</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-66"></div>
+<p><cite>Anssi:</cite> Moving on to next steps in standardization.
+First, we propose to bring WebNN to W3C standardization. There is
+already a first draft of a possible charter for a machine learning
+WG. Couple of other standardization opportunities: re-invigorate
+efforts for JS operators overloading in ECMA TC39. I think we
+identified a champion to bump priority of this feature. Another
+related effort around Float16 support in JS. We need to liaise with
+ECMA on these two latter proposals.</p>
+<p><cite>Dom:</cite> W3C standardization are for more mature ideas,
+the ones we think have a good chance of bringing the right features
+to the Web. Formal standardization process for WebNN, where
+"formal" means going through a number of steps including horizontal
+reviews, and making sure that there is consensus around the various
+stakeholders that the API design is the right one. The first formal
+step in that process is creating a working group where this
+standardization is happening. The charter that we are writing is
+defining the scope. If you're interested in making sure that the
+standardization goes in the right direction, please consider
+reviewing and contributing to the charter, and to the group
+  afterwards!</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-67"></div>
+<p><cite>Anssi:</cite> Moving on to where to follow up. The github
+repo of the workshop is open and active for the foreseeable future.
+When we see enough momentum on something, we'll move it to the
+right place! Input to the proposed charter is welcome, as Dom just
+said. There is also a proposed breakout session at the upcoming
+virtual TPAC on memory copies. Also, remember that the Web ML CG is
+up and running, please join if you haven't done already. Watch out
+for the upcoming feedback survey, and reach out to Dom to let us
+know whether we should do this type of workshop again in the
+future.</p>
+<p><cite>Dom:</cite> We will be developing a report of this
+workshop. What we think we've learned, what next steps we propose,
+in addition to the minutes. This could be something easier to
+circulate.</p>
+<p><cite>Anssi:</cite> We'll circulate a draft before it gets
+  published. Any question or comment about where to follow up?</p>
+<div role="region" data-fmt=pdf data-src="http://www.w3.org/2020/Talks/mlws/live-sessions.pdf" id="slide-68"></div>
+<p><cite>Anssi:</cite> Last but not least, I'd like to acknowledge
+the effort of various workshop contributors: program committee for
+guiding the workshop direction, speakers for providing deep dive
+insights, our sponsors for making it possible to organize a
+workshop that is free for all to attend. You can now congratulate
+yourself. The Web platform is ideally positioned to deliver machine
+learning to billions of users across devices and across the globe.
+Thank you everyone, hope to see you around!</p>
+<p><cite>Dom:</cite> And again, feel free to reach out to me, about
+life, the universe and everything. dom@w3.org</p>
+<div class="chat"><h3>Comments on Chat</h3>
+<p>Kenneth Heatfield: I'm confused by the conflation of OS with
+toolkit e.g. OpenVINO runs on Windows. And your
+TensorFlow/MXNet/Torch etc have kernels that often run directly on
+hardware</p>
+<p>Kenneth (reacting on the discussion on use cases being broader
+  than what shown on the diagram): ¾ are vision!</p>
+</div>

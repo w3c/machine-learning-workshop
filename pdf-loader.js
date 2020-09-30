@@ -4,6 +4,10 @@ var pdfjsViewer = window['pdfjs-dist/web/pdf_viewer'];
 // The workerSrc property shall be specified.
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.js';
 
+[...document.querySelectorAll('div[data-fmt="pdf"][data-src][id^="slide-"]')].forEach(div => {
+  div.setAttribute("aria-busy", true);
+});
+
 const firstPdfSlide = document.querySelector('[data-fmt="pdf"][data-src]');
 if (firstPdfSlide) {
   const url = firstPdfSlide.dataset.src.split('#')[0];
@@ -31,6 +35,7 @@ if (firstPdfSlide) {
         });
         // Associates the actual page with the view, and drawing it
         pdfPageView.setPdfPage(page);
+        div.setAttribute("aria-busy", false);
         return pdfPageView.draw();
       });
     });
