@@ -800,3 +800,12 @@ details span.added {
        div[data-fmt="pdf"] canvas {vertical-align: bottom}
 
 div[data-fmt="pdf"] .page { position: relative; }
+
+a.topic {
+    font-weight: bold;
+}
+
+a.talk:before {
+    content: "🎥";
+    vertical-align: middle;
+}

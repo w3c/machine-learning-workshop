@@ -1,0 +1,388 @@
+---
+title: \[DRAFT] Report
+layout: subpage
+---
+<main>
+<h1>[DRAFT] W3C Workshop Report on Web and Machine Learning</h1>
+<h2>Executive Summary</h2>
+<p>W3C organized a workshop on Web and Machine Learning over the
+course of August and September 2020. This workshop brought together
+web platform and machine learning practitioners to enrich the Open
+Web Platform with <strong>better foundations for machine learning</strong>.</p>
+<p>This first-ever virtual W3C workshop kicked off with the
+publication of <strong><a href="presentations.html">34 talks</a></strong> in August 2020 discussing <strong>opportunities and
+challenges of browser-based machine learning</strong>, <strong>web platform
+foundations</strong>, as well as <strong>developer’s, and user’s perspectives</strong> into
+machine learning technologies in the context of the web
+platform.</p>
+<p>These perspectives brought up by top experts from the field were
+carefully evaluated and discussed across <a href="https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+label%3A%22Discussion+topic%22+">25 online workstreams</a>
+inviting input from 200+ workshop participants during August and
+September. The workshop culminated into a series of four live
+sessions held in September 2020 that synthesized findings from the
+workstreams and concluded the workshop with proposed next steps for
+standardization and incubation.</p>
+<p>The workshop participants identified as a <strong>prime standardization
+opportunity the low-level primitives for machine learning inference</strong>
+exposed through the <strong><a href="https://webmachinelearning.github.io/webnn/">Web Neural Network API</a></strong>. This work has been
+incubated at a <a href="https://www.w3.org/community/webmachinelearning/">W3C Community Group</a> since late 2018. Following the
+workshop, as a concrete next step, the W3C sent an <a href="https://lists.w3.org/Archives/Public/public-new-work/2020Oct/0001.html">advance notice
+of the development of a charter for a Web Machine Learning Working
+Group</a> to standardize the Web Neural Network API. Furthermore,
+multiple opportunities for closer collaboration between the W3C and
+Ecma were identified to accelerate development of the JavaScript
+language features beneficial for machine learning. Additional
+proposals for incubation were identified, including <a href="https://webmachinelearning.github.io/model-loader/">Model Loader
+API</a> to explore interoperability of an API for loading pre-trained
+machine learning models, media pipeline optimizations, and
+machine-readable Model Cards proposal to help address machine
+learning bias and transparency issues. The proposals will be
+further developed in W3C Community Groups.</p>
+<p>The virtual workshop format was well-received and demonstrated
+the W3C’s ability to adapt to the changing environment that relies
+on online collaboration technologies in the midst of the global
+pandemic.</p>
+<h2>Sessions</h2>
+<h3>Opportunities and Challenges of Browser-Based Machine
+Learning</h3>
+<p>The <a href="minutes/20200916.html">first live session</a> started by articulating the workshop live
+sessions around four top-level topics: Opportunities and
+Challenges, Web Platform Foundations, Developer’s Perspective, and
+User’s Perspective. Throughout the workshop, these top-level
+signposts guided discussions toward insights that help make
+progress against the following goals:</p>
+<ul>
+<li>Understand how machine learning fits into the Web stack,</li>
+<li>Understand how in-browser machine learning fits into the
+machine learning ecosystem,</li>
+<li>Explore the impact of machine learning technologies on Web
+browsers and Webapps,</li>
+<li>Evaluate the opportunities for Web standardization around
+machine learning APIs and formats</li>
+</ul>
+<p>The focus of the discussions of the first session were around
+opportunities and challenges with a specific view on unique
+opportunities of browser-based machine learning, and identifying
+obstacles hindering adoption of machine learning technologies on
+the web platform.</p>
+<h4>Improving existing web platform capabilities</h4>
+<p>The <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/66">fitness of the WebGPU API to support machine learning
+frameworks</a> sparked active discussion and identified new WebGPU
+extensions that could substantially benefit ML - most notably the
+proposed subgroup operations extension. This feature promises to
+speed up algorithms that need to specialize general graphs such as
+neural network computational graphs, a core concept of the emerging
+<a href="https://webmachinelearning.github.io/webnn/">Web Neural Network API</a>.</p>
+<p>This raised the question of whether it is important to solve the
+interoperability at the hardware level, or whether it would be
+possible to meet users' needs with higher level constructs.
+Multi-Level IR Compiler Framework (MLIR), a common intermediate
+representation, that also supports hardware specific operations, is
+being explored in parallel and might offer an MLIR dialect that
+could become a portability layer to help with the explosion of the
+number of operations. MLIR project continues its work in parallel
+with close coordination with the W3C machine learning efforts
+thanks to overlapping participation.</p>
+<p>The lack of <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/64"><code>float16</code> in JavaScript and WebAssembly
+environments</a> was discussed as an issue in particular for
+quantized models where it leads to higher memory usage and lower
+inference speed. The lack of this data type was linked mostly to
+lack of momentum in its standardization process. The workshop
+participants recommended providing <a href="https://tc39.es/">Ecma TC39</a> with input to help
+expedite and prioritize <code>float16</code> support from its current early
+stage status. For WebAssembly, the <a href="https://github.com/WebAssembly/wasi-nn">WASI-NN initiative</a>, which
+proposes to standardize the neural network system interface for
+WebAssembly programs, is considering adding support for <code>float16</code> and
+<code>int8</code> buffers, with a way to emulate those as needed.</p>
+<p>The discussion on <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/93">memory copies</a> highlighted the
+inefficiencies in machine learning web apps within the browser
+media pipeline. This usage scenario triggers many more memory
+copies compared with corresponding native applications, hindering
+performance of web-equivalents. Modern in-browser media pipeline
+can make use of <a href="https://w3c.github.io/webtransport/">WebTransport</a> and <a href="https://wicg.github.io/web-codecs/">WebCodecs</a>, as well as more
+established primitives such as <a href="https://streams.spec.whatwg.org/">WHATWG Streams</a>, <a href="https://streams.spec.whatwg.org/#transferrable-streams">transferable streams</a>,
+and <code>SharedArrayBuffer</code>, but these APIs alone do not avoid memory
+copies. Given the complexity of this space, the discussions
+converged on picking a few key usage scenarios where redundant or
+excessive memory copies are problematic and proposed optimizing
+those paths. One such key scenario involves video feed, from
+capture to render, or audio input in a similar fashion. A separate
+<a href="https://www.w3.org/wiki/TPAC/2020/SessionIdeas#Memory_copies_.26_zero-copy_operations_on_the_Web">TPAC breakout session is organized to deep dive on the memory
+copies issue</a>.</p>
+<p>The discussion on a <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/72">permission model for Machine Learning
+APIs</a> emerged from potential privacy implications of these APIs
+as well as the substantial power requirements that these APIs may
+surface and their impact on user experience. Machine learning APIs
+are similar in that regard to <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL</a>, <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> and <a href="https://webassembly.github.io/spec/">WebAssembly</a>; the
+discussions thus suggested the <a href="https://www.w3.org/2001/tag/">W3C Technical Architecture Group</a>
+would be well positioned to drive coordination on the larger
+question of permission model for compute-heavy APIs from a
+platform-wide perspective.</p>
+<h4>Extending beyond the browser</h4>
+<p>Several contributions to the workshop noted
+the <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/62">applicability to non-browser JS environments of the
+browser-targeted machine learning capabilities</a>, in particular
+Node.js. The talk <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/extending_w3c_ml_work_to_embedded_systems.html">Extending W3C ML Work to Embedded Systems</a> drawing
+from earlier experiences, suggested avoiding an anti-pattern of
+defining “light” versions of Web APIs for constrained environments.
+Given <a href="https://www.ecma-international.org/memento/tc53.htm">Ecma TC53</a> defines standard JavaScript APIs for low level
+device operations — digital, serial, network sockets, for
+constrained devices — it was proposed to strengthen coordination
+between TC53 and related W3C groups working on ML APIs. The goal of
+this coordination would be to ensure a common conceptual basis
+while not necessarily targeting a one-size-fits-all API design
+across classes of devices.</p>
+<h3>Web Platform Foundations for Machine Learning</h3>
+<p>The <a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200922.html">second live session</a> focused on Web Platform Foundations with
+a goal to understand how machine learning fits into the Web
+technology stack.</p>
+<h4>Considerations for creating and deploying models</h4>
+<p>This live session discussed machine learning model formats, use
+cases and requirements for protecting machine learning models,
+in-browser training drawing from early experiments in this space,
+and opportunities for leveraging training across devices in the web
+context.</p>
+<p>The lack of a <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/74">standard format for packaging and shipping
+machine learning models</a> was flagged as an issue in many of the
+lightning talks from experts in Web Neural Network API,
+TensorFlow.js, ONNX, DirectML, and MLIR, among others. This space
+is also not ready for standardization given the ongoing rapid
+innovation and evolution in model formats. Instead, the emerging
+approach is to initially focus on defining a Web API for
+accelerating established reusable ML model building blocks i.e.
+operations. In many commonplace models, such as in popular computer
+vision models, over 90% of compute time is typically spent on a
+small set of compute-intensive operations. As a result, scoping the
+proposed Web API to hardware-accelerate these compute-intensive
+operations was deemed the most pragmatic approach to unlock new
+machine learning-assisted user experiences on the Web in the near
+term.</p>
+<p>Several workshop contributors relayed the need to <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/67">protect
+machine learning models</a> as some ML model providers need to
+ensure their models cannot be extracted from a web application
+running within the browser due to IPR concerns. The workshop
+discussions noted similar content protection issues in other fields
+with some solutions deployed in production (<a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media
+Extensions</a> for video content)&nbsp;while others remain unresolved -
+e.g. <a href="https://www.w3.org/2018/12/games-workshop/breakouts/wasm.html">protection of 3D assets in web-based games</a> as discussed at the
+<a href="https://www.w3.org/2018/12/games-workshop/report.html">W3C Workshop on Web Games held June 2019</a>. These efforts have shown
+that this is not an easy-to-solve problem in the web context and
+further research is needed to understand what trade-offs&nbsp;are
+possible in the specific case of ML models.</p>
+<p>The workshop participants also discussed the nascent area of
+<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/82">in-browser training</a>. Most Machine Learning in-browser efforts are
+focused on inference rather than training, with a few exceptions.
+The <a href="https://teachablemachine.withgoogle.com/">Teachable Machine project</a> enables in-browser transfer learning
+and identified concrete issues to improve the user experience of ML
+training. One issue was the inability to operate the training
+process in a a background tab. The <a href="https://w3c.github.io/system-wake-lock/">System Wake Lock API</a> might
+provide a solution for this and a corresponding use case was
+submitted for consideration. An additional outcome of this
+discussion was a recommendation to document successful real-world
+usages (e.g. Teachable Machine) with transfer learning as the most
+likely initial training use case for related browser API work. Web
+Neural Network API as a graph-based API provides extension points
+to cater for transfer learning in its future version.</p>
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/83">Training across devices</a> discussion solicited insights to
+help inform the role of edge computing in machine learning training
+and interactions with the web platform. This topic was
+discussed in the talk on <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/collaborative_learning.html">Collaborative Learning</a> that
+identified federated learning, distributed learning, and
+reinforcement learning in the web context as gaps. The talk
+<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/enabling_distributed_dnns_for_the_mobile_web_over_cloud_edge_and_end_devices.html">Enabling Distributed DNNs for the Mobile Web Over Cloud, Edge and
+End Devices</a> proposed a partition-offloading approach to leverage
+computing resources of the end devices and the edge server. The
+conclusion from discussions was to work with the <a href="https://www.w3.org/web-networks/">Web & Networks
+Interest Group</a> to ensure its <a href="https://www.w3.org/wiki/Networks/Edge_computing">edge computing workstream</a> considers ML
+usages.</p>
+<h3>Machine Learning Experiences on the Web: A Developer's
+Perspective</h3>
+<p>The <a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200923.html">third live session</a> focused on topics that offer the
+developer's perspective and discussed learnings from authoring ML
+experiences, reusing pre-trained ML models, discussing technical
+solutions and gaps.</p>
+<h4>Applying web design principles to ML</h4>
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/68">Progressive enhancement and graceful degradation</a> are
+established web development and design strategies — the workshop
+participants discussed how they would apply in the context of
+machine learning. More specifically, how to bring more ML features
+as optional improvements on more powerful devices and browsers
+without breaking web compatibility? A goal of the discussion was to
+identify mechanisms and issues in designing ML APIs that enable
+these patterns to be used, giving developers visibility on how well
+a given experience will work on the end-user's device. One approach
+was to start with models that provide a reduced version with
+acceptable performance. Conversely, there will always be cases
+where developers will want to target only hardware-accelerated
+devices and won't support lower end devices for performance
+critical use cases such as <a href="https://www.w3.org/immersive-web/">AR or VR experiences</a> with live
+video feed processing. A key part to enabling this is model
+introspection to understand model performance characteristics,
+although it was noted to be hard to provide reliably. Different
+level of fallback mechanisms were discussed, from the fine-grained
+operation-level to the entire model level with different models
+swapped in depending on implementation, platform or hardware
+capabilities. Conversely, scaling up a model requires a lot of
+introspection capabilities.</p>
+<p>A key goal of W3C standardization is to ensure interoperable
+implementations which raised questions about <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/80">conformance testing
+for ML APIs</a>. A learning from WebGPU was that a computation can have
+varying hardware implementations and thus varying precision: in
+that situation, numerical precision is independent of the browser's
+WebGPU implementation, and testing end-to-end operations is less
+tractable. WebGPU has parallels with the WebNN API, and a proposal
+emerged that a conformance test suite for ML APIs need to consider
+multiple levels of conformance, both operator-level and model-level
+interoperability.</p>
+<h4>Improving web developer ergonomics</h4>
+<p>Machine learning processing typically involves a lot of matrix
+operations, and thus the ergonomics of the JavaScript language for
+these operations plays a direct role in the ergonomics of JS APIs.
+<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/73">JavaScript operator overloading</a> would improve the ergonomics
+of training and helps with custom operations, a proposal being
+discussed in the context of Web Neural Network API. <a href="https://github.com/tc39/proposal-operator-overloading#matrixvector-computations">Operator
+overloading</a> is a Stage 1 proposal at Ecma TC39 roughly
+corresponding to the W3C incubation phase, and the workshop
+participants supported a proposal to feed TC39 with ML use cases to
+help TC39 prioritize this feature accordingly.</p>
+<p>ML frameworks that today rely on WebGL API to enable fast
+parallelized floating point computation accelerated by GPUs
+surfaced an issue with <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/63">WebGL garbage collection</a> (cf.
+<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/opportunities_and_challenges_for_tensorflow_js_and_beyond.html">Opportunities and Challenges for TensorFlow.js and beyond</a>, <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/fast_client_side_ml_with_tensorflow_js.html">Fast
+client-side ML with TensorFlow.js</a>). The side effects of WebGL
+garbage collection cause unpredictable performance, and given JS
+provides automatic garbage collection, some web developers expect
+GC to also happen similarly when interacting with APIs that
+interface with hardware. However, in the browser context, WebGL
+memory is not automatically garbage collected, nor can it reliably
+be. JS libraries such as TensorFlow.js have resorted to exposing an
+API for the WebGL backend to explicitly manage memory. A suggestion
+was made that the Web Neural Network API should consider adding a
+similar mechanism to allow resources to be freed eagerly.
+JavaScript engines have also room to optimize their approaches to
+garbage collection as the <a href="https://github.com/microsoft/ChakraCore">Chakra engine</a> previously demonstrated in
+EdgeHTML.</p>
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/102">Neural network-oriented graph database</a> discussion reviewed known
+model storage issues on the client, and evaluated the feasibility
+of a neural network-oriented graph database for the web.
+<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/pipcook_a_front_end_oriented_dl_framework.html">Pipcook, a front-end oriented DL framework talk</a> highlighted
+that a deep learning model is essentially a graph with weights and
+suggested that by providing a graph-orientated database that stores
+the information in a graph format we could reduce the serialization
+overhead. Existing web platform storage APIs such as <a href="https://w3c.github.io/IndexedDB/">IndexedDB</a> are
+not optimized for storing graph data. The group identified the
+<a href="https://wicg.github.io/file-system-access/">Filesystem Access API</a> in active incubation as one possible
+alternative for IndexedDB that could help alleviate the storage
+issues.</p>
+<h3>Machine Learning Experiences on the Web: A User's
+Perspective</h3>
+<p>The first half of the <a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200929.html">last live session</a> focused on user's
+perspective topics under the banner of Web & ML for all to
+highlight the profound impact these technologies combined will have
+on billions of people who are using the Web.</p>
+<h4>Web & ML for all</h4>
+<p>Discussions on <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/108">bias and model transparency</a>
+highlighted the impact on minorities and underrepresented
+groups as explored in the talks <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/we_count_fair_treatment_disability_and_machine_learning.html">We Count: Fair Treatment,
+Disability and Machine Learning</a> and <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/ai_machine_learning_bias_garbage_in_bias_garbage_out.html">Bias & Garbage In, Bias &
+Garbage Out</a>. Among the practical mitigations discussed, the most
+promising idea involved a browser-assisted mechanism to find out
+about the limitations and performance characteristics of ML models
+used in a Web app. This would build on an approach published in
+<a href="https://arxiv.org/pdf/1810.03993.pdf">Model Cards for Model Reporting</a> where making this report
+machine-discoverable would allow for the web browser to offer a
+more integrated user experience.</p>
+<p>The <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/99">privacy issues in speech recognition</a> highlighted the
+challenges with standardizing the <a href="https://wicg.github.io/speech-api/">Web Speech API</a>. As the talk
+<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/wreck_a_nice_beach_in_the_browser_getting_the_browser_to_recognize_speech.html">Getting the Browser to Recognize Speech</a> highlighted, this
+includes issues around fingerprinting and issues arising from
+client-side or server-side implementation strategies for the speech
+recognition engine. End users are not currently made aware of
+whether their speech data is sent to and stored on the server, or
+whether all the processing remains within the client. It was
+suggested the Web Speech API spec could mandate client-side only
+recognition, or at least allowing users to require it for enhanced
+privacy. Such a proposal needs a champion to bring the Web Speech
+API to standardization to reinvigorate work in this space.</p>
+<p>Privacy is an integral part of the web platform, so it is
+critical that <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/90">ML APIs are designed to be
+privacy-preserving</a>, and its stakeholders have a shared
+responsibility to our global user base to balance privacy with new
+user experiences enabled by new capabilities being brought to the
+platform. An important aspect of developing the web platform is to
+ensure a tight feedback loop and productive joint effort between
+domain- and privacy-experts. To that end, a concrete next step
+recommended by the workshop participants was to organize an early
+privacy review of the Web Neural Network API.</p>
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/109">Building an extensible web platform for ML, one abstraction at a
+time</a> asked explicitly whether the workshop participants are in
+agreement that advancing with standardization of low-level
+capabilities e.g. WebNN API is the pragmatic first step. Discussion
+that followed unanimously concluded the WebNN API provides the
+right level of granularity to make ML efficient today. While a lot
+of work beyond the WebNN API is needed, the participants clearly
+agreed that WebNN API is a critical first piece, and in a good
+enough shape to transition to standardization.</p>
+<h2>Next Steps</h2>
+<p>The <a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200929.html#conclusion">second half of the fourth session</a> was spent discussing
+overall workshop conclusions and next steps to chart the path
+forward.</p>
+<h3>Next Steps in Standardization</h3>
+<p>Building on the emerging consensus that the WebNN API is the
+right first step in bringing Machine Learning capabilities to the
+Web platform, the workshop participants propose that a new W3C
+Working Group should be formed to start work on standardizing it.
+To that end, the W3C sent an <a href="https://lists.w3.org/Archives/Public/public-new-work/2020Oct/0001.html">advance notice</a> following the workshop
+that a <a href="https://github.com/w3c/machine-learning-charter">Web Machine Learning Working Group Charter is work in
+progress</a>.</p>
+<p>W3C is also encouraged to liaise with Ecma TC39 with regard to
+the value of standardizing <code>float16</code> and operator overloading in the
+context of Machine Learning processing.</p>
+<h3>Next Steps in Incubation</h3>
+<p>The workshop participants supported the continued incubation of
+the Model Loader API in the Web Machine Learning Community Group to
+validate its ability to support interoperable deployment of ML
+models across OSes and devices.</p>
+<p>The said Community Group recently opened a <a href="https://github.com/webmachinelearning/proposals">new repository to
+track early proposals</a>, where the idea of formalizing support for ML
+Report Cards will be submitted.</p>
+<p>The need of a coordinated approach to dealing with gating access
+to compute-intensive APIs and to optimizing memory copy in media
+processing is proposed to be taken up respectively by the W3C
+Technical architecture and the Media & Entertainment Interest
+Group.</p>
+<h3>Other exploratory work</h3>
+<p>Some questions remain more open-ended and workshop participants
+and the wider community are invited to continue exploring their
+problem space to identify if and how they can be answered in the
+context of expanding the Web platform capabilities to the Machine
+Learning ecosystem:</p>
+<ul>
+<li>What introspection data on models is needed to cater for
+progressive enhancements approaches?</li>
+<li>What architecture do we need to distribute ML tasks (inference,
+training) across multiple devices (including edge computing)? This
+topic intersects with the scope of the W3C Web & Networks Interest
+Group.</li>
+<li>Does ML model storage require any specific browser adaptation
+or would the File System Access API cover all that is needed?</li>
+</ul>
+<h2>Acknowledgements</h2>
+<p>The organizers express deep gratitude to those who helped with
+the organization and execution of the workshop, starting with the
+members of the <a href="https://www.w3.org/2020/06/machine-learning-workshop/index.html#program">Program Committee</a> who provided initial support and
+helped shape the workshop.</p>
+<p>The Chairs of the workshop, Anssi Kostiainen and Kelly David,
+provided the leadership and vision to build a community and drive
+many conversations forward in the unusual context of the first
+fully virtual W3C workshop.</p>
+<p>Thanks to <a href="https://www.futurice.com/">Futurice</a> for sponsoring the event, which among other
+things allowed all the recorded presentations to be captioned and
+enabled live interpretation of the live sessions in Chinese.</p>
+<p>Thank you to Marie-Claire Forgue for her support in
+post-processing the pre-recorded talks &nbsp;and all W3C team
+members who helped with organizing the workshop.</p>
+<p>And finally, a big thank you to the <a href="https://www.w3.org/2020/06/machine-learning-workshop/presentations.html">speakers</a> who helped seed
+many <a href="https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+label%3A%22Discussion+topic%22+">critical discussions</a> for the future of Machine Learning on the
+Web, and to participants who helped develop a shared perspective on
+that future.</p>
