@@ -1,11 +1,15 @@
 pages:
-- title: Call for Participation
+- title: Workshop Overview
   url: index.html
-  url_zh: index_zh.html
-  title_zh: 会议征集
-- title: Proceedings
+- title: Report
+  url: report.html
+- title: Minutes
   url: proceeding.html
 - title: Presentations
   title_zh: 会议演讲话题
   url: presentations.html
   url_zh: presentations_zh.html
+- title: Call for Participation
+  url: cfp.html
+  url_zh: cfp_zh.html
+  title_zh: 会议征集
