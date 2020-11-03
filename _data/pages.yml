@@ -6,6 +6,10 @@ pages:
 - title: Minutes
   url: proceeding.html
 - title: Presentations
+  title_zh: 会议演讲话题
   url: presentations.html
+  url_zh: presentations_zh.html
 - title: Call for Participation
   url: cfp.html
+  url_zh: cfp_zh.html
+  title_zh: 会议征集
