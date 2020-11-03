@@ -34,9 +34,13 @@
       <nav class="menu" id="menu">
         <ul>
           {% for item in site.data.pages.pages %}
-          {% assign absolute_url = "/" | append: item.url_zh %}
         <li>
-          <a {% if absolute_url == page.url %}class="active-tab" {% else %}href="{{ item.url_zh }}"{% endif %}>{{ item.title_zh }}</a>
+          {% if item.url_zh %}
+          {% assign absolute_url = "/" | append: item.url_zh %}
+          <a {% if absolute_url == page.url %}class="active-tab" {% else %}href="{{page.base}}{{ item.url_zh }}"{% endif %}>{{ item.title_zh }}</a>
+        {% else %}
+          <a href="{{page.base }}{{ item.url }}" lang="en">{{ item.title }}</a>
+        {% endif %}
         </li>
         {% endfor %}
         </ul>
