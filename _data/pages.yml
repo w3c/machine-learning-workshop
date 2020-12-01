@@ -3,6 +3,8 @@ pages:
   url: index.html
 - title: Report
   url: report.html
+  url_zh: presentations_zh.html
+  title_zh: Web 与机器学习技术研讨会报告
 - title: Minutes
   url: proceeding.html
 - title: Presentations
