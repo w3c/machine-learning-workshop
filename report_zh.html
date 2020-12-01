@@ -1,0 +1,134 @@
+---
+title: Report
+layout: subpage
+---
+<main>
+<h1>W3C Web 与机器学习技术研讨会报告</h1>
+<h2>总结摘要</h2>
+
+<p>W3C 于2020年8月至9月期间组织了一次有关 Web 和机器学习的研讨会。该研讨会汇集了 Web 平台和机器学习从业者，为机器学习在开放 Web 平台上的应用<strong>提供更好的基础支撑</strong>。</p>
+
+<p>W3C 第一次以全线上的形式举办技术研讨会，该会议于2020年8月发布了<strong><a href="presentations.html">34篇演讲</a></strong>，讨论了<strong>基于浏览器的机器学习的机遇和挑战</strong>，<strong>Web 平台基础以及开发人员和用户对 Web 平台环境下机器学习技术的看法 </strong>。</p>
+
+<p>这些由该领域顶级专家提出的观点在8月和9月期间通过 <a href="https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+label%3A%22Discussion+topic%22+">25个线上工作板块</a>进行了仔细评估和讨论，邀请了200多名研讨会参与者的意见输入。研讨会最终于2020年9月举行了四场线上会议，整合了线上工作板块的调查结果，并在研讨会结束时提出了今后的标准化和孵化步骤。</p> 
+  
+<p>研讨会参与者认为，通过 Web 神经网络 API（<strong><a href="https://webmachinelearning.github.io/webnn/">Web Neural Network API</a></strong>）公开的机器学习<strong>推理的低级原语是一个绝佳的标准化机会</strong></a>。这项工作自2018年底以来一直在 <a href="https://www.w3.org/community/webmachinelearning/">W3C 社区组</a>进行孵化。在研讨会之后，作为具体的下一步，W3C 发布了关于<a href="https://lists.w3.org/Archives/Public/public-new-work/2020Oct/0001.html">开发 Web 机器学习工作组章程的预通知</a>，该章程旨在将 Web 神经网络 API 标准化。此外，W3C 和 Ecma 之间会有更多紧密合作的机会，以加速有益于机器学习的 JavaScript 语言功能的开发。其它孵化的提案亦已确定，包括用于研究加载预先训练的机器学习模型的 API 的互操作性的 <a href="https://webmachinelearning.github.io/model-loader/">Model Loader API</a>，媒体管道优化，以及机器可读的模型卡的提议，以协助解决机器学习的偏差和透明度问题。这些提案将在 W3C 社区组中进一步探讨。</p>
+
+<p>线上研讨会的形式受到广泛好评，表明 W3C 有能力适应全球新冠疫情期间依赖在线协作技术的不断变化的环境。</p>
+  
+<h2>话题讨论</h2>
+<h3 id=opp>基于浏览器的机器学习的机遇与挑战</h3>
+  
+<p><a href="minutes/20200916.html">第一场线上讨论</a>是围绕四个最重要的主题展开的: <a href="#opp">机遇与挑战</a>、<a href="#foundations">Web 平台基础</a>、 <a href="#dev">开发者视角</a>和<a href="#user">用户视角</a>。在整个研讨会中，这些最重要的主题引导讨论朝着有助于实现以下目标的方向前进：
+  
+<ul>
+<li>理解机器学习如何适应 Web 技术栈；</li>
+<li>理解浏览器内机器学习如何融入机器学习生态系统；</li>
+<li>探索机器学习技术对 Web 浏览器和 Webapp 的影响；</li>
+<li>评估围绕机器学习 API 和格式进行 Web 标准化的机会。</li>
+</ul>
+  
+<p>第一场在线讨论的重点是围绕机遇和挑战，具体讨论了基于浏览器的机器学习的独特机会，并识别了阻碍在 Web 平台上采用机器学习技术的障碍。</p>
+  
+<h4>改善现有的 Web 平台功能</h4>
+  
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/66">WebGPU API支持机器学习框架的适用性</a>引发了积极的讨论，并确定了新的 WebGPU 扩展，这些扩展可能对机器学习有实质性的好处，最值得注意的是提议的子群操作扩展。这个特性有望加速那些需要专门化一般图的算法，比如神经网络计算图，这是新兴的<a href="https://webmachinelearning.github.io/webnn/"> Web 神经网络 API</a> 的核心概念。</p> 
+  
+<p>这就提出了一个问题，即在硬件层面上解决互操作性是否重要，或者是否可以通过更高级别的结构来满足用户的需求。多级 IR 编译器框架（MLIR）是一种常见的中间表示形式，它也支持特定于硬件的操作，目前正在并行地进行探索，它可能会提供 MLIR 方言，而该 MLIR 方言可能会成为可移植性层，以帮助处理操作数量激增的问题。由于重叠的参与，MLIR 项目在与 W3C 机器学习工作紧密合作的同时继续开展工作。</p>
+ 
+<p>在 <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/64">JavaScript 和 WebAssembly 环境中缺少 <code>float16</code></a> 是讨论中提出的一个问题，特别是对于量化模型，这会导致更高的内存使用率和更低的推理速度。这种数据类型的缺乏主要与标准化过程中缺乏动力有关。研讨会的参与者建议向 <a href="https://tc39.es/">Ecma TC39</a> 提供输入，以帮助从其当前的早期状态加速并优先处理 <code>float16</code> 支持。对于 WebAssembly，建议对 WebAssembly 程序的神经网络系统接口进行标准化的 <a href="https://github.com/WebAssembly/wasi-nn">WASI-NN 标准活动</a>正在考虑增加对 <code>float16</code> 和 <code>int8</code> 缓冲区的支持，并根据需要进行仿真。</p>
+  
+<p>关于<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/93">内存副本</a>的讨论强调了浏览器媒体管道中机器学习 Web 应用程序的效率低下。与相应的本机应用程序相比，这种使用情况触发了更多的内存副本，从而妨碍了 Web 等效项的性能。浏览器中的现代媒体管道可以利用 <a href="https://w3c.github.io/webtransport/">WebTransport</a> 和 <a href="https://wicg.github.io/web-codecs/">WebCodecs</a> 以及更成熟的原语，例如 <a href="https://streams.spec.whatwg.org/">WHATWG Streams</a>、<a href="https://streams.spec.whatwg.org/#transferrable-streams">可传输流</a>和 <code>SharedArrayBuffer</code>，但是仅这些 API 不能避免内存复制。考虑到这个空间的复杂性，讨论集中在选择一些关键的使用场景，其中冗余或过多的内存副本是有问题的，并建议优化这些路径。一种关键场景涉及从捕获到渲染的视频馈送，或以类似方式的音频输入。我们组织了一个单独的 <a href="https://www.w3.org/wiki/TPAC/2020/SessionIdeas#Memory_copies_.26_zero-copy_operations_on_the_Web">TPAC 分组话题讨论</a>，以深入探讨内存副本问题。</p>
+  
+<p>关于<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/72">机器学习 API 的权限模型</a>的讨论源于这些 API 的潜在隐私隐患，以及这些 API 可能出现的大功率需求及其对用户体验的影响。机器学习 API 在 <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL</a>、<a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> 和 <a href="https://webassembly.github.io/spec/">WebAssembly</a> 方面相似；因此，讨论表明 <a href="https://www.w3.org/2001/tag/">W3C 技术架构组</a>将有能力从整个平台的角度推动针对计算密集型 API 的许可模型这一较大问题的协调。</p>
+     
+<h4>扩展到浏览器之外</h4>
+
+<p>一些研讨会的参会者指出，<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/62">针对浏览器的机器学习功能适用于非浏览器 JS 环境</a>，特别是 Node.js。根据以前的经验，将 <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/extending_w3c_ml_work_to_embedded_systems.html">W3C ML工作扩展到嵌入式系统</a>的演讲建议避免使用反模式来为受限环境定义 Web API 的“轻型”版本。鉴于 <a href="https://www.ecma-international.org/memento/tc53.htm">Ecma TC53</a> 为低级设备操作（用于受限设备的数字，串行，网络套接字）定义了标准的 JavaScript API，因此建议加强 TC53 和 W3C 相关小组围绕机器学习 API 相关工作的协调。这种协调的目的是确保一个通用的概念基础，而不必跨设备类别针对单一规格的 API 设计。</p>
+
+<h3>Web 平台基础</h3>
+<p><a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200922.html">第二场线上讨论</a>的重点是 Web 平台基础，旨在了解机器学习如何适应 Web 技术栈。  
+  
+<h4>创建和部署模型的注意事项</h4>
+
+<p>该现场会议讨论了机器学习模型的格式，保护机器学习模型的用例和要求，在浏览器中从这个领域的早期实验中提取的训练以及利用网络环境中的各种设备进行训练的机会。</p>
+  
+<p>Web 神经网络 API，TensorFlow.js，ONNX，DirectML 和 MLIR 等专家的许多演讲都将缺乏<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/74">包装和运输机器学习模型标准格式</a>标记为一个问题。鉴于模型格式的持续快速创新和演变，这一领域也不适合标准化。取而代之的是，新兴的方法是最初专注于定义 Web API，以加速建立的可重用机器学习模型构建块（即操作）。在许多常见的模型中，例如在流行的计算机视觉模型中，通常90％以上的计算时间都花在少量的计算密集型操作上。结果，对提议的 Web API 进行范围界定以硬件加速这些计算密集型操作被认为是在近期开启新的机器学习辅助用户 Web 体验的最实用的方法。</p>    
+  
+<p>一些研讨会的参与者提出了<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/67">保护机器学习模型</a>的需求，因为涉及到 IPR，所以一些机器学习模型的提供者需要确保他们的模型不能从运行在浏览器中的 web 应用程序中提取出来。研讨会的讨论指出了在其他领域中类似的内容保护问题，其中一些解决方案已在制作过程中使用（视频内容的<a href="https://www.w3.org/TR/encrypted-media/">加密媒体扩展</a>），而其他则仍未解决：例如2019年6月 W3C 举办的 <a href="https://www.w3.org/2018/12/games-workshop/report.html">Web 游戏研讨会</a>上讨论的<a href="https://www.w3.org/2018/12/games-workshop/breakouts/wasm.html">基于 Web 游戏的 3D 资产保护</a>。这些努力表明在 Web 环境中这不是一个容易解决的问题，并且解决方案可能会限制安全性和隐私研究人员检查漏洞的能力。需要进一步研究以了解在机器学习模型的特定情况下可以进行哪些取舍。</p>
+
+<p>研讨会的参与者还讨论了<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/82">浏览器内训练</a>的新领域。除少数例外，大多数机器学习浏览器的工作都着重于推理而不是训练。<a href="https://teachablemachine.withgoogle.com/">Teachable Machine project</a>可实现浏览器内的迁移学习，并确定具体问题，以改善机器学习训练的用户体验。一个问题是无法在背景选项卡中操作训练过程。<a href="https://w3c.github.io/system-wake-lock/">系统唤醒锁 API</a> 可能为此提供了解决方案，并且已提交了相应的用例供考虑。讨论的另一个结果是建议记录成功的实际使用情况（例如，可教机器学习），并将转移学习作为相关浏览器 API 工作的最有可能的初始训练用例。Web 神经网络 API 作为基于图形的 API，提供了扩展点以适应将来版本中的迁移学习。</p> 
+
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/83">跨设备训练</a>的讨论征求了与会者意见，以帮助了解边缘计算在机器学习培训和与网络平台交互中的作用。在<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/collaborative_learning.html">协作学习</a>部分讨论了该主题，该主题将 Web 环境中的联合学习</a>、分布式学习和强化学习识别为空白。其中报告<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/enabling_distributed_dnns_for_the_mobile_web_over_cloud_edge_and_end_devices.html">为云、边缘和终端设备上的移动 Web 启用分布式 DNN</a> 提出了一种分区卸载方法，以利用终端设备和边缘服务器的计算资源。讨论得出的结论是与 <a href="https://www.w3.org/web-networks/">Web & Network 兴趣组</a>合作，以确保其<a href="https://www.w3.org/wiki/Networks/Edge_computing">边缘计算工作流</a>考虑机器学习的使用。</p>  
+  
+<h3 id=dev>Web上的机器学习体验:开发者的视角</h3>
+
+<p><a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200923.html">第三场在线讨论</a>侧重提供开发人员视角，并讨论了编写机器学习经验，重用经过预先训练的机器学习模型，讨论技术解决方案和差距方面的经验教训。</p>
+  
+<h4>将 Web 设计原则应用于机器学习</h4>
+ 
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/68">渐进式增强和优雅降级</a>是已建立的 Web 开发和设计策略。研讨会的参与者讨论了如何将其应用于机器学习。更具体地说，如何在不破坏 Web 兼容性的情况下，在更强大的设备和浏览器上提供更多机器学习功能作为可选改进？讨论的目的是确定设计机器学习 API 的机制和问题，以使这些模式得以使用，从而使开发人员可以了解给定体验在最终用户设备上的运行情况。一种方法是从提供性能可接受的简化版本的模型开始。相反，在某些情况下，开发人员只希望将目标对准硬件加速的设备，而对于性能关键的用例（例如具有实时视频提要处理的 <a href="https://www.w3.org/immersive-web/">AR 或 VR 体验</a>）不支持低端设备。启用此功能的关键部分是模型自省，以了解模型性能特征，尽管据指出很难可靠地提供它。与会者讨论了不同级别的回退机制，从细粒度的操作级别到整个模型级别，并根据实现，平台或硬件功能交换了不同的模型。相反，按比例放大模型需要许多自省功能。</p>   
+  
+<p>W3C 标准化的主要目标是确保可互操作的实现，这引发了有关<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/80">机器学习 API 一致性测试</a>的问题。从 WebGPU 中学到的是，计算可以具有不同的硬件实现方式，因此精度也有所不同。在这种情况下，数值精度与浏览器的 WebGPU 实现方式无关，并且端到端操作的测试较难处理。WebGPU 与 WebNN API 具有相似之处，并且提出了一个建议，即机器学习 API 的一致性测试套件需要考虑多个一致性级别，包括操作员级别和模型级别的互操作性。</p>  
+  
+<h4>改善 Web 开发人员的人机工程学</h4>
+
+<p>机器学习处理通常涉及许多矩阵运算，因此这些运算的 JavaScript 语言的人机工程学在 JS API 的人机工程学中起着直接作用。<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/73">JavaScript 运算符重载</a>将改善培训的人体工程学并帮助进行自定义操作，该建议在 Web 神经网络 API 的上下文中进行了讨论。 <a href="https://github.com/tc39/proposal-operator-overloading#matrixvector-computations">运算符超载</a>是 Ecma TC39 的第一阶段提案，大致与 W3C 孵化阶段相对应，研讨会的参与者支持向 TC39 提供机器学习用例的提案，以帮助  TC39 相应地优先处理这个功能。</p>  
+    
+<p>如今，依靠 WebGL API 来实现由 GPU 加速的快速并行浮点计算的机器学习框架出现了 <a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/63">WebGL 垃圾收集</a>的问题（请参见<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/opportunities_and_challenges_for_tensorflow_js_and_beyond.html"> TensorFlow.js 的机遇和挑战</a>，以及更高版本的 <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/fast_client_side_ml_with_tensorflow_js.html">TensorFlow.js 的快速客户端机器学习</a>）。由于 WebGL 垃圾收集的副作用导致了不可预知的性能，而且鉴于 JS 提供了自动垃圾收集，一些 web 开发人员希望 GC 在与硬件接口的 api 交互时也会发生类似的情况。然而，在浏览器上下文中，WebGL 内存不会自动被垃圾收集，也不可能被可靠地收集。JS 库如 tensorflow.JS 已经采取暴露 WebGL 后端的 API 来显式地管理内存。有人建议Web神经网络API应该考虑添加类似的机制，以允许资源被急切地释放。正如先前在 EdgeHTML 中展示的 <a href="https://github.com/microsoft/ChakraCore">Chakra 引擎</a>一样，JavaScript 引擎也有空间优化其垃圾回收方法。</p>  
+  
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/102">面向神经网络的图数据库</a>讨论回顾了客户端上的已知模型存储问题，并评估了面向 Web 的面向神经网络的图数据库的可行性。 <a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/pipcook_a_front_end_oriented_dl_framework.html">Pipcook 在面向前端的 DL 框架演讲</a>中强调，深度学习模型本质上是具有权重的图，并建议通过提供一个以图为导向的数据库以图格式存储信息，可以减少序列化开销。现有的 Web 平台存储 API（例如 <a href="https://w3c.github.io/IndexedDB/">IndexedDB</a>）并未针对存储图形数据进行优化。该小组将主动孵化中的 <a href="https://wicg.github.io/file-system-access/">Filesystem Access API</a> 确定为 IndexedDB 的一种可能替代方案，它可以帮助减轻存储问题。</p>
+  
+<h3 id=user>Web 上的机器学习体验：用户的视角</h3>
+
+<p><a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200929.html">最后一场线上讨论的前半部分</a>在 Web 和机器学习的主题引导下着重于用户角度，以突出这些技术的结合将对数十亿使用 Web 的人们产生深远的影响。</p>  
+   
+<h4>面向所有人的 Web 和机器学习</h4>
+
+<p>关于<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/108">偏见和模式透明度</a>的讨论强调了会谈中探讨的对少数群体和代表性不足群体的影响，<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/we_count_fair_treatment_disability_and_machine_learning.html">我们重视：公平对待、残障人士和机器学习</a>以及“<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/ai_machine_learning_bias_garbage_in_bias_garbage_out.html">偏见与烂进”、“偏见与废出”</a>。在讨论的实际缓解措施中，最有希望的想法涉及浏览器辅助机制，以发现 Web 应用程序中机器学习模型的局限性和性能特征。这将建立在“<a href="https://arxiv.org/pdf/1810.03993.pdf">模型报告的模型卡</a>”中发布的方法的基础上，该方法可以使该报告可被机器发现，从而使 Web 浏览器可以提供更加集成的用户体验。</p> 
+
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/99">语音识别中的隐私问题</a>突显了标准化 <a href="https://wicg.github.io/speech-api/"> Web 语音 API</a> 所面临的挑战。正如演讲“<a class=talk href="https://www.w3.org/2020/06/machine-learning-workshop/talks/wreck_a_nice_beach_in_the_browser_getting_the_browser_to_recognize_speech.html">让浏览器识别语音</a>”突出显示的那样，其中包括有关指纹识别的问题以及由语音识别引擎的客户端或服务器端实现策略引起的问题。目前，终端用户还不知道他们的语音数据是否发送到服务器并存储在服务器上，还是所有处理都保留在客户端内。有人建议 Web 语音 API 规范可以要求强制客户端只进行识别，或者至少允许用户要求它以增强隐私性。这样的提议需要拥护者将 Web 语音 API 标准化，以重振该领域的工作。</p>
+  
+<p>隐私是 Web 平台不可或缺的一部分，因此<a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/90">将机器学习 API 设计为保持隐私</a>至关重要，其机器学习利益相关者对我们的全球用户群负有共同的责任，以平衡隐私与新功能带来的新用户体验之间的平衡到平台。开发 Web平 台的一个重要方面是确保域专家和隐私专家之间紧密的反馈循环以及富有成效的共同努力。为此，研讨会参与者建议的一个具体的下一步是组织对 Web 神经网络 API 的早期隐私审查。</p> 
+   
+<p><a class=topic href="https://github.com/w3c/machine-learning-workshop/issues/109">为机器学习构建一个可扩展的 Web 平台时，一次一个概念</a>明确询问了与会人员是否同意，推进低级功能（例如 WebNN API）的标准化是务实的第一步。随后的讨论一致得出结论，WebNN API 提供了正确的粒度级别，以使今天的机器学习高效。尽管除了 WebNN API 之外还需要进行大量工作，但是与会人员明确同意 WebNN API 是至关重要的第一部分，并且状态良好，可以过渡到标准化。</p> 
+  
+<h2 id=next>下一步</h2>
+
+<p><a href="https://www.w3.org/2020/06/machine-learning-workshop/minutes/20200929.html#conclusion">最后一场线上讨论的下半部分</a>讨论了研讨会的总体结论和规划前进道路的后续步骤。</p>
+  
+<h3>后续的标准化步骤</h3>
+
+<p>WebNN API 是将机器学习能力引入 Web 平台的正确的第一步，基于这一逐渐形成的共识，研讨会参与者建议成立一个新的 W3C工作组来开始标准化工作。为此，W3C 在研讨会之后发出了<a href="https://lists.w3.org/Archives/Public/public-new-work/2020Oct/0001.html">预通知</a>，表示 <a href="https://github.com/w3c/machine-learning-charter">Web 机器学习工作组章程</a>正在编辑中。</p>  
+
+<p>在机器学习处理的背景下，还鼓励 W3C 与 Ecma TC39 联系，以实现 <code>float16</code> 标准化和运算符重载的价值。</p>  
+    
+<h3>接下来的孵化步骤</h3>
+  
+<p>研讨会的参加者支持在 Web 机器学习社区小组中继续孵化模型加载器 API，以验证其支持跨操作系统和设备进行机器学习模型的互操作部署的能力。</p>  
+
+<p>该社区小组最近开放了一个<a href="https://github.com/webmachinelearning/proposals">新的资源库以追踪早期的提案</a>，在此可以提交关于正式支持机器学习报告卡的想法。</p> 
+   
+<p>W3C 技术架构和媒体与娱乐兴趣小组分别提出了需要一种协调的方法来处理对计算密集型 API 的访问和优化媒体处理中的内存复制。</p>  
+  
+<h3>其它探索性工作</h3>
+  
+<p>一些问题仍然是有待探讨的，我们邀请研讨会的参与者和更广泛的群体继续探索他们的问题空间，以确定在将 Web 平台能力扩展到机器学习生态系统的背景下，是否以及如何回答这些问题：</p> 
+
+<ul>
+<li>需要哪些模型的自省数据来满足渐进增强方法的需要？</li>
+<li>我们需要什么架构在多个设备（包括边缘计算）之间分配机器学习任务（推理，训练）？该主题与 W3C Web & Network 兴趣组涉及的内容有重合。</li>
+<li>机器学习模型存储是否需要任何特定的浏览器适配，还是文件系统访问API是否涵盖所需要的内容？</li>
+</ul>
+
+<h2>致谢</h2>
+
+<p>组织者对那些为研讨会的组织和执行提供帮助的人深表谢意，特别是<a href="https://www.w3.org/2020/06/machine-learning-workshop/index.html#program">项目委员会成员</a>提供了初步的支持并帮助组织了研讨会。</p>  
+   
+<p>研讨会的主席 Anssi Kostiainen 和 Kelly David 在本次 W3C 第一届全线上研讨会这样不同寻常的背景下，体现了建设社区的领导力和远见，并推动了许多对话的展开。</p>
+
+<p>感谢 <a href="https://www.futurice.com/">Futurice</a> 对这次活动的赞助，这支持了所有录制的演讲都配有字幕，提供了中文线上口译。</p>
+  
+<p>感谢 Marie-Claire Forgue 在后期处理预先录制的演讲以及所有协助组织研讨会的 W3C 团队成员的支持。</p> 
+
+<p>最后，非常感谢那些为网络机器学习的未来进行了许多<a href="https://github.com/w3c/machine-learning-workshop/issues?q=is%3Aissue+label%3A%22Discussion+topic%22+">重要讨论</a>的<a href="https://www.w3.org/2020/06/machine-learning-workshop/presentations.html">演讲者</a>，以及那些对未来发展形成了共同看法的参会者。</p>  
