@@ -1,7 +1,7 @@
 (function() {
 
   "use strict";
-  const caption_url = "https://www.w3.org/2020/06/machine-learning-workshop/talks/captions/" + shortname + ".vtt";
+  const caption_url = vtt_url || "https://www.w3.org/2020/06/machine-learning-workshop/talks/captions/" + shortname + ".vtt";
 
   let captions;        // For each language one array of subtitles
   let cuelang = "en";
