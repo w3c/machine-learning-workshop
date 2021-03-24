@@ -62,7 +62,7 @@ how content filtering on the web works now,
 
 16
 00:00:48.686 --> 00:00:50.376
-and then where does the machine learning
+and then where does machine learning
 
 17
 00:00:50.376 --> 00:00:52.246
@@ -110,7 +110,7 @@ you can block content on the web.
 
 28
 00:01:15.016 --> 00:01:16.966
-There is a network level blocking,
+There is network level blocking,
 
 29
 00:01:16.966 --> 00:01:20.076
@@ -202,7 +202,7 @@ implementation of machine learning for a similar technique.
 
 51
 00:02:07.916 --> 00:02:10.156
-And then Safari Intelligent Protection
+And then Safari Intelligent Tracking Protection
 
 52
 00:02:10.156 --> 00:02:13.506
@@ -210,7 +210,7 @@ is probably the best and the most widely used
 
 53
 00:02:13.506 --> 00:02:16.136
-implementation of machine learning content filtering.
+implementation of machine learning for content filtering.
 
 54
 00:02:16.136 --> 00:02:20.579
@@ -222,7 +222,7 @@ Slide three. So about content blocking on the web,
 
 56
 00:02:26.278 --> 00:02:28.213
-there is a DOM level ad blocking,
+there is DOM level ad blocking,
 
 57
 00:02:28.213 --> 00:02:32.376
@@ -298,7 +298,7 @@ So recently, we have deployed the machine learning model
 
 75
 00:03:14.936 --> 00:03:19.426
-that is running on some websites to look at advertising.
+that is running on some websites to block advertising.
 
 76
 00:03:19.426 --> 00:03:21.906
@@ -370,7 +370,7 @@ is the perceptual way,
 
 93
 00:04:02.176 --> 00:04:04.726
-where the reason, the evolution in machine learning
+where the recent evolution in machine learning
 
 94
 00:04:04.726 --> 00:04:08.826
@@ -378,7 +378,7 @@ gave us more tools and understanding
 
 95
 00:04:08.826 --> 00:04:11.686
-that we are now are able to target elements
+that we now are able to target elements
 
 96
 00:04:11.686 --> 00:04:15.556
@@ -570,7 +570,7 @@ But what you clearly can see from the paper
 
 143
 00:06:16.706 --> 00:06:19.776
-is that it's not possible to just specify
+is that it's not possible to just classify
 
 144
 00:06:19.776 --> 00:06:20.976
@@ -658,7 +658,7 @@ And then you will have, you will-
 
 165
 00:07:07.586 --> 00:07:09.526
-to be able to classify if something is an ad,
+should be able to classify if something is an ad,
 
 166
 00:07:09.526 --> 00:07:11.256
@@ -718,7 +718,7 @@ is that each DOM is a tree,
 
 180
 00:07:40.846 --> 00:07:43.076
-so we can represent it as adjacent symmetrics.
+so we can represent it as adjacency matrix.
 
 181
 00:07:43.076 --> 00:07:45.066
@@ -738,7 +738,7 @@ And then because you represented the structure
 
 185
 00:07:55.846 --> 00:07:56.906
-as adjacent symmetrics,
+as adjacency matrix,
 
 186
 00:07:56.906 --> 00:07:59.336
@@ -746,7 +746,7 @@ it also can represent the features of each node
 
 187
 00:07:59.336 --> 00:08:01.826
-as a separate metrics, a feature metrics.
+as a separate matrix, a feature matrix.
 
 188
 00:08:01.826 --> 00:08:05.796
@@ -806,7 +806,7 @@ with the data like this, you are able to either,
 
 202
 00:08:35.536 --> 00:08:37.846
-solve a graph isomorphism problems,
+solve graph isomorphism problems,
 
 203
 00:08:37.846 --> 00:08:41.076
@@ -814,7 +814,7 @@ or you are able to solve node classification problems.
 
 204
 00:08:41.076 --> 00:08:43.986
-And those are the two things that graph convolution networks
+And those are the two things that graph convolution neural networks
 
 205
 00:08:43.986 --> 00:08:45.646
@@ -838,15 +838,15 @@ that we are able to run,
 
 210
 00:08:53.414 --> 00:08:56.886
-that is already used in a built-in machine learning model
+that is already using a built-in machine learning model
 
 211
 00:08:56.886 --> 00:09:00.969
-to classify ads on the social networks,
+to classify ads on social networks,
 
 212
 00:09:00.969 --> 00:09:04.426
-or based on purely  structural data.
+based on purely structural data.
 
 slide-7
 00:09:04.426 --> 00:09:06.816
@@ -886,7 +886,7 @@ So maybe in this case,
 
 222
 00:09:25.996 --> 00:09:28.146
-they're not using the graph convolution networks,
+they're not using the graph convolution neural networks,
 
 223
 00:09:28.146 --> 00:09:31.576
@@ -914,7 +914,7 @@ by saying that it's very fruitful
 
 229
 00:09:45.247 --> 00:09:47.816
-to work at the DOM as a graph.
+to look at the DOM as a graph.
 
 230
 00:09:47.816 --> 00:09:50.176
@@ -978,7 +978,7 @@ and then if you're interested to have a look,
 
 245
 00:10:21.406 --> 00:10:23.066
-we have a model, a picture and model there,
+we have a model, a pre-trained model there,
 
 246
 00:10:23.066 --> 00:10:25.196
