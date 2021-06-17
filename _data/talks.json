@@ -6,7 +6,7 @@
       "author": "Philip Laszkowicz",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor50iyc9lm07729dsrtpqu/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdor50iyc9lm07729dsrtpqu",
+      "video": "https://player.streamfizz.live/embed/media/ckdor50iyc9lm07729dsrtpqu",
       "abstract": "The presentation will discuss how developers should be building modern web apps and what is missing in the existing ecosystem to make privacy-first ML possible including the challenges with WASI, modular web architecture, and localized analytics.",
       "abstract_zh": "这次演讲将讨论开发人员应该如何构建现代web应用程序，以及现有的生态系统中哪些缺失使得隐私优先的机器学习成为可能，包括WASI、模块化web架构和本地化分析所面临的挑战。",
       "duration": "11:05"
@@ -19,7 +19,7 @@
       "affiliation_zh": "微软",
       "abstract": "The presentation will discuss efficient processing of raw video in machine learning, highlighting the need to minimize memory copies and enable integration with WebGPU.",
       "abstract_zh": "演讲将讨论机器学习中对原始视频的有效处理，强调最小化内存拷贝和与WebGPU集成的必要性。",
-      "video": "https://app.streamfizz.live/embed/cke43ihp10fub0731lohsnpmo",
+      "video": "https://player.streamfizz.live/embed/media/cke43ihp10fub0731lohsnpmo",
       "duration": "07:45",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke43ihp10fub0731lohsnpmo/thumbs/thumb-001.jpeg",
       "added": "2020-08-26"
@@ -33,7 +33,7 @@
       "bio": "Developer Advocate for TensorFlow.js",
       "bio_zh": "TensorFlow.js 的开发者",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobxb1t766z0772f2e19nqo/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdobxb1t766z0772f2e19nqo",
+      "video": "https://player.streamfizz.live/embed/media/ckdobxb1t766z0772f2e19nqo",
       "abstract": "This talk will give a brief overview of TensorFlow.js, how it helps developers build ML-powered applications along with examples of work that is pushing the boundaries of the web, and discuss future directions for the web tech stack to help overcome barriers to ML in the web the TF.js community has encountered.",
       "abstract_zh": "这次演讲将简要介绍TensorFlow.js，它如何帮助开发人员构建基于机器学习的应用程序，以及一些推动web边界的例子，并讨论了web技术堆栈的未来方向，以帮助克服web中使用机器学习的障碍，这是TF.js社区遇到的。",
       "duration": "10:11"
@@ -44,7 +44,7 @@
       "author": "Sangwhan Moon",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77c2k4srf07726abf6aps/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdo77c2k4srf07726abf6aps",
+      "video": "https://player.streamfizz.live/embed/media/ckdo77c2k4srf07726abf6aps",
       "noslide": true,
       "duration": "04:29"
     },
@@ -54,7 +54,7 @@
       "affiliation": "Moddable Tech",
       "bio": "<p>Peter is the chair of Ecma TC53, ECMAScript Module for Embedded Systems, working to bring standard JavaScript APIs to IoT.</p><p>He is a delegate to Ecma TC39, the JavaScript language standards committee, where his focus is ensuring JavaScript remains a viable language on resource constrained devices.</p><p>He is a co-founder and CEO of Moddable Tech, building XS, the only modern JavaScript engine for embedded systems, and the Moddable SDK, a JavaScript framework for delivering consumer and industrial IoT products.</p><p>Peter is the co-author of “IoT Development for ESP32 and ESP8266 with JavaScript”, published in 2020 by Apress, the professional books imprint of Springer Nature.</p><p>He contributed to the ISO MPEG-4 file format standard.</p><p><a href='https://www.moddable.com/peter-hoddie'>Additional bio information</a></p>",
       "abstract": "<p>JavaScript's dominance on the web often obscures its many successes beyond the web, such as in embedded systems. New silicon for embedded systems is beginning to include hardware to accelerate ML, bringing ML to edge devices. These embedded systems are capable of running the same modern JavaScript used on the web. Would it be possible for the embedded systems to be coded in JavaScript in a way that is compatible with the ML APIs of the web?</p><p>This talk will briefly present two examples of JavaScript APIs developed for the web to support hardware features -- the W3C Sensor API and the Chrome Serial API. It will describe how each has been bridged to the embedded world in a different way -- perhaps suggesting a model for how W3C ML JavaScript APIs can bridge the embedded and browser worlds as well.</p>",
-      "video": "https://app.streamfizz.live/embed/ckey25zw0qdx70731i0vzodxh",
+      "video": "https://player.streamfizz.live/embed/media/ckey25zw0qdx70731i0vzodxh",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckey25zw0qdx70731i0vzodxh/thumbs/thumb-001.jpeg",
       "duration": "06:57",
       "added": "2020-09-11"
@@ -69,7 +69,7 @@
       "bio_zh": "Dominique 是W3C的全职技术人员之一，负责推动Web标准化工作。他特别负责WebRTC、WebXR和Web & Networks的工作，领导创建了一个WebTransport工作组，也是Web和机器学习研讨会的组织者之一。",
       "affiliation": "W3C",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo77h2f4st7077212hxr6v7/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdo77h2f4st7077212hxr6v7",
+      "video": "https://player.streamfizz.live/embed/media/ckdo77h2f4st7077212hxr6v7",
       "format": "shower",
       "abstract": "    Background talk on the specificities of the Web browser as a development platform.",
       "abstract_zh": "介绍了Web浏览器作为开发平台的特点的背景。",
@@ -84,7 +84,7 @@
       "bio_zh": "Francois是W3C的全职技术人员之一，负责管理与媒体技术相关的工作。",
       "affiliation": "W3C",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo86r7h5725077210nfqpeg/thumbs/thumb-007.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdo86r7h5725077210nfqpeg",
+      "video": "https://player.streamfizz.live/embed/media/ckdo86r7h5725077210nfqpeg",
       "format": "shower",
       "url": "https://www.w3.org/2020/Talks/fd-media-processing/#",
       "abstract": "This talk will provide an overview of existing, planned or possible hooks for processing muxed and demuxed media (audio and video) in real time in Web applications, and rendering the results. It will also present high-level requirements for efficient media processing.",
@@ -100,7 +100,7 @@
       "bio": "Ningxin is a principal software engineer at Intel. Ningxin is co-editing the Web Neural Network (WebNN) API spec within W3C Machine Learning for the Web Community Group.",
       "bio_zh": "Ningxin是英特尔公司的软件工程师。Ningxin是Web社区团体中W3C机器学习的Web神经网络(WebNN) API规范的共同编辑人。",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo75ck44sip0772u0gj0kog/thumbs/thumb-006.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdo75ck44sip0772u0gj0kog",
+      "video": "https://player.streamfizz.live/embed/media/ckdo75ck44sip0772u0gj0kog",
       "abstract": "The WebNN API is a new web standard proposal that allows web apps and frameworks to accelerate deep neural networks with dedicated on-device hardware such as GPUs, CPUs with deep learning extensions, or purpose-built AI accelerators. A prototype of WebNN API will be used to demonstrate the near-native speed of deep neural network execution for object detection by accessing AI accelerators on phone and PC.",
       "abstract_zh": "WebNN API是一个新的web标准提案，它允许web应用程序和框架通过专用的设备硬件(如gpu、带深度学习扩展的cpu或专门构建的AI加速器)来加速深度神经网络。我们将使用WebNN API的原型，通过访问手机和PC上的AI加速器来演示深度神经网络执行目标检测的接近本地速度。",
       "duration": "10:15"
@@ -114,7 +114,7 @@
       "affiliation": "Google",
       "affiliation_zh": "谷歌",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocr5ma7m0y0772d7i5jkub/thumbs/thumb-002.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdocr5ma7m0y0772d7i5jkub",
+      "video": "https://player.streamfizz.live/embed/media/ckdocr5ma7m0y0772d7i5jkub",
       "abstract": "The Model Loader API is a new proposal for a web standard to make it easy to load and run ML models from JavaScript, taking advantage of available hardware acceleration. The API surface is similar to existing model serving APIs (like TensorFlow Serving, TensorRT, and MXNet Model Server), and it is complementary to the Web NN graph API proposal as well as lower level WebGL and WebGPU APIs.",
       "abstract_zh": "Model Loader API是一个web标准的新提案，它利用可用的硬件加速，使从JavaScript加载和运行ML模型变得容易。API表面类似于现有的模型服务API(如TensorFlow服务、TensorRT和MXNet模型服务器)，它是对Web NN graph API提议以及较低级别的WebGL和WebGPU API的补充.",
       "duration": "10:08"
@@ -125,7 +125,7 @@
       "author": "Mehmet Oguz Derin",
       "affiliation": "",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8ahza81hlp0731tiz1d295/thumbs/thumb-002.jpeg",
-      "video": "https://app.streamfizz.live/embed/cke8ahza81hlp0731tiz1d295",
+      "video": "https://player.streamfizz.live/embed/media/cke8ahza81hlp0731tiz1d295",
       "abstract": "",
       "abstract_zh": "",
       "duration": "05:40",
@@ -143,7 +143,7 @@
       "affiliation": "Microsoft",
       "affiliation_zh": "微软",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobv3o075l707723b397arm/thumbs/thumb-004.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdobv3o075l707723b397arm",
+      "video": "https://player.streamfizz.live/embed/media/ckdobv3o075l707723b397arm",
       "abstract": "DirectML is Microsoft's hardware-accelerated machine learning platform that powers popular frameworks such as TensorFlow and ONNX Runtime. It expands the framework's hardware footprint by enabling high-performance training and inference on any device with DirectX-capable GPU",
       "abstract_zh": "DirectML是微软的硬件加速机器学习平台，支持TensorFlow和ONNX运行时等流行框架。它通过在任何设备上使用支持directx的GPU进行高性能训练和推断，扩展了框架的硬件空间",
       "duration": "10:19"
@@ -157,7 +157,7 @@
       "bio": "    Software Engineer for Android Neural Networks API",
       "bio_zh": "Android Neural Networks API 工程师",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo78esr4t0j0772i5r7h1td/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdo78esr4t0j0772i5r7h1td",
+      "video": "https://player.streamfizz.live/embed/media/ckdo78esr4t0j0772i5r7h1td",
       "abstract": "The Android Neural Networks API (NNAPI) is an Android C API designed for running computationally intensive operations for machine learning on Android devices. NNAPI is designed to provide a base layer of functionality for higher-level machine learning frameworks, such as TensorFlow Lite and Caffe2, that build and train neural networks. The API is available on all Android devices running Android 8.1 (API level 27) or higher. Based on an app’s requirements and the hardware capabilities on an Android device, NNAPI can efficiently distribute the computation workload across available on-device processors, including dedicated neural network hardware (NPUs and TPUs), graphics processing units (GPUs), and digital signal processors (DSPs).",
       "abstract_zh": "Android神经​​网络API（NNAPI）是一个Android C API，旨在在Android设备上运行用于计算机学习的计算密集型操作。 NNAPI旨在为构建和训练神经网络的高级机器学习框架（例如TensorFlow Lite和Caffe2）提供功能的基础层。该API在运行Android 8.1（API级别27）或更高版本的所有Android设备上均可用。基于应用程序的需求和Android设备上的硬件功能，NNAPI可以在可用的设备上处理器（包括专用的神经网络硬件（NPU和TPU），图形处理单元（GPU）和数字信号处理器）上有效地分配计算工作负载（DSP）。",
       "duration": "07:50"
@@ -173,7 +173,7 @@
       "abstract": "Diversity in computer architecture and the unceasing demand for application performance in data-intensive workloads are never-ending challenges for programmers. This talk will describe Intel’s oneAPI initiative, which is an open ecosystem for heterogeneous computing that supports high-performance data analytics, machine learning and other workloads. A key component of this is Data Parallel C++, which is based on C++17 and Khronos SYCL and supports direct programming of CPU, GPU and FPGA platforms. We will describe how oneAPI and Data Parallel C++ can be used to build high-performance applications for a range of devices.",
       "abstract_zh": "计算机体系结构的多样性和数据密集型工作负载中对应用程序性能的不断需求，对程序员来说是永无止境的挑战。这次演讲将描述英特尔的oneAPI计划，这是一个开放的、支持高性能数据分析、机器学习和其他工作负载的异构计算生态系统。其中一个关键组件是数据并行c++，它基于c++ 17和Khronos SYCL，支持CPU、GPU和FPGA平台的直接编程。我们将描述如何使用oneAPI和Data Parallel c++为一系列设备构建高性能应用程序。",
       "duration": "12:52",
-      "video": "https://app.streamfizz.live/embed/ckeijprvxa4pq07313u8gw5kd",
+      "video": "https://player.streamfizz.live/embed/media/ckeijprvxa4pq07313u8gw5kd",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckeijprvxa4pq07313u8gw5kd/thumbs/thumb-001.jpeg",
       "added": "2020-09-01"
     },
@@ -186,7 +186,7 @@
       "abstract": "    This talk introduces two deep learning technologies for the mobile web over cloud, edge and end devices. One is an adaptive DNN execution scheme, which partitions and performs the computation that can be done within the mobile web, reducing the computing pressure of the edge cloud. The other is a lightweight collaborative DNN over cloud, edge and devices, which provides a collaborative mechanism with the edge cloud for accurate compensation.",
       "abstract_zh": "本演讲介绍了针对云，边缘和终端设备上的移动网络的两种深度学习技术。一种是自适应DNN执行方案，该方案可以分割并执行可在移动Web内完成的计算，从而减少了边缘云的计算压力。另一个是在云，边缘和设备上的轻型协作DNN，它提供了与边缘云的协作机制以进行准确补偿。",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyv0p76q107720jc58j6h/thumbs/thumb-002.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdobyv0p76q107720jc58j6h",
+      "video": "https://player.streamfizz.live/embed/media/ckdobyv0p76q107720jc58j6h",
       "duration": "09:55"
     },
     "wm_collaborative-learning": {
@@ -197,7 +197,7 @@
       "bio": "    Professor at Saarland University and scientific director at DFKI",
       "bio_zh": "Saarland大学教授，DFKI科学总监",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobw6x0764l07729krgy57d/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdobw6x0764l07729krgy57d",
+      "video": "https://player.streamfizz.live/embed/media/ckdobw6x0764l07729krgy57d",
       "abstract": "    The execution of data analysis services in a browser on devices has recently gained momentum, but the lack of computing resources on devices and data protection regulations are forcing strong constraints. In our talk we will present a browser-based collaborative learning approach for running data analysis services on peer-to-peer networks of devices. Our platform is developed in Javascript, supports modularization of services, model training and usage on devices (tensorflow.js), sensor communication (mqtt), and peer-to-peer communication (WebRTC) with role-based access-control (oauth 2.0).",
       "abstract_zh": "最近在设备上的浏览器中执行数据分析服务的势头强劲，但是设备上缺乏计算资源和数据保护法规正迫使人们施加严格的约束。在我们的演讲中，我们将提出一种基于浏览器的协作学习方法，用于在设备的对等网络上运行数据分析服务。我们的平台使用Javascript开发，支持服务模块化，设备上的模型训练和使用（tensorflow.js），传感器通信（mqtt）以及具有基于角色的访问控制（oauth 2.0）的对等通信（WebRTC）。",
       "duration": "10:01"
@@ -211,7 +211,7 @@
       "bio": "    Senior PE at Intel & software engineer at Intel",
       "bio_zh": "英特尔高级PE & 英特尔软件工程师",
       "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobysfk76ns0772a6u4dbq5/thumbs/thumb-001.jpeg",
-      "video": "https://app.streamfizz.live/embed/ckdobysfk76ns0772a6u4dbq5",
+      "video": "https://player.streamfizz.live/embed/media/ckdobysfk76ns0772a6u4dbq5",
       "abstract": "    Trained machine learning models are typically deployed on a variety of devices with different architectures and operating systems. WebAssembly provides an ideal portable form of deployment for those models. In this talk, we will introduce the WASI-NN initiative we have started in the WebAssembly System Interface (WASI) community, which would standardize the neural network system interface for WebAssembly programs.",
       "abstract_zh": "训练有素的机器学习模型通常部署在具有不同体系结构和操作系统的各种设备上。 WebAssembly为这些模型提供了理想的便携式部署形式。在本次演讲中，我们将介绍我们在WebAssembly系统接口（WASI）社区中启动的WASI-NN计划，该计划将标准化WebAssembly程序的神经网络系统接口。",
       "duration": "07:21"
@@ -220,7 +220,7 @@
         "title": "Fast client-side ML with TensorFlow.js",
         "title_zh": "使用TensorFlow.js的快速客户端机器学习",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobzb8u76t007727v6c7xr0/thumbs/thumb-003.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdobzb8u76t007727v6c7xr0",
+        "video": "https://player.streamfizz.live/embed/media/ckdobzb8u76t007727v6c7xr0",
         "author": "Ann Yuan",
         "affiliation": "Google",
         "affiliation_zh": "谷歌",
@@ -239,7 +239,7 @@
         "bio": "    Emma Ning is a senior Product manager in AI Framework team under Microsoft Cloud + AI Group, focusing on AI model operationalization and acceleration with ONNX/ONNX Runtime for open and interoperable AI. She has more than five years of product experience in search engine taking advantage of machine learning techniques and spent more than three years exploring AI adoption among various businesses. She is passionate about bringing AI solutions to solve business problems as well as enhance product experience.",
         "bio_zh": "Emma Ning 是Microsoft Cloud + AI Group旗下AI Framework团队的高级产品经理，致力于通过开放式和可互操作AI的ONNX / ONNX Runtime进行AI模型的操作和加速。她在机器学习技术方面拥有超过五年的搜索引擎产品经验，并且在探索各种业务中采用AI方面花费了超过三年的时间。她热衷于提供AI解决方案来解决业务问题并增强产品体验。",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobtrbx74rf0772xh98cjs1/thumbs/thumb-004.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdobtrbx74rf0772xh98cjs1",
+        "video": "https://player.streamfizz.live/embed/media/ckdobtrbx74rf0772xh98cjs1",
         "abstract": "    ONNX.js is a Javascript library for running ONNX models on browsers and on Node.js, on both CPU and GPU. Thanks to ONNX interoperability, it’s also compatible with Tensorflow and Pytroch. For running on CPU, ONNX.js adopts WebAssembly to execute the model at near-native speed and utilizes Web Workers to provide a “multi-threaded” environment, achieving very promising performance gains. For running on GPU, ONNX.js takes advantage of WebGL which is a popular standard for accessing GPU capabilities. By reducing data transfer between CPU and GPU as well as GPU processing cycles, ONNX.js further push the performance to the maximum.",
         "abstract_zh": "ONNX.js是一个Javascript库，用于在CPU和GPU上的浏览器和Node.js上运行ONNX模型。得益于ONNX的互操作性，它还与Tensorflow和Pytroch兼容。为了在CPU上运行，ONNX.js采用WebAssembly来以接近本机的速度执行模型，并利用Web Workers提供“多线程”环境，从而获得非常可观的性能提升。为了在GPU上运行，ONNX.js利用WebGL的优势，WebGL是访问GPU功能的流行标准。通过减少CPU和GPU之间的数据传输以及GPU处理周期，ONNX.js进一步提高了性能。",
         "duration": "14:22"
@@ -253,7 +253,7 @@
         "bio": "    Architect at Baidu, Lead of Paddle.js",
         "bio_zh": "百度架构师，Paddle.js负责人",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4rqzc9ix0772t2z9zo80/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdor4rqzc9ix0772t2z9zo80",
+        "video": "https://player.streamfizz.live/embed/media/ckdor4rqzc9ix0772t2z9zo80",
         "abstract": "    Paddle.js is a high-performance JavaScript DL framework for diverse web runtimes, which helps building a PaddlePaddle ecosystem with web community. This talk will introduce Paddle.js design principle, implementation, use scenario and future work the project would like to explore. ",
         "abstract_zh": "Paddle.js是适用于各种Web运行时的高性能JavaScript DL框架，它有助于通过Web社区构建PaddlePaddle生态系统。本演讲将介绍Paddle.js的设计原理，实现，使用场景以及该项目想要探索的未来工作。",
         "duration": "05:51"
@@ -266,7 +266,7 @@
         "bio": "ml5.js contributor and adjunct professor at Interactive Telecommunications Program (ITP)",
         "bio_zh":"ml5.js贡献者和交互电信项目(ITP)的兼职教授",
         "added": "2020-09-14",
-        "video": "https://app.streamfizz.live/embed/ckf25pb70u0xk07316xa68ovz",
+        "video": "https://player.streamfizz.live/embed/media/ckf25pb70u0xk07316xa68ovz",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf25pb70u0xk07316xa68ovz/thumbs/thumb-001.jpeg",
         "duration": "08:56"
       },
@@ -277,7 +277,7 @@
         "bio": "ML/DL on web, contributor of ML5 & tfjs, memebr of pipcook, SDE @ Alibaba",
         "abstract": "We are going to present a front-end oriented platform based on TensorFlow.js. We will cover what is pipcook, the design philosophy, as well as some examples & use cases in our internal community. Apart from that, we will show a brandy new solution to bridge the flourish python DL/ML environment and javascript runtime in both browsers and nodejs.",
         "duration": "10:17",
-        "video": "https://app.streamfizz.live/embed/ckev83mzuaq7g073183lhuwje",
+        "video": "https://player.streamfizz.live/embed/media/ckev83mzuaq7g073183lhuwje",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckev83mzuaq7g073183lhuwje/thumbs/thumb-001.jpeg",
         "added": "2020-09-09"
       },
@@ -289,7 +289,7 @@
         "bio": "    eyeo GmbH is the company behind Adblock plus",
         "bio_zh": "eyeo GmbH是Adblock plus的公司",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo73x214sg70772y38lkixw/thumbs/thumb-003.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdo73x214sg70772y38lkixw",
+        "video": "https://player.streamfizz.live/embed/media/ckdo73x214sg70772y38lkixw",
         "abstract": "    eyeo GmbH has recently deployed tensorflow.js into their product for better ad blocking functionality and has identified gaps in what the WebNN draft covers, e.g. using the DOM as input data, or primitives needed for Graph Convolutional Networks. The talk will present the relevant use case and give indications on how can it be best supported by the new standard.",
         "abstract_zh": "eyeo GmbH 最近已将tensorflow.js部署到其产品中，以提供更好的广告拦截功能，并确定了WebNN草案涵盖的漏洞，例如使用DOM作为图卷积网络所需的输入数据或图元。演讲将介绍相关的用例，并说明如何通过新标准更好地支持它。",
         "duration": "11:05"
@@ -300,7 +300,7 @@
         "author": "Piotr Migdal & Bartłomiej Olechno",
         "affiliation": "",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor4gvwc9bh0772h8h13fs2/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdor4gvwc9bh0772h8h13fs2",
+        "video": "https://player.streamfizz.live/embed/media/ckdor4gvwc9bh0772h8h13fs2",
         "format": "shiny",
         "url": "https://www.w3.org/2020/Talks/mlws/piotr_migdal/slides.html",
         "abstract": "    This talk will present the usage of web-based tools to interactively explore machine learning models, with the example of an interactive D3.js-based visualization to see the results of unsupervised image segmentation.",
@@ -315,7 +315,7 @@
         "bio": "    Lead Scientist at Artie, Inc. and Machine Learning Fellow at Mozilla, Lead Scientist at Artie",
         "bio_zh": "就职于Artie，Inc. Mozilla机器学习研究员，Artie首席科学家",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdor39sqc98m0772093khiu4/thumbs/artie-tn.jpg",
-        "video": "https://app.streamfizz.live/embed/ckdor39sqc98m0772093khiu4",
+        "video": "https://player.streamfizz.live/embed/media/ckdor39sqc98m0772093khiu4",
         "abstract": "    This talk is an overview of some of Artie's machine learning tech stack, which is web-based and mobile first. It will discuss peculiarities of working with voice, text, and images originating from a user's phone, while running an application in the browser and will include discussions about balancing user preferences with privacy, latency, and performance.",
         "abstract_zh": "本演讲概述了Artie的一些机器学习技术堆栈，这些堆栈是基于Web的并且首先移动。它将讨论在浏览器中运行应用程序时使用来自用户电话的语音，文本和图像的特殊性，还将讨论有关在隐私，延迟和性能之间平衡用户首选项的讨论。",
         "duration": "11:16"
@@ -329,7 +329,7 @@
         "bio_zh": "OCAD大学包容性设计研究中心主任兼教授",
         "affiliation": "OCAD University",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdobyfxs76fm0772ymgk0qfv/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdobyfxs76fm0772ymgk0qfv",
+        "video": "https://player.streamfizz.live/embed/media/ckdobyfxs76fm0772ymgk0qfv",
         "abstract": "<p>The risks of AI Bias have recently received attention in public discourse. Numerous stories of the automation and amplification of existing discrimination and inequity are emerging, as more and more critical decisions and functions are handed over to machine learning systems. There is a growing movement to tackle non-representative data and to prevent the introduction of human biases into machine learning algorithms.</p><p>However, these efforts are not addressing a fundamental characteristic of data driven decisions that presents significant risk if you have a disability. Even if there is full proportional representation and even if all human bias is removed from AI systems, the systems will favour the majority and dominant patterns. This has implications for individuals and groups that are outliers, small minorities or highly heterogeneous. The only common characteristic of disability is sufficient difference from the average such that most systems are a misfit and present a barrier. Machine learning requires large data sets. Many people with disabilities represent a data set of one. Decisions based on population data will decide against small minorities and for the majority. The further you are from average the harder it will be to train machine learning systems to serve your needs. To add insult to injury, if you are an outlier and highly unique, privacy protections won’t work for you and you will be most vulnerable to data abuse and misuse.</p><p>This presentation will:<ul><li>       outline the risks and opportunities presented by machine learning systems;<li>       address strategies to mitigate the risks; and<li>       discuss steps needed to support decisions that do not discriminate against outliers and small minorities.</ul><p>The benefits for innovation and the well-being of society as a whole will also be discussed",
         "abstract_zh": "<p>AI偏见的风险最近在公共场合受到关注。随着越来越多的关键决策和功能被移交给机器学习系统，关于自动化和扩大现有歧视和不平等现象的无数故事不断涌现。解决非代表性数据并防止将人为偏见引入机器学习算法的趋势正在不断发展。</p><p>但是，这些努力并未解决数据驱动决策的基本特征，如果您有残疾，该决策会带来重大风险。即使有完整的比例表示，甚至从AI系统中消除了所有的人为偏见，这些系统也会偏爱多数和主导模式。这对离群，少数族裔或高度异类的个人和群体产生了影响。残疾的唯一共同特征是与平均值之间的差异足够大，以至于大多数系统不匹配并构成障碍。机器学习需要大量数据集。许多残疾人代表一个数据集。基于人口数据的决策将针对少数族裔和多数族裔。与一般人相比，您越远，训练机器学习系统来满足您的需求就越困难。更糟的是，如果您是一个离群人并且非常独特，则隐私保护将对您不起作用，并且您最容易受到数据滥用和滥用的伤害。</p><p>本演讲将：</p><ul><li>概述机器学习系统带来的风险和机遇；</li><li>制定降低风险的策略；</li><li>讨论支持不歧视局外人和少数族裔的决策所需的步骤。</li></ul><p>还将讨论创新带来的好处和整个社会的福祉。</p>",
         "duration": "13:37"
@@ -342,7 +342,7 @@
         "bio": "Director, INDEX Program, Eunice Kennedy Shriver Center, University of Massachusetts Medical School",
         "bio_zh": "马萨诸塞大学医学院Eunice Kennedy Shriver中心INDEX项目主任",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdsucx1kuw5d077297vz9ob3/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdsucx1kuw5d077297vz9ob3",
+        "video": "https://player.streamfizz.live/embed/media/ckdsucx1kuw5d077297vz9ob3",
         "abstract": "Biased training data produces untrustworthy, unfair, useless results. Such results include:<ul><li>   predicting black prisoners are the most likely recidivist; and<li>   killing a wheelchair user in a street crosswalk by autonomous car ML models.</ul><p>   Training data must include representation of people with disabilities, all races, all ethnicities, all genders, etc. Creation of training data must include those populations. There are opensource and commercial toolkits and APIs to facilitate bias mitigation.</p>         <p>John is an expert in this area focused on AI fairness and empowerment for people with disabilities and is a member of the Machine Learning for the Web Community Group.",
         "abstract_zh": "<p>有偏见的训练数据会产生不可信，不公平，无用的结果。这样的结果包括：</p><ul><li>预测黑人囚犯最有可能再犯；</li><li>通过自动驾驶汽车机器学习模型杀死人行横道上的轮椅使用者。</li></ul><p>训练数据必须包括残疾人，所有种族，所有种族，所有性别等的代表。训练数据的创建必须包括这些人群。有开源和商业工具包和API可以帮助缓解偏差。</p><p>John是该领域的专家，专注于为残疾人提供AI公平和赋权，并且是Web机器学习社区组的成员。</p>",
         "duration": "10:08"
@@ -353,7 +353,7 @@
         "author": "Lisa Seeman, Joshue O’Connor",
         "affiliation": "",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke8szrew1mu70731eppx3v5h/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/cke8szrew1mu70731eppx3v5h",
+        "video": "https://player.streamfizz.live/embed/media/cke8szrew1mu70731eppx3v5h",
         "duration": "13:51",
       "added": "2020-08-26"
       },
@@ -365,7 +365,7 @@
         "bio": "    Tero Parviainen is a software developer in music, media, and the arts. As a co-founder of creative technology studio Counterpoint, he's recently built installations for The Barbican Centre, Somerset House, The Helsinki Festival, The Dallas Museum of Art, and various corners of the web. He also contributes at Wavepaths, building generative music systems for psychedelic therapy.",
         "bio_zh": "Tero Parviainen是音乐，媒体和艺术领域的软件开发人员。作为创意技术工作室Counterpoint的共同创始人，他最近为巴比肯中心，萨默塞特宫，赫尔辛基艺术节，达拉斯艺术博物馆以及网络的各个角落建造了装置。他还为Wavepaths做出了贡献，建立了迷幻疗法的音乐生成系统。",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdo76mfh4sne0772endmrepx/thumbs/thumb-002.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdo76mfh4sne0772endmrepx",
+        "video": "https://player.streamfizz.live/embed/media/ckdo76mfh4sne0772endmrepx",
         "noslide": true,
         "abstract": "    This talk will present a few projects Counterpoint has built with TensorFlow.js and Magenta.js over the past couple of years. Ranging from experimental musical instruments to interactive artworks, they've really stretched what can be done in the browser context. It will focus on the special considerations needed in music & audio applications, the relationship between ML models and Web Audio, and the limitations encountered while combining the two.",
         "abstract_zh": "该演讲将介绍Counterpoint在过去几年中使用TensorFlow.js和Magenta.js构建的一些项目。从实验性乐器到交互式艺术品，它们确实扩展了在浏览器上下文中可以完成的工作。它将着重于音乐和音频应用程序中需要考虑的特殊注意事项，ML模型与Web Audio之间的关系以及将两者结合时遇到的限制。", 
@@ -379,7 +379,7 @@
         "bio": "    Manager of the machine learning group at Mozilla. Kelly's work at Mozilla includes Deep Speech (an open speech recognition system), Common Voice (a crowdsourced tool for creating opens speech corpora), Mozilla's TTS (an open source speech synthesis system), Snakepit (an open source ML job scheduler), as well as ML research and many other projects.",
         "bio_zh": "Mozilla机器学习小组的经理。凯利在 Mozilla包括通用的Deep Speech（开放语音识别系统）语音（Mozilla的语音工具（用于创建公开语料库的众包工具）TTS（开源语音合成系统），Snakepit（开源ML作业调度程序），以及ML研究和许多其他项目。",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdone3vbbufj0772u1a3hudu/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdone3vbbufj0772u1a3hudu",
+        "video": "https://player.streamfizz.live/embed/media/ckdone3vbbufj0772u1a3hudu",
         "abtract": "    In narrow domains ML based speech recognition systems have recently begun to approach human-like levels of performance. However, browser based support for such systems is spotty or lacking. This talk will be concerned with the industry's ongoing work to bring ML based speech recognition into the browser. It will cover a wide spectrum of topics: the struggle to standardize a browser based API, the privacy questions such an API exposes, the technical details of embedding (or not) an ML based system into the browser, along with many other topics.",
         "abstract_zh": "在狭窄域中，基于ML的语音识别系统具有最近开始接近人类的表现水平。然而，基于浏览器的此类系统支持不完善或缺乏。该演讲将与业界正在进行的将基于ML的语音识别引入浏览器的工作有关。它将涵盖广泛的主题：努力使基于浏览器的API标准化，此类API暴露出的隐私问题，将基于ML的系统嵌入（或不嵌入）到浏览器中的技术细节以及许多其他主题。",
         "duration": "06:57"
@@ -396,7 +396,7 @@
         "abstract_zh": "近年来，机器翻译已被最终用户广泛采用，这使得外语在线内容比以往任何时候都更易于访问。但是，机器翻译一直被视为计算量大的问题，因此通常会通过在线服务（例如Google Translate）交付给最终用户，这可能不适用于敏感内容。我们提供了一个注重隐私的机器翻译系统，该系统在用户的机器上本地运行，并且可以通过Firefox浏览器扩展程序进行访问。所使用的翻译模型仅为16MB，翻译速度足够高，即使在2012年以后的笔记本电脑上也能获得无缝的用户体验。",
         "nosync": true,
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/cke3s7cvyvz7i0772b94ebcg6/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/cke3s7cvyvz7i0772b94ebcg6",
+        "video": "https://player.streamfizz.live/embed/media/cke3s7cvyvz7i0772b94ebcg6",
         "duration": "06:00",
       "added": "2020-08-26"
       },
@@ -408,7 +408,7 @@
         "abstract": "This presentation will provide an overview of utilizing machine learning methods in automating per-title encoding for Video on Demand (VoD) and live streaming in order to improve the viewing experience. It will also address the behaviors of various regression models that can predict encoding ladders in a browser in real-time, including a future outlook in terms of optimization.",
         "duration": "9:13",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckf5026qg98gu0731ugc6eaqb/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckf5026qg98gu0731ugc6eaqb",
+        "video": "https://player.streamfizz.live/embed/media/ckf5026qg98gu0731ugc6eaqb",
         "added": "2020-09-16"
       },
       "zc_expression": {
@@ -420,7 +420,7 @@
         "bio": "    Front-end and Client Development Engineer of Netease",
         "bio_zh": "网易前端开发工程师",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocpfld7kwy0772xhma7lrs/thumbs/thumb-002.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdocpfld7kwy0772xhma7lrs",
+        "video": "https://player.streamfizz.live/embed/media/ckdocpfld7kwy0772xhma7lrs",
         "abstract": "    This talk will cover the use of machine learning to enhance participant's expression in a virtual character web meeting and highlight the problems of using webassembly to running AI models In browser.",
         "abstract_zh": "本讲座将涵盖使用机器学习来增强参与者在虚拟角色网络会议中的表达，并重点介绍在浏览器中使用网络装配来运行AI模型的问题。",
         "duration": "08:25"
@@ -433,7 +433,7 @@
         "bio": "    Jean-Marc Valin has previously contributed to the Opus and AV1 codecs. He is employed by Amazon, but is giving this talk as an individual.",
         "bio_zh": "Jean-Marc Valin 以前曾为Opus和AV1编解码器做出过贡献。他受雇于亚马逊，但这次以个人身分进行演讲。",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocse0q7mt70772two73led/thumbs/thumb-001.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdocse0q7mt70772two73led",
+        "video": "https://player.streamfizz.live/embed/media/ckdocse0q7mt70772two73led",
         "abstract": "     This talk presents RNNoise, a small and fast real-time noise suppression algorithm that combines classical signal processing with deep learning. We will discuss the algorithm and how the browser can be improved to make RNNoise and other neural speech enhancement algorithms more efficient.",
         "abstract_zh": "本演讲介绍了RNNoise，这是一种小型且快速的实时结合经典信号处理的噪声抑制算法深度学习。我们将讨论算法以及浏览器如何可以进行改进以提高RNNoise和其他神经语音增强算法的效率。",
         "duration": "07:46"
@@ -447,7 +447,7 @@
         "affiliation": "University of London",
         "affiliation_zh": "伦敦大学",
         "thumbnail": "https://cjx1uopmt0m4q0667xmnrqpk.blob.core.windows.net/ckdocqdzk7ljl07724aih3whc/thumbs/thumb-005.jpeg",
-        "video": "https://app.streamfizz.live/embed/ckdocqdzk7ljl07724aih3whc",
+        "video": "https://player.streamfizz.live/embed/media/ckdocqdzk7ljl07724aih3whc",
         "abstract": "Over the past 2 years, as part of the RCUK AHRC funded <a href='http://mimicproject.com/'>MIMIC project</a> we have provided platforms and libraries for musicians and artists to use, perform and collaborate online using machine learning. Although it has a lot to offer these communities, their skill sets and requirements often diverge from more conventional machine learning use cases. For example, requirements for dynamic provision of data and on-the-fly training in the browser raises challenges with performance, connectivity and storage. We seek to address the non trivial challenges of connecting inputs from a variety of sources, running potentially computationally expensive feature extractors alongside lightweight machine learning models and generating audio and visual output, in real time, without interference. Whilst technologies like AudioWorklets addresses this to some extent, there remain issues with implementation, documentation and adoption (currently limited to Chrome). For example, issues with <a href='https://bugs.chromium.org/p/chromium/issues/detail?id=1033493#c42'>garbage collection (created by the worker thread messaging system)</a> caused wide scale disruption to many developers using AudioWorklets and was only addressed by a <a href='https://github.com/padenot/ringbuf.js'>ringbuffer solution</a> that developers must integrate outside of the core API. We are also keen to ensure the <a href='https://gpuweb.github.io/gpuweb/'>WebGPU API</a>  takes realtime media into consideration as it is introduced. Our talk will cover both the user’s perspectives as uncovered by our user-centered research and a developer’s perspective from the technical challenges we have faced developing tools to meet the needs of these users in both creative and educational settings.",
         "abstract_zh": "<p>在过去的两年中，作为RCUK AHRC资助的<a href='http://mimicproject.com/'> MIMIC项目</a>的一部分，我们为音乐家和艺术家提供了使用，表演和协作的平台和库在线使用机器学习。尽管为这些社区提供了很多服务，但他们的技能和要求通常与更传统的机器学习用例有所不同。例如，在浏览器中动态提供数据和进行实时培训的要求对性能，连接性和存储提出了挑战。我们力图解决连接各种来源的输入，运行潜在的计算昂贵的特征提取器以及轻量级的机器学习模型并实时生成音频和视频输出而不会产生干扰的非凡挑战。尽管AudioWorklets之类的技术在某种程度上解决了这一问题，但是在实现，文档和采用方面仍然存在问题（目前仅限于Chrome）。例如，<a href='https://bugs.chromium.org/p/chromium/issues/detail?id=1033493#c42'>垃圾收集（由工作线程消息系统创建）的问题</a>对使用AudioWorklets的许多开发人员造成了广泛的破坏，只有<a href='https://github.com/padenot/ringbuf.js'> ringbuffer解决方案</a>解决了该问题，开发人员必须在核心API之外进行集成。我们也渴望确保<a href='https://gpuweb.github.io/gpuweb/'> WebGPU API </a>在引入实时媒体时予以考虑。我们的演讲将涵盖我们以用户为中心的研究未发现的用户观点以及开发人员在创意和教育环境中满足这些用户需求所面临的技术挑战的开发者观点。</p>",
         "duration": "07:22"
