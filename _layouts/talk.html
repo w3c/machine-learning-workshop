@@ -88,7 +88,7 @@
   "duration": "{{page.duration_so}}",
   "embedUrl": "{{page.videourl}}"}
       </script>
-          <div {% if videoSync %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}" allow="accelerometer; autoplay; encrypted-media;
+          <div {% if videoSync %}id="video1"{%endif%}><iframe id="video" title="video of ‘{{page.title}} by {{page.author}}" src="{{page.videourl}}?w3c-custom-postmessage" allow="accelerometer; autoplay; encrypted-media;
                                                                                                                                                             picture-in-picture" allowfullscreen="" {% if videoSync %}width="640" height="360"{% else %}height=400 class=fw {% endif %} frameborder="0"></iframe></div>
           {% if page.nosync == true %}
       <p id=caption>
